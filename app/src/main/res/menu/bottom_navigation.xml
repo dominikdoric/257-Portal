@@ -2,15 +2,24 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/homeFragment"
+        android:id="@+id/naslovnicaBottomNav"
         android:icon="@drawable/ic_launcher_foreground"
-        android:title="Home">
+        android:title="Naslovnica">
     </item>
     <item
-        android:id="@+id/accountsFragment"
+        android:id="@+id/vrijemeBottomNav"
         android:icon="@drawable/ic_launcher_foreground"
-        android:title="Account">
+        android:title="Vrijeme">
     </item>
-
+    <item
+        android:id="@+id/kontaktBottomNav"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="Kontakt">
+    </item>
+    <item
+        android:id="@+id/pretraziBottomNav"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="Pretrazi">
+    </item>
 
 </menu>

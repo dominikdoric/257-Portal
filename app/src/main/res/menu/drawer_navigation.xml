@@ -2,21 +2,25 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/naslovnicaNavItem"
+        android:id="@+id/vijestiNavItem"
         android:icon="@drawable/ic_launcher_foreground"
-        android:title="Naslovnica"/>
+        android:title="Vijesti"/>
     <item
         android:id="@+id/sportNavItem"
         android:icon="@drawable/ic_launcher_foreground"
         android:title="Sport"/>
     <item
-        android:id="@+id/kronikaNavItem"
+        android:id="@+id/obavijestiNavItem"
         android:icon="@drawable/ic_launcher_foreground"
-        android:title="Crna Kronika"/>
+        android:title="Obavijesti"/>
     <item
-        android:id="@+id/vrijemeNavItem"
+        android:id="@+id/zabavaNavItem"
         android:icon="@drawable/ic_launcher_foreground"
-        android:title="Vrijeme"/>
+        android:title="Zabava"/>
+    <item
+        android:id="@+id/oglasnikNavItem"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="Oglasnik"/>
     <item
         android:id="@+id/jaNovinarNavItem"
         android:icon="@drawable/ic_launcher_foreground"
