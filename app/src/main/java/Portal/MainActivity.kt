@@ -3,12 +3,15 @@ package Portal
 import Portal.a257.R
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -36,23 +39,36 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun visibilityNavElements(navController: NavController) {
-
+        navController.addOnDestinationChangedListener{ _, destination, _ ->
+            when (destination.id){
+                R.id.profileFragment -> hideBothNavigation()
+                R.id.settingsFragment -> hideBothNavigation()
+                else -> showBothNavigation()
+            }
+        }
     }
 
     private fun hideBothNavigation(){
-
+        main_bottom_navigation_view?.visibility = View.GONE
+        main_navigation_view?.visibility = View.GONE
+        main_drawer_layout?.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
+        main_navigation_view?.setupWithNavController(navController)
     }
 
     private fun showBothNavigation(){
-
+        main_bottom_navigation_view?.visibility = View.VISIBLE
+        main_navigation_view?.visibility = View.VISIBLE
+        main_drawer_layout?.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
+        setupNavControl()
     }
 
     private fun setupNavControl(){
-
+        main_navigation_view?.setupWithNavController(navController)
+        main_bottom_navigation_view?.setupWithNavController(navController)
     }
 
     fun exitApp(){
-
+        this.finishAffinity()
     }
 
     override fun onSupportNavigateUp(): Boolean {
