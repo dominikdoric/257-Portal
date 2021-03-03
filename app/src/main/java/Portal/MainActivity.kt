@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener{ _, destination, _ ->
             when (destination.id){
                 R.id.profileFragment -> hideBothNavigation()
-                R.id.settingsFragment -> hideBothNavigation()
+                R.id.settingsFragment -> hideBottomNavigation()
                 else -> showBothNavigation()
             }
         }
@@ -52,6 +52,13 @@ class MainActivity : AppCompatActivity() {
         main_bottom_navigation_view?.visibility = View.GONE
         main_navigation_view?.visibility = View.GONE
         main_drawer_layout?.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
+    }
+
+    private fun hideBottomNavigation(){
+        main_bottom_navigation_view?.visibility = View.GONE
+        main_navigation_view?.visibility = View.VISIBLE
+        main_drawer_layout?.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
+
         main_navigation_view?.setupWithNavController(navController)
     }
 
