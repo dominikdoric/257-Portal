@@ -25,6 +25,7 @@
                 android:theme="@style/AppTheme.AppBarOverlay">
 
             <androidx.appcompat.widget.Toolbar
+                android:id="@+id/main_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:popupTheme="@style/AppTheme.PopupOverlay"/>
@@ -36,7 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                app:defultNavHost="true"
+                app:defaultNavHost="true"
                 app:navGraph="@navigation/nav_graph"/>
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
