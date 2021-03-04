@@ -11,31 +11,31 @@
         android:label="NaslovnicaFragment"
         tools:layout="@layout/naslovnica_fragment">
         <action
-            android:id="@+id/action_naslovnicaFragment_to_jaNovinarFragment"
+            android:id="@+id/action_naslovnicaFragment_to_jaNovinarFragment2"
             app:destination="@id/jaNovinarFragment" />
         <action
-            android:id="@+id/action_naslovnicaFragment_to_kontaktFragment"
-            app:destination="@id/kontaktFragment" />
+            android:id="@+id/action_naslovnicaFragment_to_infoFragment2"
+            app:destination="@id/infoFragment" />
         <action
-            android:id="@+id/action_naslovnicaFragment_to_obavijestiFragment"
+            android:id="@+id/action_naslovnicaFragment_to_obavijestiFragment2"
             app:destination="@id/obavijestiFragment" />
         <action
-            android:id="@+id/action_naslovnicaFragment_to_oglasnikFragment"
+            android:id="@+id/action_naslovnicaFragment_to_oglasnikFragment2"
             app:destination="@id/oglasnikFragment" />
         <action
-            android:id="@+id/action_naslovnicaFragment_to_pretraziFragment"
+            android:id="@+id/action_naslovnicaFragment_to_pretraziFragment2"
             app:destination="@id/pretraziFragment" />
         <action
-            android:id="@+id/action_naslovnicaFragment_to_sportFragment"
+            android:id="@+id/action_naslovnicaFragment_to_sportFragment2"
             app:destination="@id/sportFragment" />
         <action
-            android:id="@+id/action_naslovnicaFragment_to_vijestiFragment"
+            android:id="@+id/action_naslovnicaFragment_to_vijestiFragment2"
             app:destination="@id/vijestiFragment" />
         <action
-            android:id="@+id/action_naslovnicaFragment_to_vrijemeFragment"
+            android:id="@+id/action_naslovnicaFragment_to_vrijemeFragment2"
             app:destination="@id/vrijemeFragment" />
         <action
-            android:id="@+id/action_naslovnicaFragment_to_zabavaFragment"
+            android:id="@+id/action_naslovnicaFragment_to_zabavaFragment2"
             app:destination="@id/zabavaFragment" />
     </fragment>
     <fragment
@@ -44,9 +44,9 @@
         android:label="JaNovinarFragment"
         tools:layout="@layout/ja_novinar_fragment"/>
     <fragment
-        android:id="@+id/kontaktFragment"
+        android:id="@+id/infoFragment"
         android:name="Portal.fragmenti.InfoFragment"
-        android:label="KontaktFragment"
+        android:label="InfoFragment"
         tools:layout="@layout/info_fragment"/>
     <fragment
         android:id="@+id/obavijestiFragment"

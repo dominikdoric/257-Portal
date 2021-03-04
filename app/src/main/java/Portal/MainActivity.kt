@@ -17,7 +17,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),View.OnClickListener {
 
     private lateinit var navController: NavController
 
@@ -27,6 +27,23 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(main_toolbar)
         navController = findNavController(R.id.main_nav_host)
 
+        gumbInfo.setOnClickListener(this)
+        gumbJaNovinar.setOnClickListener(this)
+        gumbNaslovnica.setOnClickListener(this)
+        gumbObavijesti.setOnClickListener(this)
+        gumbOglasnik.setOnClickListener(this)
+        gumbSport.setOnClickListener(this)
+        gumbVijesti.setOnClickListener(this)
+        gumbVrijeme.setOnClickListener(this)
+
+    }
+
+    override fun onClick(v: View?) {
+        when(v!!.id){
+            R.id.gumbInfo -> {
+                navController.navigate(R.id.action_naslovnicaFragment_to_infoFragment2)
+            }
+        }
     }
 }
 
