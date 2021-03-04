@@ -35,8 +35,8 @@ class MainActivity : AppCompatActivity() {
 
         //Ove dvije linije koda su dodane zbog toga jer sam umjesto <fragment> stavio <FragmentContainerView>
         //Ako se odlucim vratiti na <fragment> onda zakomentirati ove dvije linije koda
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.main_nav_host) as NavHostFragment
-        val navControler = navHostFragment.navController
+        //val navHostFragment = supportFragmentManager.findFragmentById(R.id.main_nav_host) as NavHostFragment
+        //val navControler = navHostFragment.navController
 
         /*
         appBarConfiguration = AppBarConfiguration.Builder(R.id.vijestiNavItem,R.id.sportNavItem,

@@ -42,81 +42,45 @@
         android:id="@+id/jaNovinarFragment"
         android:name="Portal.fragmenti.JaNovinarFragment"
         android:label="JaNovinarFragment"
-        tools:layout="@layout/ja_novinar_fragment">
-        <action
-            android:id="@+id/action_jaNovinarFragment_to_naslovnicaFragment"
-            app:destination="@id/naslovnicaFragment" />
-    </fragment>
+        tools:layout="@layout/ja_novinar_fragment"/>
     <fragment
         android:id="@+id/kontaktFragment"
         android:name="Portal.fragmenti.KontaktFragment"
         android:label="KontaktFragment"
-        tools:layout="@layout/kontakt_fragment">
-        <action
-            android:id="@+id/action_kontaktFragment_to_naslovnicaFragment"
-            app:destination="@id/naslovnicaFragment" />
-    </fragment>
+        tools:layout="@layout/kontakt_fragment"/>
     <fragment
         android:id="@+id/obavijestiFragment"
         android:name="Portal.fragmenti.ObavijestiFragment"
         android:label="ObavijestiFragment"
-        tools:layout="@layout/obavijesti_fragment">
-        <action
-            android:id="@+id/action_obavijestiFragment_to_naslovnicaFragment"
-            app:destination="@id/naslovnicaFragment" />
-    </fragment>
+        tools:layout="@layout/obavijesti_fragment"/>
     <fragment
         android:id="@+id/oglasnikFragment"
         android:name="Portal.fragmenti.OglasnikFragment"
         android:label="OglasnikFragment"
-        tools:layout="@layout/oglasnik_fragment">
-        <action
-            android:id="@+id/action_oglasnikFragment_to_naslovnicaFragment"
-            app:destination="@id/naslovnicaFragment" />
-    </fragment>
+        tools:layout="@layout/oglasnik_fragment"/>
     <fragment
         android:id="@+id/pretraziFragment"
         android:name="Portal.fragmenti.PretraziFragment"
         android:label="PretraziFragment"
-        tools:layout="@layout/pretrazi_fragment">
-        <action
-            android:id="@+id/action_pretraziFragment_to_naslovnicaFragment"
-            app:destination="@id/naslovnicaFragment" />
-    </fragment>
+        tools:layout="@layout/pretrazi_fragment"/>
     <fragment
         android:id="@+id/sportFragment"
         android:name="Portal.fragmenti.SportFragment"
         android:label="SportFragment"
-        tools:layout="@layout/sport_fragment">
-        <action
-            android:id="@+id/action_sportFragment_to_naslovnicaFragment"
-            app:destination="@id/naslovnicaFragment" />
-    </fragment>
+        tools:layout="@layout/sport_fragment"/>
     <fragment
         android:id="@+id/vijestiFragment"
         android:name="Portal.fragmenti.VijestiFragment"
         android:label="VijestiFragment"
-        tools:layout="@layout/vijesti_fragment">
-        <action
-            android:id="@+id/action_vijestiFragment_to_naslovnicaFragment"
-            app:destination="@id/naslovnicaFragment" />
-    </fragment>
+        tools:layout="@layout/vijesti_fragment"/>
     <fragment
         android:id="@+id/vrijemeFragment"
         android:name="Portal.fragmenti.VrijemeFragment"
         android:label="VrijemeFragment"
-        tools:layout="@layout/vrijeme_fragment">
-        <action
-            android:id="@+id/action_vrijemeFragment_to_naslovnicaFragment"
-            app:destination="@id/naslovnicaFragment" />
-    </fragment>
+        tools:layout="@layout/vrijeme_fragment"/>
     <fragment
         android:id="@+id/zabavaFragment"
         android:name="Portal.fragmenti.ZabavaFragment"
         android:label="ZabavaFragment"
-        tools:layout="@layout/zabava_fragment">
-        <action
-            android:id="@+id/action_zabavaFragment_to_naslovnicaFragment"
-            app:destination="@id/naslovnicaFragment" />
-    </fragment>
+        tools:layout="@layout/zabava_fragment"/>
 </navigation>
