@@ -32,28 +32,23 @@ class MainActivity : AppCompatActivity() {
         main_drawer_layout.addDrawerListener(drawerToggle)
         drawerToggle.syncState()
 
+        /*
         appBarConfiguration = AppBarConfiguration.Builder(R.id.vijestiNavItem,R.id.sportNavItem,
         R.id.obavijestiNavItem,R.id.zabavaNavItem,R.id.oglasnikNavItem,R.id.jaNovinarNavItem,R.id.vrijemeBottomNav,
             R.id.kontaktBottomNav,R.id.pretraziBottomNav)
             .setDrawerLayout(main_drawer_layout)
             .build()
-
-
-
+        */
         //setupActionBarWithNavController(navController)
-
         //visibilityNavElements(navController)
-
-
-
     }
 /*
     private fun visibilityNavElements(navController: NavController) {
         navController.addOnDestinationChangedListener{ _, destination, _ ->
             when (destination.id){
-                //R.id.kontaktBottomNav -> hideBothNavigation()
-                //R.id.obavijestiNavItem -> hideBottomNavigation()
-                //else -> showBothNavigation()
+                R.id.kontaktBottomNav -> hideBothNavigation()
+                R.id.obavijestiNavItem -> hideBottomNavigation()
+                else -> showBothNavigation()
             }
         }
     }
@@ -91,7 +86,7 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         return NavigationUI.navigateUp(navController,appBarConfiguration)
     }
-/*
+
     override fun onBackPressed() {
         when{
             main_drawer_layout.isDrawerOpen(GravityCompat.START) -> {
@@ -102,7 +97,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-*/
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId){
@@ -113,14 +108,5 @@ class MainActivity : AppCompatActivity() {
             else -> false
         }
     }
-
-    override fun onBackPressed() {
-        if (main_drawer_layout.isDrawerOpen(GravityCompat.START)) {
-            main_drawer_layout.closeDrawer(GravityCompat.START)
-        } else {
-            super.onBackPressed()
-        }
-    }
-
 }
 
