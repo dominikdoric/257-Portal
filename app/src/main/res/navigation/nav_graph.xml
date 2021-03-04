@@ -45,9 +45,9 @@
         tools:layout="@layout/ja_novinar_fragment"/>
     <fragment
         android:id="@+id/kontaktFragment"
-        android:name="Portal.fragmenti.KontaktFragment"
+        android:name="Portal.fragmenti.InfoFragment"
         android:label="KontaktFragment"
-        tools:layout="@layout/kontakt_fragment"/>
+        tools:layout="@layout/info_fragment"/>
     <fragment
         android:id="@+id/obavijestiFragment"
         android:name="Portal.fragmenti.ObavijestiFragment"
