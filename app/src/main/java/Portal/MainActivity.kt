@@ -25,8 +25,9 @@ class MainActivity : AppCompatActivity() {
 
         navController = findNavController(R.id.main_nav_host)
 
-        appBarConfiguration = AppBarConfiguration.Builder(R.id.homeFragment,R.id.accountsFragment,
-        R.id.dashboardFragment,R.id.settingsFragment)
+        appBarConfiguration = AppBarConfiguration.Builder(R.id.vijestiNavItem,R.id.sportNavItem,
+        R.id.obavijestiNavItem,R.id.zabavaNavItem,R.id.oglasnikNavItem,R.id.jaNovinarNavItem,R.id.naslovnicaBottomNav,R.id.vrijemeBottomNav,
+            R.id.kontaktBottomNav,R.id.pretraziBottomNav)
             .setDrawerLayout(main_drawer_layout)
             .build()
 
@@ -41,8 +42,8 @@ class MainActivity : AppCompatActivity() {
     private fun visibilityNavElements(navController: NavController) {
         navController.addOnDestinationChangedListener{ _, destination, _ ->
             when (destination.id){
-                R.id.profileFragment -> hideBothNavigation()
-                R.id.settingsFragment -> hideBottomNavigation()
+                R.id.kontaktBottomNav -> hideBothNavigation()
+                R.id.obavijestiNavItem -> hideBottomNavigation()
                 else -> showBothNavigation()
             }
         }
