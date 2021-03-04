@@ -2,6 +2,47 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph">
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/naslovnicaFragment">
 
+    <fragment
+        android:id="@+id/naslovnicaFragment"
+        android:name="Portal.fragmenti.NaslovnicaFragment"
+        android:label="NaslovnicaFragment" />
+    <fragment
+        android:id="@+id/jaNovinarFragment"
+        android:name="Portal.fragmenti.JaNovinarFragment"
+        android:label="JaNovinarFragment" />
+    <fragment
+        android:id="@+id/kontaktFragment"
+        android:name="Portal.fragmenti.KontaktFragment"
+        android:label="KontaktFragment" />
+    <fragment
+        android:id="@+id/obavijestiFragment"
+        android:name="Portal.fragmenti.ObavijestiFragment"
+        android:label="ObavijestiFragment" />
+    <fragment
+        android:id="@+id/oglasnikFragment"
+        android:name="Portal.fragmenti.OglasnikFragment"
+        android:label="OglasnikFragment" />
+    <fragment
+        android:id="@+id/pretraziFragment"
+        android:name="Portal.fragmenti.PretraziFragment"
+        android:label="PretraziFragment" />
+    <fragment
+        android:id="@+id/sportFragment"
+        android:name="Portal.fragmenti.SportFragment"
+        android:label="SportFragment" />
+    <fragment
+        android:id="@+id/vijestiFragment"
+        android:name="Portal.fragmenti.VijestiFragment"
+        android:label="VijestiFragment" />
+    <fragment
+        android:id="@+id/vrijemeFragment"
+        android:name="Portal.fragmenti.VrijemeFragment"
+        android:label="VrijemeFragment" />
+    <fragment
+        android:id="@+id/zabavaFragment"
+        android:name="Portal.fragmenti.ZabavaFragment"
+        android:label="ZabavaFragment" />
 </navigation>
