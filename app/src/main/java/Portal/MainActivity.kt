@@ -10,6 +10,7 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -31,6 +32,11 @@ class MainActivity : AppCompatActivity() {
         val drawerToggle = ActionBarDrawerToggle(this,main_drawer_layout,R.string.open,R.string.close)
         main_drawer_layout.addDrawerListener(drawerToggle)
         drawerToggle.syncState()
+
+        //Ove dvije linije koda su dodane zbog toga jer sam umjesto <fragment> stavio <FragmentContainerView>
+        //Ako se odlucim vratiti na <fragment> onda zakomentirati ove dvije linije koda
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.main_nav_host) as NavHostFragment
+        val navControler = navHostFragment.navController
 
         /*
         appBarConfiguration = AppBarConfiguration.Builder(R.id.vijestiNavItem,R.id.sportNavItem,
