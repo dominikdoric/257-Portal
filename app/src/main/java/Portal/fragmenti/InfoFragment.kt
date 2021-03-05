@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
+import kotlinx.android.synthetic.main.info_fragment.*
 
 class InfoFragment: Fragment() {
 
@@ -26,13 +27,16 @@ class InfoFragment: Fragment() {
         viewModel = ViewModelProvider(this,viewModelFactory).get(MainViewModel::class.java)
         viewModel.getPost()
         viewModel.myResponse.observe(viewLifecycleOwner, Observer { response ->
-            Log.d("Response",response.userId.toString())
-            Log.d("Response",response.id.toString())
-            Log.d("Response",response.title)
-            Log.d("Response",response.body)
+            if (response.isSuccessful){
+                Log.d("Response",response.body()?.userId.toString())
+                Log.d("Response",response.body()?.id.toString())
+                textView.text = response.body()?.title!!
+                Log.d("Response",response.body()?.body!!)
+            }else{
+                Log.d("Response",response.errorBody().toString())
+                textView.text = response.code().toString()
+            }
         })
-
         return view
     }
-
 }
