@@ -7,10 +7,11 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/relativeLayout"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -24,19 +25,19 @@
             <FrameLayout
                 android:id="@+id/main_nav_host"
                 android:layout_width="match_parent"
-                android:layout_height="625dp"
-                android:name="androidx.navigation.fragment.NavHostFragment"
-                android:layout_below="@id/toolbar" />
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:name="androidx.navigation.fragment.NavHostFragment" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/main_bottom_navigation_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/main_nav_host"
             android:background="?android:attr/windowBackground"
+            app:layout_behavior="BottomNavigationBehavior"
             app:labelVisibilityMode="labeled"
             app:menu="@menu/bottom_navigation" />
-    </RelativeLayout>
+    </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/main_navigation_view"

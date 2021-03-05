@@ -24,8 +24,23 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        val drawerToggle = ActionBarDrawerToggle(this, main_drawer_layout, R.string.open, R.string.close)
+        main_drawer_layout.addDrawerListener(drawerToggle)
+        drawerToggle.syncState()
 
 
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                main_drawer_layout.openDrawer(GravityCompat.START)
+                true
+            }
+            else -> false
+        }
     }
 }
 
