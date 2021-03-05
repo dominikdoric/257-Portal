@@ -38,6 +38,9 @@ class MainActivity : AppCompatActivity() {
         val oglasnikFragment = OglasnikFragment()
         val sportFragment = SportFragment()
         val zabavaFragment = ZabavaFragment()
+        val vrijemeFragment = VrijemeFragment()
+        val infoFragment = InfoFragment()
+        val jaNovinarFragment = JaNovinarFragment()
 
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.frameLayout_host,naslovnicaFragment)
@@ -49,15 +52,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.vijestiNavDrawer -> {
                     supportFragmentManager.beginTransaction().apply {
                         replace(R.id.frameLayout_host, vijestiFragment)
-                        addToBackStack(null)
-                        commit()
-                        main_drawer_layout.closeDrawer(GravityCompat.START)
-                    }
-                    true
-                }
-                R.id.naslovnicaNavDrawer -> {
-                    supportFragmentManager.beginTransaction().apply {
-                        replace(R.id.frameLayout_host, naslovnicaFragment)
                         addToBackStack(null)
                         commit()
                         main_drawer_layout.closeDrawer(GravityCompat.START)
@@ -102,8 +96,46 @@ class MainActivity : AppCompatActivity() {
                 }
                 else -> false
             }
-
         }
+
+        bottom_navigation.setOnNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.vrijemeBottomNav -> {
+                    supportFragmentManager.beginTransaction().apply {
+                        replace(R.id.frameLayout_host, vrijemeFragment)
+                        addToBackStack(null)
+                        commit()
+                    }
+                    true
+                }
+                R.id.naslovnicaBottomNav -> {
+                    supportFragmentManager.beginTransaction().apply {
+                        replace(R.id.frameLayout_host, naslovnicaFragment)
+                        addToBackStack(null)
+                        commit()
+                    }
+                    true
+                }
+                R.id.infoBottomNav -> {
+                    supportFragmentManager.beginTransaction().apply {
+                        replace(R.id.frameLayout_host, infoFragment)
+                        addToBackStack(null)
+                        commit()
+                    }
+                    true
+                }
+                R.id.jaNovinarBottomNav -> {
+                    supportFragmentManager.beginTransaction().apply {
+                        replace(R.id.frameLayout_host, jaNovinarFragment)
+                        addToBackStack(null)
+                        commit()
+                    }
+                    true
+                }
+                else -> false
+            }
+        }
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
