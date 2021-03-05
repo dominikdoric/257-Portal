@@ -7,13 +7,10 @@
     android:background="?attr/colorPrimaryDark"
     android:gravity="center" >
 
-    <!--You can add the navigation drawer header contents here-->
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="atr07"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/jaksic"
+        android:scaleType="centerCrop"/>
 
 </LinearLayout>
