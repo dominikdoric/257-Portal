@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/naslovnicaBottomNav"
+        android:title="Naslovnica"
+        android:icon="@drawable/ic_email"/>
+    <item
+        android:id="@+id/infoBottomNav"
+        android:title="Info"
+        android:icon="@drawable/ic_email"/>
+    <item
+        android:id="@+id/vrijemeBottomNav"
+        android:title="Vrijeme"
+        android:icon="@drawable/ic_email"/>
+    <item
+        android:id="@+id/jaNovinarBottomDrawer"
+        android:title="Ja Novinar"
+        android:icon="@drawable/ic_email"/>
+
+</menu>

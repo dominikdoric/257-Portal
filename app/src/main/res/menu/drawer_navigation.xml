@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/naslovnicaNavDrawer"
+        android:title="Naslovnica"
+        android:icon="@drawable/ic_email"/>
+    <item
+        android:id="@+id/vijestiNavDrawer"
+        android:title="Vijesti"
+        android:icon="@drawable/ic_email"/>
+    <item
+        android:id="@+id/obavijestiNavDrawer"
+        android:title="Obavijesti"
+        android:icon="@drawable/ic_email"/>
+    <item
+        android:id="@+id/sportFragmentNavDrawer"
+        android:title="Sport"
+        android:icon="@drawable/ic_email"/>
+    <item
+        android:id="@+id/zabavaNavDrawer"
+        android:title="Zabava"
+        android:icon="@drawable/ic_email"/>
+    <item
+        android:id="@+id/oglasnikNavDrawer"
+        android:title="Oglasnik"
+        android:icon="@drawable/ic_email"/>
+</menu>
