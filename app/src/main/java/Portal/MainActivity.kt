@@ -17,51 +17,15 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(),View.OnClickListener {
+class MainActivity : AppCompatActivity() {
 
-    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(main_toolbar)
-        navController = findNavController(R.id.main_nav_host)
 
-        gumbInfo.setOnClickListener(this)
-        gumbJaNovinar.setOnClickListener(this)
-        gumbNaslovnica.setOnClickListener(this)
-        gumbObavijesti.setOnClickListener(this)
-        gumbOglasnik.setOnClickListener(this)
-        gumbSport.setOnClickListener(this)
-        gumbVijesti.setOnClickListener(this)
-        gumbVrijeme.setOnClickListener(this)
 
-    }
-
-    override fun onClick(v: View?) {
-        when(v!!.id){
-            R.id.gumbInfo -> {
-                navController.navigate(R.id.action_naslovnicaFragment_to_infoFragment2)
-            }
-            R.id.gumbJaNovinar -> {
-                navController.navigate(R.id.action_naslovnicaFragment_to_jaNovinarFragment2)
-            }
-            R.id.gumbObavijesti -> {
-                navController.navigate(R.id.action_naslovnicaFragment_to_obavijestiFragment2)
-            }
-            R.id.gumbOglasnik -> {
-                navController.navigate(R.id.action_naslovnicaFragment_to_oglasnikFragment2)
-            }
-            R.id.gumbSport -> {
-                navController.navigate(R.id.action_naslovnicaFragment_to_sportFragment2)
-            }
-            R.id.gumbVijesti -> {
-                navController.navigate(R.id.action_naslovnicaFragment_to_vijestiFragment2)
-            }
-            R.id.gumbVrijeme -> {
-                navController.navigate(R.id.action_naslovnicaFragment_to_vrijemeFragment2)
-            }
-        }
     }
 }
 
