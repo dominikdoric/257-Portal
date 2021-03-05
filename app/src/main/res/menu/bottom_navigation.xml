@@ -7,12 +7,12 @@
         android:title="Naslovnica"
         android:icon="@drawable/ic_email"/>
     <item
-        android:id="@+id/infoBottomNav"
-        android:title="Info"
-        android:icon="@drawable/ic_email"/>
-    <item
         android:id="@+id/vrijemeBottomNav"
         android:title="Vrijeme"
+        android:icon="@drawable/ic_email"/>
+    <item
+        android:id="@+id/infoBottomNav"
+        android:title="Info"
         android:icon="@drawable/ic_email"/>
     <item
         android:id="@+id/jaNovinarBottomNav"

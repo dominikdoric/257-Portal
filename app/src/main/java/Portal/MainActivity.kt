@@ -1,6 +1,7 @@
 package Portal
 
 import Portal.a257.R
+import Portal.fragmenti.*
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -16,6 +17,7 @@ import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import kotlinx.android.synthetic.main.activity_main.*
+import java.io.Externalizable
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,7 +32,78 @@ class MainActivity : AppCompatActivity() {
         main_drawer_layout.addDrawerListener(drawerToggle)
         drawerToggle.syncState()
 
+        val naslovnicaFragment = NaslovnicaFragment()
+        val vijestiFragment = VijestiFragment()
+        val obavijestiFragment = ObavijestiFragment()
+        val oglasnikFragment = OglasnikFragment()
+        val sportFragment = SportFragment()
+        val zabavaFragment = ZabavaFragment()
 
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.frameLayout_host,naslovnicaFragment)
+            commit()
+        }
+
+        navigation_drawer.setNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.vijestiNavDrawer -> {
+                    supportFragmentManager.beginTransaction().apply {
+                        replace(R.id.frameLayout_host, vijestiFragment)
+                        addToBackStack(null)
+                        commit()
+                        main_drawer_layout.closeDrawer(GravityCompat.START)
+                    }
+                    true
+                }
+                R.id.naslovnicaNavDrawer -> {
+                    supportFragmentManager.beginTransaction().apply {
+                        replace(R.id.frameLayout_host, naslovnicaFragment)
+                        addToBackStack(null)
+                        commit()
+                        main_drawer_layout.closeDrawer(GravityCompat.START)
+                    }
+                    true
+                }
+                R.id.obavijestiNavDrawer -> {
+                    supportFragmentManager.beginTransaction().apply {
+                        replace(R.id.frameLayout_host, obavijestiFragment)
+                        addToBackStack(null)
+                        commit()
+                        main_drawer_layout.closeDrawer(GravityCompat.START)
+                    }
+                    true
+                }
+                R.id.oglasnikNavDrawer -> {
+                    supportFragmentManager.beginTransaction().apply {
+                        replace(R.id.frameLayout_host, oglasnikFragment)
+                        addToBackStack(null)
+                        commit()
+                        main_drawer_layout.closeDrawer(GravityCompat.START)
+                    }
+                    true
+                }
+                R.id.sportNavDrawer -> {
+                    supportFragmentManager.beginTransaction().apply {
+                        replace(R.id.frameLayout_host, sportFragment)
+                        addToBackStack(null)
+                        commit()
+                        main_drawer_layout.closeDrawer(GravityCompat.START)
+                    }
+                    true
+                }
+                R.id.zabavaNavDrawer -> {
+                    supportFragmentManager.beginTransaction().apply {
+                        replace(R.id.frameLayout_host, zabavaFragment)
+                        addToBackStack(null)
+                        commit()
+                        main_drawer_layout.closeDrawer(GravityCompat.START)
+                    }
+                    true
+                }
+                else -> false
+            }
+
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

@@ -23,14 +23,14 @@
             android:background="?attr/colorPrimary"/>
 
             <FrameLayout
-                android:id="@+id/main_nav_host"
+                android:id="@+id/frameLayout_host"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:name="androidx.navigation.fragment.NavHostFragment" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/main_bottom_navigation_view"
+            android:id="@+id/bottom_navigation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?android:attr/windowBackground"
@@ -40,7 +40,7 @@
     </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView
-        android:id="@+id/main_navigation_view"
+        android:id="@+id/navigation_drawer"
         style="@style/Widget.Design.NavigationView"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
