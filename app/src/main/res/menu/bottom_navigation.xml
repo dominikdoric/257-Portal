@@ -15,7 +15,7 @@
         android:title="Vrijeme"
         android:icon="@drawable/ic_email"/>
     <item
-        android:id="@+id/jaNovinarBottomDrawer"
+        android:id="@+id/jaNovinarBottomNav"
         android:title="Ja Novinar"
         android:icon="@drawable/ic_email"/>
 

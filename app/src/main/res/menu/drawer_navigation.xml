@@ -14,7 +14,7 @@
         android:title="Obavijesti"
         android:icon="@drawable/ic_email"/>
     <item
-        android:id="@+id/sportFragmentNavDrawer"
+        android:id="@+id/sportNavDrawer"
         android:title="Sport"
         android:icon="@drawable/ic_email"/>
     <item
