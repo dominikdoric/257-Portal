@@ -1,4 +1,4 @@
-package Portal.`uredi-obrisi`
+package Portal.urediobrisi
 
 import Portal.a257.R
 import android.os.Bundle

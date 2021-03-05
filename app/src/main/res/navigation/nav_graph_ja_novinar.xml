@@ -24,7 +24,8 @@
         tools:layout="@layout/dodaj_novi_ja_novinar_fragment"/>
     <fragment
         android:id="@+id/urediObrisiJaNovinarFragment"
-        android:name="Portal.uredi-obrisi.UrediObrisiJaNovinarFragment"
-        android:label="UrediObrisiJaNovinarFragment"
+        android:name="Portal.urediobrisi.UrediObrisiJaNovinarFragment"
+        android:label="UrediObrisiNovinarFragment"
         tools:layout="@layout/uredi_obrisi_ja_novinar_fragment"/>
+
 </navigation>

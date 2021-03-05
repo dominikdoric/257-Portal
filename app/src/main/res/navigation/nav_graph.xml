@@ -34,9 +34,6 @@
         <action
             android:id="@+id/action_naslovnicaFragment_to_vrijemeFragment2"
             app:destination="@id/vrijemeFragment" />
-        <action
-            android:id="@+id/action_naslovnicaFragment_to_zabavaFragment2"
-            app:destination="@id/zabavaFragment" />
     </fragment>
     <fragment
         android:id="@+id/jaNovinarFragment"
@@ -78,9 +75,4 @@
         android:name="Portal.fragmenti.VrijemeFragment"
         android:label="VrijemeFragment"
         tools:layout="@layout/vrijeme_fragment"/>
-    <fragment
-        android:id="@+id/zabavaFragment"
-        android:name="Portal.fragmenti.ZabavaFragment"
-        android:label="ZabavaFragment"
-        tools:layout="@layout/zabava_fragment"/>
 </navigation>

@@ -5,13 +5,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <TextView
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ja novinar"
-        android:textColor="#000"
-        android:textSize="24dp"
-        android:layout_gravity="center"/>
+        android:orientation="horizontal">
+
+
+    </LinearLayout>
 
     <fragment
         android:layout_width="match_parent"
