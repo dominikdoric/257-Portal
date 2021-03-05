@@ -62,7 +62,5 @@
                 android:textSize="16dp"
                 android:textColor="#262626"/>
         </LinearLayout>
-
     </com.google.android.material.navigation.NavigationView>
-
 </androidx.drawerlayout.widget.DrawerLayout>
