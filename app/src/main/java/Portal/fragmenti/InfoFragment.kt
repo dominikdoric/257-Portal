@@ -30,7 +30,7 @@ class InfoFragment: Fragment() {
 
         view.button.setOnClickListener {
             val myNumber: String = number_editText.text.toString()
-            viewModel.getCustomPosts(Integer.parseInt(myNumber))
+            viewModel.getCustomPosts(Integer.parseInt(myNumber),"id","desc")
             viewModel.myCustomPosts.observe(viewLifecycleOwner, Observer { response ->
                 if (response.isSuccessful){
                     textView.text = response.body().toString()
