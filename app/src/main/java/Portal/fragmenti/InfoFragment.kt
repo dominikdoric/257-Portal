@@ -26,12 +26,16 @@ class InfoFragment: Fragment() {
         val repository = Repository()
         val viewModelFactory = MainViewModelFactory(repository)
         viewModel = ViewModelProvider(this,viewModelFactory).get(MainViewModel::class.java)
-        viewModel.getPost()
+        //viewModel.getPost()
+
+        val options: HashMap<String,String> = HashMap()
+        options["_sort"] = "id"
+        options["_order"] = "desc"
 
         view.button.setOnClickListener {
             val myNumber: String = number_editText.text.toString()
-            viewModel.getCustomPosts(Integer.parseInt(myNumber),"id","desc")
-            viewModel.myCustomPosts.observe(viewLifecycleOwner, Observer { response ->
+            viewModel.getCustomPosts2(Integer.parseInt(myNumber),options)
+            viewModel.myCustomPosts2.observe(viewLifecycleOwner, Observer { response ->
                 if (response.isSuccessful){
                     textView.text = response.body().toString()
                     response.body()?.forEach{
