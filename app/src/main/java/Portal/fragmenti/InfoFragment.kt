@@ -26,7 +26,7 @@ class InfoFragment: Fragment() {
         val viewModelFactory = MainViewModelFactory(repository)
         viewModel = ViewModelProvider(this,viewModelFactory).get(MainViewModel::class.java)
         viewModel.getPost()
-        viewModel.myResponse.observe(viewLifecycleOwner, Observer { response ->
+        viewModel.myResponse2.observe(viewLifecycleOwner, Observer { response ->
             if (response.isSuccessful){
                 Log.d("Response",response.body()?.userId.toString())
                 Log.d("Response",response.body()?.id.toString())
