@@ -14,6 +14,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import kotlinx.android.synthetic.main.info_fragment.*
+import kotlinx.android.synthetic.main.info_fragment.view.*
 
 class InfoFragment: Fragment() {
 
@@ -26,17 +27,19 @@ class InfoFragment: Fragment() {
         val viewModelFactory = MainViewModelFactory(repository)
         viewModel = ViewModelProvider(this,viewModelFactory).get(MainViewModel::class.java)
         viewModel.getPost()
-        viewModel.myResponse2.observe(viewLifecycleOwner, Observer { response ->
-            if (response.isSuccessful){
-                Log.d("Response",response.body()?.userId.toString())
-                Log.d("Response",response.body()?.id.toString())
-                textView.text = response.body()?.title!!
-                Log.d("Response",response.body()?.body!!)
-            }else{
-                Log.d("Response",response.errorBody().toString())
-                textView.text = response.code().toString()
-            }
-        })
+
+        view.button.setOnClickListener {
+            val myNumber: String = number_editText.text.toString()
+            viewModel.getPost2(Integer.parseInt(myNumber))
+            viewModel.myResponse2.observe(viewLifecycleOwner, Observer { response ->
+                if (response.isSuccessful){
+                    textView.text = response.body().toString()
+                }else{
+                    textView.text = response.code().toString()
+                }
+            })
+        }
+
         return view
     }
 }
