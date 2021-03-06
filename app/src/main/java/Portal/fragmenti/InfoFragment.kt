@@ -30,10 +30,17 @@ class InfoFragment: Fragment() {
 
         view.button.setOnClickListener {
             val myNumber: String = number_editText.text.toString()
-            viewModel.getPost2(Integer.parseInt(myNumber))
-            viewModel.myResponse2.observe(viewLifecycleOwner, Observer { response ->
+            viewModel.getCustomPosts(Integer.parseInt(myNumber))
+            viewModel.myCustomPosts.observe(viewLifecycleOwner, Observer { response ->
                 if (response.isSuccessful){
                     textView.text = response.body().toString()
+                    response.body()?.forEach{
+                        Log.d("Response",it.userId.toString())
+                        Log.d("Response",it.id.toString())
+                        Log.d("Response",it.title)
+                        Log.d("Response",it.body)
+                        Log.d("Response","-------------------")
+                    }
                 }else{
                     textView.text = response.code().toString()
                 }
