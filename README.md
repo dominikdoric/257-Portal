@@ -29,3 +29,13 @@ At this point there is not much functionality in this app, only things that are 
 - Architecture
     - [MVVM Architecture](https://developer.android.com/jetpack/guide?gclid=CjwKCAiAkJKCBhAyEiwAKQBCkrariGLVBTGun7TGT9IMaVf0ojoXdjIc-5tz-jl1L-CM7EsWjQrExRoCHO0QAvD_BwE&gclsrc=aw.ds) (View - DataBinding - ViewModel - Model)
     - Repository pattern
+
+# Architecture
+The architecture of the application is based, apply and strictly complies with each of the following 5 points:
+- A single-activity architecture
+- Android architecture components, part of Android Jetpack for give to project a robust design, testable and maintainable.
+- Pattern Model-View-ViewModel (MVVM) facilitating a separation of development of the graphical user interface.
+- S.O.L.I.D design principles intended to make software designs more understandable, flexible and maintainable.
+- Modular app architecture allows to be developed features in isolation, independently from other features.
+
+![mvvm-architecture-app-in-android](https://user-images.githubusercontent.com/64093104/110252926-07519900-7f88-11eb-9736-055484d79338.png)
