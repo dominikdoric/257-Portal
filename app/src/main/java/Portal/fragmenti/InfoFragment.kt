@@ -26,30 +26,6 @@ class InfoFragment: Fragment() {
         val repository = Repository()
         val viewModelFactory = MainViewModelFactory(repository)
         viewModel = ViewModelProvider(this,viewModelFactory).get(MainViewModel::class.java)
-        //viewModel.getPost()
-
-        val options: HashMap<String,String> = HashMap()
-        options["_sort"] = "id"
-        options["_order"] = "desc"
-
-        view.button.setOnClickListener {
-            val myNumber: String = number_editText.text.toString()
-            viewModel.getCustomPosts2(Integer.parseInt(myNumber),options)
-            viewModel.myCustomPosts2.observe(viewLifecycleOwner, Observer { response ->
-                if (response.isSuccessful){
-                    textView.text = response.body().toString()
-                    response.body()?.forEach{
-                        Log.d("Response",it.userId.toString())
-                        Log.d("Response",it.id.toString())
-                        Log.d("Response",it.title)
-                        Log.d("Response",it.body)
-                        Log.d("Response","-------------------")
-                    }
-                }else{
-                    textView.text = response.code().toString()
-                }
-            })
-        }
 
         return view
     }
