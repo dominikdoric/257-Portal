@@ -15,17 +15,17 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imageViewZabavaSlika"
+            android:id="@+id/imageViewSportSlika"
             android:layout_width="match_parent"
             android:layout_height="130dp"
             android:scaleType="centerCrop"
             android:src="@drawable/jaksic" />
 
         <TextView
-            android:id="@+id/textViewZabavaNaslov"
+            android:id="@+id/textViewSportNaslov"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imageViewZabavaSlika"
+            android:layout_below="@+id/imageViewSportSlika"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
@@ -34,10 +34,10 @@
             android:textSize="20dp" />
 
         <TextView
-            android:id="@+id/textViewZabavaVrijeme"
+            android:id="@+id/textViewSportVrijeme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textViewZabavaNaslov"
+            android:layout_below="@+id/textViewSportNaslov"
             android:layout_marginTop="15dp"
             android:layout_marginLeft="5dp"
             android:text="Prije 1 h"
