@@ -1,9 +1,6 @@
 package Portal.database
 
-import Portal.database.dao.ObavijestiDao
-import Portal.database.dao.SportDao
-import Portal.database.dao.VijestiDao
-import Portal.database.dao.ZabavaDao
+import Portal.database.dao.*
 import Portal.database.table.ObavijestiTable
 import Portal.database.table.SportTable
 import Portal.database.table.VijestiTable
@@ -20,6 +17,7 @@ abstract class Portal257Database: RoomDatabase() {
     abstract fun sportDao(): SportDao
     abstract fun obavijestiDao(): ObavijestiDao
     abstract fun vijestiDao(): VijestiDao
+    abstract fun oglasnikDao(): OglasnikDao
 
     companion object{
         @Volatile
