@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_dodajNovuVijest"
+        android:title="Dodaj novu vijest" />
+    <item
+        android:id="@+id/menu_dodajNovuObavijest"
+        android:title="Dodaj novu obavijest" />
+    <item
+        android:id="@+id/menu_dodajNoviOglas"
+        android:title="Dodaj novi oglas" />
+    <item
+        android:id="@+id/menu_dodajNoviSport"
+        android:title="Dodaj novi sport" />
+    <item
+        android:id="@+id/menu_dodajNovuZabava"
+        android:title="Dodaj novu zabavu"/>
+
+</menu>

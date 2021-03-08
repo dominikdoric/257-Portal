@@ -1,9 +1,12 @@
 package Portal
 
 import Portal.a257.R
+import Portal.dodajNovo.DodajNovoVijesti
 import Portal.fragmenti.*
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -21,6 +24,7 @@ import java.io.Externalizable
 
 class MainActivity : AppCompatActivity() {
 
+    val dodajNovoVijesti = DodajNovoVijesti()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +32,8 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val drawerToggle = ActionBarDrawerToggle(this, main_drawer_layout, R.string.open, R.string.close)
+        val drawerToggle =
+            ActionBarDrawerToggle(this, main_drawer_layout, R.string.open, R.string.close)
         main_drawer_layout.addDrawerListener(drawerToggle)
         drawerToggle.syncState()
 
@@ -43,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         val jaNovinarFragment = JaNovinarFragment()
 
         supportFragmentManager.beginTransaction().apply {
-            replace(R.id.frameLayout_host,naslovnicaFragment)
+            replace(R.id.frameLayout_host, naslovnicaFragment)
             commit()
         }
 
@@ -99,7 +104,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         bottom_navigation.setOnNavigationItemSelectedListener {
-            when(it.itemId){
+            when (it.itemId) {
                 R.id.vrijemeBottomNav -> {
                     supportFragmentManager.beginTransaction().apply {
                         replace(R.id.frameLayout_host, vrijemeFragment)
@@ -138,10 +143,25 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
                 main_drawer_layout.openDrawer(GravityCompat.START)
+                true
+            }
+            R.id.menu_dodajNovuVijest -> {
+                supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.frameLayout_host, dodajNovoVijesti)
+                    addToBackStack(null)
+                    commit()
+                }
                 true
             }
             else -> false
