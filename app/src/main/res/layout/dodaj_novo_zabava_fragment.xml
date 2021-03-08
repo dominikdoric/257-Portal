@@ -1,7 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="30dp">
+
+    <EditText
+        android:id="@+id/et_zabava_naslov"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Naslov" />
+
+    <EditText
+        android:id="@+id/et_zabava_clanak"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="bottom"
+        android:hint="Clanak" />
+
+    <EditText
+        android:id="@+id/et_zabava_vrijeme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Vrijeme" />
+    <Button
+        android:id="@+id/gumbSpremiZabavu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Spremi"
+        android:layout_gravity="end"/>
 
 </LinearLayout>
