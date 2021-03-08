@@ -1,16 +1,14 @@
 package Portal.database
 
 import Portal.database.dao.*
-import Portal.database.table.ObavijestiTable
-import Portal.database.table.SportTable
-import Portal.database.table.VijestiTable
-import Portal.database.table.ZabavaTable
+import Portal.database.table.*
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [ZabavaTable::class,SportTable::class,ObavijestiTable::class,VijestiTable::class],version = 1)
+@Database(entities = [ZabavaTable::class,SportTable::class,ObavijestiTable::class,
+    VijestiTable::class,OglasnikTable::class,NaslovnicaTable::class],version = 1)
 abstract class Portal257Database: RoomDatabase() {
 
     abstract fun zabavaDao(): ZabavaDao
@@ -18,6 +16,7 @@ abstract class Portal257Database: RoomDatabase() {
     abstract fun obavijestiDao(): ObavijestiDao
     abstract fun vijestiDao(): VijestiDao
     abstract fun oglasnikDao(): OglasnikDao
+    abstract fun naslovnicaDao(): NaslovnicaDao
 
     companion object{
         @Volatile
