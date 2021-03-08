@@ -20,6 +20,6 @@ data class ZabavaTable (
     val zabavaVrijeme: String,
 
     @ColumnInfo(name = "zabava_slika")
-    val slika: Int
+    val zabavaSlika: Int
 
         )

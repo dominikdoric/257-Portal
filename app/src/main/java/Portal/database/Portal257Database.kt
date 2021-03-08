@@ -1,16 +1,19 @@
 package Portal.database
 
+import Portal.database.dao.SportDao
 import Portal.database.dao.ZabavaDao
+import Portal.database.table.SportTable
 import Portal.database.table.ZabavaTable
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [ZabavaTable::class],version = 1)
+@Database(entities = [ZabavaTable::class,SportTable::class],version = 1)
 abstract class Portal257Database: RoomDatabase() {
 
     abstract fun zabavaDao(): ZabavaDao
+    abstract fun sportDao(): SportDao
 
     companion object{
         @Volatile
