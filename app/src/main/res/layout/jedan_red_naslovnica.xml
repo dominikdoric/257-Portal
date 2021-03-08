@@ -15,14 +15,14 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imageViewZabavaSlika"
+            android:id="@+id/imageViewNaslovnicaSlika"
             android:layout_width="match_parent"
             android:layout_height="130dp"
             android:scaleType="centerCrop"
             android:src="@drawable/jaksic" />
 
         <TextView
-            android:id="@+id/textViewZabavaNaslov"
+            android:id="@+id/textViewNaslovnicaNaslov"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/imageViewZabavaSlika"
@@ -34,7 +34,7 @@
             android:textSize="20dp" />
 
         <TextView
-            android:id="@+id/textViewZabavaVrijeme"
+            android:id="@+id/textViewNaslovnicaVrijeme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textViewZabavaNaslov"
