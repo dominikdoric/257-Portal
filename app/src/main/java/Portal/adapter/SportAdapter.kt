@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.jedan_red_sport.view.*
 
-class SportAdapter(private val sviSportoviUBazi: List<SportTable>): RecyclerView.Adapter<SportAdapter.ViewHolder>() {
+class SportAdapter(): RecyclerView.Adapter<SportAdapter.ViewHolder>() {
 
     private var sportList = emptyList<SportTable>()
 
@@ -24,7 +24,7 @@ class SportAdapter(private val sviSportoviUBazi: List<SportTable>): RecyclerView
     }
 
     override fun getItemCount(): Int {
-        return sviSportoviUBazi.size
+        return sportList.size
     }
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {

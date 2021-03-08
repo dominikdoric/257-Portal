@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.dodaj_novo_zabava_fragment.view.*
 import kotlinx.android.synthetic.main.jedan_red_zabava.view.*
 
-class ZabavaAdapter(private val sveZabaveUBazi: List<ZabavaTable>): RecyclerView.Adapter<ZabavaAdapter.ViewHolder>() {
+class ZabavaAdapter(): RecyclerView.Adapter<ZabavaAdapter.ViewHolder>() {
 
     private var zabavaList = emptyList<ZabavaTable>()
 
@@ -25,7 +25,7 @@ class ZabavaAdapter(private val sveZabaveUBazi: List<ZabavaTable>): RecyclerView
     }
 
     override fun getItemCount(): Int {
-        return sveZabaveUBazi.size
+        return zabavaList.size
     }
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {

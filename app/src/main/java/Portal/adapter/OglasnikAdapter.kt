@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.jedan_red_oglasnik.view.*
 
-class OglasnikAdapter(private val sviOglasiUBazi: List<OglasnikTable>): RecyclerView.Adapter<OglasnikAdapter.ViewHolder>() {
+class OglasnikAdapter(): RecyclerView.Adapter<OglasnikAdapter.ViewHolder>() {
 
     private var oglasnikList = emptyList<OglasnikTable>()
 
@@ -24,7 +24,7 @@ class OglasnikAdapter(private val sviOglasiUBazi: List<OglasnikTable>): Recycler
     }
 
     override fun getItemCount(): Int {
-        return sviOglasiUBazi.size
+        return oglasnikList.size
     }
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
