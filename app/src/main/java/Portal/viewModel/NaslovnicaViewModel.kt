@@ -2,9 +2,7 @@ package Portal.viewModel
 
 import Portal.database.Portal257Database
 import Portal.database.table.NaslovnicaTable
-import Portal.database.table.SportTable
 import Portal.repository.NaslovnicaRepository
-import Portal.repository.SportRepository
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
