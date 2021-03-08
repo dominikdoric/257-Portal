@@ -9,7 +9,7 @@ import androidx.room.*
 interface NaslovnicaDao {
 
     @Query("SELECT * FROM naslovnica ORDER BY id ASC")
-    suspend fun getAllNaslovnica(): LiveData<List<NaslovnicaTable>>
+    fun getAllDataNaslovnica(): LiveData<List<NaslovnicaTable>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertNaslovnica(naslovnicaTable: NaslovnicaTable)

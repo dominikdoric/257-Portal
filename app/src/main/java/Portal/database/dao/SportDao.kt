@@ -8,7 +8,7 @@ import androidx.room.*
 interface SportDao {
 
     @Query("SELECT * FROM sport ORDER BY id ASC")
-    suspend fun getAllSport(): LiveData<List<SportTable>>
+    fun getAllDataSport(): LiveData<List<SportTable>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertSport(sportTable: SportTable)

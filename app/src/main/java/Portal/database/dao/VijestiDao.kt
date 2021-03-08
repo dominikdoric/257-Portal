@@ -9,7 +9,7 @@ import androidx.room.*
 interface VijestiDao {
 
     @Query("SELECT * FROM vijesti ORDER BY id ASC")
-    suspend fun getAllVijesti(): LiveData<List<VijestiTable>>
+    fun getAllDataVijesti(): LiveData<List<VijestiTable>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertVijesti(vijestiTable: VijestiTable)

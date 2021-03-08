@@ -9,7 +9,7 @@ import androidx.room.*
 interface OglasnikDao {
 
     @Query("SELECT * FROM oglasnik ORDER BY id ASC")
-    suspend fun getAllOglasnik(): LiveData<List<OglasnikTable>>
+    fun getAllDataOglasnik(): LiveData<List<OglasnikTable>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertOglasnik(oglasnikTable: OglasnikTable)
