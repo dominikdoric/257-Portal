@@ -27,19 +27,19 @@ class SportViewModel(application: Application): AndroidViewModel(application) {
         }
     }
 
-    fun updateRaspored(sportTable: SportTable){
+    fun updateSport(sportTable: SportTable){
         viewModelScope.launch(Dispatchers.IO) {
             sportRepository.updateSport(sportTable)
         }
     }
 
-    fun deleteRaspored(sportTable: SportTable){
+    fun deleteSport(sportTable: SportTable){
         viewModelScope.launch(Dispatchers.IO) {
             sportRepository.deleteSport(sportTable)
         }
     }
 
-    fun deleteAllRaspored(){
+    fun deleteAllSport(){
         viewModelScope.launch(Dispatchers.IO) {
             sportRepository.deleteAllSport()
         }
