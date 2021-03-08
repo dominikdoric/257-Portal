@@ -1,7 +1,7 @@
 package Portal
 
 import Portal.a257.R
-import Portal.dodajNovo.DodajNovoVijesti
+import Portal.dodajNovo.*
 import Portal.fragmenti.*
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -25,6 +25,10 @@ import java.io.Externalizable
 class MainActivity : AppCompatActivity() {
 
     val dodajNovoVijesti = DodajNovoVijesti()
+    val dodajNovuZabava = DodajNovoZabava()
+    val dodajNoviOglas = DodajNovoOglasnik()
+    val dodajNoviSport = DodajNovoSport()
+    val dodajNovuObavijest = DodajNovoObavijesti()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -159,6 +163,38 @@ class MainActivity : AppCompatActivity() {
             R.id.menu_dodajNovuVijest -> {
                 supportFragmentManager.beginTransaction().apply {
                     replace(R.id.frameLayout_host, dodajNovoVijesti)
+                    addToBackStack(null)
+                    commit()
+                }
+                true
+            }
+            R.id.menu_dodajNovuObavijest -> {
+                supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.frameLayout_host, dodajNovuObavijest)
+                    addToBackStack(null)
+                    commit()
+                }
+                true
+            }
+            R.id.menu_dodajNovuZabava -> {
+                supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.frameLayout_host, dodajNovuZabava)
+                    addToBackStack(null)
+                    commit()
+                }
+                true
+            }
+            R.id.menu_dodajNoviOglas -> {
+                supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.frameLayout_host, dodajNoviOglas)
+                    addToBackStack(null)
+                    commit()
+                }
+                true
+            }
+            R.id.menu_dodajNoviSport -> {
+                supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.frameLayout_host, dodajNoviSport)
                     addToBackStack(null)
                     commit()
                 }
