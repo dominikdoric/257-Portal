@@ -43,7 +43,7 @@ class DodajNovoOglasnik: Fragment() {
         val noviClanak = ""
         val novaSlika = R.drawable.jaksic
 
-        val oglasnik = OglasnikTable(0,noviNaslov,noviClanak,novoVrijeme,novaSlika)
+        val oglasnik = OglasnikTable(noviNaslov,noviClanak,novoVrijeme,novaSlika)
         mOglasnikViewModel.addOglasnik(oglasnik)
     }
 

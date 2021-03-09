@@ -43,7 +43,7 @@ class DodajNovoSport: Fragment() {
         val noviClanak = ""
         val novaSlika = R.drawable.jaksic
 
-        val sport = SportTable(0,noviNaslov,noviClanak,novoVrijeme,novaSlika)
+        val sport = SportTable(noviNaslov,noviClanak,novoVrijeme,novaSlika)
         mSportViewModel.addSport(sport)
     }
 

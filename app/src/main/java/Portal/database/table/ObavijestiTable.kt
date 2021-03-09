@@ -7,9 +7,6 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "obavijesti")
 data class ObavijestiTable (
 
-    @PrimaryKey(autoGenerate = true)
-    val id: Int,
-
     @ColumnInfo(name = "obavijesti_naslov")
     val obavijestiNaslov: String,
 
@@ -21,5 +18,8 @@ data class ObavijestiTable (
 
     @ColumnInfo(name = "obavijesti_slika")
     val obavijestiSlika: Int
-
         )
+{
+    @PrimaryKey(autoGenerate = true)
+    val id: Int = 0
+}

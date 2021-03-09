@@ -37,7 +37,7 @@ class DodajNovoZabava: Fragment() {
         val noviClanak = ""
         val novaSlika = R.drawable.jaksic
 
-        val zabava = ZabavaTable(0,noviNaslov,noviClanak,novoVrijeme,novaSlika)
+        val zabava = ZabavaTable(noviNaslov,noviClanak,novoVrijeme,novaSlika)
         mZabavaViewModel.addZabava(zabava)
     }
 }

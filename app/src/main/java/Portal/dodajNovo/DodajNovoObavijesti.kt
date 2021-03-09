@@ -43,7 +43,7 @@ class DodajNovoObavijesti: Fragment() {
         val noviClanak = ""
         val novaSlika = R.drawable.jaksic
 
-        val obavijesti = ObavijestiTable(0,noviNaslov,noviClanak,novoVrijeme,novaSlika)
+        val obavijesti = ObavijestiTable(noviNaslov,noviClanak,novoVrijeme,novaSlika)
         mObavijestViewModel.addObavijesti(obavijesti)
     }
 
