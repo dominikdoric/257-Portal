@@ -17,6 +17,7 @@ import kotlinx.android.synthetic.main.dodaj_novo_vijesti_fragment.view.*
 import kotlinx.android.synthetic.main.dodaj_novo_zabava_fragment.*
 import kotlinx.android.synthetic.main.dodaj_novo_zabava_fragment.et_zabava_naslov
 import java.text.DateFormat
+import java.text.SimpleDateFormat
 import java.util.*
 
 class DodajNovoSport: Fragment() {
@@ -40,8 +41,8 @@ class DodajNovoSport: Fragment() {
     }
 
     private fun insertDataToDatabase() {
-        val calendar = Calendar.getInstance()
-        val currentDate = DateFormat.getDateInstance(DateFormat.SHORT).format(calendar.time)
+        val sdf = SimpleDateFormat("dd.MM.yyyy. hh:mm")
+        val currentDate = sdf.format(Date())
 
         val noviNaslov = et_sport_naslov.text.toString()
         val novoVrijeme = currentDate

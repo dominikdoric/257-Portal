@@ -5,6 +5,7 @@ import Portal.database.table.ObavijestiTable
 import Portal.database.table.ZabavaTable
 import Portal.viewModel.ObavijestiViewModel
 import Portal.viewModel.VijestiViewModel
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +18,7 @@ import kotlinx.android.synthetic.main.dodaj_novo_vijesti_fragment.view.*
 import kotlinx.android.synthetic.main.dodaj_novo_zabava_fragment.*
 import kotlinx.android.synthetic.main.dodaj_novo_zabava_fragment.et_zabava_naslov
 import java.text.DateFormat
+import java.text.SimpleDateFormat
 import java.util.*
 
 class DodajNovoObavijesti: Fragment() {
@@ -39,9 +41,10 @@ class DodajNovoObavijesti: Fragment() {
         return view
     }
 
+    @SuppressLint("SimpleDateFormat")
     private fun insertDataToDatabase() {
-        val calendar = Calendar.getInstance()
-        val currentDate = DateFormat.getDateInstance(DateFormat.SHORT).format(calendar.time)
+        val sdf = SimpleDateFormat("dd.MM.yyyy. hh:mm")
+        val currentDate = sdf.format(Date())
 
         val noviNaslov = et_obavijesti_naslov.text.toString()
         val novoVrijeme = currentDate

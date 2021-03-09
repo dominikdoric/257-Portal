@@ -23,6 +23,7 @@ class OglasnikAdapter(): RecyclerView.Adapter<OglasnikAdapter.ViewHolder>() {
         holder.itemView.textViewOglasnikCijena.text = currentItem.oglasnikCijena
         holder.itemView.textViewOglasnikLokacija.text = currentItem.oglasnikLokacija
         holder.itemView.textViewOglasnikBroj.text = currentItem.oglasnikBroj
+        holder.itemView.textViewOglasnikVrijeme.text = currentItem.oglasnikVrijeme
     }
 
     override fun getItemCount(): Int {

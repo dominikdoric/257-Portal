@@ -23,7 +23,10 @@ data class OglasnikTable (
     val oglasnikLokacija: String,
 
     @ColumnInfo(name = "oglasnik_broj")
-    val oglasnikBroj: String
+    val oglasnikBroj: String,
+
+    @ColumnInfo(name = "oglasnik_broj")
+    val oglasnikVrijeme: String
         )
 {
     @PrimaryKey(autoGenerate = true)

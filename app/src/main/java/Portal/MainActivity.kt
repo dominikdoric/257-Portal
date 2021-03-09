@@ -28,9 +28,6 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        var currentTime = Calendar.getInstance().getTime()
-        Log.d("-------------", currentTime.toString())
-
         val drawerToggle =
             ActionBarDrawerToggle(this, main_drawer_layout, R.string.open, R.string.close)
         main_drawer_layout.addDrawerListener(drawerToggle)

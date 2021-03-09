@@ -16,6 +16,8 @@ import kotlinx.android.synthetic.main.dodaj_novo_oglasnik_fragment.view.*
 import kotlinx.android.synthetic.main.dodaj_novo_vijesti_fragment.view.*
 import kotlinx.android.synthetic.main.dodaj_novo_zabava_fragment.*
 import kotlinx.android.synthetic.main.dodaj_novo_zabava_fragment.et_zabava_naslov
+import java.text.SimpleDateFormat
+import java.util.*
 
 class DodajNovoOglasnik: Fragment() {
 
@@ -38,14 +40,18 @@ class DodajNovoOglasnik: Fragment() {
     }
 
     private fun insertDataToDatabase() {
+        val sdf = SimpleDateFormat("dd.MM.yyyy. hh:mm")
+        val currentDate = sdf.format(Date())
+
         val novaSlika = R.drawable.jaksic
         val noviClanak = ""
         val noviNaslov = et_oglasnik_naslov.text.toString()
         val novaCijena = et_oglasnik_cijena.text.toString()
         val novaLokacija = et_oglasnik_lokacija.text.toString()
         val noviBroj = et_oglasnik_broj.text.toString()
+        val novoVrijeme = currentDate
 
-        val oglasnik = OglasnikTable(novaSlika,noviClanak,noviNaslov,novaCijena,novaLokacija,noviBroj)
+        val oglasnik = OglasnikTable(novaSlika,noviClanak,noviNaslov,novaCijena,novaLokacija,noviBroj,novoVrijeme)
         mOglasnikViewModel.addOglasnik(oglasnik)
     }
 
