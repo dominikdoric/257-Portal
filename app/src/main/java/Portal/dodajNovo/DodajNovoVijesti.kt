@@ -4,6 +4,7 @@ import Portal.a257.R
 import Portal.database.table.VijestiTable
 import Portal.database.table.ZabavaTable
 import Portal.viewModel.VijestiViewModel
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -38,8 +39,9 @@ class DodajNovoVijesti: Fragment() {
         return view
     }
 
+    @SuppressLint("SimpleDateFormat")
     private fun insertDataToDatabase() {
-        val sdf = SimpleDateFormat("dd.MM.yyyy. hh:mm")
+        val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
         val currentDate = sdf.format(Date())
 
         val noviNaslov = et_vijesti_naslov.text.toString()

@@ -5,6 +5,7 @@ import Portal.database.table.OglasnikTable
 import Portal.database.table.ZabavaTable
 import Portal.viewModel.OglasnikViewModel
 import Portal.viewModel.VijestiViewModel
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -39,8 +40,9 @@ class DodajNovoOglasnik: Fragment() {
         return view
     }
 
+    @SuppressLint("SimpleDateFormat")
     private fun insertDataToDatabase() {
-        val sdf = SimpleDateFormat("dd.MM.yyyy. hh:mm")
+        val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
         val currentDate = sdf.format(Date())
 
         val novaSlika = R.drawable.jaksic

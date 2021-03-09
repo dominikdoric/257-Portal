@@ -41,7 +41,7 @@ class DodajNovoZabava: Fragment() {
 
     @SuppressLint("SimpleDateFormat")
     private fun insertDataToDatabase() {
-        val sdf = SimpleDateFormat("dd.MM.yyyy. hh:mm")
+        val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
         val currentDate = sdf.format(Date())
 
         val noviNaslov = et_zabava_naslov.text.toString()

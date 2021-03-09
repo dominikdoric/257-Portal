@@ -20,7 +20,7 @@ class ObavijestiAdapter(): RecyclerView.Adapter<ObavijestiAdapter.ViewHolder>() 
     override fun onBindViewHolder(holder: ObavijestiAdapter.ViewHolder, position: Int) {
         val currentItem = obavijestiList[position]
         holder.itemView.textViewObavijestNaslov.text = currentItem.obavijestiNaslov
-        holder.itemView.textViewObavijestiVrijeme.text = currentItem.obavijestiVrijeme
+        holder.itemView.textViewObavijestVrijeme.text = currentItem.obavijestiVrijeme
     }
 
     override fun getItemCount(): Int {

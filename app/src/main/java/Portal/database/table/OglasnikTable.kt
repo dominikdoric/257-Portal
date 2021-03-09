@@ -25,7 +25,7 @@ data class OglasnikTable (
     @ColumnInfo(name = "oglasnik_broj")
     val oglasnikBroj: String,
 
-    @ColumnInfo(name = "oglasnik_broj")
+    @ColumnInfo(name = "oglasnik_vrijeme")
     val oglasnikVrijeme: String
         )
 {

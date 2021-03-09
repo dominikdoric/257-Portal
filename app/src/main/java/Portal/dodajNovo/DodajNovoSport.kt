@@ -5,6 +5,7 @@ import Portal.database.table.SportTable
 import Portal.database.table.ZabavaTable
 import Portal.viewModel.SportViewModel
 import Portal.viewModel.VijestiViewModel
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -40,8 +41,9 @@ class DodajNovoSport: Fragment() {
         return view
     }
 
+    @SuppressLint("SimpleDateFormat")
     private fun insertDataToDatabase() {
-        val sdf = SimpleDateFormat("dd.MM.yyyy. hh:mm")
+        val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
         val currentDate = sdf.format(Date())
 
         val noviNaslov = et_sport_naslov.text.toString()
