@@ -20,7 +20,7 @@ class OglasnikAdapter(): RecyclerView.Adapter<OglasnikAdapter.ViewHolder>() {
     override fun onBindViewHolder(holder: OglasnikAdapter.ViewHolder, position: Int) {
         val currentItem = oglasnikList[position]
         holder.itemView.textViewOglasnikNaslov.text = currentItem.oglasnikNaslov
-        holder.itemView.textViewOglasnikVrijeme.text = currentItem.oglasnikVrijeme
+        holder.itemView.textViewOglasnikCijena.text = currentItem.oglasnikVrijeme
     }
 
     override fun getItemCount(): Int {
