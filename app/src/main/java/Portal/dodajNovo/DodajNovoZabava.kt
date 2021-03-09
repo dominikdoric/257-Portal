@@ -3,7 +3,9 @@ package Portal.dodajNovo
 import Portal.a257.R
 import Portal.database.table.ZabavaTable
 import Portal.viewModel.ZabavaViewModel
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +13,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.dodaj_novo_zabava_fragment.*
 import kotlinx.android.synthetic.main.dodaj_novo_zabava_fragment.view.*
+import java.sql.Time
+import java.sql.Timestamp
 import java.text.DateFormat
+import java.text.DateFormat.getTimeInstance
+import java.text.SimpleDateFormat
 import java.util.*
 
 class DodajNovoZabava: Fragment() {
@@ -33,12 +39,14 @@ class DodajNovoZabava: Fragment() {
         return view
     }
 
+    @SuppressLint("SimpleDateFormat")
     private fun insertDataToDatabase() {
-        val calendar = Calendar.getInstance()
-        val currentDate = DateFormat.getDateInstance(DateFormat.SHORT).format(calendar.time)
+
+        val sdf = SimpleDateFormat("dd.MM.yyyy. hh:mm")
+        val curentDate = sdf.format(Date())
 
         val noviNaslov = et_zabava_naslov.text.toString()
-        val novoVrijeme = currentDate
+        val novoVrijeme = curentDate
         val noviClanak = ""
         val novaSlika = R.drawable.jaksic
 

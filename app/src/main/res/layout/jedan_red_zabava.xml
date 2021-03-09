@@ -33,17 +33,42 @@
             android:textColor="#000"
             android:textSize="20dp" />
 
-        <TextView
-            android:id="@+id/textViewZabavaVrijeme"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textViewZabavaNaslov"
-            android:layout_marginTop="15dp"
             android:layout_marginLeft="5dp"
-            android:layout_marginBottom="5dp"
-            android:text="Prije 1 h"
-            android:textColor="#000"
-            android:textSize="20dp" />
+            android:orientation="horizontal"
+            android:layout_below="@id/textViewZabavaNaslov">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Objavljeno:"
+                android:textSize="15dp"
+                android:textColor="#000"/>
+
+            <TextView
+                android:id="@+id/textViewZabavaVrijeme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewZabavaNaslov"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="Prije 1 h"
+                android:textColor="#000"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text=" h"
+                android:textSize="15dp"
+                android:textColor="#000"/>
+
+        </LinearLayout>
 
     </RelativeLayout>
 
