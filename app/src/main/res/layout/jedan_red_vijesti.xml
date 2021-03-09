@@ -43,7 +43,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:text="Objavljeno:"
                 android:textColor="#000"
                 android:textSize="15dp" />
@@ -53,7 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"
                 android:text="Prije 1 h"
                 android:textColor="#000"
@@ -62,7 +62,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:text=" h"
                 android:textColor="#000"
                 android:textSize="15dp" />
