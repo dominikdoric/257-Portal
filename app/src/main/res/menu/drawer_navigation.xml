@@ -21,4 +21,8 @@
         android:id="@+id/oglasnikNavDrawer"
         android:title="Oglasnik"
         android:icon="@drawable/ic_email"/>
+    <item
+        android:id="@+id/priceCitateljaNavDrawer"
+        android:title="Priče čitatelja"
+        android:icon="@drawable/ic_email"/>
 </menu>

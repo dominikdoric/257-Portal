@@ -8,19 +8,9 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.navigation.NavController
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import kotlinx.android.synthetic.main.activity_main.*
-import java.io.Externalizable
 
 class MainActivity : AppCompatActivity() {
 
@@ -49,7 +39,8 @@ class MainActivity : AppCompatActivity() {
         val zabavaFragment = ZabavaFragment()
         val vrijemeFragment = VrijemeFragment()
         val infoFragment = InfoFragment()
-        val jaNovinarFragment = JaNovinarFragment()
+        val priceCitateljaFragment = PriceCitateljaFragment()
+        val kontaktFragment = KontaktFragment()
 
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.frameLayout_host, naslovnicaFragment)
@@ -103,6 +94,15 @@ class MainActivity : AppCompatActivity() {
                     }
                     true
                 }
+                R.id.priceCitateljaNavDrawer -> {
+                    supportFragmentManager.beginTransaction().apply {
+                        replace(R.id.frameLayout_host, priceCitateljaFragment)
+                        addToBackStack(null)
+                        commit()
+                        main_drawer_layout.closeDrawer(GravityCompat.START)
+                    }
+                    true
+                }
                 else -> false
             }
         }
@@ -133,9 +133,9 @@ class MainActivity : AppCompatActivity() {
                     }
                     true
                 }
-                R.id.jaNovinarBottomNav -> {
+                R.id.kontaktBottomNav -> {
                     supportFragmentManager.beginTransaction().apply {
-                        replace(R.id.frameLayout_host, jaNovinarFragment)
+                        replace(R.id.frameLayout_host, kontaktFragment)
                         addToBackStack(null)
                         commit()
                     }

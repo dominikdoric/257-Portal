@@ -10,10 +10,10 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 
-class JaNovinarFragment: Fragment() {
+class PriceCitateljaFragment: Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.ja_novinar_fragment,container,false)
+        val view = inflater.inflate(R.layout.price_citatelja_fragment,container,false)
 
 
         return view
