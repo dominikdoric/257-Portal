@@ -16,8 +16,10 @@
     <Spinner
         android:id="@+id/spinnerKontakt"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:spinnerMode="dropdown" />
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:entries="@array/spinnerItems"/>
     <Button
         android:id="@+id/gumbPošaljiKontakt"
         android:layout_width="wrap_content"
