@@ -27,6 +27,6 @@ data class OglasnikTable (
         )
 {
     @PrimaryKey(autoGenerate = true)
-    val id: Int = 0
+    var id: Int = 0
 
 }

@@ -38,12 +38,14 @@ class DodajNovoOglasnik: Fragment() {
     }
 
     private fun insertDataToDatabase() {
-        val noviNaslov = et_oglasnik_naslov.text.toString()
-        val novoVrijeme = et_oglasnik_vrijeme.text.toString()
-        val noviClanak = ""
         val novaSlika = R.drawable.jaksic
+        val noviClanak = ""
+        val noviNaslov = et_oglasnik_naslov.text.toString()
+        val novaCijena = et_oglasnik_cijena.text.toString()
+        val novaLokacija = et_oglasnik_lokacija.text.toString()
+        val noviBroj = et_oglasnik_broj.text.toString()
 
-        val oglasnik = OglasnikTable(noviNaslov,noviClanak,novoVrijeme,novaSlika)
+        val oglasnik = OglasnikTable(novaSlika,noviClanak,noviNaslov,novaCijena,novaLokacija,noviBroj)
         mOglasnikViewModel.addOglasnik(oglasnik)
     }
 

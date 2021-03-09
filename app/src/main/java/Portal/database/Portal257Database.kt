@@ -7,9 +7,11 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [ZabavaTable::class,SportTable::class,ObavijestiTable::class,
-    VijestiTable::class,OglasnikTable::class,NaslovnicaTable::class],version = 1)
-abstract class Portal257Database: RoomDatabase() {
+@Database(
+    entities = [ZabavaTable::class, SportTable::class, ObavijestiTable::class,
+        VijestiTable::class, OglasnikTable::class, NaslovnicaTable::class], version = 2
+)
+abstract class Portal257Database : RoomDatabase() {
 
     abstract fun zabavaDao(): ZabavaDao
     abstract fun sportDao(): SportDao
@@ -18,11 +20,11 @@ abstract class Portal257Database: RoomDatabase() {
     abstract fun oglasnikDao(): OglasnikDao
     abstract fun naslovnicaDao(): NaslovnicaDao
 
-    companion object{
+    companion object {
         @Volatile
         private var INSTANCE: Portal257Database? = null
 
-        fun getDatabase(context: Context): Portal257Database{
+        fun getDatabase(context: Context): Portal257Database {
             val tempInstance = INSTANCE
             if (tempInstance != null) {
                 return tempInstance
@@ -32,7 +34,8 @@ abstract class Portal257Database: RoomDatabase() {
                     context.applicationContext,
                     Portal257Database::class.java,
                     "nk_jaksic_baza"
-                ).build()
+                ).fallbackToDestructiveMigration()
+                    .build()
                 INSTANCE = instance
                 return instance
             }
