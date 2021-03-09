@@ -11,6 +11,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.dodaj_novo_zabava_fragment.*
 import kotlinx.android.synthetic.main.dodaj_novo_zabava_fragment.view.*
+import java.text.DateFormat
+import java.util.*
 
 class DodajNovoZabava: Fragment() {
 
@@ -32,8 +34,11 @@ class DodajNovoZabava: Fragment() {
     }
 
     private fun insertDataToDatabase() {
+        val calendar = Calendar.getInstance()
+        val currentDate = DateFormat.getDateInstance(DateFormat.SHORT).format(calendar.time)
+
         val noviNaslov = et_zabava_naslov.text.toString()
-        val novoVrijeme = et_zabava_vrijeme.text.toString()
+        val novoVrijeme = currentDate
         val noviClanak = ""
         val novaSlika = R.drawable.jaksic
 

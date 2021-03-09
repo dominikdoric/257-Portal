@@ -14,6 +14,8 @@ import kotlinx.android.synthetic.main.dodaj_novo_vijesti_fragment.*
 import kotlinx.android.synthetic.main.dodaj_novo_vijesti_fragment.view.*
 import kotlinx.android.synthetic.main.dodaj_novo_zabava_fragment.*
 import kotlinx.android.synthetic.main.dodaj_novo_zabava_fragment.et_zabava_naslov
+import java.text.DateFormat
+import java.util.*
 
 class DodajNovoVijesti: Fragment() {
 
@@ -36,8 +38,11 @@ class DodajNovoVijesti: Fragment() {
     }
 
     private fun insertDataToDatabase() {
+        val calendar = Calendar.getInstance()
+        val currentDate = DateFormat.getDateInstance(DateFormat.SHORT).format(calendar.time)
+
         val noviNaslov = et_vijesti_naslov.text.toString()
-        val novoVrijeme = et_vijesti_vrijeme.text.toString()
+        val novoVrijeme = currentDate
         val noviClanak = ""
         val novaSlika = R.drawable.jaksic
 
