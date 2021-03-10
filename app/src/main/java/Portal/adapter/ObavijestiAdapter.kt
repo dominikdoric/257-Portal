@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.jedan_red_obavijesti.view.*
 
-class ObavijestiAdapter(): RecyclerView.Adapter<ObavijestiAdapter.ViewHolder>() {
+class ObavijestiAdapter(private val listener: ObavijestiAdapter.OnItemClickListener): RecyclerView.Adapter<ObavijestiAdapter.ViewHolder>() {
 
     private var obavijestiList = emptyList<ObavijestiTable>()
 
@@ -27,8 +27,20 @@ class ObavijestiAdapter(): RecyclerView.Adapter<ObavijestiAdapter.ViewHolder>() 
         return obavijestiList.size
     }
 
-    class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView), View.OnClickListener {
+        init {
+            itemView.setOnClickListener(this)
+        }
+        override fun onClick(v: View?) {
+            val position = adapterPosition
+            if(position != RecyclerView.NO_POSITION) {
+                listener.onItemClick(position)
+            }
+        }
+    }
 
+    interface OnItemClickListener{
+        fun onItemClick(position: Int)
     }
 
     fun setData(obavijesti: List<ObavijestiTable>){

@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.jedan_red_oglasnik.view.*
 
-class OglasnikAdapter(): RecyclerView.Adapter<OglasnikAdapter.ViewHolder>() {
+class OglasnikAdapter(private val listener: OglasnikAdapter.OnItemClickListener): RecyclerView.Adapter<OglasnikAdapter.ViewHolder>() {
 
     private var oglasnikList = emptyList<OglasnikTable>()
 
@@ -30,8 +30,20 @@ class OglasnikAdapter(): RecyclerView.Adapter<OglasnikAdapter.ViewHolder>() {
         return oglasnikList.size
     }
 
-    class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) , View.OnClickListener{
+        init {
+            itemView.setOnClickListener(this)
+        }
+        override fun onClick(v: View?) {
+            val position = adapterPosition
+            if(position != RecyclerView.NO_POSITION) {
+                listener.onItemClick(position)
+            }
+        }
+    }
 
+    interface OnItemClickListener{
+        fun onItemClick(position: Int)
     }
 
     fun setData(oglasnik: List<OglasnikTable>){

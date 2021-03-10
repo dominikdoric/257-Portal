@@ -1,5 +1,6 @@
 package Portal.fragmenti
 
+import Portal.DetailFragmenti.DetailOglasnikFragment
 import Portal.a257.R
 import Portal.adapter.OglasnikAdapter
 import Portal.viewModel.OglasnikViewModel
@@ -7,6 +8,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -16,15 +18,16 @@ import kotlinx.android.synthetic.main.oglasnik_fragment.*
 import kotlinx.android.synthetic.main.oglasnik_fragment.view.*
 import kotlinx.android.synthetic.main.zabava_fragment.*
 
-class OglasnikFragment: Fragment() {
+class OglasnikFragment: Fragment(),OglasnikAdapter.OnItemClickListener {
 
     private lateinit var mOglasnikViewModel: OglasnikViewModel
+    val detailOglasnikFragment = DetailOglasnikFragment()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.oglasnik_fragment,container,false)
 
         //RecyclerView
-        val adapter = OglasnikAdapter()
+        val adapter = OglasnikAdapter(this)
         val recyclerOglasnik = view.recyclerViewOglasnik
         recyclerOglasnik.adapter = adapter
         recyclerOglasnik.layoutManager = LinearLayoutManager(requireContext())
@@ -43,6 +46,17 @@ class OglasnikFragment: Fragment() {
 
         recyclerViewOglasnik.addItemDecoration(DividerItemDecoration
             (recyclerViewOglasnik.context,DividerItemDecoration.VERTICAL))
+    }
+
+    override fun onItemClick(position: Int) {
+        Toast.makeText(requireContext(), "Item  $position clicked", Toast.LENGTH_SHORT).show()
+        activity?.supportFragmentManager?.beginTransaction()
+            ?.replace(R.id.frameLayout_host,detailOglasnikFragment)
+            ?.addToBackStack(null)
+            ?.commit()
+        //childFragmentManager.beginTransaction().apply {
+        //  replace(R.id.frameLayout_host, zabavaDetailFragment)
+        //commit()
     }
 
 }

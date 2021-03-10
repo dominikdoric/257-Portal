@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.jedan_red_sport.view.*
 
-class SportAdapter(): RecyclerView.Adapter<SportAdapter.ViewHolder>() {
+class SportAdapter(private val listener: SportAdapter.OnItemClickListener): RecyclerView.Adapter<SportAdapter.ViewHolder>() {
 
     private var sportList = emptyList<SportTable>()
 
@@ -27,8 +27,20 @@ class SportAdapter(): RecyclerView.Adapter<SportAdapter.ViewHolder>() {
         return sportList.size
     }
 
-    class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView), View.OnClickListener {
+        init {
+            itemView.setOnClickListener(this)
+        }
+        override fun onClick(v: View?) {
+            val position = adapterPosition
+            if(position != RecyclerView.NO_POSITION) {
+                listener.onItemClick(position)
+            }
+        }
+    }
 
+    interface OnItemClickListener{
+        fun onItemClick(position: Int)
     }
 
     fun setData(sport: List<SportTable>){

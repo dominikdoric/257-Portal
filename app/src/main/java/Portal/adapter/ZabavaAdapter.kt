@@ -28,8 +28,7 @@ class ZabavaAdapter(private val listener: OnItemClickListener): RecyclerView.Ada
         return zabavaList.size
     }
 
-    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView),
-    View.OnClickListener{
+    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView), View.OnClickListener{
         init {
             itemView.setOnClickListener(this)
         }
