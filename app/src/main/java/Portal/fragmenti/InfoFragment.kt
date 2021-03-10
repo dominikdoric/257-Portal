@@ -48,6 +48,10 @@ class InfoFragment: Fragment() {
         return view
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+    }
+
     private fun setupRecyclerView(){
         recyclerView.adapter = myAdapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())

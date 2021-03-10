@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.dodaj_novo_zabava_fragment.view.*
 import kotlinx.android.synthetic.main.jedan_red_zabava.view.*
 
-class ZabavaAdapter(): RecyclerView.Adapter<ZabavaAdapter.ViewHolder>() {
+class ZabavaAdapter(private val listener: OnItemClickListener): RecyclerView.Adapter<ZabavaAdapter.ViewHolder>() {
 
     private var zabavaList = emptyList<ZabavaTable>()
 
@@ -28,8 +28,21 @@ class ZabavaAdapter(): RecyclerView.Adapter<ZabavaAdapter.ViewHolder>() {
         return zabavaList.size
     }
 
-    class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView),
+    View.OnClickListener{
+        init {
+            itemView.setOnClickListener(this)
+        }
+        override fun onClick(v: View?) {
+            val position = adapterPosition
+            if(position != RecyclerView.NO_POSITION) {
+                listener.onItemClick(position)
+            }
+        }
+    }
 
+    interface OnItemClickListener{
+        fun onItemClick(position: Int)
     }
 
     fun setData(zabava: List<ZabavaTable>){
