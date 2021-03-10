@@ -1,10 +1,10 @@
 package Portal.fragmenti
 
+import Portal.DetailFragmenti.DetailZabavaFragment
 import Portal.a257.R
 import Portal.adapter.ZabavaAdapter
 import Portal.viewModel.ZabavaViewModel
 import android.os.Bundle
-import android.text.TextUtils.replace
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.zabava_fragment.view.*
 class ZabavaFragment: Fragment(),ZabavaAdapter.OnItemClickListener {
 
     private lateinit var mZabavaViewModel: ZabavaViewModel
-    val zabavaDetailFragment = ZabavaDetailFragment()
+    val zabavaDetailFragment = DetailZabavaFragment()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.zabava_fragment,container,false)

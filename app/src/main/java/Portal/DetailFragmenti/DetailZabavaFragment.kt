@@ -1,4 +1,4 @@
-package Portal.fragmenti
+package Portal.DetailFragmenti
 
 import Portal.a257.R
 import android.os.Bundle
@@ -7,14 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 
-class ZabavaDetailFragment: Fragment() {
+class DetailZabavaFragment: Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.zabava_detail_fragment,container,false)
+        val view = inflater.inflate(R.layout.detail_zabava_fragment,container,false)
 
         return view
     }
