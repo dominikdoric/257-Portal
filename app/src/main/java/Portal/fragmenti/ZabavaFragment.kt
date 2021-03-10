@@ -20,6 +20,7 @@ class ZabavaFragment: Fragment(),ZabavaAdapter.OnItemClickListener {
 
     private lateinit var mZabavaViewModel: ZabavaViewModel
 
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.zabava_fragment,container,false)
 
@@ -48,5 +49,6 @@ class ZabavaFragment: Fragment(),ZabavaAdapter.OnItemClickListener {
 
     override fun onItemClick(position: Int) {
         Toast.makeText(requireContext(), "Item  $position clicked", Toast.LENGTH_SHORT).show()
+
     }
 }
