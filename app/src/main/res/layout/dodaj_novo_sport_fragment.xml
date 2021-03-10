@@ -18,11 +18,6 @@
         android:layout_weight="1"
         android:gravity="bottom"
         android:hint="Clanak"/>
-    <EditText
-        android:id="@+id/et_sport_vrijeme"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Vrijeme"/>
     <Button
         android:id="@+id/gumbSpremiSport"
         android:layout_width="wrap_content"
