@@ -33,14 +33,16 @@ class ObavijestiAdapter(private val listener: ObavijestiAdapter.OnItemClickListe
         }
         override fun onClick(v: View?) {
             val position = adapterPosition
+            val naslovObavijesti = obavijestiList.get(adapterPosition).obavijestiNaslov
+            val clanakObavijesti = obavijestiList.get(adapterPosition).obavijestiClanak
             if(position != RecyclerView.NO_POSITION) {
-                listener.onItemClick(position)
+                listener.onItemClick(position,naslovObavijesti,clanakObavijesti)
             }
         }
     }
 
     interface OnItemClickListener{
-        fun onItemClick(position: Int)
+        fun onItemClick(position: Int,naslovObavijesti: String, clanakObavijesti: String)
     }
 
     fun setData(obavijesti: List<ObavijestiTable>){

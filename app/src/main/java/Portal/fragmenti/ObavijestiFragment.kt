@@ -48,8 +48,10 @@ class ObavijestiFragment: Fragment(),ObavijestiAdapter.OnItemClickListener {
             (recyclerViewObavijesti.context,DividerItemDecoration.VERTICAL))
     }
 
-    override fun onItemClick(position: Int) {
-        Toast.makeText(requireContext(), "Item  $position clicked", Toast.LENGTH_SHORT).show()
+    override fun onItemClick(position: Int,naslovObavijesti: String, clanakObavijesti: String) {
+        Toast.makeText(requireContext(), "Item  $position clicked" +
+                "Item  $naslovObavijesti clicked" +
+                "Item  $clanakObavijesti clicked", Toast.LENGTH_SHORT).show()
         activity?.supportFragmentManager?.beginTransaction()
             ?.replace(R.id.frameLayout_host,detailObavijestiFragment)
             ?.addToBackStack(null)

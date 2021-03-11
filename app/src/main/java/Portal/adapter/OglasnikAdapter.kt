@@ -36,14 +36,19 @@ class OglasnikAdapter(private val listener: OglasnikAdapter.OnItemClickListener)
         }
         override fun onClick(v: View?) {
             val position = adapterPosition
+            val naslovOglasnik = oglasnikList.get(adapterPosition).oglasnikNaslov
+            val clanakOglasnik = oglasnikList.get(adapterPosition).oglasnikClanak
+            val cijenaOglasnik = oglasnikList.get(adapterPosition).oglasnikCijena
+            val lokacijaOglasnik = oglasnikList.get(adapterPosition).oglasnikLokacija
+            val brojOglasnik = oglasnikList.get(adapterPosition).oglasnikBroj
             if(position != RecyclerView.NO_POSITION) {
-                listener.onItemClick(position)
+                listener.onItemClick(position,naslovOglasnik,clanakOglasnik,cijenaOglasnik,lokacijaOglasnik,brojOglasnik)
             }
         }
     }
 
     interface OnItemClickListener{
-        fun onItemClick(position: Int)
+        fun onItemClick(position: Int,naslovOglasnik: String,clanakOglasnik: String,cijenaOglasnik: String,lokacijaOglasnik: String,brojOglasnik: String)
     }
 
     fun setData(oglasnik: List<OglasnikTable>){

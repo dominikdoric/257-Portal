@@ -48,8 +48,13 @@ class OglasnikFragment: Fragment(),OglasnikAdapter.OnItemClickListener {
             (recyclerViewOglasnik.context,DividerItemDecoration.VERTICAL))
     }
 
-    override fun onItemClick(position: Int) {
-        Toast.makeText(requireContext(), "Item  $position clicked", Toast.LENGTH_SHORT).show()
+    override fun onItemClick(position: Int,naslovOglasnik: String,clanakOglasnik: String,cijenaOglasnik: String,lokacijaOglasnik: String,brojOglasnik: String) {
+        Toast.makeText(requireContext(), "Item  $position clicked" +
+                "\nItem  $naslovOglasnik clicked" +
+                "\nItem  $clanakOglasnik clicked" +
+                "\nItem  $cijenaOglasnik clicked" +
+                "\nItem  $lokacijaOglasnik clicked" +
+                "\nItem  $brojOglasnik clicked", Toast.LENGTH_SHORT).show()
         activity?.supportFragmentManager?.beginTransaction()
             ?.replace(R.id.frameLayout_host,detailOglasnikFragment)
             ?.addToBackStack(null)
