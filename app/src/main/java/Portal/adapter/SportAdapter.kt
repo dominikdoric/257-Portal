@@ -33,14 +33,16 @@ class SportAdapter(private val listener: SportAdapter.OnItemClickListener): Recy
         }
         override fun onClick(v: View?) {
             val position = adapterPosition
+            val naslovSport = sportList.get(adapterPosition).sportNaslov
+            val clanakSport = sportList.get(adapterPosition).sportClanak
             if(position != RecyclerView.NO_POSITION) {
-                listener.onItemClick(position)
+                listener.onItemClick(position,naslovSport,clanakSport)
             }
         }
     }
 
     interface OnItemClickListener{
-        fun onItemClick(position: Int)
+        fun onItemClick(position: Int,naslovSport: String,clanakSport: String)
     }
 
     fun setData(sport: List<SportTable>){

@@ -49,8 +49,10 @@ class VijestiFragment: Fragment(),VijestiAdapter.OnItemClickListener {
 
     }
 
-    override fun onItemClick(position: Int) {
-        Toast.makeText(requireContext(), "Item  $position clicked", Toast.LENGTH_SHORT).show()
+    override fun onItemClick(position: Int,naslovVijesti: String,clanakVijesti: String) {
+        Toast.makeText(requireContext(), "Item  $position clicked" +
+                "Item  $naslovVijesti clicked" +
+                "Item  $clanakVijesti clicked", Toast.LENGTH_SHORT).show()
         activity?.supportFragmentManager?.beginTransaction()
             ?.replace(R.id.frameLayout_host,vijestiDetailFragment)
             ?.addToBackStack(null)
