@@ -34,14 +34,16 @@ class ZabavaAdapter(private val listener: OnItemClickListener): RecyclerView.Ada
         }
         override fun onClick(v: View?) {
             val position = adapterPosition
+            val naslovZabava = zabavaList.get(adapterPosition).zabavaNaslov
+            val clanakZabava = zabavaList.get(adapterPosition).zabavaClanak
             if(position != RecyclerView.NO_POSITION) {
-                listener.onItemClick(position)
+                listener.onItemClick(position,naslovZabava,clanakZabava)
             }
         }
     }
 
     interface OnItemClickListener{
-        fun onItemClick(position: Int)
+        fun onItemClick(position: Int,naslovZabava: String,clanakZabava: String)
     }
 
     fun setData(zabava: List<ZabavaTable>){
