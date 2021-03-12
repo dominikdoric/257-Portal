@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.jedan_red_sport.view.*
 
-class SportAdapter(private val listener: SportAdapter.OnItemClickListener): RecyclerView.Adapter<SportAdapter.ViewHolder>() {
+class SportAdapter(private val listener: OnItemClickListener,private val listenerLong: OnItemLongClickListener): RecyclerView.Adapter<SportAdapter.ViewHolder>() {
 
     private var sportList = emptyList<SportTable>()
 
@@ -27,9 +27,10 @@ class SportAdapter(private val listener: SportAdapter.OnItemClickListener): Recy
         return sportList.size
     }
 
-    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView), View.OnClickListener {
+    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView), View.OnClickListener,View.OnLongClickListener {
         init {
             itemView.setOnClickListener(this)
+            itemView.setOnLongClickListener(this)
         }
         override fun onClick(v: View?) {
             val position = adapterPosition
@@ -39,10 +40,22 @@ class SportAdapter(private val listener: SportAdapter.OnItemClickListener): Recy
                 listener.onItemClick(position,naslovSport,clanakSport)
             }
         }
+
+        override fun onLongClick(v: View?): Boolean {
+            val position = adapterPosition
+            if (position != RecyclerView.NO_POSITION){
+                listenerLong.onItemLongClick(position)
+            }
+            return true
+        }
     }
 
     interface OnItemClickListener{
         fun onItemClick(position: Int,naslovSport: String,clanakSport: String)
+    }
+
+    interface OnItemLongClickListener{
+        fun onItemLongClick(position: Int)
     }
 
     fun setData(sport: List<SportTable>){

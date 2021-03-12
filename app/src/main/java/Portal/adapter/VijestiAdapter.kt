@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.jedan_red_vijesti.view.*
 
-class VijestiAdapter(private val listener: VijestiAdapter.OnItemClickListener): RecyclerView.Adapter<VijestiAdapter.ViewHolder>() {
+class VijestiAdapter(private val listener: OnItemClickListener,private val listenerLong: OnItemLongClickListener): RecyclerView.Adapter<VijestiAdapter.ViewHolder>() {
 
     private var vijestiList = emptyList<VijestiTable>()
 
@@ -27,9 +27,10 @@ class VijestiAdapter(private val listener: VijestiAdapter.OnItemClickListener): 
         return vijestiList.size
     }
 
-    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView), View.OnClickListener {
+    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView), View.OnClickListener,View.OnLongClickListener {
         init {
             itemView.setOnClickListener(this)
+            itemView.setOnLongClickListener(this)
         }
         override fun onClick(v: View?) {
             val position = adapterPosition
@@ -39,10 +40,22 @@ class VijestiAdapter(private val listener: VijestiAdapter.OnItemClickListener): 
                 listener.onItemClick(position,naslovVijesti,clanakVijesti)
             }
         }
+
+        override fun onLongClick(v: View?): Boolean {
+            val position = adapterPosition
+            if (position != RecyclerView.NO_POSITION){
+                listenerLong.onItemLongClick(position)
+            }
+            return true
+        }
     }
 
     interface OnItemClickListener{
         fun onItemClick(position: Int,naslovVijesti: String,clanakVijesti: String)
+    }
+
+    interface OnItemLongClickListener{
+        fun onItemLongClick(position: Int)
     }
 
     fun setData(vijesti: List<VijestiTable>){

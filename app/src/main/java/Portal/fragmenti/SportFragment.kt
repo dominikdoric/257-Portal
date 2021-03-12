@@ -3,6 +3,7 @@ package Portal.fragmenti
 import Portal.DetailFragmenti.DetailSportFragment
 import Portal.a257.R
 import Portal.adapter.SportAdapter
+import Portal.adapter.ZabavaAdapter
 import Portal.viewModel.SportViewModel
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -18,7 +19,7 @@ import kotlinx.android.synthetic.main.sport_fragment.*
 import kotlinx.android.synthetic.main.sport_fragment.view.*
 import kotlinx.android.synthetic.main.zabava_fragment.*
 
-class SportFragment: Fragment(),SportAdapter.OnItemClickListener {
+class SportFragment: Fragment(),SportAdapter.OnItemClickListener, SportAdapter.OnItemLongClickListener {
 
     private lateinit var mSportViewModel: SportViewModel
     val sportDetailFragment = DetailSportFragment()
@@ -27,7 +28,7 @@ class SportFragment: Fragment(),SportAdapter.OnItemClickListener {
         val view = inflater.inflate(R.layout.sport_fragment,container,false)
 
         //RecyclerView
-        val adapter = SportAdapter(this)
+        val adapter = SportAdapter(this,this)
         val recyclerSport = view.recyclerViewSport
         recyclerSport.adapter = adapter
         recyclerSport.layoutManager = LinearLayoutManager(requireContext())
@@ -59,6 +60,11 @@ class SportFragment: Fragment(),SportAdapter.OnItemClickListener {
         //childFragmentManager.beginTransaction().apply {
         //  replace(R.id.frameLayout_host, zabavaDetailFragment)
         //commit()
+    }
+
+    override fun onItemLongClick(position: Int) {
+        Toast.makeText(requireContext(),"Item $position long clicked",
+            Toast.LENGTH_LONG).show()
     }
 
 }
