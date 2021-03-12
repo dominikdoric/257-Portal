@@ -19,16 +19,21 @@ import kotlinx.android.synthetic.main.oglasnik_fragment.*
 import kotlinx.android.synthetic.main.oglasnik_fragment.view.*
 import kotlinx.android.synthetic.main.zabava_fragment.*
 
-class OglasnikFragment: Fragment(),OglasnikAdapter.OnItemClickListener,OglasnikAdapter.OnItemLongClickListener {
+class OglasnikFragment : Fragment(), OglasnikAdapter.OnItemClickListener,
+    OglasnikAdapter.OnItemLongClickListener {
 
     private lateinit var mOglasnikViewModel: OglasnikViewModel
     val detailOglasnikFragment = DetailOglasnikFragment()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.oglasnik_fragment,container,false)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.oglasnik_fragment, container, false)
 
         //RecyclerView
-        val adapter = OglasnikAdapter(this,this)
+        val adapter = OglasnikAdapter(this, this)
         val recyclerOglasnik = view.recyclerViewOglasnik
         recyclerOglasnik.adapter = adapter
         recyclerOglasnik.layoutManager = LinearLayoutManager(requireContext())
@@ -45,19 +50,30 @@ class OglasnikFragment: Fragment(),OglasnikAdapter.OnItemClickListener,OglasnikA
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        recyclerViewOglasnik.addItemDecoration(DividerItemDecoration
-            (recyclerViewOglasnik.context,DividerItemDecoration.VERTICAL))
+        recyclerViewOglasnik.addItemDecoration(
+            DividerItemDecoration
+                (recyclerViewOglasnik.context, DividerItemDecoration.VERTICAL)
+        )
     }
 
-    override fun onItemClick(position: Int,naslovOglasnik: String,clanakOglasnik: String,cijenaOglasnik: String,lokacijaOglasnik: String,brojOglasnik: String) {
-        Toast.makeText(requireContext(), "Item  $position clicked" +
-                "\nItem  $naslovOglasnik clicked" +
-                "\nItem  $clanakOglasnik clicked" +
-                "\nItem  $cijenaOglasnik clicked" +
-                "\nItem  $lokacijaOglasnik clicked" +
-                "\nItem  $brojOglasnik clicked", Toast.LENGTH_SHORT).show()
+    override fun onItemClick(
+        position: Int,
+        naslovOglasnik: String,
+        clanakOglasnik: String,
+        cijenaOglasnik: String,
+        lokacijaOglasnik: String,
+        brojOglasnik: String
+    ) {
+        Toast.makeText(
+            requireContext(), "Item  $position clicked" +
+                    "\nItem  $naslovOglasnik clicked" +
+                    "\nItem  $clanakOglasnik clicked" +
+                    "\nItem  $cijenaOglasnik clicked" +
+                    "\nItem  $lokacijaOglasnik clicked" +
+                    "\nItem  $brojOglasnik clicked", Toast.LENGTH_SHORT
+        ).show()
         activity?.supportFragmentManager?.beginTransaction()
-            ?.replace(R.id.frameLayout_host,detailOglasnikFragment)
+            ?.replace(R.id.frameLayout_host, detailOglasnikFragment)
             ?.addToBackStack(null)
             ?.commit()
         //childFragmentManager.beginTransaction().apply {
@@ -74,7 +90,7 @@ class OglasnikFragment: Fragment(),OglasnikAdapter.OnItemClickListener,OglasnikA
         builder.setPositiveButton("Yes") { _, _ ->
 
         }
-        builder.setNegativeButton("No") { _, _ ->}
+        builder.setNegativeButton("No") { _, _ -> }
         builder.setTitle("Delete?")
         builder.setMessage("Are you sure you want to delete?")
         builder.create().show()
