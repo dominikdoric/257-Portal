@@ -20,7 +20,7 @@ import java.text.DateFormat.getTimeInstance
 import java.text.SimpleDateFormat
 import java.util.*
 
-class DodajNovoZabava: Fragment() {
+class DodajNovoZabava : Fragment() {
 
     private lateinit var mZabavaViewModel: ZabavaViewModel
 
@@ -29,7 +29,7 @@ class DodajNovoZabava: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.dodaj_novo_zabava_fragment,container,false)
+        val view = inflater.inflate(R.layout.dodaj_novo_zabava_fragment, container, false)
 
         mZabavaViewModel = ViewModelProvider(this).get(ZabavaViewModel::class.java)
 
@@ -49,7 +49,7 @@ class DodajNovoZabava: Fragment() {
         val noviClanak = ""
         val novaSlika = R.drawable.jaksic
 
-        val zabava = ZabavaTable(noviNaslov,noviClanak,novoVrijeme,novaSlika)
+        val zabava = ZabavaTable(noviNaslov, noviClanak, novoVrijeme, novaSlika)
         mZabavaViewModel.addZabava(zabava)
     }
 }
