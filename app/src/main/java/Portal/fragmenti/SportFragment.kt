@@ -5,6 +5,7 @@ import Portal.a257.R
 import Portal.adapter.SportAdapter
 import Portal.adapter.ZabavaAdapter
 import Portal.viewModel.SportViewModel
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -63,8 +64,18 @@ class SportFragment: Fragment(),SportAdapter.OnItemClickListener, SportAdapter.O
     }
 
     override fun onItemLongClick(position: Int) {
-        Toast.makeText(requireContext(),"Item $position long clicked",
-            Toast.LENGTH_LONG).show()
+        deleteRow()
+    }
+
+    private fun deleteRow() {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setPositiveButton("Yes") { _, _ ->
+
+        }
+        builder.setNegativeButton("No") { _, _ ->}
+        builder.setTitle("Delete?")
+        builder.setMessage("Are you sure you want to delete?")
+        builder.create().show()
     }
 
 }

@@ -4,6 +4,7 @@ import Portal.DetailFragmenti.DetailObavijestiFragment
 import Portal.a257.R
 import Portal.adapter.ObavijestiAdapter
 import Portal.viewModel.ObavijestiViewModel
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -62,8 +63,18 @@ class ObavijestiFragment: Fragment(),ObavijestiAdapter.OnItemClickListener,Obavi
     }
 
     override fun onItemLongClick(position: Int) {
-        Toast.makeText(requireContext(),"Item $position long clicked",
-            Toast.LENGTH_LONG).show()
+        deleteRow()
+    }
+
+    private fun deleteRow() {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setPositiveButton("Yes") { _, _ ->
+
+        }
+        builder.setNegativeButton("No") { _, _ ->}
+        builder.setTitle("Delete?")
+        builder.setMessage("Are you sure you want to delete?")
+        builder.create().show()
     }
 
 }
