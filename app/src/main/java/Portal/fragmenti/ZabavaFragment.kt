@@ -82,9 +82,9 @@ class ZabavaFragment : Fragment(), ZabavaAdapter.OnItemClickListener,
         builder.setPositiveButton("Yes") { _, _ ->
 
         }
-        builder.setNegativeButton("No") { _, _ ->}
+        builder.setNegativeButton("No") { _, _ -> }
         builder.setTitle("Delete?")
         builder.setMessage("Are you sure you want to delete?")
         builder.create().show()
-        }
     }
+}

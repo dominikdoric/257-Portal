@@ -12,7 +12,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class ZabavaViewModel(application: Application): AndroidViewModel(application) {
+class ZabavaViewModel(application: Application) : AndroidViewModel(application) {
 
     val readAllDataZabava: LiveData<List<ZabavaTable>>
     private val zabavaRepository: ZabavaRepository
@@ -23,25 +23,25 @@ class ZabavaViewModel(application: Application): AndroidViewModel(application) {
         readAllDataZabava = zabavaRepository.readAllDataZabava
     }
 
-    fun addZabava(zabavaTable: ZabavaTable){
-        viewModelScope.launch(Dispatchers.IO){
+    fun addZabava(zabavaTable: ZabavaTable) {
+        viewModelScope.launch(Dispatchers.IO) {
             zabavaRepository.addZabava(zabavaTable)
         }
     }
 
-    fun updateZabava(zabavaTable: ZabavaTable){
+    fun updateZabava(zabavaTable: ZabavaTable) {
         viewModelScope.launch(Dispatchers.IO) {
             zabavaRepository.updateZabava(zabavaTable)
         }
     }
 
-    fun deleteZabava(zabavaTable: ZabavaTable){
+    fun deleteZabava(zabavaTable: ZabavaTable) {
         viewModelScope.launch(Dispatchers.IO) {
             zabavaRepository.deleteZabava(zabavaTable)
         }
     }
 
-    fun deleteAllZabava(){
+    fun deleteAllZabava() {
         viewModelScope.launch(Dispatchers.IO) {
             zabavaRepository.deleteAllZabava()
         }

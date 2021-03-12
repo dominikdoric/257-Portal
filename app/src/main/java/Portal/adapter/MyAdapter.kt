@@ -8,14 +8,16 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.row_layout.view.*
 
-class MyAdapter: RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
+class MyAdapter : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
     private var myList = emptyList<Post>()
 
-    inner class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
+    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyAdapter.MyViewHolder {
-        return MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.row_layout,parent,false))
+        return MyViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.row_layout, parent, false)
+        )
     }
 
     override fun onBindViewHolder(holder: MyAdapter.MyViewHolder, position: Int) {
@@ -29,7 +31,7 @@ class MyAdapter: RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
         return myList.size
     }
 
-    fun setData(newList: List<Post>){
+    fun setData(newList: List<Post>) {
         myList = newList
         notifyDataSetChanged()
     }
