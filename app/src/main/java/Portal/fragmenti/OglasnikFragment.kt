@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.oglasnik_fragment.*
 import kotlinx.android.synthetic.main.oglasnik_fragment.view.*
 import kotlinx.android.synthetic.main.zabava_fragment.*
 
-class OglasnikFragment: Fragment(),OglasnikAdapter.OnItemClickListener {
+class OglasnikFragment: Fragment(),OglasnikAdapter.OnItemClickListener,OglasnikAdapter.OnItemLongClickListener {
 
     private lateinit var mOglasnikViewModel: OglasnikViewModel
     val detailOglasnikFragment = DetailOglasnikFragment()
@@ -27,7 +27,7 @@ class OglasnikFragment: Fragment(),OglasnikAdapter.OnItemClickListener {
         val view = inflater.inflate(R.layout.oglasnik_fragment,container,false)
 
         //RecyclerView
-        val adapter = OglasnikAdapter(this)
+        val adapter = OglasnikAdapter(this,this)
         val recyclerOglasnik = view.recyclerViewOglasnik
         recyclerOglasnik.adapter = adapter
         recyclerOglasnik.layoutManager = LinearLayoutManager(requireContext())
@@ -62,6 +62,11 @@ class OglasnikFragment: Fragment(),OglasnikAdapter.OnItemClickListener {
         //childFragmentManager.beginTransaction().apply {
         //  replace(R.id.frameLayout_host, zabavaDetailFragment)
         //commit()
+    }
+
+    override fun onItemLongClick(position: Int) {
+        Toast.makeText(requireContext(),"Item $position long clicked",
+            Toast.LENGTH_LONG).show()
     }
 
 }

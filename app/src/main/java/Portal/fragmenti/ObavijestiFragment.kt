@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.obavijesti_fragment.*
 import kotlinx.android.synthetic.main.obavijesti_fragment.view.*
 import kotlinx.android.synthetic.main.zabava_fragment.*
 
-class ObavijestiFragment: Fragment(),ObavijestiAdapter.OnItemClickListener {
+class ObavijestiFragment: Fragment(),ObavijestiAdapter.OnItemClickListener,ObavijestiAdapter.OnItemLongClickListener {
 
     private lateinit var mObavijestiViewModel: ObavijestiViewModel
     val detailObavijestiFragment = DetailObavijestiFragment()
@@ -27,7 +27,7 @@ class ObavijestiFragment: Fragment(),ObavijestiAdapter.OnItemClickListener {
         val view = inflater.inflate(R.layout.obavijesti_fragment,container,false)
 
         //RecyclerView
-        val adapter = ObavijestiAdapter(this)
+        val adapter = ObavijestiAdapter(this,this)
         val recyclerObavijesti = view.recyclerViewObavijesti
         recyclerObavijesti.adapter = adapter
         recyclerObavijesti.layoutManager = LinearLayoutManager(requireContext())
@@ -59,6 +59,11 @@ class ObavijestiFragment: Fragment(),ObavijestiAdapter.OnItemClickListener {
         //childFragmentManager.beginTransaction().apply {
         //  replace(R.id.frameLayout_host, zabavaDetailFragment)
         //commit()
+    }
+
+    override fun onItemLongClick(position: Int) {
+        Toast.makeText(requireContext(),"Item $position long clicked",
+            Toast.LENGTH_LONG).show()
     }
 
 }
