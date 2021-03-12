@@ -8,12 +8,16 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.jedan_red_oglasnik.view.*
 
-class OglasnikAdapter(private val listener: OnItemClickListener,private val listenerLong: OnItemLongClickListener): RecyclerView.Adapter<OglasnikAdapter.ViewHolder>() {
+class OglasnikAdapter(
+    private val listener: OnItemClickListener,
+    private val listenerLong: OnItemLongClickListener
+) : RecyclerView.Adapter<OglasnikAdapter.ViewHolder>() {
 
     private var oglasnikList = emptyList<OglasnikTable>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OglasnikAdapter.ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.jedan_red_oglasnik, parent, false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.jedan_red_oglasnik, parent, false)
         return ViewHolder(view)
     }
 
@@ -30,11 +34,13 @@ class OglasnikAdapter(private val listener: OnItemClickListener,private val list
         return oglasnikList.size
     }
 
-    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) , View.OnClickListener,View.OnLongClickListener{
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
+        View.OnClickListener, View.OnLongClickListener {
         init {
             itemView.setOnClickListener(this)
             itemView.setOnLongClickListener(this)
         }
+
         override fun onClick(v: View?) {
             val position = adapterPosition
             val naslovOglasnik = oglasnikList.get(adapterPosition).oglasnikNaslov
@@ -42,29 +48,43 @@ class OglasnikAdapter(private val listener: OnItemClickListener,private val list
             val cijenaOglasnik = oglasnikList.get(adapterPosition).oglasnikCijena
             val lokacijaOglasnik = oglasnikList.get(adapterPosition).oglasnikLokacija
             val brojOglasnik = oglasnikList.get(adapterPosition).oglasnikBroj
-            if(position != RecyclerView.NO_POSITION) {
-                listener.onItemClick(position,naslovOglasnik,clanakOglasnik,cijenaOglasnik,lokacijaOglasnik,brojOglasnik)
+            if (position != RecyclerView.NO_POSITION) {
+                listener.onItemClick(
+                    position,
+                    naslovOglasnik,
+                    clanakOglasnik,
+                    cijenaOglasnik,
+                    lokacijaOglasnik,
+                    brojOglasnik
+                )
             }
         }
 
         override fun onLongClick(v: View?): Boolean {
             val position = adapterPosition
-            if (position != RecyclerView.NO_POSITION){
+            if (position != RecyclerView.NO_POSITION) {
                 listenerLong.onItemLongClick(position)
             }
             return true
         }
     }
 
-    interface OnItemClickListener{
-        fun onItemClick(position: Int,naslovOglasnik: String,clanakOglasnik: String,cijenaOglasnik: String,lokacijaOglasnik: String,brojOglasnik: String)
+    interface OnItemClickListener {
+        fun onItemClick(
+            position: Int,
+            naslovOglasnik: String,
+            clanakOglasnik: String,
+            cijenaOglasnik: String,
+            lokacijaOglasnik: String,
+            brojOglasnik: String
+        )
     }
 
-    interface OnItemLongClickListener{
+    interface OnItemLongClickListener {
         fun onItemLongClick(position: Int)
     }
 
-    fun setData(oglasnik: List<OglasnikTable>){
+    fun setData(oglasnik: List<OglasnikTable>) {
         this.oglasnikList = oglasnik
         notifyDataSetChanged()
     }
