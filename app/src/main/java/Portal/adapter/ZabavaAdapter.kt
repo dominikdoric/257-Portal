@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.dodaj_novo_zabava_fragment.view.*
 import kotlinx.android.synthetic.main.jedan_red_zabava.view.*
 
-class ZabavaAdapter(private val listener: OnItemClickListener): RecyclerView.Adapter<ZabavaAdapter.ViewHolder>() {
+class ZabavaAdapter(private val listener: OnItemClickListener,private val listenerLong: OnItemLongClickListener): RecyclerView.Adapter<ZabavaAdapter.ViewHolder>() {
 
     private var zabavaList = emptyList<ZabavaTable>()
 
@@ -28,9 +28,10 @@ class ZabavaAdapter(private val listener: OnItemClickListener): RecyclerView.Ada
         return zabavaList.size
     }
 
-    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView), View.OnClickListener{
+    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView), View.OnClickListener,View.OnLongClickListener{
         init {
             itemView.setOnClickListener(this)
+            itemView.setOnLongClickListener(this)
         }
         override fun onClick(v: View?) {
             val position = adapterPosition
@@ -40,10 +41,22 @@ class ZabavaAdapter(private val listener: OnItemClickListener): RecyclerView.Ada
                 listener.onItemClick(position,naslovZabava,clanakZabava)
             }
         }
+
+        override fun onLongClick(v: View?): Boolean {
+            val position = adapterPosition
+            if (position != RecyclerView.NO_POSITION){
+                listenerLong.onItemLongClick(position)
+            }
+            return true
+        }
     }
 
     interface OnItemClickListener{
         fun onItemClick(position: Int,naslovZabava: String,clanakZabava: String)
+    }
+
+    interface OnItemLongClickListener{
+        fun onItemLongClick(position: Int)
     }
 
     fun setData(zabava: List<ZabavaTable>){

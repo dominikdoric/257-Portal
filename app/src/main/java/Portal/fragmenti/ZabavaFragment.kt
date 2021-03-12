@@ -19,7 +19,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.zabava_fragment.*
 import kotlinx.android.synthetic.main.zabava_fragment.view.*
 
-class ZabavaFragment: Fragment(),ZabavaAdapter.OnItemClickListener {
+class ZabavaFragment: Fragment(),ZabavaAdapter.OnItemClickListener,ZabavaAdapter.OnItemLongClickListener {
 
     private lateinit var mZabavaViewModel: ZabavaViewModel
     val zabavaDetailFragment = DetailZabavaFragment()
@@ -28,7 +28,7 @@ class ZabavaFragment: Fragment(),ZabavaAdapter.OnItemClickListener {
         val view = inflater.inflate(R.layout.zabava_fragment,container,false)
 
         //RecyclerView
-        val adapter = ZabavaAdapter(this)
+        val adapter = ZabavaAdapter(this,this)
         val recyclerZabava = view.recyclerViewZabava
         recyclerZabava.adapter = adapter
         recyclerZabava.layoutManager = LinearLayoutManager(requireContext())
@@ -62,4 +62,9 @@ class ZabavaFragment: Fragment(),ZabavaAdapter.OnItemClickListener {
           //  replace(R.id.frameLayout_host, zabavaDetailFragment)
             //commit()
         }
+
+    override fun onItemLongClick(position: Int) {
+        Toast.makeText(requireContext(),"Item $position long clicked",
+            Toast.LENGTH_LONG).show()
     }
+}
