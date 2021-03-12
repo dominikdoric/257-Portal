@@ -19,25 +19,32 @@ import kotlinx.android.synthetic.main.obavijesti_fragment.*
 import kotlinx.android.synthetic.main.obavijesti_fragment.view.*
 import kotlinx.android.synthetic.main.zabava_fragment.*
 
-class ObavijestiFragment: Fragment(),ObavijestiAdapter.OnItemClickListener,ObavijestiAdapter.OnItemLongClickListener {
+class ObavijestiFragment : Fragment(), ObavijestiAdapter.OnItemClickListener,
+    ObavijestiAdapter.OnItemLongClickListener {
 
     private lateinit var mObavijestiViewModel: ObavijestiViewModel
     val detailObavijestiFragment = DetailObavijestiFragment()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.obavijesti_fragment,container,false)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.obavijesti_fragment, container, false)
 
         //RecyclerView
-        val adapter = ObavijestiAdapter(this,this)
+        val adapter = ObavijestiAdapter(this, this)
         val recyclerObavijesti = view.recyclerViewObavijesti
         recyclerObavijesti.adapter = adapter
         recyclerObavijesti.layoutManager = LinearLayoutManager(requireContext())
 
         //RasporedViewModel
         mObavijestiViewModel = ViewModelProvider(this).get(ObavijestiViewModel::class.java)
-        mObavijestiViewModel.readAllDataObavijesti.observe(viewLifecycleOwner, Observer { obavijesti ->
-            adapter.setData(obavijesti)
-        })
+        mObavijestiViewModel.readAllDataObavijesti.observe(
+            viewLifecycleOwner,
+            Observer { obavijesti ->
+                adapter.setData(obavijesti)
+            })
 
         return view
     }
@@ -45,16 +52,20 @@ class ObavijestiFragment: Fragment(),ObavijestiAdapter.OnItemClickListener,Obavi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        recyclerViewObavijesti.addItemDecoration(DividerItemDecoration
-            (recyclerViewObavijesti.context,DividerItemDecoration.VERTICAL))
+        recyclerViewObavijesti.addItemDecoration(
+            DividerItemDecoration
+                (recyclerViewObavijesti.context, DividerItemDecoration.VERTICAL)
+        )
     }
 
-    override fun onItemClick(position: Int,naslovObavijesti: String, clanakObavijesti: String) {
-        Toast.makeText(requireContext(), "Item  $position clicked" +
-                "Item  $naslovObavijesti clicked" +
-                "Item  $clanakObavijesti clicked", Toast.LENGTH_SHORT).show()
+    override fun onItemClick(position: Int, naslovObavijesti: String, clanakObavijesti: String) {
+        Toast.makeText(
+            requireContext(), "Item  $position clicked" +
+                    "Item  $naslovObavijesti clicked" +
+                    "Item  $clanakObavijesti clicked", Toast.LENGTH_SHORT
+        ).show()
         activity?.supportFragmentManager?.beginTransaction()
-            ?.replace(R.id.frameLayout_host,detailObavijestiFragment)
+            ?.replace(R.id.frameLayout_host, detailObavijestiFragment)
             ?.addToBackStack(null)
             ?.commit()
         //childFragmentManager.beginTransaction().apply {
@@ -71,7 +82,7 @@ class ObavijestiFragment: Fragment(),ObavijestiAdapter.OnItemClickListener,Obavi
         builder.setPositiveButton("Yes") { _, _ ->
 
         }
-        builder.setNegativeButton("No") { _, _ ->}
+        builder.setNegativeButton("No") { _, _ -> }
         builder.setTitle("Delete?")
         builder.setMessage("Are you sure you want to delete?")
         builder.create().show()
