@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/my_graph"
+    app:startDestination="@id/pocetniFragment">
+
+    <fragment
+        android:id="@+id/pocetniFragment"
+        android:name="Portal.pokus.PocetniFragment"
+        android:label="PocetniFragment" />
+    <fragment
+        android:id="@+id/ribolovciFragment"
+        android:name="Portal.pokus.RibolovciFragment"
+        android:label="RibolovciFragment" >
+        <action
+            android:id="@+id/action_ribolovciFragment_to_detailRiblovciFragment"
+            app:destination="@id/detailRiblovciFragment" />
+        <action
+            android:id="@+id/action_ribolovciFragment_to_updateDeleteRiblovciFragment"
+            app:destination="@id/updateDeleteRiblovciFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ulovljeneRibeFragment"
+        android:name="Portal.pokus.UlovljeneRibeFragment"
+        android:label="UlovljeneRibeFragment" >
+        <action
+            android:id="@+id/action_ulovljeneRibeFragment_to_detailUlovljeneRibeFragment"
+            app:destination="@id/detailUlovljeneRibeFragment" />
+        <action
+            android:id="@+id/action_ulovljeneRibeFragment_to_updateDeleteUlovljeneRibeFragment"
+            app:destination="@id/updateDeleteUlovljeneRibeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailRiblovciFragment"
+        android:name="Portal.pokus.DetailRiblovciFragment"
+        android:label="DetailRiblovciFragment" />
+    <fragment
+        android:id="@+id/detailUlovljeneRibeFragment"
+        android:name="Portal.pokus.DetailUlovljeneRibeFragment"
+        android:label="DetailUlovljeneRibeFragment" />
+    <fragment
+        android:id="@+id/updateDeleteRiblovciFragment"
+        android:name="Portal.pokus.UpdateDeleteRiblovciFragment"
+        android:label="UpdateDeleteRiblovciFragment" />
+    <fragment
+        android:id="@+id/updateDeleteUlovljeneRibeFragment"
+        android:name="Portal.pokus.UpdateDeleteUlovljeneRibeFragment"
+        android:label="UpdateDeleteUlovljeneRibeFragment" />
+</navigation>

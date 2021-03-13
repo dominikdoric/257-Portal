@@ -28,7 +28,15 @@ class PokusActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return super.onOptionsItemSelected(item)
+        return when(item.itemId){
+            R.id.menu_ribolovacPokus -> {
+                true
+            }
+            R.id.menu_ulovljeneRibePOkus -> {
+                true
+            }
+            else -> false
+        }
     }
 
 }
