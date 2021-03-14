@@ -11,6 +11,7 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupActionBarWithNavController
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_pokus.*
@@ -30,6 +31,15 @@ class PokusActivity : AppCompatActivity() {
 
 
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_pokus,menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
     }
 
     override fun onSupportNavigateUp(): Boolean {
