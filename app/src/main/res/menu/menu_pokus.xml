@@ -3,8 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/termAndConditions"
+        android:title="Terms Conditions"
+        app:showAsAction="never"/>
+
+    <item
         android:id="@+id/settingsFragment"
         android:title="Settings"
+        android:menuCategory="secondary"
         app:showAsAction="never"/>
 
 </menu>

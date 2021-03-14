@@ -53,4 +53,9 @@
         android:name="Portal.pokus.SettingsFragment"
         android:label="SettingsFragment"
         tools:layout="@layout/settings_fragment"/>
+    <fragment
+        android:id="@+id/fragmentTerms"
+        android:name="Portal.pokus.FragmentTerms"
+        android:label="FragmentTerms"
+        tools:layout="@layout/terms_fragment"/>
 </navigation>
