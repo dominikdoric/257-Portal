@@ -15,28 +15,8 @@ class PokusActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pokus)
         setSupportActionBar(toolbarPokus)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
 
 
     }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater: MenuInflater = menuInflater
-        inflater.inflate(R.menu.menu_pokus,menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId){
-            R.id.menu_ribolovacPokus -> {
-                true
-            }
-            R.id.menu_ulovljeneRibePOkus -> {
-                true
-            }
-            else -> false
-        }
-    }
-
 }
