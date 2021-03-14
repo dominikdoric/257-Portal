@@ -57,5 +57,5 @@
         android:id="@+id/fragmentTerms"
         android:name="Portal.pokus.FragmentTerms"
         android:label="FragmentTerms"
-        tools:layout="@layout/terms_fragment"/>
+        tools:layout="@layout/terms_fragment"/><action android:id="@+id/action_global_fragmentTerms" app:destination="@id/fragmentTerms"/>
 </navigation>

@@ -1,5 +1,6 @@
 package Portal.pokus
 
+import Portal.a257.MyGraphDirections
 import Portal.a257.R
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -39,7 +40,14 @@ class PokusActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
+        return if (item.itemId == R.id.termAndConditions){
+            val action = MyGraphDirections.actionGlobalFragmentTerms()
+            navController.navigate(action)
+            return true
+        }else{
+            item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
+        }
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
