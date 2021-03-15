@@ -2,18 +2,18 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/naslovnicaFragment">
+    app:startDestination="@id/naslovnicaBottomNav">
 
     <fragment
         android:id="@+id/infoBottomNav"
         android:name="Portal.fragmenti.InfoFragment"
         android:label="InfoFragment" />
     <fragment
-        android:id="@+id/kontaktFragment"
+        android:id="@+id/kontaktBottomNav"
         android:name="Portal.fragmenti.KontaktFragment"
         android:label="KontaktFragment" />
     <fragment
-        android:id="@+id/naslovnicaFragment"
+        android:id="@+id/naslovnicaBottomNav"
         android:name="Portal.fragmenti.NaslovnicaFragment"
         android:label="NaslovnicaFragment" />
     <fragment
@@ -25,15 +25,11 @@
         android:name="Portal.fragmenti.OglasnikFragment"
         android:label="OglasnikFragment" />
     <fragment
-        android:id="@+id/pretraziFragment"
-        android:name="Portal.fragmenti.PretraziFragment"
-        android:label="PretraziFragment" />
-    <fragment
-        android:id="@+id/priceCitateljaFragment"
+        android:id="@+id/priceCitateljaNavDrawer"
         android:name="Portal.fragmenti.PriceCitateljaFragment"
         android:label="PriceCitateljaFragment" />
     <fragment
-        android:id="@+id/sportFragment"
+        android:id="@+id/sportNavDrawer"
         android:name="Portal.fragmenti.SportFragment"
         android:label="SportFragment" />
     <fragment
@@ -41,11 +37,11 @@
         android:name="Portal.fragmenti.VijestiFragment"
         android:label="VijestiFragment" />
     <fragment
-        android:id="@+id/zabavaFragment"
+        android:id="@+id/zabavaNavDrawer"
         android:name="Portal.fragmenti.ZabavaFragment"
         android:label="ZabavaFragment" />
     <fragment
-        android:id="@+id/vrijemeFragment"
+        android:id="@+id/vrijemeNavDrawer"
         android:name="Portal.fragmenti.VrijemeFragment"
         android:label="VrijemeFragment" />
 </navigation>
