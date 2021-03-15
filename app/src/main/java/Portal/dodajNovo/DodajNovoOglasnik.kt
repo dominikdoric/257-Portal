@@ -61,7 +61,7 @@ class DodajNovoOglasnik: Fragment() {
         val noviBroj = et_oglasnik_broj.text.toString()
         val novoVrijeme = currentDate
 
-        val oglasnik = OglasnikTable(novaSlika,noviClanak,noviNaslov,novaCijena,novaLokacija,noviBroj,novoVrijeme)
+        val oglasnik = OglasnikTable(0,novaSlika,noviClanak,noviNaslov,novaCijena,novaLokacija,noviBroj,novoVrijeme)
         mOglasnikViewModel.addOglasnik(oglasnik)
     }
 

@@ -1,11 +1,17 @@
 package Portal.database.table
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 @Entity(tableName = "oglasnik")
 data class OglasnikTable (
+
+    @PrimaryKey(autoGenerate = true)
+    var id: Int,
 
     @ColumnInfo(name = "oglasnik_slika")
     val oglasnikSlika: Int,
@@ -27,9 +33,4 @@ data class OglasnikTable (
 
     @ColumnInfo(name = "oglasnik_vrijeme")
     val oglasnikVrijeme: String
-        )
-{
-    @PrimaryKey(autoGenerate = true)
-    var id: Int = 0
-
-}
+        ): Parcelable

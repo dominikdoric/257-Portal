@@ -57,7 +57,7 @@ class DodajNovoVijesti: Fragment() {
         val noviClanak = ""
         val novaSlika = R.drawable.jaksic
 
-        val vijesti = VijestiTable(noviNaslov,noviClanak,novoVrijeme,novaSlika)
+        val vijesti = VijestiTable(0,noviNaslov,noviClanak,novoVrijeme,novaSlika)
         mVijestiViewModel.addVijesti(vijesti)
     }
 

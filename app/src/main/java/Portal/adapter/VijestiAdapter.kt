@@ -2,9 +2,11 @@ package Portal.adapter
 
 import Portal.a257.R
 import Portal.database.table.VijestiTable
+import Portal.fragmenti.VijestiFragmentDirections
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.jedan_red_vijesti.view.*
 
@@ -22,6 +24,12 @@ class VijestiAdapter() : RecyclerView.Adapter<VijestiAdapter.ViewHolder>() {
         val currentItem = vijestiList[position]
         holder.itemView.textViewVijestiNaslov.text = currentItem.vijestiNaslov
         holder.itemView.textViewVijestiVrijeme.text = currentItem.vijestiVrijeme
+
+        holder.itemView.setOnLongClickListener {
+            val action = VijestiFragmentDirections.actionVijestiNavDrawerToUpdateDeleteVijestiFragment()
+            holder.itemView.findNavController().navigate(action)
+            true
+        }
     }
 
     override fun getItemCount(): Int {

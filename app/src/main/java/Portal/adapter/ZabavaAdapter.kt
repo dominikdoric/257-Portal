@@ -2,9 +2,11 @@ package Portal.adapter
 
 import Portal.a257.R
 import Portal.database.table.ZabavaTable
+import Portal.fragmenti.ZabavaFragmentDirections
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.dodaj_novo_zabava_fragment.view.*
 import kotlinx.android.synthetic.main.jedan_red_zabava.view.*
@@ -23,6 +25,12 @@ class ZabavaAdapter() : RecyclerView.Adapter<ZabavaAdapter.ViewHolder>() {
         val currentItem = zabavaList[position]
         holder.itemView.textViewZabavaNaslov.text = currentItem.zabavaNaslov
         holder.itemView.textViewZabavaVrijeme.text = currentItem.zabavaVrijeme
+
+        holder.itemView.setOnLongClickListener {
+            val action = ZabavaFragmentDirections.actionZabavaNavDrawerToUpdateDeleteZabavaFragment()
+            holder.itemView.findNavController().navigate(action)
+            true
+        }
     }
 
     override fun getItemCount(): Int {

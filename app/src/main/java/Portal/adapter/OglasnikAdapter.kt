@@ -2,9 +2,11 @@ package Portal.adapter
 
 import Portal.a257.R
 import Portal.database.table.OglasnikTable
+import Portal.fragmenti.OglasnikFragmentDirections
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.jedan_red_oglasnik.view.*
 
@@ -25,6 +27,12 @@ class OglasnikAdapter() : RecyclerView.Adapter<OglasnikAdapter.ViewHolder>() {
         holder.itemView.textViewOglasnikLokacija.text = currentItem.oglasnikLokacija
         holder.itemView.textViewOglasnikBroj.text = currentItem.oglasnikBroj
         holder.itemView.textViewOglasnikVrijeme.text = currentItem.oglasnikVrijeme
+
+        holder.itemView.cardViewOglasnik.setOnLongClickListener {
+            val action = OglasnikFragmentDirections.actionOglasnikNavDrawerToUpdateDeleteOglasnikFragment()
+            holder.itemView.findNavController().navigate(action)
+            true
+        }
     }
 
     override fun getItemCount(): Int {
