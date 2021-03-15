@@ -1,67 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/naslovnicaBottomNav">
 
     <fragment
         android:id="@+id/infoBottomNav"
         android:name="Portal.fragmenti.InfoFragment"
-        android:label="InfoFragment" />
+        android:label="InfoFragment"
+        tools:layout="@layout/info_fragment"/>
     <fragment
         android:id="@+id/kontaktBottomNav"
         android:name="Portal.fragmenti.KontaktFragment"
-        android:label="KontaktFragment" />
+        android:label="KontaktFragment"
+        tools:layout="@layout/kontakt_fragment"/>
     <fragment
         android:id="@+id/naslovnicaBottomNav"
         android:name="Portal.fragmenti.NaslovnicaFragment"
-        android:label="NaslovnicaFragment" />
+        android:label="NaslovnicaFragment"
+        tools:layout="@layout/naslovnica_fragment"/>
     <fragment
         android:id="@+id/obavijestiNavDrawer"
         android:name="Portal.fragmenti.ObavijestiFragment"
-        android:label="ObavijestiFragment" />
+        android:label="ObavijestiFragment"
+        tools:layout="@layout/obavijesti_fragment"/>
     <fragment
         android:id="@+id/oglasnikNavDrawer"
         android:name="Portal.fragmenti.OglasnikFragment"
-        android:label="OglasnikFragment" />
+        android:label="OglasnikFragment"
+        tools:layout="@layout/oglasnik_fragment"/>
     <fragment
         android:id="@+id/priceCitateljaNavDrawer"
         android:name="Portal.fragmenti.PriceCitateljaFragment"
-        android:label="PriceCitateljaFragment" />
+        android:label="PriceCitateljaFragment"
+        tools:layout="@layout/price_citatelja_fragment"/>
     <fragment
         android:id="@+id/sportNavDrawer"
         android:name="Portal.fragmenti.SportFragment"
-        android:label="SportFragment" />
+        android:label="SportFragment"
+        tools:layout="@layout/sport_fragment"/>
     <fragment
         android:id="@+id/vijestiNavDrawer"
         android:name="Portal.fragmenti.VijestiFragment"
-        android:label="VijestiFragment" />
+        android:label="VijestiFragment"
+        tools:layout="@layout/vijesti_fragment"/>
     <fragment
         android:id="@+id/zabavaNavDrawer"
         android:name="Portal.fragmenti.ZabavaFragment"
-        android:label="ZabavaFragment" />
+        android:label="ZabavaFragment"
+        tools:layout="@layout/zabava_fragment"/>
     <fragment
         android:id="@+id/vrijemeBottomNav"
         android:name="Portal.fragmenti.VrijemeFragment"
-        android:label="VrijemeFragment" />
+        android:label="VrijemeFragment"
+        tools:layout="@layout/vrijeme_fragment"/>
     <fragment
         android:id="@+id/menu_dodajNovuVijest"
         android:name="Portal.dodajNovo.DodajNovoVijesti"
-        android:label="DodajNovoVijesti" />
+        android:label="DodajNovoVijesti"
+        tools:layout="@layout/dodaj_novo_vijesti_fragment">
+        <action
+            android:id="@+id/action_menu_dodajNovuVijest_to_vijestiNavDrawer"
+            app:destination="@id/vijestiNavDrawer" />
+    </fragment>
     <fragment
         android:id="@+id/menu_dodajNovuObavijest"
         android:name="Portal.dodajNovo.DodajNovoObavijesti"
-        android:label="DodajNovoObavijesti" />
+        android:label="DodajNovoObavijesti"
+        tools:layout="@layout/dodaj_novo_obavijesti_fragment">
+        <action
+            android:id="@+id/action_menu_dodajNovuObavijest_to_obavijestiNavDrawer"
+            app:destination="@id/obavijestiNavDrawer" />
+    </fragment>
     <fragment
         android:id="@+id/menu_dodajNoviSport"
         android:name="Portal.dodajNovo.DodajNovoSport"
-        android:label="DodajNovoSport" />
+        android:label="DodajNovoSport"
+        tools:layout="@layout/dodaj_novo_sport_fragment">
+        <action
+            android:id="@+id/action_menu_dodajNoviSport_to_sportNavDrawer"
+            app:destination="@id/sportNavDrawer" />
+    </fragment>
     <fragment
         android:id="@+id/menu_dodajNovuZabava"
         android:name="Portal.dodajNovo.DodajNovoZabava"
-        android:label="DodajNovoZabava" />
+        android:label="DodajNovoZabava"
+        tools:layout="@layout/dodaj_novo_zabava_fragment">
+        <action
+            android:id="@+id/action_menu_dodajNovuZabava_to_zabavaNavDrawer"
+            app:destination="@id/zabavaNavDrawer" />
+    </fragment>
     <fragment
         android:id="@+id/menu_dodajNoviOglas"
         android:name="Portal.dodajNovo.DodajNovoOglasnik"
-        android:label="DodajNovoOglasnik" />
+        android:label="DodajNovoOglasnik"
+        tools:layout="@layout/dodaj_novo_oglasnik_fragment">
+        <action
+            android:id="@+id/action_menu_dodajNoviOglas_to_oglasnikNavDrawer"
+            app:destination="@id/oglasnikNavDrawer" />
+    </fragment>
 </navigation>
