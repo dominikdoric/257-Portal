@@ -44,4 +44,24 @@
         android:id="@+id/vrijemeNavDrawer"
         android:name="Portal.fragmenti.VrijemeFragment"
         android:label="VrijemeFragment" />
+    <fragment
+        android:id="@+id/dodajNovoVijesti"
+        android:name="Portal.dodajNovo.DodajNovoVijesti"
+        android:label="DodajNovoVijesti" />
+    <fragment
+        android:id="@+id/dodajNovoObavijesti"
+        android:name="Portal.dodajNovo.DodajNovoObavijesti"
+        android:label="DodajNovoObavijesti" />
+    <fragment
+        android:id="@+id/dodajNovoSport"
+        android:name="Portal.dodajNovo.DodajNovoSport"
+        android:label="DodajNovoSport" />
+    <fragment
+        android:id="@+id/dodajNovoZabava"
+        android:name="Portal.dodajNovo.DodajNovoZabava"
+        android:label="DodajNovoZabava" />
+    <fragment
+        android:id="@+id/dodajNovoOglasnik"
+        android:name="Portal.dodajNovo.DodajNovoOglasnik"
+        android:label="DodajNovoOglasnik" />
 </navigation>
