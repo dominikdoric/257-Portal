@@ -41,7 +41,7 @@
         android:name="Portal.fragmenti.ZabavaFragment"
         android:label="ZabavaFragment" />
     <fragment
-        android:id="@+id/vrijemeNavDrawer"
+        android:id="@+id/vrijemeBottomNav"
         android:name="Portal.fragmenti.VrijemeFragment"
         android:label="VrijemeFragment" />
     <fragment

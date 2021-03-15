@@ -4,18 +4,28 @@
 
     <item
         android:id="@+id/menu_dodajNovuVijest"
-        android:title="Dodaj novu vijest" />
+        android:title="Dodaj novu vijest"
+        app:showAsAction="never"
+        android:menuCategory="secondary"/>
     <item
         android:id="@+id/menu_dodajNovuObavijest"
-        android:title="Dodaj novu obavijest" />
+        android:title="Dodaj novu obavijest"
+        app:showAsAction="never"
+        android:menuCategory="secondary"/>
     <item
         android:id="@+id/menu_dodajNoviOglas"
-        android:title="Dodaj novi oglas" />
+        android:title="Dodaj novi oglas"
+        app:showAsAction="never"
+        android:menuCategory="secondary"/>
     <item
         android:id="@+id/menu_dodajNoviSport"
-        android:title="Dodaj novi sport" />
+        android:title="Dodaj novi sport"
+        app:showAsAction="never"
+        android:menuCategory="secondary"/>
     <item
         android:id="@+id/menu_dodajNovuZabava"
-        android:title="Dodaj novu zabavu"/>
+        android:title="Dodaj novu zabavu"
+        app:showAsAction="never"
+        android:menuCategory="secondary"/>
 
 </menu>
