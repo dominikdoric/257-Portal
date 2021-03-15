@@ -33,7 +33,11 @@
         android:id="@+id/oglasnikNavDrawer"
         android:name="Portal.fragmenti.OglasnikFragment"
         android:label="OglasnikFragment"
-        tools:layout="@layout/oglasnik_fragment"/>
+        tools:layout="@layout/oglasnik_fragment">
+        <action
+            android:id="@+id/action_oglasnikNavDrawer_to_updateDeleteOglasnikFragment"
+            app:destination="@id/updateDeleteOglasnikFragment" />
+    </fragment>
     <fragment
         android:id="@+id/priceCitateljaNavDrawer"
         android:name="Portal.fragmenti.PriceCitateljaFragment"
@@ -43,17 +47,29 @@
         android:id="@+id/sportNavDrawer"
         android:name="Portal.fragmenti.SportFragment"
         android:label="SportFragment"
-        tools:layout="@layout/sport_fragment"/>
+        tools:layout="@layout/sport_fragment">
+        <action
+            android:id="@+id/action_sportNavDrawer_to_updateDeleteSportFragment"
+            app:destination="@id/updateDeleteSportFragment" />
+    </fragment>
     <fragment
         android:id="@+id/vijestiNavDrawer"
         android:name="Portal.fragmenti.VijestiFragment"
         android:label="VijestiFragment"
-        tools:layout="@layout/vijesti_fragment"/>
+        tools:layout="@layout/vijesti_fragment">
+        <action
+            android:id="@+id/action_vijestiNavDrawer_to_updateDeleteVijestiFragment"
+            app:destination="@id/updateDeleteVijestiFragment" />
+    </fragment>
     <fragment
         android:id="@+id/zabavaNavDrawer"
         android:name="Portal.fragmenti.ZabavaFragment"
         android:label="ZabavaFragment"
-        tools:layout="@layout/zabava_fragment"/>
+        tools:layout="@layout/zabava_fragment">
+        <action
+            android:id="@+id/action_zabavaNavDrawer_to_updateDeleteZabavaFragment"
+            app:destination="@id/updateDeleteZabavaFragment" />
+    </fragment>
     <fragment
         android:id="@+id/vrijemeBottomNav"
         android:name="Portal.fragmenti.VrijemeFragment"
@@ -115,5 +131,41 @@
         <argument
             android:name="currentObavijest"
             app:argType="Portal.database.table.ObavijestiTable" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateDeleteSportFragment"
+        android:name="Portal.updateDelete.UpdateDeleteSportFragment"
+        android:label="UpdateDeleteSportFragment"
+        tools:layout="@layout/update_delete_sport_fragment">
+        <action
+            android:id="@+id/action_updateDeleteSportFragment_to_sportNavDrawer"
+            app:destination="@id/sportNavDrawer" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateDeleteVijestiFragment"
+        android:name="Portal.updateDelete.UpdateDeleteVijestiFragment"
+        android:label="UpdateDeleteVijestiFragment"
+        tools:layout="@layout/update_delete_vijesti_fragment">
+        <action
+            android:id="@+id/action_updateDeleteVijestiFragment_to_vijestiNavDrawer"
+            app:destination="@id/vijestiNavDrawer" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateDeleteZabavaFragment"
+        android:name="Portal.updateDelete.UpdateDeleteZabavaFragment"
+        android:label="UpdateDeleteZabavaFragment"
+        tools:layout="@layout/update_delete_zabava_fragment">
+        <action
+            android:id="@+id/action_updateDeleteZabavaFragment_to_zabavaNavDrawer"
+            app:destination="@id/zabavaNavDrawer" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateDeleteOglasnikFragment"
+        android:name="Portal.updateDelete.UpdateDeleteOglasnikFragment"
+        android:label="UpdateDeleteOglasnikFragment"
+        tools:layout="@layout/update_delete_oglasnik_fragment">
+        <action
+            android:id="@+id/action_updateDeleteOglasnikFragment_to_oglasnikNavDrawer"
+            app:destination="@id/oglasnikNavDrawer" />
     </fragment>
 </navigation>
