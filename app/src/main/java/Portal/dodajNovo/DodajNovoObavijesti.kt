@@ -14,6 +14,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import kotlinx.android.synthetic.main.dodaj_novo_obavijesti_fragment.*
 import kotlinx.android.synthetic.main.dodaj_novo_obavijesti_fragment.view.*
 import kotlinx.android.synthetic.main.dodaj_novo_vijesti_fragment.view.*
@@ -59,7 +60,7 @@ class DodajNovoObavijesti: Fragment() {
         val noviClanak = et_obavijesti_clanak.text.toString()
         val novaSlika = R.drawable.jaksic
 
-        val obavijesti = ObavijestiTable(noviNaslov,noviClanak,novoVrijeme,novaSlika)
+        val obavijesti = ObavijestiTable(0,noviNaslov,noviClanak,novoVrijeme,novaSlika)
         mObavijestViewModel.addObavijesti(obavijesti)
     }
 

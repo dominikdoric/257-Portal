@@ -13,6 +13,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import kotlinx.android.synthetic.main.update_delete_obavijesti_fragment.*
 import kotlinx.android.synthetic.main.update_delete_obavijesti_fragment.view.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class UpdateDeleteObavijestiFragment: Fragment() {
 
@@ -39,12 +41,16 @@ class UpdateDeleteObavijestiFragment: Fragment() {
     }
 
     private fun updateItemObavijesti(){
+
+        val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
+        val currentDate = sdf.format(Date())
+
         val naslovObavijesti = updateObavijestiNaslov.text.toString()
         val clanakObavijesti = updateObavijestiClanak.text.toString()
-        val vrijemeObavijesti = ""
         val slikaObavijesti = 0
+        val vrijemeObavijesti = currentDate
 
-        val updateObavijesti = ObavijestiTable(naslovObavijesti,clanakObavijesti,vrijemeObavijesti,slikaObavijesti)
+        val updateObavijesti = ObavijestiTable(args.currentObavijest.id,naslovObavijesti,clanakObavijesti,vrijemeObavijesti,slikaObavijesti)
 
         mObavijestiViewModel.updateObavijesti(updateObavijesti)
         findNavController().navigate(R.id.action_updateDeleteObavijestiFragment2_to_obavijestiNavDrawer)
