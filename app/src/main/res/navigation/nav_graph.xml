@@ -45,23 +45,23 @@
         android:name="Portal.fragmenti.VrijemeFragment"
         android:label="VrijemeFragment" />
     <fragment
-        android:id="@+id/dodajNovoVijesti"
+        android:id="@+id/menu_dodajNovuVijest"
         android:name="Portal.dodajNovo.DodajNovoVijesti"
         android:label="DodajNovoVijesti" />
     <fragment
-        android:id="@+id/dodajNovoObavijesti"
+        android:id="@+id/menu_dodajNovuObavijest"
         android:name="Portal.dodajNovo.DodajNovoObavijesti"
         android:label="DodajNovoObavijesti" />
     <fragment
-        android:id="@+id/dodajNovoSport"
+        android:id="@+id/menu_dodajNoviSport"
         android:name="Portal.dodajNovo.DodajNovoSport"
         android:label="DodajNovoSport" />
     <fragment
-        android:id="@+id/dodajNovoZabava"
+        android:id="@+id/menu_dodajNovuZabava"
         android:name="Portal.dodajNovo.DodajNovoZabava"
         android:label="DodajNovoZabava" />
     <fragment
-        android:id="@+id/dodajNovoOglasnik"
+        android:id="@+id/menu_dodajNoviOglas"
         android:name="Portal.dodajNovo.DodajNovoOglasnik"
         android:label="DodajNovoOglasnik" />
 </navigation>
