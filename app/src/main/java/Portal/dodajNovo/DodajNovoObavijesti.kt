@@ -56,7 +56,7 @@ class DodajNovoObavijesti: Fragment() {
 
         val noviNaslov = et_obavijesti_naslov.text.toString()
         val novoVrijeme = currentDate
-        val noviClanak = ""
+        val noviClanak = et_obavijesti_clanak.text.toString()
         val novaSlika = R.drawable.jaksic
 
         val obavijesti = ObavijestiTable(noviNaslov,noviClanak,novoVrijeme,novaSlika)

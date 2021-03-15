@@ -24,7 +24,11 @@
         android:id="@+id/obavijestiNavDrawer"
         android:name="Portal.fragmenti.ObavijestiFragment"
         android:label="ObavijestiFragment"
-        tools:layout="@layout/obavijesti_fragment"/>
+        tools:layout="@layout/obavijesti_fragment">
+        <action
+            android:id="@+id/action_obavijestiNavDrawer_to_updateDeleteObavijestiFragment2"
+            app:destination="@id/updateDeleteObavijestiFragment2" />
+    </fragment>
     <fragment
         android:id="@+id/oglasnikNavDrawer"
         android:name="Portal.fragmenti.OglasnikFragment"
@@ -99,5 +103,17 @@
         <action
             android:id="@+id/action_menu_dodajNoviOglas_to_oglasnikNavDrawer"
             app:destination="@id/oglasnikNavDrawer" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateDeleteObavijestiFragment2"
+        android:name="Portal.updateDelete.UpdateDeleteObavijestiFragment"
+        android:label="UpdateDeleteObavijestiFragment"
+        tools:layout="@layout/update_delete_obavijesti_fragment">
+        <action
+            android:id="@+id/action_updateDeleteObavijestiFragment2_to_obavijestiNavDrawer"
+            app:destination="@id/obavijestiNavDrawer" />
+        <argument
+            android:name="currentObavijest"
+            app:argType="Portal.database.table.ObavijestiTable" />
     </fragment>
 </navigation>
