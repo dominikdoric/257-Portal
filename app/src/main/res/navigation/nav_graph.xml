@@ -140,6 +140,9 @@
         <action
             android:id="@+id/action_updateDeleteSportFragment_to_sportNavDrawer"
             app:destination="@id/sportNavDrawer" />
+        <argument
+            android:name="currentSport"
+            app:argType="Portal.database.table.SportTable" />
     </fragment>
     <fragment
         android:id="@+id/updateDeleteVijestiFragment"
@@ -149,6 +152,9 @@
         <action
             android:id="@+id/action_updateDeleteVijestiFragment_to_vijestiNavDrawer"
             app:destination="@id/vijestiNavDrawer" />
+        <argument
+            android:name="currentVijest"
+            app:argType="Portal.database.table.VijestiTable" />
     </fragment>
     <fragment
         android:id="@+id/updateDeleteZabavaFragment"
@@ -158,6 +164,9 @@
         <action
             android:id="@+id/action_updateDeleteZabavaFragment_to_zabavaNavDrawer"
             app:destination="@id/zabavaNavDrawer" />
+        <argument
+            android:name="currentZabava"
+            app:argType="Portal.database.table.ZabavaTable" />
     </fragment>
     <fragment
         android:id="@+id/updateDeleteOglasnikFragment"
@@ -167,5 +176,8 @@
         <action
             android:id="@+id/action_updateDeleteOglasnikFragment_to_oglasnikNavDrawer"
             app:destination="@id/oglasnikNavDrawer" />
+        <argument
+            android:name="currentOglasnik"
+            app:argType="Portal.database.table.OglasnikTable" />
     </fragment>
 </navigation>
