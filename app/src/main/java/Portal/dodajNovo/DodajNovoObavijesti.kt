@@ -10,8 +10,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.dodaj_novo_obavijesti_fragment.*
 import kotlinx.android.synthetic.main.dodaj_novo_obavijesti_fragment.view.*
 import kotlinx.android.synthetic.main.dodaj_novo_vijesti_fragment.view.*
@@ -35,6 +37,12 @@ class DodajNovoObavijesti: Fragment() {
         mObavijestViewModel = ViewModelProvider(this).get(ObavijestiViewModel::class.java)
 
         view.gumbSpremiObavijest.setOnClickListener {
+            val action = DodajNovoObavijestiDirections.actionMenuDodajNovuObavijestToObavijestiNavDrawer()
+            findNavController().navigate(action)
+            Toast.makeText(requireContext(),
+                "Vaš članak je zaprimljen te je poslan adminu na odobrenje.Hvala!",
+                Toast.LENGTH_LONG)
+                .show()
             insertDataToDatabase()
         }
 

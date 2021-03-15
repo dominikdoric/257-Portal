@@ -9,8 +9,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.dodaj_novo_zabava_fragment.*
 import kotlinx.android.synthetic.main.dodaj_novo_zabava_fragment.view.*
 import java.sql.Time
@@ -34,6 +36,12 @@ class DodajNovoZabava : Fragment() {
         mZabavaViewModel = ViewModelProvider(this).get(ZabavaViewModel::class.java)
 
         view.gumbSpremiZabavu.setOnClickListener {
+            val action = DodajNovoZabavaDirections.actionMenuDodajNovuZabavaToZabavaNavDrawer()
+            findNavController().navigate(action)
+            Toast.makeText(requireContext(),
+                "Vaš članak je zaprimljen te je poslan adminu na odobrenje.Hvala!",
+                Toast.LENGTH_LONG)
+                .show()
             insertDataToDatabase()
         }
         return view

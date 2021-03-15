@@ -9,8 +9,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.dodaj_novo_vijesti_fragment.*
 import kotlinx.android.synthetic.main.dodaj_novo_vijesti_fragment.view.*
 import kotlinx.android.synthetic.main.dodaj_novo_zabava_fragment.*
@@ -33,6 +35,12 @@ class DodajNovoVijesti: Fragment() {
         mVijestiViewModel = ViewModelProvider(this).get(VijestiViewModel::class.java)
 
         view.gumbSpremiVijest.setOnClickListener {
+            val action = DodajNovoVijestiDirections.actionMenuDodajNovuVijestToVijestiNavDrawer()
+            findNavController().navigate(action)
+            Toast.makeText(requireContext(),
+                "Vaš članak je zaprimljen te je poslan adminu na odobrenje.Hvala!",
+                Toast.LENGTH_LONG)
+                .show()
             insertDataToDatabase()
         }
 
