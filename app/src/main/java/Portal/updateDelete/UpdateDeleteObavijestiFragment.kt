@@ -41,7 +41,6 @@ class UpdateDeleteObavijestiFragment: Fragment() {
     }
 
     private fun updateItemObavijesti(){
-
         val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
         val currentDate = sdf.format(Date())
 
