@@ -1,9 +1,7 @@
 package Portal.fragmenti
 
-import Portal.DetailFragmenti.DetailSportFragment
 import Portal.a257.R
 import Portal.adapter.SportAdapter
-import Portal.adapter.ZabavaAdapter
 import Portal.viewModel.SportViewModel
 import android.app.AlertDialog
 import android.os.Bundle
@@ -24,7 +22,6 @@ class SportFragment : Fragment(), SportAdapter.OnItemClickListener,
     SportAdapter.OnItemLongClickListener {
 
     private lateinit var mSportViewModel: SportViewModel
-    val sportDetailFragment = DetailSportFragment()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -64,9 +61,10 @@ class SportFragment : Fragment(), SportAdapter.OnItemClickListener,
                     "Item  $clanakSport clicked", Toast.LENGTH_SHORT
         ).show()
         activity?.supportFragmentManager?.beginTransaction()
+                /*
             ?.replace(R.id.frameLayout_host, sportDetailFragment)
             ?.addToBackStack(null)
-            ?.commit()
+            ?.commit()*/
         //childFragmentManager.beginTransaction().apply {
         //  replace(R.id.frameLayout_host, zabavaDetailFragment)
         //commit()

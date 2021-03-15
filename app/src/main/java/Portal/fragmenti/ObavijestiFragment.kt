@@ -1,6 +1,5 @@
 package Portal.fragmenti
 
-import Portal.DetailFragmenti.DetailObavijestiFragment
 import Portal.a257.R
 import Portal.adapter.ObavijestiAdapter
 import Portal.viewModel.ObavijestiViewModel
@@ -23,7 +22,6 @@ class ObavijestiFragment : Fragment(), ObavijestiAdapter.OnItemClickListener,
     ObavijestiAdapter.OnItemLongClickListener {
 
     private lateinit var mObavijestiViewModel: ObavijestiViewModel
-    val detailObavijestiFragment = DetailObavijestiFragment()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -63,11 +61,11 @@ class ObavijestiFragment : Fragment(), ObavijestiAdapter.OnItemClickListener,
             requireContext(), "Item  $position clicked" +
                     "Item  $naslovObavijesti clicked" +
                     "Item  $clanakObavijesti clicked", Toast.LENGTH_SHORT
-        ).show()
+        ).show()/*
         activity?.supportFragmentManager?.beginTransaction()
             ?.replace(R.id.frameLayout_host, detailObavijestiFragment)
             ?.addToBackStack(null)
-            ?.commit()
+            ?.commit()*/
         //childFragmentManager.beginTransaction().apply {
         //  replace(R.id.frameLayout_host, zabavaDetailFragment)
         //commit()

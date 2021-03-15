@@ -1,6 +1,5 @@
 package Portal.fragmenti
 
-import Portal.DetailFragmenti.DetailOglasnikFragment
 import Portal.a257.R
 import Portal.adapter.OglasnikAdapter
 import Portal.viewModel.OglasnikViewModel
@@ -23,7 +22,6 @@ class OglasnikFragment : Fragment(), OglasnikAdapter.OnItemClickListener,
     OglasnikAdapter.OnItemLongClickListener {
 
     private lateinit var mOglasnikViewModel: OglasnikViewModel
-    val detailOglasnikFragment = DetailOglasnikFragment()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -72,10 +70,11 @@ class OglasnikFragment : Fragment(), OglasnikAdapter.OnItemClickListener,
                     "\nItem  $lokacijaOglasnik clicked" +
                     "\nItem  $brojOglasnik clicked", Toast.LENGTH_SHORT
         ).show()
+        /*
         activity?.supportFragmentManager?.beginTransaction()
             ?.replace(R.id.frameLayout_host, detailOglasnikFragment)
             ?.addToBackStack(null)
-            ?.commit()
+            ?.commit()*/
         //childFragmentManager.beginTransaction().apply {
         //  replace(R.id.frameLayout_host, zabavaDetailFragment)
         //commit()

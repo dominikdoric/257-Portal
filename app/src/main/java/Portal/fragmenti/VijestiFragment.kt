@@ -1,6 +1,5 @@
 package Portal.fragmenti
 
-import Portal.DetailFragmenti.DetailVijestiFragment
 import Portal.a257.R
 import Portal.adapter.VijestiAdapter
 import Portal.viewModel.VijestiViewModel
@@ -23,7 +22,6 @@ class VijestiFragment : Fragment(), VijestiAdapter.OnItemClickListener,
     VijestiAdapter.OnItemLongClickListener {
 
     private lateinit var mVijestiViewModel: VijestiViewModel
-    val vijestiDetailFragment = DetailVijestiFragment()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -64,9 +62,10 @@ class VijestiFragment : Fragment(), VijestiAdapter.OnItemClickListener,
                     "Item  $clanakVijesti clicked", Toast.LENGTH_SHORT
         ).show()
         activity?.supportFragmentManager?.beginTransaction()
+                /*
             ?.replace(R.id.frameLayout_host, vijestiDetailFragment)
             ?.addToBackStack(null)
-            ?.commit()
+            ?.commit()*/
         //childFragmentManager.beginTransaction().apply {
         //  replace(R.id.frameLayout_host, zabavaDetailFragment)
         //commit()

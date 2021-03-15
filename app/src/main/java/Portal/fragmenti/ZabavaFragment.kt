@@ -1,9 +1,7 @@
 package Portal.fragmenti
 
-import Portal.DetailFragmenti.DetailZabavaFragment
 import Portal.a257.R
 import Portal.adapter.ZabavaAdapter
-import Portal.database.table.ZabavaTable
 import Portal.viewModel.ZabavaViewModel
 import android.app.AlertDialog
 import android.os.Bundle
@@ -12,7 +10,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -24,8 +21,6 @@ class ZabavaFragment : Fragment(), ZabavaAdapter.OnItemClickListener,
     ZabavaAdapter.OnItemLongClickListener {
 
     private lateinit var mZabavaViewModel: ZabavaViewModel
-    val zabavaDetailFragment = DetailZabavaFragment()
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -65,9 +60,10 @@ class ZabavaFragment : Fragment(), ZabavaAdapter.OnItemClickListener,
                     "\nItem  $clanakZabava clicked", Toast.LENGTH_SHORT
         ).show()
         activity?.supportFragmentManager?.beginTransaction()
+                /*
             ?.replace(R.id.frameLayout_host, zabavaDetailFragment)
             ?.addToBackStack(null)
-            ?.commit()
+            ?.commit()*/
         //childFragmentManager.beginTransaction().apply {
         //  replace(R.id.frameLayout_host, zabavaDetailFragment)
         //commit()

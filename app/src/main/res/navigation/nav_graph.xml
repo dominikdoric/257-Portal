@@ -5,7 +5,7 @@
     app:startDestination="@id/naslovnicaFragment">
 
     <fragment
-        android:id="@+id/infoFragment"
+        android:id="@+id/infoBottomNav"
         android:name="Portal.fragmenti.InfoFragment"
         android:label="InfoFragment" />
     <fragment
@@ -21,7 +21,7 @@
         android:name="Portal.fragmenti.ObavijestiFragment"
         android:label="ObavijestiFragment" />
     <fragment
-        android:id="@+id/oglasnikFragment"
+        android:id="@+id/oglasnikNavDrawer"
         android:name="Portal.fragmenti.OglasnikFragment"
         android:label="OglasnikFragment" />
     <fragment
