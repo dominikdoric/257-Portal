@@ -18,8 +18,7 @@ import kotlinx.android.synthetic.main.obavijesti_fragment.*
 import kotlinx.android.synthetic.main.obavijesti_fragment.view.*
 import kotlinx.android.synthetic.main.zabava_fragment.*
 
-class ObavijestiFragment : Fragment(), ObavijestiAdapter.OnItemClickListener,
-    ObavijestiAdapter.OnItemLongClickListener {
+class ObavijestiFragment : Fragment() {
 
     private lateinit var mObavijestiViewModel: ObavijestiViewModel
 
@@ -31,7 +30,7 @@ class ObavijestiFragment : Fragment(), ObavijestiAdapter.OnItemClickListener,
         val view = inflater.inflate(R.layout.obavijesti_fragment, container, false)
 
         //RecyclerView
-        val adapter = ObavijestiAdapter(this, this)
+        val adapter = ObavijestiAdapter()
         val recyclerObavijesti = view.recyclerViewObavijesti
         recyclerObavijesti.adapter = adapter
         recyclerObavijesti.layoutManager = LinearLayoutManager(requireContext())
@@ -55,13 +54,7 @@ class ObavijestiFragment : Fragment(), ObavijestiAdapter.OnItemClickListener,
                 (recyclerViewObavijesti.context, DividerItemDecoration.VERTICAL)
         )
     }
-
-    override fun onItemClick(position: Int, naslovObavijesti: String, clanakObavijesti: String) {
-        Toast.makeText(
-            requireContext(), "Item  $position clicked" +
-                    "Item  $naslovObavijesti clicked" +
-                    "Item  $clanakObavijesti clicked", Toast.LENGTH_SHORT
-        ).show()/*
+/*
         activity?.supportFragmentManager?.beginTransaction()
             ?.replace(R.id.frameLayout_host, detailObavijestiFragment)
             ?.addToBackStack(null)
@@ -70,20 +63,3 @@ class ObavijestiFragment : Fragment(), ObavijestiAdapter.OnItemClickListener,
         //  replace(R.id.frameLayout_host, zabavaDetailFragment)
         //commit()
     }
-
-    override fun onItemLongClick(position: Int) {
-        deleteRow()
-    }
-
-    private fun deleteRow() {
-        val builder = AlertDialog.Builder(requireContext())
-        builder.setPositiveButton("Yes") { _, _ ->
-
-        }
-        builder.setNegativeButton("No") { _, _ -> }
-        builder.setTitle("Delete?")
-        builder.setMessage("Are you sure you want to delete?")
-        builder.create().show()
-    }
-
-}

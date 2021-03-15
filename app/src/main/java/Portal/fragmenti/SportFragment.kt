@@ -18,8 +18,7 @@ import kotlinx.android.synthetic.main.sport_fragment.*
 import kotlinx.android.synthetic.main.sport_fragment.view.*
 import kotlinx.android.synthetic.main.zabava_fragment.*
 
-class SportFragment : Fragment(), SportAdapter.OnItemClickListener,
-    SportAdapter.OnItemLongClickListener {
+class SportFragment : Fragment() {
 
     private lateinit var mSportViewModel: SportViewModel
 
@@ -31,7 +30,7 @@ class SportFragment : Fragment(), SportAdapter.OnItemClickListener,
         val view = inflater.inflate(R.layout.sport_fragment, container, false)
 
         //RecyclerView
-        val adapter = SportAdapter(this, this)
+        val adapter = SportAdapter()
         val recyclerSport = view.recyclerViewSport
         recyclerSport.adapter = adapter
         recyclerSport.layoutManager = LinearLayoutManager(requireContext())
@@ -54,35 +53,12 @@ class SportFragment : Fragment(), SportAdapter.OnItemClickListener,
         )
     }
 
-    override fun onItemClick(position: Int, naslovSport: String, clanakSport: String) {
-        Toast.makeText(
-            requireContext(), "Item  $position clicked" +
-                    "Item  $naslovSport clicked" +
-                    "Item  $clanakSport clicked", Toast.LENGTH_SHORT
-        ).show()
+        /*
         activity?.supportFragmentManager?.beginTransaction()
-                /*
             ?.replace(R.id.frameLayout_host, sportDetailFragment)
             ?.addToBackStack(null)
             ?.commit()*/
         //childFragmentManager.beginTransaction().apply {
         //  replace(R.id.frameLayout_host, zabavaDetailFragment)
         //commit()
-    }
-
-    override fun onItemLongClick(position: Int) {
-        deleteRow()
-    }
-
-    private fun deleteRow() {
-        val builder = AlertDialog.Builder(requireContext())
-        builder.setPositiveButton("Yes") { _, _ ->
-
-        }
-        builder.setNegativeButton("No") { _, _ -> }
-        builder.setTitle("Delete?")
-        builder.setMessage("Are you sure you want to delete?")
-        builder.create().show()
-    }
-
 }

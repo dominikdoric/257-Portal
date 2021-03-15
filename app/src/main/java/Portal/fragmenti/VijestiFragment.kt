@@ -18,8 +18,7 @@ import kotlinx.android.synthetic.main.vijesti_fragment.*
 import kotlinx.android.synthetic.main.vijesti_fragment.view.*
 import kotlinx.android.synthetic.main.zabava_fragment.*
 
-class VijestiFragment : Fragment(), VijestiAdapter.OnItemClickListener,
-    VijestiAdapter.OnItemLongClickListener {
+class VijestiFragment : Fragment() {
 
     private lateinit var mVijestiViewModel: VijestiViewModel
 
@@ -31,7 +30,7 @@ class VijestiFragment : Fragment(), VijestiAdapter.OnItemClickListener,
         val view = inflater.inflate(R.layout.vijesti_fragment, container, false)
 
         //RecyclerView
-        val adapter = VijestiAdapter(this, this)
+        val adapter = VijestiAdapter()
         val recyclerVijesti = view.recyclerViewVijesti
         recyclerVijesti.adapter = adapter
         recyclerVijesti.layoutManager = LinearLayoutManager(requireContext())
@@ -52,17 +51,9 @@ class VijestiFragment : Fragment(), VijestiAdapter.OnItemClickListener,
             DividerItemDecoration
                 (recyclerViewVijesti.context, DividerItemDecoration.VERTICAL)
         )
-
     }
-
-    override fun onItemClick(position: Int, naslovVijesti: String, clanakVijesti: String) {
-        Toast.makeText(
-            requireContext(), "Item  $position clicked" +
-                    "Item  $naslovVijesti clicked" +
-                    "Item  $clanakVijesti clicked", Toast.LENGTH_SHORT
-        ).show()
+        /*
         activity?.supportFragmentManager?.beginTransaction()
-                /*
             ?.replace(R.id.frameLayout_host, vijestiDetailFragment)
             ?.addToBackStack(null)
             ?.commit()*/
@@ -70,20 +61,3 @@ class VijestiFragment : Fragment(), VijestiAdapter.OnItemClickListener,
         //  replace(R.id.frameLayout_host, zabavaDetailFragment)
         //commit()
     }
-
-    override fun onItemLongClick(position: Int) {
-        deleteRow()
-    }
-
-    private fun deleteRow() {
-        val builder = AlertDialog.Builder(requireContext())
-        builder.setPositiveButton("Yes") { _, _ ->
-
-        }
-        builder.setNegativeButton("No") { _, _ -> }
-        builder.setTitle("Delete?")
-        builder.setMessage("Are you sure you want to delete?")
-        builder.create().show()
-    }
-
-}

@@ -17,8 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.zabava_fragment.*
 import kotlinx.android.synthetic.main.zabava_fragment.view.*
 
-class ZabavaFragment : Fragment(), ZabavaAdapter.OnItemClickListener,
-    ZabavaAdapter.OnItemLongClickListener {
+class ZabavaFragment : Fragment() {
 
     private lateinit var mZabavaViewModel: ZabavaViewModel
     override fun onCreateView(
@@ -29,7 +28,7 @@ class ZabavaFragment : Fragment(), ZabavaAdapter.OnItemClickListener,
         val view = inflater.inflate(R.layout.zabava_fragment, container, false)
 
         //RecyclerView
-        val adapter = ZabavaAdapter(this, this)
+        val adapter = ZabavaAdapter()
         val recyclerZabava = view.recyclerViewZabava
         recyclerZabava.adapter = adapter
         recyclerZabava.layoutManager = LinearLayoutManager(requireContext())
@@ -50,17 +49,9 @@ class ZabavaFragment : Fragment(), ZabavaAdapter.OnItemClickListener,
             DividerItemDecoration
                 (recyclerViewZabava.context, DividerItemDecoration.VERTICAL)
         )
-
     }
-
-    override fun onItemClick(position: Int, naslovZabava: String, clanakZabava: String) {
-        Toast.makeText(
-            requireContext(), "Item  $position clicked" +
-                    "\nItem  $naslovZabava clicked" +
-                    "\nItem  $clanakZabava clicked", Toast.LENGTH_SHORT
-        ).show()
+        /*
         activity?.supportFragmentManager?.beginTransaction()
-                /*
             ?.replace(R.id.frameLayout_host, zabavaDetailFragment)
             ?.addToBackStack(null)
             ?.commit()*/
@@ -68,19 +59,3 @@ class ZabavaFragment : Fragment(), ZabavaAdapter.OnItemClickListener,
         //  replace(R.id.frameLayout_host, zabavaDetailFragment)
         //commit()
     }
-
-    override fun onItemLongClick(position: Int) {
-        deleteRow()
-    }
-
-    private fun deleteRow() {
-        val builder = AlertDialog.Builder(requireContext())
-        builder.setPositiveButton("Yes") { _, _ ->
-
-        }
-        builder.setNegativeButton("No") { _, _ -> }
-        builder.setTitle("Delete?")
-        builder.setMessage("Are you sure you want to delete?")
-        builder.create().show()
-    }
-}
