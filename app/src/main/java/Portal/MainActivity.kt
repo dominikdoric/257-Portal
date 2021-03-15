@@ -14,10 +14,7 @@ import androidx.core.view.GravityCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.onNavDestinationSelected
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
+import androidx.navigation.ui.*
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -33,12 +30,14 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_main) as NavHostFragment
         navController = navHostFragment.findNavController()
         appBarConfiguration = AppBarConfiguration(
-            setOf(R.id.naslovnicaBottomNav,R.id.vrijemeBottomNav,R.id.infoBottomNav,R.id.kontaktBottomNav)
+            setOf(R.id.naslovnicaBottomNav,R.id.vrijemeBottomNav,R.id.infoBottomNav,R.id.kontaktBottomNav),
+            main_drawer_layout
         )
         setSupportActionBar(toolbar)
         setupActionBarWithNavController(navController,appBarConfiguration)
 
         bottom_navigation.setupWithNavController(navController)
+        navigation_drawer.setupWithNavController(navController)
 
     }
 
@@ -52,7 +51,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        return navController.navigateUp() || super.onSupportNavigateUp()
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
 }
