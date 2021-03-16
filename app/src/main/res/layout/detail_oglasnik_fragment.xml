@@ -20,11 +20,78 @@
         android:textColor="#000"
         android:textSize="24dp" />
 
+    <LinearLayout
+        android:id="@+id/linearLayoutCijena"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/detailOglasnikNaslov"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cijena:"
+            android:textColor="#000"
+            android:textSize="20dp"/>
+        <TextView
+            android:id="@+id/detailOglasnikCijena"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textSize="20dp"
+            android:textColor="#000"
+            android:text="10kn/kg"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutLokacija"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linearLayoutCijena"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lokacija:"
+            android:textColor="#000"
+            android:textSize="20dp"/>
+        <TextView
+            android:id="@+id/detailOglasnikLokacija"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:text="Treštanovci"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutBroj"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linearLayoutLokacija"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Broj:"
+            android:textColor="#000"
+            android:textSize="20dp"/>
+        <TextView
+            android:id="@+id/detailOglasnikBroj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="0979780078"
+            android:textSize="20dp"
+            android:textColor="#000"/>
+    </LinearLayout>
+
     <TextView
         android:id="@+id/detailOglasnikClanak"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/detailOglasnikNaslov"
+        android:layout_below="@+id/linearLayoutBroj"
         android:layout_marginTop="20dp"
         android:text="NK Jakšić nakon penala je uspio izboriti pobjedu protiv rivala NK BSK Buk
 na domaćem terenu pred brojnom publikom.Nakon 90 minuta nije bilo pobjednika

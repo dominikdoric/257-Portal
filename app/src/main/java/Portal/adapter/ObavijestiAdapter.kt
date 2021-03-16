@@ -33,6 +33,12 @@ class ObavijestiAdapter() : RecyclerView.Adapter<ObavijestiAdapter.ViewHolder>()
             holder.itemView.findNavController().navigate(action)
             true
         }
+
+        holder.itemView.cardViewObavijesti.setOnClickListener {
+            val action = ObavijestiFragmentDirections.actionObavijestiNavDrawerToDetailObavijestiFragment(currentItem)
+            holder.itemView.findNavController().navigate(action)
+        }
+
     }
 
     override fun getItemCount(): Int {

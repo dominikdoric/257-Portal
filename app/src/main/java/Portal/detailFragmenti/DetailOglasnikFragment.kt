@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
+import kotlinx.android.synthetic.main.detail_oglasnik_fragment.view.*
 
 class DetailOglasnikFragment: Fragment() {
 
@@ -24,6 +25,11 @@ class DetailOglasnikFragment: Fragment() {
 
         mOglasnikViewModel = ViewModelProvider(this).get(OglasnikViewModel::class.java)
 
+        view.detailOglasnikNaslov.setText(args.oglasnikData.oglasnikNaslov)
+        view.detailOglasnikCijena.setText(args.oglasnikData.oglasnikCijena)
+        view.detailOglasnikLokacija.setText(args.oglasnikData.oglasnikLokacija)
+        view.detailOglasnikBroj.setText(args.oglasnikData.oglasnikBroj)
+        view.detailOglasnikClanak.setText(args.oglasnikData.oglasnikClanak)
 
         return view
     }

@@ -31,6 +31,12 @@ class ZabavaAdapter() : RecyclerView.Adapter<ZabavaAdapter.ViewHolder>() {
             holder.itemView.findNavController().navigate(action)
             true
         }
+
+        holder.itemView.cardViewZabava.setOnClickListener {
+            val action = ZabavaFragmentDirections.actionZabavaNavDrawerToDetailFragmentZabava(currentItem)
+            holder.itemView.findNavController().navigate(action)
+        }
+
     }
 
     override fun getItemCount(): Int {

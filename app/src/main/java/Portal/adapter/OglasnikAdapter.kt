@@ -33,6 +33,12 @@ class OglasnikAdapter() : RecyclerView.Adapter<OglasnikAdapter.ViewHolder>() {
             holder.itemView.findNavController().navigate(action)
             true
         }
+
+        holder.itemView.cardViewOglasnik.setOnClickListener {
+            val action = OglasnikFragmentDirections.actionOglasnikNavDrawerToDetailOglasnikFragment(currentItem)
+            holder.itemView.findNavController().navigate(action)
+        }
+
     }
 
     override fun getItemCount(): Int {
