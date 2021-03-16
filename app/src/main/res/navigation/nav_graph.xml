@@ -240,4 +240,19 @@
             android:name="vijestiData"
             app:argType="Portal.database.table.VijestiTable" />
     </fragment>
+    <fragment
+        android:id="@+id/dodajNovoPriceCitatelja"
+        android:name="Portal.dodajNovo.DodajNovoPriceCitatelja"
+        android:label="DodajNovoPriceCitatelja"
+        tools:layout="@layout/dodaj_novo_price_citatelja_fragment"/>
+    <fragment
+        android:id="@+id/detailPriceCitateljaFragment"
+        android:name="Portal.detailFragmenti.DetailPriceCitateljaFragment"
+        android:label="DetailPriceCitateljaFragment"
+        tools:layout="@layout/detail_price_citatelja_fragment"/>
+    <fragment
+        android:id="@+id/updateDeletePriceCitateljaFragment"
+        android:name="Portal.updateDelete.UpdateDeletePriceCitateljaFragment"
+        android:label="UpdateDeletePriceCitateljaFragment"
+        tools:layout="@layout/update_delete_price_citatelja_fragment"/>
 </navigation>

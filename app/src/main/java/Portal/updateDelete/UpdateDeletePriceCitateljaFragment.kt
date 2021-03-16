@@ -1,4 +1,4 @@
-package Portal.dodajNovo
+package Portal.updateDelete
 
 import Portal.a257.R
 import android.os.Bundle
@@ -7,14 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 
-class DodajNovoPriceCitatelja: Fragment() {
+class UpdateDeletePriceCitateljaFragment: Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.dodaj_novo_price_citatelja_fragment,container,false)
+        val view = inflater.inflate(R.layout.update_delete_price_citatelja_fragment,container,false)
 
         return view
     }
