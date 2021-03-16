@@ -54,7 +54,7 @@ class DodajNovoVijesti: Fragment() {
 
         val noviNaslov = et_vijesti_naslov.text.toString()
         val novoVrijeme = currentDate
-        val noviClanak = ""
+        val noviClanak = et_vijesti_clanak.text.toString()
         val novaSlika = R.drawable.jaksic
 
         val vijesti = VijestiTable(0,noviNaslov,noviClanak,novoVrijeme,novaSlika)

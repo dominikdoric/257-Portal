@@ -54,7 +54,7 @@ class DodajNovoZabava : Fragment() {
 
         val noviNaslov = et_zabava_naslov.text.toString()
         val novoVrijeme = currentDate
-        val noviClanak = ""
+        val noviClanak = et_zabava_clanak.text.toString()
         val novaSlika = R.drawable.jaksic
 
         val zabava = ZabavaTable(0,noviNaslov, noviClanak, novoVrijeme, novaSlika)

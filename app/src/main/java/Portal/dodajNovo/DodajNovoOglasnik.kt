@@ -54,7 +54,7 @@ class DodajNovoOglasnik: Fragment() {
         val currentDate = sdf.format(Date())
 
         val novaSlika = R.drawable.jaksic
-        val noviClanak = ""
+        val noviClanak = et_oglasnik_clanak.text.toString()
         val noviNaslov = et_oglasnik_naslov.text.toString()
         val novaCijena = et_oglasnik_cijena.text.toString()
         val novaLokacija = et_oglasnik_lokacija.text.toString()
