@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_obavijestiNavDrawer_to_updateDeleteObavijestiFragment2"
             app:destination="@id/updateDeleteObavijestiFragment2" />
+        <action
+            android:id="@+id/action_obavijestiNavDrawer_to_detailObavijestiFragment"
+            app:destination="@id/detailObavijestiFragment" />
     </fragment>
     <fragment
         android:id="@+id/oglasnikNavDrawer"
@@ -37,6 +40,9 @@
         <action
             android:id="@+id/action_oglasnikNavDrawer_to_updateDeleteOglasnikFragment"
             app:destination="@id/updateDeleteOglasnikFragment" />
+        <action
+            android:id="@+id/action_oglasnikNavDrawer_to_detailOglasnikFragment"
+            app:destination="@id/detailOglasnikFragment" />
     </fragment>
     <fragment
         android:id="@+id/priceCitateljaNavDrawer"
@@ -63,6 +69,9 @@
         <action
             android:id="@+id/action_vijestiNavDrawer_to_updateDeleteVijestiFragment"
             app:destination="@id/updateDeleteVijestiFragment" />
+        <action
+            android:id="@+id/action_vijestiNavDrawer_to_detailVijestiFragment"
+            app:destination="@id/detailVijestiFragment" />
     </fragment>
     <fragment
         android:id="@+id/zabavaNavDrawer"
@@ -72,6 +81,9 @@
         <action
             android:id="@+id/action_zabavaNavDrawer_to_updateDeleteZabavaFragment"
             app:destination="@id/updateDeleteZabavaFragment" />
+        <action
+            android:id="@+id/action_zabavaNavDrawer_to_detailFragmentZabava"
+            app:destination="@id/detailFragmentZabava" />
     </fragment>
     <fragment
         android:id="@+id/vrijemeBottomNav"
@@ -192,4 +204,24 @@
             android:name="sportData"
             app:argType="Portal.database.table.SportTable" />
     </fragment>
+    <fragment
+        android:id="@+id/detailFragmentZabava"
+        android:name="Portal.detailFragmenti.DetailZabavaFragment"
+        android:label="DetailFragmentZabava"
+        tools:layout="@layout/detail_zabava_fragment"/>
+    <fragment
+        android:id="@+id/detailObavijestiFragment"
+        android:name="Portal.detailFragmenti.DetailObavijestiFragment"
+        android:label="DetailObavijestiFragment"
+        tools:layout="@layout/detail_obavijesti_fragment"/>
+    <fragment
+        android:id="@+id/detailOglasnikFragment"
+        android:name="Portal.detailFragmenti.DetailOglasnikFragment"
+        android:label="DetailOglasnikFragment"
+        tools:layout="@layout/detail_oglasnik_fragment"/>
+    <fragment
+        android:id="@+id/detailVijestiFragment"
+        android:name="Portal.detailFragmenti.DetailVijestiFragment"
+        android:label="DetailVijestiFragment"
+        tools:layout="@layout/detail_vijesti_fragment"/>
 </navigation>
