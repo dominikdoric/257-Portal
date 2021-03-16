@@ -21,6 +21,6 @@ interface PriceCitateljaDao {
     suspend fun deletePriceCitatelja(priceCitateljaTable: PriceCitateljaTable)
 
     @Query(" DELETE FROM price_citatelja")
-    suspend fun deleteAllObavijesti()
+    suspend fun deleteAllPriceCitatelja()
 
 }

@@ -15,7 +15,7 @@ import androidx.room.RoomDatabase
         OglasnikTable::class,
         NaslovnicaTable::class,
         PriceCitateljaTable::class],
-        version = 4
+        version = 5
 )
 abstract class Portal257Database : RoomDatabase() {
 
