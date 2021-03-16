@@ -208,20 +208,36 @@
         android:id="@+id/detailFragmentZabava"
         android:name="Portal.detailFragmenti.DetailZabavaFragment"
         android:label="DetailFragmentZabava"
-        tools:layout="@layout/detail_zabava_fragment"/>
+        tools:layout="@layout/detail_zabava_fragment">
+        <argument
+            android:name="zabavaData"
+            app:argType="Portal.database.table.ZabavaTable" />
+    </fragment>
     <fragment
         android:id="@+id/detailObavijestiFragment"
         android:name="Portal.detailFragmenti.DetailObavijestiFragment"
         android:label="DetailObavijestiFragment"
-        tools:layout="@layout/detail_obavijesti_fragment"/>
+        tools:layout="@layout/detail_obavijesti_fragment">
+        <argument
+            android:name="obavijestiData"
+            app:argType="Portal.database.table.ObavijestiTable" />
+    </fragment>
     <fragment
         android:id="@+id/detailOglasnikFragment"
         android:name="Portal.detailFragmenti.DetailOglasnikFragment"
         android:label="DetailOglasnikFragment"
-        tools:layout="@layout/detail_oglasnik_fragment"/>
+        tools:layout="@layout/detail_oglasnik_fragment">
+        <argument
+            android:name="oglasnikData"
+            app:argType="Portal.database.table.OglasnikTable" />
+    </fragment>
     <fragment
         android:id="@+id/detailVijestiFragment"
         android:name="Portal.detailFragmenti.DetailVijestiFragment"
         android:label="DetailVijestiFragment"
-        tools:layout="@layout/detail_vijesti_fragment"/>
+        tools:layout="@layout/detail_vijesti_fragment">
+        <argument
+            android:name="vijestiData"
+            app:argType="Portal.database.table.VijestiTable" />
+    </fragment>
 </navigation>

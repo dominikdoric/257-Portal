@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/detailVijestiImage"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentTop="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/jaksic" />
+
+    <TextView
+        android:id="@+id/detailVijestiNaslov"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/detailVijestiImage"
+        android:text="NK Jakšić izbacio NK BSK Buk iz četvrtfinala kupa NS PSŽ"
+        android:textColor="#000"
+        android:textSize="24dp" />
+
+    <TextView
+        android:id="@+id/detailVijestiClanak"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/detailVijestiNaslov"
+        android:layout_marginTop="20dp"
+        android:text="NK Jakšić nakon penala je uspio izboriti pobjedu protiv rivala NK BSK Buk
+na domaćem terenu pred brojnom publikom.Nakon 90 minuta nije bilo pobjednika
+te se nakon toga pristupilo jedanaestercima u kojima je NK Jakšić bio spretniji i sretniji te
+osigurao prolazak dalje"
+        android:textColor="#000"
+        android:textSize="20dp" />
+
+</RelativeLayout>
