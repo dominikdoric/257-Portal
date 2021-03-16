@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:id="@+id/cardViewPricaCitatelja"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardElevation="10dp"
     app:cardCornerRadius="12dp"
@@ -16,17 +16,17 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imageViewJaNovinarSlika"
+            android:id="@+id/imageViewPricaCitateljaSlika"
             android:layout_width="match_parent"
             android:layout_height="130dp"
             android:scaleType="centerCrop"
             android:src="@drawable/jaksic" />
 
         <TextView
-            android:id="@+id/textViewJaNovinarNaslov"
+            android:id="@+id/textViewPricaCitateljaNaslov"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imageViewJaNovinarSlika"
+            android:layout_below="@+id/imageViewPricaCitateljaSlika"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
@@ -34,17 +34,40 @@
             android:textColor="#000"
             android:textSize="20dp" />
 
-        <TextView
-            android:id="@+id/textViewJaNovinarVrijeme"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textViewJaNovinarNaslov"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="5dp"
-            android:layout_marginBottom="5dp"
-            android:text="Prije 1 h"
-            android:textColor="#000"
-            android:textSize="20dp" />
+            android:orientation="horizontal"
+            android:layout_below="@id/textViewPricaCitateljaNaslov">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Objavljeno:"
+                android:textSize="15dp"
+                android:textColor="#000"/>
+
+            <TextView
+                android:id="@+id/textViewPricaCitateljaVrijeme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="Prije 1 h"
+                android:textColor="#000"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text=" h"
+                android:textSize="15dp"
+                android:textColor="#000"/>
+        </LinearLayout>
 
     </RelativeLayout>
 
