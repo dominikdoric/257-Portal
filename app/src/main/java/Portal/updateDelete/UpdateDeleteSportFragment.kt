@@ -3,6 +3,7 @@ package Portal.updateDelete
 import Portal.a257.R
 import Portal.database.table.SportTable
 import Portal.viewModel.SportViewModel
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -37,7 +38,22 @@ class UpdateDeleteSportFragment: Fragment() {
             updateItemSport()
         }
 
+        view.gumbDeleteSport.setOnClickListener {
+            deleteItemSport()
+        }
+
         return view
+    }
+
+    private fun deleteItemSport() {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setPositiveButton("Yes"){_, _ ->
+
+        }
+        builder.setNegativeButton("No"){_, _ -> }
+        builder.setTitle("Delete ${args.currentSport.sportNaslov}?")
+        builder.setMessage("Are you sure you want to delete ${args.currentSport.sportNaslov}?")
+        builder.create().show()
     }
 
     private fun updateItemSport() {
