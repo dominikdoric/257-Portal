@@ -27,5 +27,10 @@
         android:title="Dodaj novu zabavu"
         app:showAsAction="never"
         android:menuCategory="secondary"/>
+    <item
+        android:id="@+id/menu_dodajNovuPricuCitatelja"
+        android:title="Dodaj novu pricu"
+        app:showAsAction="never"
+        android:menuCategory="secondary"/>
 
 </menu>

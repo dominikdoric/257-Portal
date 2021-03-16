@@ -48,7 +48,14 @@
         android:id="@+id/priceCitateljaNavDrawer"
         android:name="Portal.fragmenti.PriceCitateljaFragment"
         android:label="PriceCitateljaFragment"
-        tools:layout="@layout/price_citatelja_fragment"/>
+        tools:layout="@layout/price_citatelja_fragment">
+        <action
+            android:id="@+id/action_priceCitateljaNavDrawer_to_detailPriceCitateljaFragment"
+            app:destination="@id/detailPriceCitateljaFragment" />
+        <action
+            android:id="@+id/action_priceCitateljaNavDrawer_to_updateDeletePriceCitateljaFragment"
+            app:destination="@id/updateDeletePriceCitateljaFragment" />
+    </fragment>
     <fragment
         android:id="@+id/sportNavDrawer"
         android:name="Portal.fragmenti.SportFragment"
@@ -241,18 +248,33 @@
             app:argType="Portal.database.table.VijestiTable" />
     </fragment>
     <fragment
-        android:id="@+id/dodajNovoPriceCitatelja"
+        android:id="@+id/menu_dodajNovuPricuCitatelja"
         android:name="Portal.dodajNovo.DodajNovoPriceCitatelja"
         android:label="DodajNovoPriceCitatelja"
-        tools:layout="@layout/dodaj_novo_price_citatelja_fragment"/>
+        tools:layout="@layout/dodaj_novo_price_citatelja_fragment">
+        <action
+            android:id="@+id/action_menu_dodajNovuPricuCitatelja_to_priceCitateljaNavDrawer"
+            app:destination="@id/priceCitateljaNavDrawer" />
+    </fragment>
     <fragment
         android:id="@+id/detailPriceCitateljaFragment"
         android:name="Portal.detailFragmenti.DetailPriceCitateljaFragment"
         android:label="DetailPriceCitateljaFragment"
-        tools:layout="@layout/detail_price_citatelja_fragment"/>
+        tools:layout="@layout/detail_price_citatelja_fragment">
+        <argument
+            android:name="priceCitateljaData"
+            app:argType="Portal.database.table.PriceCitateljaTable" />
+    </fragment>
     <fragment
         android:id="@+id/updateDeletePriceCitateljaFragment"
         android:name="Portal.updateDelete.UpdateDeletePriceCitateljaFragment"
         android:label="UpdateDeletePriceCitateljaFragment"
-        tools:layout="@layout/update_delete_price_citatelja_fragment"/>
+        tools:layout="@layout/update_delete_price_citatelja_fragment">
+        <action
+            android:id="@+id/action_updateDeletePriceCitateljaFragment_to_priceCitateljaNavDrawer"
+            app:destination="@id/priceCitateljaNavDrawer" />
+        <argument
+            android:name="currentPriceCitatelja"
+            app:argType="Portal.database.table.PriceCitateljaTable" />
+    </fragment>
 </navigation>
