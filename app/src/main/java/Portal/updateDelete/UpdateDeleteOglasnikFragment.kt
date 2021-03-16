@@ -3,10 +3,12 @@ package Portal.updateDelete
 import Portal.a257.R
 import Portal.database.table.OglasnikTable
 import Portal.viewModel.OglasnikViewModel
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -41,7 +43,24 @@ class UpdateDeleteOglasnikFragment: Fragment() {
             updateItemOglasnik()
         }
 
+        view.gumbDeleteOglasnik.setOnClickListener {
+            deleteItemOglasnik()
+        }
+
         return view
+    }
+
+    private fun deleteItemOglasnik() {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setPositiveButton("Yes"){_, _ ->
+            mOglasnikViewModel.deleteOglasnik(args.currentOglasnik)
+            Toast.makeText(requireContext(),"Brisanje uspješno!", Toast.LENGTH_LONG).show()
+            findNavController().navigate(R.id.action_updateDeleteOglasnikFragment_to_oglasnikNavDrawer)
+        }
+        builder.setNegativeButton("No"){_, _ -> }
+        builder.setTitle("Delete ${args.currentOglasnik.oglasnikNaslov}?")
+        builder.setMessage("Are you sure you want to delete ${args.currentOglasnik.oglasnikNaslov}?")
+        builder.create().show()
     }
 
     private fun updateItemOglasnik() {

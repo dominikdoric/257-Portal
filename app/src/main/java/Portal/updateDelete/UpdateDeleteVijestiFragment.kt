@@ -3,10 +3,12 @@ package Portal.updateDelete
 import Portal.a257.R
 import Portal.database.table.VijestiTable
 import Portal.viewModel.VijestiViewModel
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -37,7 +39,24 @@ class UpdateDeleteVijestiFragment: Fragment() {
             updateItemVijesti()
         }
 
+        view.gumbDeleteVijesti.setOnClickListener {
+            deleteItemVijesti()
+        }
+
         return view
+    }
+
+    private fun deleteItemVijesti() {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setPositiveButton("Yes"){_, _ ->
+            mVijestiViewModel.deleteVijesti(args.currentVijest)
+            Toast.makeText(requireContext(),"Brisanje uspješno!", Toast.LENGTH_LONG).show()
+            findNavController().navigate(R.id.action_updateDeleteVijestiFragment_to_vijestiNavDrawer)
+        }
+        builder.setNegativeButton("No"){_, _ -> }
+        builder.setTitle("Delete ${args.currentVijest.vijestiNaslov}?")
+        builder.setMessage("Are you sure you want to delete ${args.currentVijest.vijestiNaslov}?")
+        builder.create().show()
     }
 
     private fun updateItemVijesti() {
