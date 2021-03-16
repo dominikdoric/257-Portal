@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -48,7 +49,9 @@ class UpdateDeleteSportFragment: Fragment() {
     private fun deleteItemSport() {
         val builder = AlertDialog.Builder(requireContext())
         builder.setPositiveButton("Yes"){_, _ ->
-
+            mSportViewModel.deleteSport(args.currentSport)
+            Toast.makeText(requireContext(),"Brisanje uspješno!",Toast.LENGTH_LONG).show()
+            findNavController().navigate(R.id.action_updateDeleteSportFragment_to_sportNavDrawer)
         }
         builder.setNegativeButton("No"){_, _ -> }
         builder.setTitle("Delete ${args.currentSport.sportNaslov}?")
