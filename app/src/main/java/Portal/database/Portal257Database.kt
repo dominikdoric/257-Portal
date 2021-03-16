@@ -8,8 +8,14 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 @Database(
-    entities = [ZabavaTable::class, SportTable::class, ObavijestiTable::class,
-        VijestiTable::class, OglasnikTable::class, NaslovnicaTable::class], version = 4
+    entities = [ZabavaTable::class,
+        SportTable::class,
+        ObavijestiTable::class,
+        VijestiTable::class,
+        OglasnikTable::class,
+        NaslovnicaTable::class,
+        PriceCitateljaTable::class],
+        version = 4
 )
 abstract class Portal257Database : RoomDatabase() {
 
@@ -19,6 +25,7 @@ abstract class Portal257Database : RoomDatabase() {
     abstract fun vijestiDao(): VijestiDao
     abstract fun oglasnikDao(): OglasnikDao
     abstract fun naslovnicaDao(): NaslovnicaDao
+    abstract fun priceCitateljaDao(): PriceCitateljaDao
 
     companion object {
         @Volatile
