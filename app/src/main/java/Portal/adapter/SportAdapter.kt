@@ -30,6 +30,12 @@ class SportAdapter() : RecyclerView.Adapter<SportAdapter.ViewHolder>() {
             holder.itemView.findNavController().navigate(action)
             true
         }
+
+        holder.itemView.cardViewSport.setOnClickListener {
+            val action = SportFragmentDirections.actionSportNavDrawerToDetailSportFragment(currentItem)
+            holder.itemView.findNavController().navigate(action)
+        }
+
     }
 
     override fun getItemCount(): Int {

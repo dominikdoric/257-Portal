@@ -51,6 +51,9 @@
         <action
             android:id="@+id/action_sportNavDrawer_to_updateDeleteSportFragment"
             app:destination="@id/updateDeleteSportFragment" />
+        <action
+            android:id="@+id/action_sportNavDrawer_to_detailSportFragment"
+            app:destination="@id/detailSportFragment" />
     </fragment>
     <fragment
         android:id="@+id/vijestiNavDrawer"
@@ -179,5 +182,14 @@
         <argument
             android:name="currentOglasnik"
             app:argType="Portal.database.table.OglasnikTable" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailSportFragment"
+        android:name="Portal.detailFragmenti.DetailSportFragment"
+        android:label="DetailSportFragment"
+        tools:layout="@layout/detail_sport_fragment">
+        <argument
+            android:name="sportData"
+            app:argType="Portal.database.table.SportTable" />
     </fragment>
 </navigation>

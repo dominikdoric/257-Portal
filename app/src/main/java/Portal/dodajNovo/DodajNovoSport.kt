@@ -56,7 +56,7 @@ class DodajNovoSport: Fragment() {
 
         val noviNaslov = et_sport_naslov.text.toString()
         val novoVrijeme = currentDate
-        val noviClanak = ""
+        val noviClanak = et_sport_clanak.text.toString()
         val novaSlika = R.drawable.jaksic
 
         val sport = SportTable(0,noviNaslov,noviClanak,novoVrijeme,novaSlika)
