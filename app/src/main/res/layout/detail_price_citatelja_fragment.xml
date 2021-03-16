@@ -15,15 +15,23 @@
         android:id="@+id/detailPriceCitateljaNaslov"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:layout_below="@+id/detailPriceCitateljaImage"
         android:text="NK Jakšić izbacio NK BSK Buk iz četvrtfinala kupa NS PSŽ"
         android:textColor="#000"
-        android:textSize="24dp" />
+        android:textSize="26dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/detailPriceCitateljaNaslov"
+        android:background="@color/black" />
 
     <TextView
         android:id="@+id/detailPriceCitateljaClanak"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:layout_below="@+id/detailPriceCitateljaNaslov"
         android:layout_marginTop="20dp"
         android:text="NK Jakšić nakon penala je uspio izboriti pobjedu protiv rivala NK BSK Buk

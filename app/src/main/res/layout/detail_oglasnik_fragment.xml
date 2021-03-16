@@ -15,16 +15,24 @@
         android:id="@+id/detailOglasnikNaslov"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:layout_below="@+id/detailOglasnikImage"
         android:text="NK Jakšić izbacio NK BSK Buk iz četvrtfinala kupa NS PSŽ"
         android:textColor="#000"
-        android:textSize="24dp" />
+        android:textSize="26dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/detailOglasnikNaslov"
+        android:background="@color/black" />
 
     <LinearLayout
         android:id="@+id/linearLayoutCijena"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:layout_below="@id/detailOglasnikNaslov"
         android:orientation="horizontal">
         <TextView
@@ -47,6 +55,7 @@
         android:id="@+id/linearLayoutLokacija"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
         android:layout_below="@id/linearLayoutCijena"
         android:orientation="horizontal">
         <TextView
@@ -69,6 +78,7 @@
         android:id="@+id/linearLayoutBroj"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
         android:layout_below="@id/linearLayoutLokacija"
         android:orientation="horizontal">
         <TextView
@@ -87,11 +97,20 @@
             android:textColor="#000"/>
     </LinearLayout>
 
+    <View
+        android:id="@+id/separator"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/linearLayoutBroj"
+        android:background="@color/black" />
+
     <TextView
         android:id="@+id/detailOglasnikClanak"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/linearLayoutBroj"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/separator"
         android:layout_marginTop="20dp"
         android:text="NK Jakšić nakon penala je uspio izboriti pobjedu protiv rivala NK BSK Buk
 na domaćem terenu pred brojnom publikom.Nakon 90 minuta nije bilo pobjednika
