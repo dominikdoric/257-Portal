@@ -29,13 +29,18 @@ class OglasnikAdapter() : RecyclerView.Adapter<OglasnikAdapter.ViewHolder>() {
         holder.itemView.textViewOglasnikVrijeme.text = currentItem.oglasnikVrijeme
 
         holder.itemView.cardViewOglasnik.setOnLongClickListener {
-            val action = OglasnikFragmentDirections.actionOglasnikNavDrawerToUpdateDeleteOglasnikFragment(currentItem)
+            val action =
+                OglasnikFragmentDirections.actionOglasnikNavDrawerToUpdateDeleteOglasnikFragment(
+                    currentItem
+                )
             holder.itemView.findNavController().navigate(action)
             true
         }
 
         holder.itemView.cardViewOglasnik.setOnClickListener {
-            val action = OglasnikFragmentDirections.actionOglasnikNavDrawerToDetailOglasnikFragment(currentItem)
+            val action = OglasnikFragmentDirections.actionOglasnikNavDrawerToDetailOglasnikFragment(
+                currentItem
+            )
             holder.itemView.findNavController().navigate(action)
         }
 
@@ -45,7 +50,7 @@ class OglasnikAdapter() : RecyclerView.Adapter<OglasnikAdapter.ViewHolder>() {
         return oglasnikList.size
     }
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     }
 

@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import kotlinx.android.synthetic.main.detail_obavijesti_fragment.view.*
 
-class DetailObavijestiFragment: Fragment() {
+class DetailObavijestiFragment : Fragment() {
 
     private val args by navArgs<DetailObavijestiFragmentArgs>()
     private lateinit var mObavijestiViewModel: ObavijestiViewModel
@@ -21,7 +21,7 @@ class DetailObavijestiFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.detail_obavijesti_fragment,container,false)
+        val view = inflater.inflate(R.layout.detail_obavijesti_fragment, container, false)
 
         mObavijestiViewModel = ViewModelProvider(this).get(ObavijestiViewModel::class.java)
 

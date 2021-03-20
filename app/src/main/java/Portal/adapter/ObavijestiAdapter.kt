@@ -29,13 +29,19 @@ class ObavijestiAdapter() : RecyclerView.Adapter<ObavijestiAdapter.ViewHolder>()
         holder.itemView.textViewObavijestVrijeme.text = currentItem.obavijestiVrijeme
 
         holder.itemView.cardViewObavijesti.setOnLongClickListener {
-            val action = ObavijestiFragmentDirections.actionObavijestiNavDrawerToUpdateDeleteObavijestiFragment2(currentItem)
+            val action =
+                ObavijestiFragmentDirections.actionObavijestiNavDrawerToUpdateDeleteObavijestiFragment2(
+                    currentItem
+                )
             holder.itemView.findNavController().navigate(action)
             true
         }
 
         holder.itemView.cardViewObavijesti.setOnClickListener {
-            val action = ObavijestiFragmentDirections.actionObavijestiNavDrawerToDetailObavijestiFragment(currentItem)
+            val action =
+                ObavijestiFragmentDirections.actionObavijestiNavDrawerToDetailObavijestiFragment(
+                    currentItem
+                )
             holder.itemView.findNavController().navigate(action)
         }
 
@@ -45,7 +51,7 @@ class ObavijestiAdapter() : RecyclerView.Adapter<ObavijestiAdapter.ViewHolder>()
         return obavijestiList.size
     }
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     }
 

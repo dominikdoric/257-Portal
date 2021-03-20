@@ -10,7 +10,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class SportViewModel(application: Application): AndroidViewModel(application) {
+class SportViewModel(application: Application) : AndroidViewModel(application) {
 
     val readAllDataSport: LiveData<List<SportTable>>
     private val sportRepository: SportRepository
@@ -21,25 +21,25 @@ class SportViewModel(application: Application): AndroidViewModel(application) {
         readAllDataSport = sportRepository.readAllDataSport
     }
 
-    fun addSport(sportTable: SportTable){
-        viewModelScope.launch(Dispatchers.IO){
+    fun addSport(sportTable: SportTable) {
+        viewModelScope.launch(Dispatchers.IO) {
             sportRepository.addSport(sportTable)
         }
     }
 
-    fun updateSport(sportTable: SportTable){
+    fun updateSport(sportTable: SportTable) {
         viewModelScope.launch(Dispatchers.IO) {
             sportRepository.updateSport(sportTable)
         }
     }
 
-    fun deleteSport(sportTable: SportTable){
+    fun deleteSport(sportTable: SportTable) {
         viewModelScope.launch(Dispatchers.IO) {
             sportRepository.deleteSport(sportTable)
         }
     }
 
-    fun deleteAllSport(){
+    fun deleteAllSport() {
         viewModelScope.launch(Dispatchers.IO) {
             sportRepository.deleteAllSport()
         }
