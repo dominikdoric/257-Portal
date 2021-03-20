@@ -59,7 +59,7 @@ class ObavijestiFragment : Fragment() {
             ?.replace(R.id.frameLayout_host, detailObavijestiFragment)
             ?.addToBackStack(null)
             ?.commit()*/
-        //childFragmentManager.beginTransaction().apply {
-        //  replace(R.id.frameLayout_host, zabavaDetailFragment)
-        //commit()
-    }
+    //childFragmentManager.beginTransaction().apply {
+    //  replace(R.id.frameLayout_host, zabavaDetailFragment)
+    //commit()
+}

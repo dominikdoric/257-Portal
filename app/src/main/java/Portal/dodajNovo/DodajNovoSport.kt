@@ -23,7 +23,7 @@ import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
-class DodajNovoSport: Fragment() {
+class DodajNovoSport : Fragment() {
 
     private lateinit var mSportViewModel: SportViewModel
 
@@ -32,16 +32,18 @@ class DodajNovoSport: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.dodaj_novo_sport_fragment,container,false)
+        val view = inflater.inflate(R.layout.dodaj_novo_sport_fragment, container, false)
 
         mSportViewModel = ViewModelProvider(this).get(SportViewModel::class.java)
 
         view.gumbSpremiSport.setOnClickListener {
             val action = DodajNovoSportDirections.actionMenuDodajNoviSportToSportNavDrawer()
             findNavController().navigate(action)
-            Toast.makeText(requireContext(),
+            Toast.makeText(
+                requireContext(),
                 "Vaš članak je zaprimljen te je poslan adminu na odobrenje.Hvala!",
-                Toast.LENGTH_LONG)
+                Toast.LENGTH_LONG
+            )
                 .show()
             insertDataToDatabase()
         }
@@ -59,7 +61,7 @@ class DodajNovoSport: Fragment() {
         val noviClanak = et_sport_clanak.text.toString()
         val novaSlika = R.drawable.jaksic
 
-        val sport = SportTable(0,noviNaslov,noviClanak,novoVrijeme,novaSlika)
+        val sport = SportTable(0, noviNaslov, noviClanak, novoVrijeme, novaSlika)
         mSportViewModel.addSport(sport)
     }
 

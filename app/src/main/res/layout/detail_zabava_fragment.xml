@@ -26,7 +26,6 @@
         android:layout_height="1dp"
         android:layout_below="@id/detailZabavaNaslov"
         android:background="@color/black" />
-
     <TextView
         android:id="@+id/detailZabavaClanak"
         android:layout_width="wrap_content"
@@ -40,5 +39,4 @@ te se nakon toga pristupilo jedanaestercima u kojima je NK Jakšić bio spretnij
 osigurao prolazak dalje"
         android:textColor="#000"
         android:textSize="20dp" />
-
 </RelativeLayout>

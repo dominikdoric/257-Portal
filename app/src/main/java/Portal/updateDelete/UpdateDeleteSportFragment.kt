@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.update_delete_sport_fragment.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-class UpdateDeleteSportFragment: Fragment() {
+class UpdateDeleteSportFragment : Fragment() {
 
     private val args by navArgs<UpdateDeleteSportFragmentArgs>()
     private lateinit var mSportViewModel: SportViewModel
@@ -28,7 +28,7 @@ class UpdateDeleteSportFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.update_delete_sport_fragment,container,false)
+        val view = inflater.inflate(R.layout.update_delete_sport_fragment, container, false)
 
         mSportViewModel = ViewModelProvider(this).get(SportViewModel::class.java)
 
@@ -48,12 +48,12 @@ class UpdateDeleteSportFragment: Fragment() {
 
     private fun deleteItemSport() {
         val builder = AlertDialog.Builder(requireContext())
-        builder.setPositiveButton("Yes"){_, _ ->
+        builder.setPositiveButton("Yes") { _, _ ->
             mSportViewModel.deleteSport(args.currentSport)
-            Toast.makeText(requireContext(),"Brisanje uspješno!",Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), "Brisanje uspješno!", Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_updateDeleteSportFragment_to_sportNavDrawer)
         }
-        builder.setNegativeButton("No"){_, _ -> }
+        builder.setNegativeButton("No") { _, _ -> }
         builder.setTitle("Delete ${args.currentSport.sportNaslov}?")
         builder.setMessage("Are you sure you want to delete ${args.currentSport.sportNaslov}?")
         builder.create().show()
@@ -68,7 +68,8 @@ class UpdateDeleteSportFragment: Fragment() {
         val vrijemeSport = currentDate
         val slikaSport = 0
 
-        val updateSport = SportTable(args.currentSport.id,naslovSport,clanakSport,vrijemeSport,slikaSport)
+        val updateSport =
+            SportTable(args.currentSport.id, naslovSport, clanakSport, vrijemeSport, slikaSport)
         mSportViewModel.updateSport(updateSport)
         findNavController().navigate(R.id.action_updateDeleteSportFragment_to_sportNavDrawer)
     }

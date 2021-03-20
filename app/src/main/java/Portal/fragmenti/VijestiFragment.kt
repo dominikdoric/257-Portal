@@ -52,12 +52,12 @@ class VijestiFragment : Fragment() {
                 (recyclerViewVijesti.context, DividerItemDecoration.VERTICAL)
         )
     }
-        /*
-        activity?.supportFragmentManager?.beginTransaction()
-            ?.replace(R.id.frameLayout_host, vijestiDetailFragment)
-            ?.addToBackStack(null)
-            ?.commit()*/
-        //childFragmentManager.beginTransaction().apply {
-        //  replace(R.id.frameLayout_host, zabavaDetailFragment)
-        //commit()
-    }
+    /*
+    activity?.supportFragmentManager?.beginTransaction()
+        ?.replace(R.id.frameLayout_host, vijestiDetailFragment)
+        ?.addToBackStack(null)
+        ?.commit()*/
+    //childFragmentManager.beginTransaction().apply {
+    //  replace(R.id.frameLayout_host, zabavaDetailFragment)
+    //commit()
+}

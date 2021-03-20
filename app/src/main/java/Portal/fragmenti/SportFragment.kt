@@ -55,13 +55,4 @@ class SportFragment : Fragment() {
                 (recyclerViewSport.context, DividerItemDecoration.VERTICAL)
         )
     }
-
-        /*
-        activity?.supportFragmentManager?.beginTransaction()
-            ?.replace(R.id.frameLayout_host, sportDetailFragment)
-            ?.addToBackStack(null)
-            ?.commit()*/
-        //childFragmentManager.beginTransaction().apply {
-        //  replace(R.id.frameLayout_host, zabavaDetailFragment)
-        //commit()
 }

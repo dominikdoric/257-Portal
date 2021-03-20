@@ -26,13 +26,15 @@ class SportAdapter() : RecyclerView.Adapter<SportAdapter.ViewHolder>() {
         holder.itemView.textViewSportVrijeme.text = currentItem.sportVrijeme
 
         holder.itemView.cardViewSport.setOnLongClickListener {
-            val action = SportFragmentDirections.actionSportNavDrawerToUpdateDeleteSportFragment(currentItem)
+            val action =
+                SportFragmentDirections.actionSportNavDrawerToUpdateDeleteSportFragment(currentItem)
             holder.itemView.findNavController().navigate(action)
             true
         }
 
         holder.itemView.cardViewSport.setOnClickListener {
-            val action = SportFragmentDirections.actionSportNavDrawerToDetailSportFragment(currentItem)
+            val action =
+                SportFragmentDirections.actionSportNavDrawerToDetailSportFragment(currentItem)
             holder.itemView.findNavController().navigate(action)
         }
 
