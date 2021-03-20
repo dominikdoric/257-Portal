@@ -10,7 +10,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class ObavijestiViewModel(application: Application): AndroidViewModel(application) {
+class ObavijestiViewModel(application: Application) : AndroidViewModel(application) {
 
     val readAllDataObavijesti: LiveData<List<ObavijestiTable>>
     private val obavijestiRepository: ObavijestiRepository
@@ -21,25 +21,25 @@ class ObavijestiViewModel(application: Application): AndroidViewModel(applicatio
         readAllDataObavijesti = obavijestiRepository.readAllDataObavijesti
     }
 
-    fun addObavijesti(obavijestiTable: ObavijestiTable){
-        viewModelScope.launch(Dispatchers.IO){
+    fun addObavijesti(obavijestiTable: ObavijestiTable) {
+        viewModelScope.launch(Dispatchers.IO) {
             obavijestiRepository.addObavijesti(obavijestiTable)
         }
     }
 
-    fun updateObavijesti(obavijestiTable: ObavijestiTable){
+    fun updateObavijesti(obavijestiTable: ObavijestiTable) {
         viewModelScope.launch(Dispatchers.IO) {
             obavijestiRepository.updateObavijesti(obavijestiTable)
         }
     }
 
-    fun deleteObavijesti(obavijestiTable: ObavijestiTable){
+    fun deleteObavijesti(obavijestiTable: ObavijestiTable) {
         viewModelScope.launch(Dispatchers.IO) {
             obavijestiRepository.deleteObavijesti(obavijestiTable)
         }
     }
 
-    fun deleteAllObavijesti(){
+    fun deleteAllObavijesti() {
         viewModelScope.launch(Dispatchers.IO) {
             obavijestiRepository.deleteAllObavijesti()
         }

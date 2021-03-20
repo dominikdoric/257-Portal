@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.update_delete_obavijesti_fragment.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-class UpdateDeleteObavijestiFragment: Fragment() {
+class UpdateDeleteObavijestiFragment : Fragment() {
 
     private val args by navArgs<UpdateDeleteObavijestiFragmentArgs>()
     private lateinit var mObavijestiViewModel: ObavijestiViewModel
@@ -28,7 +28,7 @@ class UpdateDeleteObavijestiFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.update_delete_obavijesti_fragment,container,false)
+        val view = inflater.inflate(R.layout.update_delete_obavijesti_fragment, container, false)
 
         mObavijestiViewModel = ViewModelProvider(this).get(ObavijestiViewModel::class.java)
 
@@ -48,18 +48,18 @@ class UpdateDeleteObavijestiFragment: Fragment() {
 
     private fun deleteItemObavijesti() {
         val builder = AlertDialog.Builder(requireContext())
-        builder.setPositiveButton("Yes"){_, _ ->
+        builder.setPositiveButton("Yes") { _, _ ->
             mObavijestiViewModel.deleteObavijesti(args.currentObavijest)
-            Toast.makeText(requireContext(),"Brisanje uspješno!", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), "Brisanje uspješno!", Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_updateDeleteObavijestiFragment2_to_obavijestiNavDrawer)
         }
-        builder.setNegativeButton("No"){_, _ -> }
+        builder.setNegativeButton("No") { _, _ -> }
         builder.setTitle("Delete ${args.currentObavijest.obavijestiNaslov}?")
         builder.setMessage("Are you sure you want to delete ${args.currentObavijest.obavijestiNaslov}?")
         builder.create().show()
     }
 
-    private fun updateItemObavijesti(){
+    private fun updateItemObavijesti() {
         val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
         val currentDate = sdf.format(Date())
 
@@ -68,7 +68,13 @@ class UpdateDeleteObavijestiFragment: Fragment() {
         val slikaObavijesti = 0
         val vrijemeObavijesti = currentDate
 
-        val updateObavijesti = ObavijestiTable(args.currentObavijest.id,naslovObavijesti,clanakObavijesti,vrijemeObavijesti,slikaObavijesti)
+        val updateObavijesti = ObavijestiTable(
+            args.currentObavijest.id,
+            naslovObavijesti,
+            clanakObavijesti,
+            vrijemeObavijesti,
+            slikaObavijesti
+        )
 
         mObavijestiViewModel.updateObavijesti(updateObavijesti)
         findNavController().navigate(R.id.action_updateDeleteObavijestiFragment2_to_obavijestiNavDrawer)

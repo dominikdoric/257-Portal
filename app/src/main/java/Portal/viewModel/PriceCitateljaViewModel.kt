@@ -12,7 +12,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class PriceCitateljaViewModel(application: Application): AndroidViewModel(application) {
+class PriceCitateljaViewModel(application: Application) : AndroidViewModel(application) {
 
     val readAllDataPriceCitatelja: LiveData<List<PriceCitateljaTable>>
     private val priceCitateljaRepository: PriceCitateljaRepository
@@ -23,25 +23,25 @@ class PriceCitateljaViewModel(application: Application): AndroidViewModel(applic
         readAllDataPriceCitatelja = priceCitateljaRepository.readAllDataPriceCitatelja
     }
 
-    fun addPriceCitatelja(priceCitateljaTable: PriceCitateljaTable){
-        viewModelScope.launch(Dispatchers.IO){
+    fun addPriceCitatelja(priceCitateljaTable: PriceCitateljaTable) {
+        viewModelScope.launch(Dispatchers.IO) {
             priceCitateljaRepository.addPriceCitatelja(priceCitateljaTable)
         }
     }
 
-    fun updatePriceCitatelja(priceCitateljaTable: PriceCitateljaTable){
+    fun updatePriceCitatelja(priceCitateljaTable: PriceCitateljaTable) {
         viewModelScope.launch(Dispatchers.IO) {
             priceCitateljaRepository.updatePriceCitatelja(priceCitateljaTable)
         }
     }
 
-    fun deletePriceCitatelja(priceCitateljaTable: PriceCitateljaTable){
+    fun deletePriceCitatelja(priceCitateljaTable: PriceCitateljaTable) {
         viewModelScope.launch(Dispatchers.IO) {
             priceCitateljaRepository.deletePriceCitatelja(priceCitateljaTable)
         }
     }
 
-    fun deleteAllPriceCitatelja(){
+    fun deleteAllPriceCitatelja() {
         viewModelScope.launch(Dispatchers.IO) {
             priceCitateljaRepository.deleteAllPriceCitatelja()
         }
