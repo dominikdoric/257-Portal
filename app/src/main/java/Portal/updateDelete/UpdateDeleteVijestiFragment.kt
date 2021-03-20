@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.update_delete_vijesti_fragment.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-class UpdateDeleteVijestiFragment: Fragment() {
+class UpdateDeleteVijestiFragment : Fragment() {
 
     private val args by navArgs<UpdateDeleteVijestiFragmentArgs>()
     private lateinit var mVijestiViewModel: VijestiViewModel
@@ -28,7 +28,7 @@ class UpdateDeleteVijestiFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.update_delete_vijesti_fragment,container,false)
+        val view = inflater.inflate(R.layout.update_delete_vijesti_fragment, container, false)
 
         mVijestiViewModel = ViewModelProvider(this).get(VijestiViewModel::class.java)
 
@@ -48,12 +48,12 @@ class UpdateDeleteVijestiFragment: Fragment() {
 
     private fun deleteItemVijesti() {
         val builder = AlertDialog.Builder(requireContext())
-        builder.setPositiveButton("Yes"){_, _ ->
+        builder.setPositiveButton("Yes") { _, _ ->
             mVijestiViewModel.deleteVijesti(args.currentVijest)
-            Toast.makeText(requireContext(),"Brisanje uspješno!", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), "Brisanje uspješno!", Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_updateDeleteVijestiFragment_to_vijestiNavDrawer)
         }
-        builder.setNegativeButton("No"){_, _ -> }
+        builder.setNegativeButton("No") { _, _ -> }
         builder.setTitle("Delete ${args.currentVijest.vijestiNaslov}?")
         builder.setMessage("Are you sure you want to delete ${args.currentVijest.vijestiNaslov}?")
         builder.create().show()
@@ -68,7 +68,13 @@ class UpdateDeleteVijestiFragment: Fragment() {
         val slikaVijesti = 0
         val vrijemeVijesti = currentDate
 
-        val updateVijesti = VijestiTable(args.currentVijest.id,naslovVijesti,clanakVijesti,vrijemeVijesti,slikaVijesti)
+        val updateVijesti = VijestiTable(
+            args.currentVijest.id,
+            naslovVijesti,
+            clanakVijesti,
+            vrijemeVijesti,
+            slikaVijesti
+        )
         mVijestiViewModel.updateVijesti(updateVijesti)
         findNavController().navigate(R.id.action_updateDeleteVijestiFragment_to_vijestiNavDrawer)
     }

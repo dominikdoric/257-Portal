@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.update_delete_oglasnik_fragment.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-class UpdateDeleteOglasnikFragment: Fragment() {
+class UpdateDeleteOglasnikFragment : Fragment() {
 
     private val args by navArgs<UpdateDeleteOglasnikFragmentArgs>()
     private lateinit var mOglasnikViewModel: OglasnikViewModel
@@ -29,7 +29,7 @@ class UpdateDeleteOglasnikFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.update_delete_oglasnik_fragment,container,false)
+        val view = inflater.inflate(R.layout.update_delete_oglasnik_fragment, container, false)
 
         mOglasnikViewModel = ViewModelProvider(this).get(OglasnikViewModel::class.java)
 
@@ -52,12 +52,12 @@ class UpdateDeleteOglasnikFragment: Fragment() {
 
     private fun deleteItemOglasnik() {
         val builder = AlertDialog.Builder(requireContext())
-        builder.setPositiveButton("Yes"){_, _ ->
+        builder.setPositiveButton("Yes") { _, _ ->
             mOglasnikViewModel.deleteOglasnik(args.currentOglasnik)
-            Toast.makeText(requireContext(),"Brisanje uspješno!", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), "Brisanje uspješno!", Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_updateDeleteOglasnikFragment_to_oglasnikNavDrawer)
         }
-        builder.setNegativeButton("No"){_, _ -> }
+        builder.setNegativeButton("No") { _, _ -> }
         builder.setTitle("Delete ${args.currentOglasnik.oglasnikNaslov}?")
         builder.setMessage("Are you sure you want to delete ${args.currentOglasnik.oglasnikNaslov}?")
         builder.create().show()
@@ -75,7 +75,16 @@ class UpdateDeleteOglasnikFragment: Fragment() {
         val vrijemeOglasnik = currentDate
         val slikaOglasnik = 0
 
-        val updateOglasnik = OglasnikTable(args.currentOglasnik.id,slikaOglasnik,clanakOglasnik,naslovOglasnik,cijenaOglasnik,lokacijaOglasnik,brojOglasnik,vrijemeOglasnik)
+        val updateOglasnik = OglasnikTable(
+            args.currentOglasnik.id,
+            slikaOglasnik,
+            clanakOglasnik,
+            naslovOglasnik,
+            cijenaOglasnik,
+            lokacijaOglasnik,
+            brojOglasnik,
+            vrijemeOglasnik
+        )
         mOglasnikViewModel.updateOglasnik(updateOglasnik)
         findNavController().navigate(R.id.action_updateDeleteOglasnikFragment_to_oglasnikNavDrawer)
 

@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.update_delete_zabava_fragment.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-class UpdateDeleteZabavaFragment: Fragment() {
+class UpdateDeleteZabavaFragment : Fragment() {
 
     private val args by navArgs<UpdateDeleteZabavaFragmentArgs>()
     private lateinit var mZabavaViewModel: ZabavaViewModel
@@ -28,7 +28,7 @@ class UpdateDeleteZabavaFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.update_delete_zabava_fragment,container,false)
+        val view = inflater.inflate(R.layout.update_delete_zabava_fragment, container, false)
 
         mZabavaViewModel = ViewModelProvider(this).get(ZabavaViewModel::class.java)
 
@@ -48,12 +48,12 @@ class UpdateDeleteZabavaFragment: Fragment() {
 
     private fun deleteItemZabava() {
         val builder = AlertDialog.Builder(requireContext())
-        builder.setPositiveButton("Yes"){_, _ ->
+        builder.setPositiveButton("Yes") { _, _ ->
             mZabavaViewModel.deleteZabava(args.currentZabava)
-            Toast.makeText(requireContext(),"Brisanje uspješno!", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), "Brisanje uspješno!", Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_updateDeleteZabavaFragment_to_zabavaNavDrawer)
         }
-        builder.setNegativeButton("No"){_, _ -> }
+        builder.setNegativeButton("No") { _, _ -> }
         builder.setTitle("Delete ${args.currentZabava.zabavaNaslov}?")
         builder.setMessage("Are you sure you want to delete ${args.currentZabava.zabavaNaslov}?")
         builder.create().show()
@@ -68,7 +68,13 @@ class UpdateDeleteZabavaFragment: Fragment() {
         val vrijemeZabava = currentDate
         val slikaZabava = 0
 
-        val updateZabava = ZabavaTable(args.currentZabava.id,naslovZabava,clanakZabava,vrijemeZabava,slikaZabava)
+        val updateZabava = ZabavaTable(
+            args.currentZabava.id,
+            naslovZabava,
+            clanakZabava,
+            vrijemeZabava,
+            slikaZabava
+        )
         mZabavaViewModel.updateZabava(updateZabava)
         findNavController().navigate(R.id.action_updateDeleteZabavaFragment_to_zabavaNavDrawer)
     }
