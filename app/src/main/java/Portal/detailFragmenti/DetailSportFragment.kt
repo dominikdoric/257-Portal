@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import kotlinx.android.synthetic.main.detail_sport_fragment.view.*
 
-class DetailSportFragment: Fragment() {
+class DetailSportFragment : Fragment() {
 
     private val args by navArgs<DetailSportFragmentArgs>()
     private lateinit var mSportViewModel: SportViewModel
@@ -21,7 +21,7 @@ class DetailSportFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.detail_sport_fragment,container,false)
+        val view = inflater.inflate(R.layout.detail_sport_fragment, container, false)
 
         mSportViewModel = ViewModelProvider(this).get(SportViewModel::class.java)
 

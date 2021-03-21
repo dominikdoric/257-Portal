@@ -27,13 +27,16 @@ class ZabavaAdapter() : RecyclerView.Adapter<ZabavaAdapter.ViewHolder>() {
         holder.itemView.textViewZabavaVrijeme.text = currentItem.zabavaVrijeme
 
         holder.itemView.setOnLongClickListener {
-            val action = ZabavaFragmentDirections.actionZabavaNavDrawerToUpdateDeleteZabavaFragment(currentItem)
+            val action = ZabavaFragmentDirections.actionZabavaNavDrawerToUpdateDeleteZabavaFragment(
+                currentItem
+            )
             holder.itemView.findNavController().navigate(action)
             true
         }
 
         holder.itemView.cardViewZabava.setOnClickListener {
-            val action = ZabavaFragmentDirections.actionZabavaNavDrawerToDetailFragmentZabava(currentItem)
+            val action =
+                ZabavaFragmentDirections.actionZabavaNavDrawerToDetailFragmentZabava(currentItem)
             holder.itemView.findNavController().navigate(action)
         }
 

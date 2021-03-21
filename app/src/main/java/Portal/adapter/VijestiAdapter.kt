@@ -26,13 +26,17 @@ class VijestiAdapter() : RecyclerView.Adapter<VijestiAdapter.ViewHolder>() {
         holder.itemView.textViewVijestiVrijeme.text = currentItem.vijestiVrijeme
 
         holder.itemView.setOnLongClickListener {
-            val action = VijestiFragmentDirections.actionVijestiNavDrawerToUpdateDeleteVijestiFragment(currentItem)
+            val action =
+                VijestiFragmentDirections.actionVijestiNavDrawerToUpdateDeleteVijestiFragment(
+                    currentItem
+                )
             holder.itemView.findNavController().navigate(action)
             true
         }
 
         holder.itemView.cardViewVijesti.setOnClickListener {
-            val action = VijestiFragmentDirections.actionVijestiNavDrawerToDetailVijestiFragment(currentItem)
+            val action =
+                VijestiFragmentDirections.actionVijestiNavDrawerToDetailVijestiFragment(currentItem)
             holder.itemView.findNavController().navigate(action)
         }
 

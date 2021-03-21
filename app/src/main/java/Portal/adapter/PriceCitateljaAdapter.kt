@@ -10,7 +10,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.jedan_red_price_citatelja.view.*
 
-class PriceCitateljaAdapter: RecyclerView.Adapter<PriceCitateljaAdapter.ViewHolder>() {
+class PriceCitateljaAdapter : RecyclerView.Adapter<PriceCitateljaAdapter.ViewHolder>() {
 
     private var priceCitateljaList = emptyList<PriceCitateljaTable>()
 
@@ -19,7 +19,8 @@ class PriceCitateljaAdapter: RecyclerView.Adapter<PriceCitateljaAdapter.ViewHold
         viewType: Int
     ): PriceCitateljaAdapter.ViewHolder {
         val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.jedan_red_price_citatelja, parent, false)
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.jedan_red_price_citatelja, parent, false)
         return ViewHolder(view)
     }
 
@@ -29,13 +30,19 @@ class PriceCitateljaAdapter: RecyclerView.Adapter<PriceCitateljaAdapter.ViewHold
         holder.itemView.textViewPricaCitateljaVrijeme.text = currentItem.priceCitateljaVrijeme
 
         holder.itemView.cardViewPricaCitatelja.setOnLongClickListener {
-            val action = PriceCitateljaFragmentDirections.actionPriceCitateljaNavDrawerToUpdateDeletePriceCitateljaFragment(currentItem)
+            val action =
+                PriceCitateljaFragmentDirections.actionPriceCitateljaNavDrawerToUpdateDeletePriceCitateljaFragment(
+                    currentItem
+                )
             holder.itemView.findNavController().navigate(action)
             true
         }
 
         holder.itemView.cardViewPricaCitatelja.setOnClickListener {
-            val action = PriceCitateljaFragmentDirections.actionPriceCitateljaNavDrawerToDetailPriceCitateljaFragment(currentItem)
+            val action =
+                PriceCitateljaFragmentDirections.actionPriceCitateljaNavDrawerToDetailPriceCitateljaFragment(
+                    currentItem
+                )
             holder.itemView.findNavController().navigate(action)
         }
 
@@ -45,7 +52,7 @@ class PriceCitateljaAdapter: RecyclerView.Adapter<PriceCitateljaAdapter.ViewHold
         return priceCitateljaList.size
     }
 
-    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     }
 
