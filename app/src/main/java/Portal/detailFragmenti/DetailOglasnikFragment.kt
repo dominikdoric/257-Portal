@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import kotlinx.android.synthetic.main.detail_oglasnik_fragment.view.*
 
-class DetailOglasnikFragment: Fragment() {
+class DetailOglasnikFragment : Fragment() {
 
     private val args by navArgs<DetailOglasnikFragmentArgs>()
     private lateinit var mOglasnikViewModel: OglasnikViewModel
@@ -21,7 +21,7 @@ class DetailOglasnikFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.detail_oglasnik_fragment,container,false)
+        val view = inflater.inflate(R.layout.detail_oglasnik_fragment, container, false)
 
         mOglasnikViewModel = ViewModelProvider(this).get(OglasnikViewModel::class.java)
 

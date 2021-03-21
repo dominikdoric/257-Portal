@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.oglasnik_fragment.*
 import kotlinx.android.synthetic.main.oglasnik_fragment.view.*
 import kotlinx.android.synthetic.main.zabava_fragment.*
 
-class OglasnikFragment : Fragment(){
+class OglasnikFragment : Fragment() {
 
     private lateinit var mOglasnikViewModel: OglasnikViewModel
 
@@ -52,12 +52,12 @@ class OglasnikFragment : Fragment(){
                 (recyclerViewOglasnik.context, DividerItemDecoration.VERTICAL)
         )
     }
-        /*
-        activity?.supportFragmentManager?.beginTransaction()
-            ?.replace(R.id.frameLayout_host, detailOglasnikFragment)
-            ?.addToBackStack(null)
-            ?.commit()*/
-        //childFragmentManager.beginTransaction().apply {
-        //  replace(R.id.frameLayout_host, zabavaDetailFragment)
-        //commit()
+    /*
+    activity?.supportFragmentManager?.beginTransaction()
+        ?.replace(R.id.frameLayout_host, detailOglasnikFragment)
+        ?.addToBackStack(null)
+        ?.commit()*/
+    //childFragmentManager.beginTransaction().apply {
+    //  replace(R.id.frameLayout_host, zabavaDetailFragment)
+    //commit()
 }

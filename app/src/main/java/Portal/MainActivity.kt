@@ -27,14 +27,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_main) as NavHostFragment
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_main) as NavHostFragment
         navController = navHostFragment.findNavController()
         appBarConfiguration = AppBarConfiguration(
-            setOf(R.id.naslovnicaBottomNav,R.id.vrijemeBottomNav,R.id.infoBottomNav,R.id.kontaktBottomNav),
+            setOf(
+                R.id.naslovnicaBottomNav,
+                R.id.vrijemeBottomNav,
+                R.id.infoBottomNav,
+                R.id.kontaktBottomNav
+            ),
             main_drawer_layout
         )
         setSupportActionBar(toolbar)
-        setupActionBarWithNavController(navController,appBarConfiguration)
+        setupActionBarWithNavController(navController, appBarConfiguration)
 
         bottom_navigation.setupWithNavController(navController)
         navigation_drawer.setupWithNavController(navController)
@@ -42,7 +48,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu,menu)
+        menuInflater.inflate(R.menu.menu, menu)
         return true
     }
 

@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import kotlinx.android.synthetic.main.detail_price_citatelja_fragment.view.*
 
-class DetailPriceCitateljaFragment: Fragment() {
+class DetailPriceCitateljaFragment : Fragment() {
 
     private val args by navArgs<DetailPriceCitateljaFragmentArgs>()
     private lateinit var mPriceCitateljaViewModel: PriceCitateljaViewModel
@@ -21,7 +21,7 @@ class DetailPriceCitateljaFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.detail_price_citatelja_fragment,container,false)
+        val view = inflater.inflate(R.layout.detail_price_citatelja_fragment, container, false)
 
         mPriceCitateljaViewModel = ViewModelProvider(this).get(PriceCitateljaViewModel::class.java)
 

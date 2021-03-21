@@ -8,19 +8,19 @@ class SportRepository(private val sportDao: SportDao) {
 
     val readAllDataSport: LiveData<List<SportTable>> = sportDao.getAllDataSport()
 
-    suspend fun addSport(sportTable: SportTable){
+    suspend fun addSport(sportTable: SportTable) {
         sportDao.insertSport(sportTable)
     }
 
-    suspend fun updateSport(sportTable: SportTable){
+    suspend fun updateSport(sportTable: SportTable) {
         sportDao.updateSport(sportTable)
     }
 
-    suspend fun deleteSport(sportTable: SportTable){
+    suspend fun deleteSport(sportTable: SportTable) {
         sportDao.deleteSport(sportTable)
     }
 
-    suspend fun deleteAllSport(){
+    suspend fun deleteAllSport() {
         sportDao.deleteAllSport()
     }
 

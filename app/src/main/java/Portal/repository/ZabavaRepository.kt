@@ -9,19 +9,19 @@ class ZabavaRepository(private val zabavaDao: ZabavaDao) {
 
     val readAllDataZabava: LiveData<List<ZabavaTable>> = zabavaDao.getAllDataZabava()
 
-    suspend fun addZabava(zabavaTable: ZabavaTable){
+    suspend fun addZabava(zabavaTable: ZabavaTable) {
         zabavaDao.insertZabava(zabavaTable)
     }
 
-    suspend fun updateZabava(zabavaTable: ZabavaTable){
+    suspend fun updateZabava(zabavaTable: ZabavaTable) {
         zabavaDao.updateZabava(zabavaTable)
     }
 
-    suspend fun deleteZabava(zabavaTable: ZabavaTable){
+    suspend fun deleteZabava(zabavaTable: ZabavaTable) {
         zabavaDao.deleteZabava(zabavaTable)
     }
 
-    suspend fun deleteAllZabava(){
+    suspend fun deleteAllZabava() {
         zabavaDao.deleteAllZabava()
     }
 

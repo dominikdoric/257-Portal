@@ -9,19 +9,19 @@ class VijestiRepository(private val vijestiDao: VijestiDao) {
 
     val readAllDataVijesti: LiveData<List<VijestiTable>> = vijestiDao.getAllDataVijesti()
 
-    suspend fun addVijesti(vijestiTable: VijestiTable){
+    suspend fun addVijesti(vijestiTable: VijestiTable) {
         vijestiDao.insertVijesti(vijestiTable)
     }
 
-    suspend fun updateVijesti(vijestiTable: VijestiTable){
+    suspend fun updateVijesti(vijestiTable: VijestiTable) {
         vijestiDao.updateVijesti(vijestiTable)
     }
 
-    suspend fun deleteVijesti(vijestiTable: VijestiTable){
+    suspend fun deleteVijesti(vijestiTable: VijestiTable) {
         vijestiDao.deleteVijesti(vijestiTable)
     }
 
-    suspend fun deleteAllVijesti(){
+    suspend fun deleteAllVijesti() {
         vijestiDao.deleteAllVijesti()
     }
 
