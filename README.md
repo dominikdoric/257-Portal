@@ -1,5 +1,5 @@
 # 257 Portal
-257 Portal is a small aplication for my hometown and i started developing it just a week ago, this app is like most of the news app and will contain all relevant data about place.
+257 Portal is a small aplication for my hometown and i started developing it just a few week ago, this app is like most of the news app and will contain all relevant data about place.
 At this stage there is not very much things implemented in the app but but these are things which I will implement over time. This app is based on modern Android application tech-stacks, and MVVM architecture and also this app is made in single activity multiple fragments design pattern. App is stil in a process of making.
   - Information about sport events
   - Part of the app where all notices will be available
@@ -10,7 +10,7 @@ At this stage there is not very much things implemented in the app but but these
   - And there will also be a section where readers can enter their own articles
 
 # About
-At this point there is not much functionality in this app, only things that are implemented are Navigation Drawer and Bottom Navigation Drawer and also all necessary fragments but without any logic .This app is still in process of making so there will be more features in future.
+At this point the app consists of Navigation Drawer and Bottom Navigation Drawer and when I clik on any of their items app sends me to the specific fragment. App consists of fragments for general news, sport news, notices, news about fun events a there is also implemented that users of this app can also add their own story. When clicked on any of items in RecyclerView app sends us to detail fragment where we see much more information about the specific piece of news. Also this app has implemented functionality that when long pressed we can update or delete specific item. This app is still in process of making so there will be more features in future.
 
 # Tech stack & Open-source libraries 🛠
 - Minimum SDK Level 26
