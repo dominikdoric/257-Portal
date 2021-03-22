@@ -1,4 +1,4 @@
-package Portal
+package Portal.aplikacija
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
