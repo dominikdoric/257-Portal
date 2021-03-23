@@ -1,4 +1,4 @@
-package Portal.fragmenti
+package Portal.infoPokus
 
 import Portal.a257.R
 import android.os.Bundle
