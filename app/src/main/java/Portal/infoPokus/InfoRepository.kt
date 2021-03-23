@@ -1,10 +1,10 @@
-package Portal.di
+package Portal.infoPokus
 
 import Portal.database.dao.SportDao
 import Portal.database.table.SportTable
 import javax.inject.Inject
 
-class MainRepository  @Inject constructor(
+class InfoRepository  @Inject constructor(
     val sportDao: SportDao
 ){
     suspend fun insertSport(sportTable: SportTable) = sportDao.insertSport(sportTable)
