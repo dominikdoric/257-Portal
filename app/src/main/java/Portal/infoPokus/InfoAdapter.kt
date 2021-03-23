@@ -1,24 +1,31 @@
 package Portal.infoPokus
 
+import Portal.a257.R
 import Portal.database.table.InfoTable
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.jedan_red_info.view.*
 
 class InfoAdapter: RecyclerView.Adapter<InfoAdapter.ViewHolder>() {
 
     private var infoList = emptyList<InfoTable>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): InfoAdapter.ViewHolder {
-        TODO("Not yet implemented")
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.jedan_red_info, parent, false)
+        return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: InfoAdapter.ViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        val currentItem = infoList[position]
+        holder.itemView.infoTextViewIme.text = currentItem.ime
+        holder.itemView.infoTextViewPrezime.text = currentItem.prezime
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return infoList.size
     }
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
