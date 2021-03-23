@@ -1,6 +1,7 @@
 package Portal
 
 import Portal.a257.R
+import Portal.database.dao.SportDao
 import Portal.dodajNovo.*
 import Portal.fragmenti.*
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +18,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.*
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
