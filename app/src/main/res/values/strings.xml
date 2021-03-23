@@ -3,6 +3,7 @@
 
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="database">257_Portal_Baza</string>
     <string name="zabava">U Jakšiću organiziran corona party na kojem je prisustvovalo oko 300 ljud</string>
 
     <string-array name="spinnerItems">
