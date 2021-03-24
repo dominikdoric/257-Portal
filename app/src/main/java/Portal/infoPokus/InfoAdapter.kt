@@ -29,6 +29,12 @@ class InfoAdapter: RecyclerView.Adapter<InfoAdapter.ViewHolder>() {
             holder.itemView.findNavController().navigate(action)
             true
         }
+
+        holder.itemView.jedan_red_info.setOnClickListener {
+            val action = InfoFragmentDirections.actionInfoBottomNavToDetailInfoFragment(currentItem)
+            holder.itemView.findNavController().navigate(action)
+        }
+
     }
 
     override fun getItemCount(): Int {

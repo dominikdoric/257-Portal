@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_infoBottomNav_to_updateDeleteInfoFragment"
             app:destination="@id/updateDeleteInfoFragment" />
+        <action
+            android:id="@+id/action_infoBottomNav_to_detailInfoFragment"
+            app:destination="@id/detailInfoFragment" />
     </fragment>
     <fragment
         android:id="@+id/kontaktBottomNav"
@@ -303,6 +306,15 @@
             app:destination="@id/infoBottomNav" />
         <argument
             android:name="updateInfoArgs"
+            app:argType="Portal.database.table.InfoTable" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailInfoFragment"
+        android:name="Portal.infoPokus.DetailInfoFragment"
+        android:label="DetailInfoFragment"
+        tools:layout="@layout/detail_info_fragment">
+        <argument
+            android:name="detailInfoArgs"
             app:argType="Portal.database.table.InfoTable" />
     </fragment>
 </navigation>
