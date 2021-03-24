@@ -19,6 +19,9 @@ At this point the app consists of Navigation Drawer and Bottom Navigation Drawer
 - [Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/) - A cold asynchronous data stream that sequentially emits values and completes normally or with an exception.
 - [Navigation Component](https://developer.android.com/guide/navigation) -  Android Jetpack's Navigation component helps you implement navigation, from simple button clicks to more complex patterns, such as app bars and the navigation drawer.
 - [Retrofit](https://square.github.io/retrofit/) - to aid with API communicaton
+- [Dependency Injection](https://developer.android.com/training/dependency-injection)
+    - [Hilt-Dagger](https://dagger.dev/hilt/) - Standard library to incorporate Dagger dependency injection into an Android application.
+    - [Hilt-ViewModel](https://developer.android.com/training/dependency-injection/hilt-jetpack) - Dependecy injection for injecting ViewModel.   
 - [Android Architecture Components](https://developer.android.com/topic/libraries/architecture) - Collection of libraries that help you design robust, testable, and maintainable apps.
     - [Lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) - perform actions in response to a change in the lifecycle status of another component, such as activities and fragments.
     - [LiveData](https://developer.android.com/topic/libraries/architecture/livedata) - Data objects that notify views when the underlying database changes.
