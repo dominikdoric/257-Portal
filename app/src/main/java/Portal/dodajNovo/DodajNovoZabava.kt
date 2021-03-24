@@ -11,8 +11,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.dodaj_novo_zabava_fragment.*
 import kotlinx.android.synthetic.main.dodaj_novo_zabava_fragment.view.*
 import java.sql.Time
@@ -22,9 +24,10 @@ import java.text.DateFormat.getTimeInstance
 import java.text.SimpleDateFormat
 import java.util.*
 
+@AndroidEntryPoint
 class DodajNovoZabava : Fragment() {
 
-    private lateinit var mZabavaViewModel: ZabavaViewModel
+    private val mZabavaViewModel: ZabavaViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,8 +35,6 @@ class DodajNovoZabava : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.dodaj_novo_zabava_fragment, container, false)
-
-        mZabavaViewModel = ViewModelProvider(this).get(ZabavaViewModel::class.java)
 
         view.gumbSpremiZabavu.setOnClickListener {
             val action = DodajNovoZabavaDirections.actionMenuDodajNovuZabavaToZabavaNavDrawer()

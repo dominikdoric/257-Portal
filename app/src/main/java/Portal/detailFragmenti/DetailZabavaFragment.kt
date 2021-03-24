@@ -14,7 +14,6 @@ import kotlinx.android.synthetic.main.detail_zabava_fragment.view.*
 class DetailZabavaFragment : Fragment() {
 
     private val args by navArgs<DetailZabavaFragmentArgs>()
-    private lateinit var mZabavaViewModel: ZabavaViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,8 +21,6 @@ class DetailZabavaFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.detail_zabava_fragment, container, false)
-
-        mZabavaViewModel = ViewModelProvider(this).get(ZabavaViewModel::class.java)
 
         view.detailZabavaNaslov.setText(args.zabavaData.zabavaNaslov)
         view.detailZabavaClanak.setText(args.zabavaData.zabavaClanak)

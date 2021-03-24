@@ -10,16 +10,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.zabava_fragment.*
 import kotlinx.android.synthetic.main.zabava_fragment.view.*
 
+@AndroidEntryPoint
 class ZabavaFragment : Fragment() {
 
-    private lateinit var mZabavaViewModel: ZabavaViewModel
+    private val mZabavaViewModel: ZabavaViewModel by viewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -34,7 +38,6 @@ class ZabavaFragment : Fragment() {
         recyclerZabava.layoutManager = LinearLayoutManager(requireContext())
 
         //RasporedViewModel
-        mZabavaViewModel = ViewModelProvider(this).get(ZabavaViewModel::class.java)
         mZabavaViewModel.readAllDataZabava.observe(viewLifecycleOwner, Observer { zabava ->
             adapter.setData(zabava)
         })
@@ -50,12 +53,4 @@ class ZabavaFragment : Fragment() {
                 (recyclerViewZabava.context, DividerItemDecoration.VERTICAL)
         )
     }
-        /*
-        activity?.supportFragmentManager?.beginTransaction()
-            ?.replace(R.id.frameLayout_host, zabavaDetailFragment)
-            ?.addToBackStack(null)
-            ?.commit()*/
-        //childFragmentManager.beginTransaction().apply {
-        //  replace(R.id.frameLayout_host, zabavaDetailFragment)
-        //commit()
-    }
+}

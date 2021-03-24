@@ -4,10 +4,13 @@ import Portal.database.dao.ZabavaDao
 import Portal.database.table.SportTable
 import Portal.database.table.ZabavaTable
 import androidx.lifecycle.LiveData
+import javax.inject.Inject
 
-class ZabavaRepository(private val zabavaDao: ZabavaDao) {
+class ZabavaRepository @Inject constructor(
+    private val zabavaDao: ZabavaDao
+) {
 
-    val readAllDataZabava: LiveData<List<ZabavaTable>> = zabavaDao.getAllDataZabava()
+    fun getAllDataZabava() = zabavaDao.getAllDataZabava()
 
     suspend fun addZabava(zabavaTable: ZabavaTable) {
         zabavaDao.insertZabava(zabavaTable)

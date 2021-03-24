@@ -2,7 +2,6 @@ package Portal.repository
 
 import Portal.database.dao.SportDao
 import Portal.database.table.SportTable
-import androidx.lifecycle.LiveData
 import javax.inject.Inject
 
 class SportRepository @Inject constructor(

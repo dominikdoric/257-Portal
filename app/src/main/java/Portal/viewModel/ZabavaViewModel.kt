@@ -8,20 +8,19 @@ import Portal.repository.ZabavaRepository
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ZabavaViewModel(application: Application) : AndroidViewModel(application) {
+@HiltViewModel
+class ZabavaViewModel @Inject constructor(
+    val zabavaRepository: ZabavaRepository
+) : ViewModel() {
 
-    val readAllDataZabava: LiveData<List<ZabavaTable>>
-    private val zabavaRepository: ZabavaRepository
-
-    init {
-        val zabavaDao = Portal257Database.getDatabase(application).zabavaDao()
-        zabavaRepository = ZabavaRepository(zabavaDao)
-        readAllDataZabava = zabavaRepository.readAllDataZabava
-    }
+    val readAllDataZabava = zabavaRepository.getAllDataZabava()
 
     fun addZabava(zabavaTable: ZabavaTable) {
         viewModelScope.launch(Dispatchers.IO) {

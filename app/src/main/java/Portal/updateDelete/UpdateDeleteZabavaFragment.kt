@@ -10,18 +10,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.update_delete_zabava_fragment.*
 import kotlinx.android.synthetic.main.update_delete_zabava_fragment.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
+@AndroidEntryPoint
 class UpdateDeleteZabavaFragment : Fragment() {
 
     private val args by navArgs<UpdateDeleteZabavaFragmentArgs>()
-    private lateinit var mZabavaViewModel: ZabavaViewModel
+    private val mZabavaViewModel: ZabavaViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,8 +32,6 @@ class UpdateDeleteZabavaFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.update_delete_zabava_fragment, container, false)
-
-        mZabavaViewModel = ViewModelProvider(this).get(ZabavaViewModel::class.java)
 
         view.updateZabavaNaslov.setText(args.currentZabava.zabavaNaslov)
         view.updateZabavaClanak.setText(args.currentZabava.zabavaClanak)
