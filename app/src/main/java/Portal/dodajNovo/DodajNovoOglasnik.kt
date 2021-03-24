@@ -12,8 +12,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.dodaj_novo_oglasnik_fragment.*
 import kotlinx.android.synthetic.main.dodaj_novo_oglasnik_fragment.view.*
 import kotlinx.android.synthetic.main.dodaj_novo_vijesti_fragment.view.*
@@ -22,9 +24,10 @@ import kotlinx.android.synthetic.main.dodaj_novo_zabava_fragment.et_zabava_naslo
 import java.text.SimpleDateFormat
 import java.util.*
 
+@AndroidEntryPoint
 class DodajNovoOglasnik: Fragment() {
 
-    private lateinit var mOglasnikViewModel: OglasnikViewModel
+    private val mOglasnikViewModel: OglasnikViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,8 +35,6 @@ class DodajNovoOglasnik: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.dodaj_novo_oglasnik_fragment,container,false)
-
-        mOglasnikViewModel = ViewModelProvider(this).get(OglasnikViewModel::class.java)
 
         view.gumbSpremiOglasnik.setOnClickListener {
             val action = DodajNovoOglasnikDirections.actionMenuDodajNoviOglasToOglasnikNavDrawer()

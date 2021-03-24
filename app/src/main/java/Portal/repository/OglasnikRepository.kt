@@ -3,10 +3,13 @@ package Portal.repository
 import Portal.database.dao.OglasnikDao
 import Portal.database.table.OglasnikTable
 import androidx.lifecycle.LiveData
+import javax.inject.Inject
 
-class OglasnikRepository(private val oglasnikDao: OglasnikDao) {
+class OglasnikRepository @Inject constructor(
+    private val oglasnikDao: OglasnikDao
+) {
 
-    val readAllDataOglasnik: LiveData<List<OglasnikTable>> = oglasnikDao.getAllDataOglasnik()
+    fun getAllOglasnikData() = oglasnikDao.getAllDataOglasnik()
 
     suspend fun addOglasnik(oglasnikTable: OglasnikTable) {
         oglasnikDao.insertOglasnik(oglasnikTable)

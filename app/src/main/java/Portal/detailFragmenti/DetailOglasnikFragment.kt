@@ -14,7 +14,6 @@ import kotlinx.android.synthetic.main.detail_oglasnik_fragment.view.*
 class DetailOglasnikFragment : Fragment() {
 
     private val args by navArgs<DetailOglasnikFragmentArgs>()
-    private lateinit var mOglasnikViewModel: OglasnikViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,8 +21,6 @@ class DetailOglasnikFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.detail_oglasnik_fragment, container, false)
-
-        mOglasnikViewModel = ViewModelProvider(this).get(OglasnikViewModel::class.java)
 
         view.detailOglasnikNaslov.setText(args.oglasnikData.oglasnikNaslov)
         view.detailOglasnikCijena.setText(args.oglasnikData.oglasnikCijena)

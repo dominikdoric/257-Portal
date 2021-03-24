@@ -8,20 +8,19 @@ import Portal.repository.SportRepository
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class OglasnikViewModel(application: Application): AndroidViewModel(application) {
+@HiltViewModel
+class OglasnikViewModel @Inject constructor(
+    val oglasnikRepository: OglasnikRepository
+): ViewModel() {
 
-    val readAllDataOglasnik: LiveData<List<OglasnikTable>>
-    private val oglasnikRepository: OglasnikRepository
-
-    init {
-        val oglasnikDao = Portal257Database.getDatabase(application).oglasnikDao()
-        oglasnikRepository = OglasnikRepository(oglasnikDao)
-        readAllDataOglasnik = oglasnikRepository.readAllDataOglasnik
-    }
+    val readAllDataOglasnik = oglasnikRepository.getAllOglasnikData()
 
     fun addOglasnik(oglasnikTable: OglasnikTable){
         viewModelScope.launch(Dispatchers.IO){
