@@ -2,16 +2,20 @@ package Portal.infoPokus
 
 import Portal.a257.R
 import Portal.database.table.InfoTable
+import android.app.Application
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.dodaj_novo_info_fragment.*
 import kotlinx.android.synthetic.main.dodaj_novo_info_fragment.view.*
 
+@AndroidEntryPoint
 class DodajNovoInfo: Fragment() {
 
     private val infoViewModel: InfoViewModel by viewModels()
@@ -26,6 +30,7 @@ class DodajNovoInfo: Fragment() {
         view.gumbSpremiInfo.setOnClickListener {
             val action = DodajNovoInfoDirections.actionDodajNovoInfoToInfoBottomNav()
             findNavController().navigate(action)
+            insertDataToDatabase()
         }
 
         return view

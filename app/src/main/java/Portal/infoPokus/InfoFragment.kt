@@ -8,8 +8,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.dodaj_novo_info_fragment.view.*
 import kotlinx.android.synthetic.main.info_fragment.*
 import kotlinx.android.synthetic.main.info_fragment.view.*
 
@@ -24,6 +26,11 @@ class InfoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.info_fragment, container, false)
+
+        view.dodajNovoInfo.setOnClickListener {
+            val action = InfoFragmentDirections.actionInfoBottomNavToDodajNovoInfo()
+            findNavController().navigate(action)
+        }
 
         //RecyclerView
         val adapter = InfoAdapter()
