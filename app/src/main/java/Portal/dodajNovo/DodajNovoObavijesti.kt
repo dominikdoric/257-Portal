@@ -12,9 +12,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.dodaj_novo_obavijesti_fragment.*
 import kotlinx.android.synthetic.main.dodaj_novo_obavijesti_fragment.view.*
 import kotlinx.android.synthetic.main.dodaj_novo_vijesti_fragment.view.*
@@ -24,9 +26,10 @@ import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
+@AndroidEntryPoint
 class DodajNovoObavijesti: Fragment() {
 
-    private lateinit var mObavijestViewModel: ObavijestiViewModel
+    private val mObavijestViewModel: ObavijestiViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,8 +37,6 @@ class DodajNovoObavijesti: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.dodaj_novo_obavijesti_fragment,container,false)
-
-        mObavijestViewModel = ViewModelProvider(this).get(ObavijestiViewModel::class.java)
 
         view.gumbSpremiObavijest.setOnClickListener {
             val action = DodajNovoObavijestiDirections.actionMenuDodajNovuObavijestToObavijestiNavDrawer()
@@ -63,5 +64,4 @@ class DodajNovoObavijesti: Fragment() {
         val obavijesti = ObavijestiTable(0,noviNaslov,noviClanak,novoVrijeme,novaSlika)
         mObavijestViewModel.addObavijesti(obavijesti)
     }
-
 }

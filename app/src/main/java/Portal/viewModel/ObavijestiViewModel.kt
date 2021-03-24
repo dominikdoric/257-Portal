@@ -6,20 +6,19 @@ import Portal.repository.ObavijestiRepository
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ObavijestiViewModel(application: Application) : AndroidViewModel(application) {
+@HiltViewModel
+class ObavijestiViewModel @Inject constructor(
+    val obavijestiRepository: ObavijestiRepository
+) : ViewModel() {
 
-    val readAllDataObavijesti: LiveData<List<ObavijestiTable>>
-    private val obavijestiRepository: ObavijestiRepository
-
-    init {
-        val obavijestiDao = Portal257Database.getDatabase(application).obavijestiDao()
-        obavijestiRepository = ObavijestiRepository(obavijestiDao)
-        readAllDataObavijesti = obavijestiRepository.readAllDataObavijesti
-    }
+    val readAllDataObavijesti = obavijestiRepository.getAllDataObavijesti()
 
     fun addObavijesti(obavijestiTable: ObavijestiTable) {
         viewModelScope.launch(Dispatchers.IO) {

@@ -4,24 +4,27 @@ import Portal.database.dao.ObavijestiDao
 import Portal.database.table.ObavijestiTable
 import Portal.database.table.SportTable
 import androidx.lifecycle.LiveData
+import javax.inject.Inject
 
-class ObavijestiRepository(private val obavijestiDao: ObavijestiDao) {
+class ObavijestiRepository @Inject constructor(
+    private val obavijestiDao: ObavijestiDao
+) {
 
-    val readAllDataObavijesti: LiveData<List<ObavijestiTable>> = obavijestiDao.getAllDataObavijesti()
+    fun getAllDataObavijesti() = obavijestiDao.getAllDataObavijesti()
 
-    suspend fun addObavijesti(obavijestiTable: ObavijestiTable){
+    suspend fun addObavijesti(obavijestiTable: ObavijestiTable) {
         obavijestiDao.insertObavijesti(obavijestiTable)
     }
 
-    suspend fun updateObavijesti(obavijestiTable: ObavijestiTable){
+    suspend fun updateObavijesti(obavijestiTable: ObavijestiTable) {
         obavijestiDao.updateObavijesti(obavijestiTable)
     }
 
-    suspend fun deleteObavijesti(obavijestiTable: ObavijestiTable){
+    suspend fun deleteObavijesti(obavijestiTable: ObavijestiTable) {
         obavijestiDao.deleteObavijesti(obavijestiTable)
     }
 
-    suspend fun deleteAllObavijesti(){
+    suspend fun deleteAllObavijesti() {
         obavijestiDao.deleteAllObavijesti()
     }
 

@@ -10,18 +10,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.update_delete_obavijesti_fragment.*
 import kotlinx.android.synthetic.main.update_delete_obavijesti_fragment.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
+@AndroidEntryPoint
 class UpdateDeleteObavijestiFragment : Fragment() {
 
     private val args by navArgs<UpdateDeleteObavijestiFragmentArgs>()
-    private lateinit var mObavijestiViewModel: ObavijestiViewModel
+    private val mObavijestiViewModel: ObavijestiViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,8 +32,6 @@ class UpdateDeleteObavijestiFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.update_delete_obavijesti_fragment, container, false)
-
-        mObavijestiViewModel = ViewModelProvider(this).get(ObavijestiViewModel::class.java)
 
         view.updateObavijestiNaslov.setText(args.currentObavijest.obavijestiNaslov)
         view.updateObavijestiClanak.setText(args.currentObavijest.obavijestiClanak)
