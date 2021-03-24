@@ -9,7 +9,11 @@
         android:id="@+id/infoBottomNav"
         android:name="Portal.infoPokus.InfoFragment"
         android:label="InfoFragment"
-        tools:layout="@layout/info_fragment"/>
+        tools:layout="@layout/info_fragment">
+        <action
+            android:id="@+id/action_infoBottomNav_to_dodajNovoInfo"
+            app:destination="@id/dodajNovoInfo" />
+    </fragment>
     <fragment
         android:id="@+id/kontaktBottomNav"
         android:name="Portal.fragmenti.KontaktFragment"
@@ -276,5 +280,14 @@
         <argument
             android:name="currentPriceCitatelja"
             app:argType="Portal.database.table.PriceCitateljaTable" />
+    </fragment>
+    <fragment
+        android:id="@+id/dodajNovoInfo"
+        android:name="Portal.infoPokus.DodajNovoInfo"
+        android:label="DodajNovoInfo"
+        tools:layout="@layout/dodaj_novo_info_fragment">
+        <action
+            android:id="@+id/action_dodajNovoInfo_to_infoBottomNav"
+            app:destination="@id/infoBottomNav" />
     </fragment>
 </navigation>
