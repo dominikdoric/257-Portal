@@ -3,10 +3,13 @@ package Portal.repository
 import Portal.database.dao.SportDao
 import Portal.database.table.SportTable
 import androidx.lifecycle.LiveData
+import javax.inject.Inject
 
-class SportRepository(private val sportDao: SportDao) {
+class SportRepository @Inject constructor(
+    private val sportDao: SportDao
+) {
 
-    val readAllDataSport: LiveData<List<SportTable>> = sportDao.getAllDataSport()
+    fun getAllDataSport() = sportDao.getAllDataSport()
 
     suspend fun addSport(sportTable: SportTable) {
         sportDao.insertSport(sportTable)

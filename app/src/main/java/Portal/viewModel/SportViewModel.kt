@@ -6,20 +6,19 @@ import Portal.repository.SportRepository
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class SportViewModel(application: Application) : AndroidViewModel(application) {
+@HiltViewModel
+class SportViewModel @Inject constructor(
+    val sportRepository: SportRepository
+) : ViewModel() {
 
-    val readAllDataSport: LiveData<List<SportTable>>
-    private val sportRepository: SportRepository
-
-    init {
-        val sportDao = Portal257Database.getDatabase(application).sportDao()
-        sportRepository = SportRepository(sportDao)
-        readAllDataSport = sportRepository.readAllDataSport
-    }
+    val readAllDataSport = sportRepository.getAllDataSport()
 
     fun addSport(sportTable: SportTable) {
         viewModelScope.launch(Dispatchers.IO) {

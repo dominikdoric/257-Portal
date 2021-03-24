@@ -14,7 +14,6 @@ import kotlinx.android.synthetic.main.detail_sport_fragment.view.*
 class DetailSportFragment : Fragment() {
 
     private val args by navArgs<DetailSportFragmentArgs>()
-    private lateinit var mSportViewModel: SportViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,8 +21,6 @@ class DetailSportFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.detail_sport_fragment, container, false)
-
-        mSportViewModel = ViewModelProvider(this).get(SportViewModel::class.java)
 
         view.detailSportNaslov.setText(args.sportData.sportNaslov)
         view.detailSportClanak.setText(args.sportData.sportClanak)

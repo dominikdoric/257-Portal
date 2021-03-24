@@ -10,18 +10,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.update_delete_sport_fragment.*
 import kotlinx.android.synthetic.main.update_delete_sport_fragment.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
+@AndroidEntryPoint
 class UpdateDeleteSportFragment : Fragment() {
 
     private val args by navArgs<UpdateDeleteSportFragmentArgs>()
-    private lateinit var mSportViewModel: SportViewModel
+    private val mSportViewModel: SportViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,8 +32,6 @@ class UpdateDeleteSportFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.update_delete_sport_fragment, container, false)
-
-        mSportViewModel = ViewModelProvider(this).get(SportViewModel::class.java)
 
         view.updateSportNaslov.setText(args.currentSport.sportNaslov)
         view.updateSportClanak.setText(args.currentSport.sportClanak)

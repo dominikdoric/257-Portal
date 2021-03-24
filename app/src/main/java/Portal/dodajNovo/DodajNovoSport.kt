@@ -12,8 +12,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.dodaj_novo_sport_fragment.*
 import kotlinx.android.synthetic.main.dodaj_novo_sport_fragment.view.*
 import kotlinx.android.synthetic.main.dodaj_novo_vijesti_fragment.view.*
@@ -23,9 +25,10 @@ import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
+@AndroidEntryPoint
 class DodajNovoSport : Fragment() {
 
-    private lateinit var mSportViewModel: SportViewModel
+    private val mSportViewModel: SportViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,8 +36,6 @@ class DodajNovoSport : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.dodaj_novo_sport_fragment, container, false)
-
-        mSportViewModel = ViewModelProvider(this).get(SportViewModel::class.java)
 
         view.gumbSpremiSport.setOnClickListener {
             val action = DodajNovoSportDirections.actionMenuDodajNoviSportToSportNavDrawer()

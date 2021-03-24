@@ -25,10 +25,15 @@ object DatabaseModule {
         app,
         Portal257Database::class.java,
         "portal_257"
-    ).build()
+    ).fallbackToDestructiveMigration()
+        .build()
 
     @Provides
     @Singleton
     fun provideInfoDao(portal257Database: Portal257Database) = portal257Database.infoDao()
+
+    @Provides
+    @Singleton
+    fun provideSportDao(portal257Database: Portal257Database) = portal257Database.sportDao()
 
 }
