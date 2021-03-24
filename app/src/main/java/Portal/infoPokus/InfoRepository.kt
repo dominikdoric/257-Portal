@@ -12,6 +12,8 @@ class InfoRepository  @Inject constructor(
 
     suspend fun insertInfo(infoTable: InfoTable) = infoDao.insertInfo(infoTable)
 
+    suspend fun updateInfo(infoTable: InfoTable) = infoDao.updateInfo(infoTable)
+
     suspend fun deleteInfo(infoTable: InfoTable) = infoDao.deleteInfo(infoTable)
 
 

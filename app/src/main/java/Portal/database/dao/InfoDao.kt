@@ -15,6 +15,9 @@ interface InfoDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertInfo(infoTable: InfoTable)
 
+    @Update
+    suspend fun updateInfo(infoTable: InfoTable)
+
     @Delete
     suspend fun deleteInfo(infoTable: InfoTable)
 

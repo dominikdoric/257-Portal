@@ -5,6 +5,7 @@ import Portal.database.table.InfoTable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.jedan_red_info.view.*
 
@@ -22,6 +23,12 @@ class InfoAdapter: RecyclerView.Adapter<InfoAdapter.ViewHolder>() {
         val currentItem = infoList[position]
         holder.itemView.infoTextViewIme.text = currentItem.ime
         holder.itemView.infoTextViewPrezime.text = currentItem.prezime
+
+        holder.itemView.jedan_red_info.setOnLongClickListener {
+            val action = InfoFragmentDirections.actionInfoBottomNavToUpdateDeleteInfoFragment(currentItem)
+            holder.itemView.findNavController().navigate(action)
+            true
+        }
     }
 
     override fun getItemCount(): Int {

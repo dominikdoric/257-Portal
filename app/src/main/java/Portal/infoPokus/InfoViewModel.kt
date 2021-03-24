@@ -22,4 +22,16 @@ class InfoViewModel @Inject constructor(
         }
     }
 
+    fun updateInfo(infoTable: InfoTable) {
+        viewModelScope.launch(Dispatchers.IO) {
+            infoRepository.updateInfo(infoTable)
+        }
+    }
+
+    fun deleteInfo(infoTable: InfoTable) {
+        viewModelScope.launch(Dispatchers.IO) {
+            infoRepository.deleteInfo(infoTable)
+        }
+    }
+
 }
