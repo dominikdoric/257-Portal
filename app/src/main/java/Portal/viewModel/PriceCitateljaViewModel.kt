@@ -8,20 +8,19 @@ import Portal.repository.SportRepository
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class PriceCitateljaViewModel(application: Application) : AndroidViewModel(application) {
+@HiltViewModel
+class PriceCitateljaViewModel @Inject constructor(
+    val priceCitateljaRepository: PriceCitateljaRepository
+) : ViewModel() {
 
-    val readAllDataPriceCitatelja: LiveData<List<PriceCitateljaTable>>
-    private val priceCitateljaRepository: PriceCitateljaRepository
-
-    init {
-        val priceCitateljaDao = Portal257Database.getDatabase(application).priceCitateljaDao()
-        priceCitateljaRepository = PriceCitateljaRepository(priceCitateljaDao)
-        readAllDataPriceCitatelja = priceCitateljaRepository.readAllDataPriceCitatelja
-    }
+    val readAllDataPriceCitatelja = priceCitateljaRepository.getAllDataPriceCitatelja()
 
     fun addPriceCitatelja(priceCitateljaTable: PriceCitateljaTable) {
         viewModelScope.launch(Dispatchers.IO) {

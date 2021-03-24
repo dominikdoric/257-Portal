@@ -11,19 +11,22 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.update_delete_price_citatelja_fragment.*
 import kotlinx.android.synthetic.main.update_delete_price_citatelja_fragment.view.*
 import kotlinx.android.synthetic.main.update_delete_sport_fragment.*
 import java.text.SimpleDateFormat
 import java.util.*
 
+@AndroidEntryPoint
 class UpdateDeletePriceCitateljaFragment : Fragment() {
 
     private val args by navArgs<UpdateDeletePriceCitateljaFragmentArgs>()
-    private lateinit var mPriceCitateljaViewModel: PriceCitateljaViewModel
+    private val mPriceCitateljaViewModel: PriceCitateljaViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,8 +35,6 @@ class UpdateDeletePriceCitateljaFragment : Fragment() {
     ): View? {
         val view =
             inflater.inflate(R.layout.update_delete_price_citatelja_fragment, container, false)
-
-        mPriceCitateljaViewModel = ViewModelProvider(this).get(PriceCitateljaViewModel::class.java)
 
         view.updatePriceCitateljaNaslov.setText(args.currentPriceCitatelja.priceCitateljaNaslov)
         view.updatePriceCitateljaClanak.setText(args.currentPriceCitatelja.priceCitateljaClanak)

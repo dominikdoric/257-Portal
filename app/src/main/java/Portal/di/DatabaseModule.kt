@@ -44,4 +44,8 @@ object DatabaseModule {
     @Singleton
     fun provideVijestiDao(portal257Database: Portal257Database) = portal257Database.vijestiDao()
 
+    @Provides
+    @Singleton
+    fun providePriceCitateljaDao(portal257Database: Portal257Database) = portal257Database.priceCitateljaDao()
+
 }
