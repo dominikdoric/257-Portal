@@ -10,18 +10,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.update_delete_vijesti_fragment.*
 import kotlinx.android.synthetic.main.update_delete_vijesti_fragment.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
+@AndroidEntryPoint
 class UpdateDeleteVijestiFragment : Fragment() {
 
     private val args by navArgs<UpdateDeleteVijestiFragmentArgs>()
-    private lateinit var mVijestiViewModel: VijestiViewModel
+    private val mVijestiViewModel: VijestiViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,8 +32,6 @@ class UpdateDeleteVijestiFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.update_delete_vijesti_fragment, container, false)
-
-        mVijestiViewModel = ViewModelProvider(this).get(VijestiViewModel::class.java)
 
         view.updateVijestiNaslov.setText(args.currentVijest.vijestiNaslov)
         view.updateVijestiClanak.setText(args.currentVijest.vijestiClanak)

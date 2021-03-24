@@ -11,8 +11,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.dodaj_novo_vijesti_fragment.*
 import kotlinx.android.synthetic.main.dodaj_novo_vijesti_fragment.view.*
 import kotlinx.android.synthetic.main.dodaj_novo_zabava_fragment.*
@@ -21,9 +23,10 @@ import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
+@AndroidEntryPoint
 class DodajNovoVijesti: Fragment() {
 
-    private lateinit var mVijestiViewModel: VijestiViewModel
+    private val mVijestiViewModel: VijestiViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,8 +34,6 @@ class DodajNovoVijesti: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.dodaj_novo_vijesti_fragment,container,false)
-
-        mVijestiViewModel = ViewModelProvider(this).get(VijestiViewModel::class.java)
 
         view.gumbSpremiVijest.setOnClickListener {
             val action = DodajNovoVijestiDirections.actionMenuDodajNovuVijestToVijestiNavDrawer()

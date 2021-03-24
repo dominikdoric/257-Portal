@@ -14,7 +14,6 @@ import kotlinx.android.synthetic.main.detail_vijesti_fragment.view.*
 class DetailVijestiFragment : Fragment() {
 
     private val args by navArgs<DetailVijestiFragmentArgs>()
-    private lateinit var mVijestiViewModel: VijestiViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,8 +21,6 @@ class DetailVijestiFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.detail_vijesti_fragment, container, false)
-
-        mVijestiViewModel = ViewModelProvider(this).get(VijestiViewModel::class.java)
 
         view.detailVijestiNaslov.setText(args.vijestiData.vijestiNaslov)
         view.detailVijestiClanak.setText(args.vijestiData.vijestiClanak)
