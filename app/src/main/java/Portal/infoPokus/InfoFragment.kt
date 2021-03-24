@@ -7,15 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.info_fragment.*
+import kotlinx.android.synthetic.main.info_fragment.view.*
 
 @AndroidEntryPoint
 class InfoFragment : Fragment() {
 
     private val infoViewModel: InfoViewModel by viewModels()
-    private lateinit var infoAdapter: InfoAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,17 +25,19 @@ class InfoFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.info_fragment, container, false)
 
-        setupRecyclerView()
+        //RecyclerView
+        val adapter = InfoAdapter()
+        val recyclerInfo = view.recyclerViewInfo
+        recyclerInfo.adapter = adapter
+        recyclerInfo.layoutManager = LinearLayoutManager(requireContext())
+
+        //ViewModel
+        infoViewModel.readAllDataInfo.observe(viewLifecycleOwner, Observer { info ->
+            adapter.setData(info)
+        })
 
         return view
     }
-
-    private fun setupRecyclerView() = recyclerViewInfo.apply {
-        infoAdapter = InfoAdapter()
-        adapter = infoAdapter
-        layoutManager = LinearLayoutManager(requireContext())
-    }
-
 }
 
 
