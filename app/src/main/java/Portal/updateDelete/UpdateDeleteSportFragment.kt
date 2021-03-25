@@ -28,7 +28,7 @@ class UpdateDeleteSportFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
-        container: ViewGroup? ,
+        container:  ViewGroup? ,
         savedInstanceState:  Bundle?
     ): View? {
         val view  =  inflater.inflate(R.layout.update_delete_sport_fragment, container, false)
