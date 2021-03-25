@@ -31,7 +31,7 @@ class UpdateDeleteSportFragment : Fragment() {
         container: ViewGroup? ,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.update_delete_sport_fragment, container, false)
+        val view  =  inflater.inflate(R.layout.update_delete_sport_fragment, container, false)
 
         view.updateSportNaslov.setText(args.currentSport.sportNaslov)
         view.updateSportClanak.setText(args.currentSport.sportClanak)
