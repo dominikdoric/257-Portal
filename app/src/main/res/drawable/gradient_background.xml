@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <gradient
         android:angle="90"
-        android:startColor="#9561a1"
+        android:startColor="#3263a8"
         android:endColor="#122259"
         android:type="linear">
     </gradient>
