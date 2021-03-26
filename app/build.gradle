@@ -81,8 +81,4 @@ dependencies {
 
     // Activity KTX for viewModels()
     implementation "androidx.activity:activity-ktx:1.2.1"
-
-    //Moshi
-    implementation 'com.squareup.moshi:moshi-kotlin:1.9.2'
-    kapt 'com.squareup.moshi:moshi-kotlin-codegen:1.9.2'
 }
