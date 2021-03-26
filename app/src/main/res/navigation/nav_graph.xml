@@ -7,19 +7,9 @@
 
     <fragment
         android:id="@+id/infoBottomNav"
-        android:name="Portal.infoPokus.InfoFragment"
+        android:name="Portal.fragmenti.InfoFragment"
         android:label="InfoFragment"
-        tools:layout="@layout/info_fragment">
-        <action
-            android:id="@+id/action_infoBottomNav_to_dodajNovoInfo"
-            app:destination="@id/dodajNovoInfo" />
-        <action
-            android:id="@+id/action_infoBottomNav_to_updateDeleteInfoFragment"
-            app:destination="@id/updateDeleteInfoFragment" />
-        <action
-            android:id="@+id/action_infoBottomNav_to_detailInfoFragment"
-            app:destination="@id/detailInfoFragment" />
-    </fragment>
+        tools:layout="@layout/info_fragment"/>
     <fragment
         android:id="@+id/kontaktBottomNav"
         android:name="Portal.fragmenti.KontaktFragment"
@@ -286,35 +276,5 @@
         <argument
             android:name="currentPriceCitatelja"
             app:argType="Portal.database.table.PriceCitateljaTable" />
-    </fragment>
-    <fragment
-        android:id="@+id/dodajNovoInfo"
-        android:name="Portal.infoPokus.DodajNovoInfo"
-        android:label="DodajNovoInfo"
-        tools:layout="@layout/dodaj_novo_info_fragment">
-        <action
-            android:id="@+id/action_dodajNovoInfo_to_infoBottomNav"
-            app:destination="@id/infoBottomNav" />
-    </fragment>
-    <fragment
-        android:id="@+id/updateDeleteInfoFragment"
-        android:name="Portal.infoPokus.UpdateDeleteInfoFragment"
-        android:label="UpdateDeleteInfoFragment"
-        tools:layout="@layout/update_delete_info_fragment">
-        <action
-            android:id="@+id/action_updateDeleteInfoFragment_to_infoBottomNav"
-            app:destination="@id/infoBottomNav" />
-        <argument
-            android:name="updateInfoArgs"
-            app:argType="Portal.database.table.InfoTable" />
-    </fragment>
-    <fragment
-        android:id="@+id/detailInfoFragment"
-        android:name="Portal.infoPokus.DetailInfoFragment"
-        android:label="DetailInfoFragment"
-        tools:layout="@layout/detail_info_fragment">
-        <argument
-            android:name="detailInfoArgs"
-            app:argType="Portal.database.table.InfoTable" />
     </fragment>
 </navigation>
