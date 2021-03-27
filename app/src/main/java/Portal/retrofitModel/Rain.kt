@@ -1,4 +1,5 @@
 package Portal.retrofitModel
 
-class Rain {
-}
+data class Rain (
+
+        )

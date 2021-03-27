@@ -1,4 +1,5 @@
 package Portal.retrofitModel
 
-class Wind {
-}
+data class Wind (
+
+        )

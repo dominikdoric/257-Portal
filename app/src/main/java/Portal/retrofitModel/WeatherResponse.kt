@@ -1,4 +1,5 @@
 package Portal.retrofitModel
 
-class WeatherResponse {
-}
+data class WeatherResponse (
+
+        )

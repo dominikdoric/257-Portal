@@ -1,4 +1,5 @@
 package Portal.retrofitModel
 
-class Sys {
-}
+data class Sys (
+
+        )

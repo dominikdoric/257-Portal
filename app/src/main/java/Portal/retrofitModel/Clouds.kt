@@ -1,4 +1,5 @@
 package Portal.retrofitModel
 
-class Clouds {
-}
+data class Clouds (
+
+        )

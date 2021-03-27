@@ -1,4 +1,5 @@
 package Portal.retrofitModel
 
-class Coord {
-}
+data class Coord (
+
+        )

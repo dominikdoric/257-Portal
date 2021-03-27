@@ -1,4 +1,5 @@
 package Portal.retrofitModel
 
-class City {
-}
+data class City (
+
+        )
