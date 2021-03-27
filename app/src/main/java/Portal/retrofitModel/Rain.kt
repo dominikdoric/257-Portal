@@ -1,5 +1,10 @@
 package Portal.retrofitModel
 
-data class Rain (
+import com.google.gson.annotations.Expose
+import com.google.gson.annotations.SerializedName
 
+data class Rain (
+        @SerializedName("3h")
+        @Expose
+        private val _3h: Double? = null
         )
