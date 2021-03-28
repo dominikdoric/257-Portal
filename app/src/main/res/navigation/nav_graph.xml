@@ -204,7 +204,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailSportFragment"
-        android:name="Portal.detailFragmenti.DetailSportFragment"
+        android:name="Portal.fragmenti.detailFragmenti.DetailSportFragment"
         android:label="DetailSportFragment"
         tools:layout="@layout/detail_sport_fragment">
         <argument
@@ -213,7 +213,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailFragmentZabava"
-        android:name="Portal.detailFragmenti.DetailZabavaFragment"
+        android:name="Portal.fragmenti.detailFragmenti.DetailZabavaFragment"
         android:label="DetailFragmentZabava"
         tools:layout="@layout/detail_zabava_fragment">
         <argument
@@ -222,7 +222,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailObavijestiFragment"
-        android:name="Portal.detailFragmenti.DetailObavijestiFragment"
+        android:name="Portal.fragmenti.detailFragmenti.DetailObavijestiFragment"
         android:label="DetailObavijestiFragment"
         tools:layout="@layout/detail_obavijesti_fragment">
         <argument
@@ -231,7 +231,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailOglasnikFragment"
-        android:name="Portal.detailFragmenti.DetailOglasnikFragment"
+        android:name="Portal.fragmenti.detailFragmenti.DetailOglasnikFragment"
         android:label="DetailOglasnikFragment"
         tools:layout="@layout/detail_oglasnik_fragment">
         <argument
@@ -240,7 +240,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailVijestiFragment"
-        android:name="Portal.detailFragmenti.DetailVijestiFragment"
+        android:name="Portal.fragmenti.detailFragmenti.DetailVijestiFragment"
         android:label="DetailVijestiFragment"
         tools:layout="@layout/detail_vijesti_fragment">
         <argument
@@ -258,7 +258,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailPriceCitateljaFragment"
-        android:name="Portal.detailFragmenti.DetailPriceCitateljaFragment"
+        android:name="Portal.fragmenti.detailFragmenti.DetailPriceCitateljaFragment"
         android:label="DetailPriceCitateljaFragment"
         tools:layout="@layout/detail_price_citatelja_fragment">
         <argument
