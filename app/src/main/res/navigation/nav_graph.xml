@@ -99,7 +99,7 @@
         tools:layout="@layout/vrijeme_fragment"/>
     <fragment
         android:id="@+id/menu_dodajNovuVijest"
-        android:name="Portal.dodajNovo.DodajNovoVijesti"
+        android:name="Portal.fragmenti.dodajNovo.DodajNovoVijesti"
         android:label="DodajNovoVijesti"
         tools:layout="@layout/dodaj_novo_vijesti_fragment">
         <action
@@ -108,7 +108,7 @@
     </fragment>
     <fragment
         android:id="@+id/menu_dodajNovuObavijest"
-        android:name="Portal.dodajNovo.DodajNovoObavijesti"
+        android:name="Portal.fragmenti.dodajNovo.DodajNovoObavijesti"
         android:label="DodajNovoObavijesti"
         tools:layout="@layout/dodaj_novo_obavijesti_fragment">
         <action
@@ -117,7 +117,7 @@
     </fragment>
     <fragment
         android:id="@+id/menu_dodajNoviSport"
-        android:name="Portal.dodajNovo.DodajNovoSport"
+        android:name="Portal.fragmenti.dodajNovo.DodajNovoSport"
         android:label="DodajNovoSport"
         tools:layout="@layout/dodaj_novo_sport_fragment">
         <action
@@ -126,7 +126,7 @@
     </fragment>
     <fragment
         android:id="@+id/menu_dodajNovuZabava"
-        android:name="Portal.dodajNovo.DodajNovoZabava"
+        android:name="Portal.fragmenti.dodajNovo.DodajNovoZabava"
         android:label="DodajNovoZabava"
         tools:layout="@layout/dodaj_novo_zabava_fragment">
         <action
@@ -135,7 +135,7 @@
     </fragment>
     <fragment
         android:id="@+id/menu_dodajNoviOglas"
-        android:name="Portal.dodajNovo.DodajNovoOglasnik"
+        android:name="Portal.fragmenti.dodajNovo.DodajNovoOglasnik"
         android:label="DodajNovoOglasnik"
         tools:layout="@layout/dodaj_novo_oglasnik_fragment">
         <action
@@ -249,7 +249,7 @@
     </fragment>
     <fragment
         android:id="@+id/menu_dodajNovuPricuCitatelja"
-        android:name="Portal.dodajNovo.DodajNovoPriceCitatelja"
+        android:name="Portal.fragmenti.dodajNovo.DodajNovoPriceCitatelja"
         android:label="DodajNovoPriceCitatelja"
         tools:layout="@layout/dodaj_novo_price_citatelja_fragment">
         <action

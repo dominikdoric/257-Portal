@@ -1,8 +1,8 @@
-package Portal.dodajNovo
+package Portal.fragmenti.dodajNovo
 
 import Portal.a257.R
 import Portal.database.table.PriceCitateljaTable
-import Portal.database.table.SportTable
+import Portal.dodajNovo.DodajNovoPriceCitateljaDirections
 import Portal.viewModel.PriceCitateljaViewModel
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,12 +11,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.dodaj_novo_price_citatelja_fragment.*
 import kotlinx.android.synthetic.main.dodaj_novo_price_citatelja_fragment.view.*
-import kotlinx.android.synthetic.main.dodaj_novo_sport_fragment.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -33,7 +31,8 @@ class DodajNovoPriceCitatelja: Fragment() {
         val view = inflater.inflate(R.layout.dodaj_novo_price_citatelja_fragment,container,false)
 
         view.gumbSpremiPriceCitatelja.setOnClickListener {
-            val action = DodajNovoPriceCitateljaDirections.actionMenuDodajNovuPricuCitateljaToPriceCitateljaNavDrawer()
+            val action =
+                DodajNovoPriceCitateljaDirections.actionMenuDodajNovuPricuCitateljaToPriceCitateljaNavDrawer()
             findNavController().navigate(action)
             Toast.makeText(requireContext(),
                 "Vaš članak je zaprimljen te je poslan adminu na odobrenje.Hvala!",
