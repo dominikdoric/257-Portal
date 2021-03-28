@@ -1,4 +1,4 @@
-package Portal.fragmenti
+package Portal.fragmenti.fragmenti
 
 import Portal.a257.R
 import Portal.adapter.SportAdapter

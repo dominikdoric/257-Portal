@@ -1,8 +1,8 @@
-package Portal.fragmenti
+package Portal.fragmenti.fragmenti
 
 import Portal.a257.R
-import Portal.adapter.VijestiAdapter
-import Portal.viewModel.VijestiViewModel
+import Portal.adapter.ZabavaAdapter
+import Portal.viewModel.ZabavaViewModel
 import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -16,31 +16,30 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.vijesti_fragment.*
-import kotlinx.android.synthetic.main.vijesti_fragment.view.*
 import kotlinx.android.synthetic.main.zabava_fragment.*
+import kotlinx.android.synthetic.main.zabava_fragment.view.*
 
 @AndroidEntryPoint
-class VijestiFragment : Fragment() {
+class ZabavaFragment : Fragment() {
 
-    private val mVijestiViewModel: VijestiViewModel by viewModels()
+    private val mZabavaViewModel: ZabavaViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.vijesti_fragment, container, false)
+        val view = inflater.inflate(R.layout.zabava_fragment, container, false)
 
         //RecyclerView
-        val adapter = VijestiAdapter()
-        val recyclerVijesti = view.recyclerViewVijesti
-        recyclerVijesti.adapter = adapter
-        recyclerVijesti.layoutManager = LinearLayoutManager(requireContext())
+        val adapter = ZabavaAdapter()
+        val recyclerZabava = view.recyclerViewZabava
+        recyclerZabava.adapter = adapter
+        recyclerZabava.layoutManager = LinearLayoutManager(requireContext())
 
         //RasporedViewModel
-        mVijestiViewModel.readAllDataVijesti.observe(viewLifecycleOwner, Observer { vijesti ->
-            adapter.setData(vijesti)
+        mZabavaViewModel.readAllDataZabava.observe(viewLifecycleOwner, Observer { zabava ->
+            adapter.setData(zabava)
         })
 
         return view
@@ -49,9 +48,9 @@ class VijestiFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        recyclerViewVijesti.addItemDecoration(
+        recyclerViewZabava.addItemDecoration(
             DividerItemDecoration
-                (recyclerViewVijesti.context, DividerItemDecoration.VERTICAL)
+                (recyclerViewZabava.context, DividerItemDecoration.VERTICAL)
         )
     }
 }

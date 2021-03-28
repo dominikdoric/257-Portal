@@ -1,8 +1,8 @@
-package Portal.updateDelete
+package Portal.fragmenti.updateDelete
 
 import Portal.a257.R
 import Portal.database.table.PriceCitateljaTable
-import Portal.database.table.SportTable
+import Portal.updateDelete.UpdateDeletePriceCitateljaFragmentArgs
 import Portal.viewModel.PriceCitateljaViewModel
 import android.app.AlertDialog
 import android.os.Bundle
@@ -12,13 +12,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.update_delete_price_citatelja_fragment.*
 import kotlinx.android.synthetic.main.update_delete_price_citatelja_fragment.view.*
-import kotlinx.android.synthetic.main.update_delete_sport_fragment.*
 import java.text.SimpleDateFormat
 import java.util.*
 

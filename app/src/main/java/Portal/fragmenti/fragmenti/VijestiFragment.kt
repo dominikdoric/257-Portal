@@ -1,8 +1,8 @@
-package Portal.fragmenti
+package Portal.fragmenti.fragmenti
 
 import Portal.a257.R
-import Portal.adapter.OglasnikAdapter
-import Portal.viewModel.OglasnikViewModel
+import Portal.adapter.VijestiAdapter
+import Portal.viewModel.VijestiViewModel
 import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -16,31 +16,31 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.oglasnik_fragment.*
-import kotlinx.android.synthetic.main.oglasnik_fragment.view.*
+import kotlinx.android.synthetic.main.vijesti_fragment.*
+import kotlinx.android.synthetic.main.vijesti_fragment.view.*
 import kotlinx.android.synthetic.main.zabava_fragment.*
 
 @AndroidEntryPoint
-class OglasnikFragment : Fragment() {
+class VijestiFragment : Fragment() {
 
-    private val mOglasnikViewModel: OglasnikViewModel by viewModels()
+    private val mVijestiViewModel: VijestiViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.oglasnik_fragment, container, false)
+        val view = inflater.inflate(R.layout.vijesti_fragment, container, false)
 
         //RecyclerView
-        val adapter = OglasnikAdapter()
-        val recyclerOglasnik = view.recyclerViewOglasnik
-        recyclerOglasnik.adapter = adapter
-        recyclerOglasnik.layoutManager = LinearLayoutManager(requireContext())
+        val adapter = VijestiAdapter()
+        val recyclerVijesti = view.recyclerViewVijesti
+        recyclerVijesti.adapter = adapter
+        recyclerVijesti.layoutManager = LinearLayoutManager(requireContext())
 
         //RasporedViewModel
-        mOglasnikViewModel.readAllDataOglasnik.observe(viewLifecycleOwner, Observer { oglasnik ->
-            adapter.setData(oglasnik)
+        mVijestiViewModel.readAllDataVijesti.observe(viewLifecycleOwner, Observer { vijesti ->
+            adapter.setData(vijesti)
         })
 
         return view
@@ -49,9 +49,9 @@ class OglasnikFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        recyclerViewOglasnik.addItemDecoration(
+        recyclerViewVijesti.addItemDecoration(
             DividerItemDecoration
-                (recyclerViewOglasnik.context, DividerItemDecoration.VERTICAL)
+                (recyclerViewVijesti.context, DividerItemDecoration.VERTICAL)
         )
     }
 }
