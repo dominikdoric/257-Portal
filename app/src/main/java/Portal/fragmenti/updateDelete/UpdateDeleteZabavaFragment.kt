@@ -2,7 +2,6 @@ package Portal.fragmenti.updateDelete
 
 import Portal.a257.R
 import Portal.database.table.ZabavaTable
-import Portal.updateDelete.UpdateDeleteZabavaFragmentArgs
 import Portal.viewModel.ZabavaViewModel
 import android.app.AlertDialog
 import android.os.Bundle

@@ -2,7 +2,7 @@ package Portal.adapter
 
 import Portal.a257.R
 import Portal.database.table.PriceCitateljaTable
-import Portal.fragmenti.PriceCitateljaFragmentDirections
+import Portal.fragmenti.fragmenti.PriceCitateljaFragmentDirections
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

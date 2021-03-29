@@ -2,7 +2,6 @@ package Portal.fragmenti.dodajNovo
 
 import Portal.a257.R
 import Portal.database.table.ZabavaTable
-import Portal.dodajNovo.DodajNovoZabavaDirections
 import Portal.viewModel.ZabavaViewModel
 import android.annotation.SuppressLint
 import android.os.Bundle

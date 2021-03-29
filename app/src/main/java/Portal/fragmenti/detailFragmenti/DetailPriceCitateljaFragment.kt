@@ -1,7 +1,6 @@
 package Portal.fragmenti.detailFragmenti
 
 import Portal.a257.R
-import Portal.detailFragmenti.DetailPriceCitateljaFragmentArgs
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View

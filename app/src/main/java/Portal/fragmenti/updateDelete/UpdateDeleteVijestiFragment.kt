@@ -2,7 +2,6 @@ package Portal.fragmenti.updateDelete
 
 import Portal.a257.R
 import Portal.database.table.VijestiTable
-import Portal.updateDelete.UpdateDeleteVijestiFragmentArgs
 import Portal.viewModel.VijestiViewModel
 import android.app.AlertDialog
 import android.os.Bundle

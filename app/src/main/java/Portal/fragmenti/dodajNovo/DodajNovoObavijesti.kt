@@ -2,7 +2,6 @@ package Portal.fragmenti.dodajNovo
 
 import Portal.a257.R
 import Portal.database.table.ObavijestiTable
-import Portal.dodajNovo.DodajNovoObavijestiDirections
 import Portal.viewModel.ObavijestiViewModel
 import android.annotation.SuppressLint
 import android.os.Bundle

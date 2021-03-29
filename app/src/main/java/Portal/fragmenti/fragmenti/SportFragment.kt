@@ -2,7 +2,6 @@ package Portal.fragmenti.fragmenti
 
 import Portal.a257.R
 import Portal.adapter.SportAdapter
-import Portal.dodajNovo.DodajNovoSportDirections
 import Portal.viewModel.SportViewModel
 import android.app.AlertDialog
 import android.os.Bundle

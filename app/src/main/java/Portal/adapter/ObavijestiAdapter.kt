@@ -2,7 +2,7 @@ package Portal.adapter
 
 import Portal.a257.R
 import Portal.database.table.ObavijestiTable
-import Portal.fragmenti.ObavijestiFragmentDirections
+import Portal.fragmenti.fragmenti.ObavijestiFragmentDirections
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

@@ -2,7 +2,6 @@ package Portal.fragmenti.updateDelete
 
 import Portal.a257.R
 import Portal.database.table.SportTable
-import Portal.updateDelete.UpdateDeleteSportFragmentArgs
 import Portal.viewModel.SportViewModel
 import android.app.AlertDialog
 import android.os.Bundle

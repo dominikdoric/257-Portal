@@ -2,7 +2,6 @@ package Portal.fragmenti.dodajNovo
 
 import Portal.a257.R
 import Portal.database.table.SportTable
-import Portal.dodajNovo.DodajNovoSportDirections
 import Portal.viewModel.SportViewModel
 import android.annotation.SuppressLint
 import android.os.Bundle

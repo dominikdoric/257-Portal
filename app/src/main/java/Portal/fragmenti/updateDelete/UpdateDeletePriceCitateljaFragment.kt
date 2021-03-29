@@ -2,7 +2,6 @@ package Portal.fragmenti.updateDelete
 
 import Portal.a257.R
 import Portal.database.table.PriceCitateljaTable
-import Portal.updateDelete.UpdateDeletePriceCitateljaFragmentArgs
 import Portal.viewModel.PriceCitateljaViewModel
 import android.app.AlertDialog
 import android.os.Bundle

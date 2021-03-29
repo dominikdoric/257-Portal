@@ -2,7 +2,7 @@ package Portal.adapter
 
 import Portal.a257.R
 import Portal.database.table.SportTable
-import Portal.fragmenti.SportFragmentDirections
+import Portal.fragmenti.fragmenti.SportFragmentDirections
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

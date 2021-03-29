@@ -2,7 +2,7 @@ package Portal.adapter
 
 import Portal.a257.R
 import Portal.database.table.VijestiTable
-import Portal.fragmenti.VijestiFragmentDirections
+import Portal.fragmenti.fragmenti.VijestiFragmentDirections
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

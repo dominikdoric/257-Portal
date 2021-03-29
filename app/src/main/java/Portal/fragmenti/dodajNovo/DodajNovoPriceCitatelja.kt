@@ -2,7 +2,6 @@ package Portal.fragmenti.dodajNovo
 
 import Portal.a257.R
 import Portal.database.table.PriceCitateljaTable
-import Portal.dodajNovo.DodajNovoPriceCitateljaDirections
 import Portal.viewModel.PriceCitateljaViewModel
 import android.os.Bundle
 import android.view.LayoutInflater

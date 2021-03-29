@@ -2,7 +2,6 @@ package Portal.fragmenti.dodajNovo
 
 import Portal.a257.R
 import Portal.database.table.OglasnikTable
-import Portal.dodajNovo.DodajNovoOglasnikDirections
 import Portal.viewModel.OglasnikViewModel
 import android.annotation.SuppressLint
 import android.os.Bundle

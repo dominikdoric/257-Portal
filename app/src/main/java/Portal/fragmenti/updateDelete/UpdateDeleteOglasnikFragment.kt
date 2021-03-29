@@ -2,7 +2,6 @@ package Portal.fragmenti.updateDelete
 
 import Portal.a257.R
 import Portal.database.table.OglasnikTable
-import Portal.updateDelete.UpdateDeleteOglasnikFragmentArgs
 import Portal.viewModel.OglasnikViewModel
 import android.app.AlertDialog
 import android.os.Bundle

@@ -2,7 +2,6 @@ package Portal.fragmenti.dodajNovo
 
 import Portal.a257.R
 import Portal.database.table.VijestiTable
-import Portal.dodajNovo.DodajNovoVijestiDirections
 import Portal.viewModel.VijestiViewModel
 import android.annotation.SuppressLint
 import android.os.Bundle

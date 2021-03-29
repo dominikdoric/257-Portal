@@ -2,7 +2,7 @@ package Portal.adapter
 
 import Portal.a257.R
 import Portal.database.table.ZabavaTable
-import Portal.fragmenti.ZabavaFragmentDirections
+import Portal.fragmenti.fragmenti.ZabavaFragmentDirections
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
