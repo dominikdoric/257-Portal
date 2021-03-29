@@ -14,25 +14,13 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class InfoFragment : Fragment() {
 
-    private val viewModel: MainViewModel by viewModels()
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.info_fragment, container, false)
-
-        val repository = Repository()
-        val viewModelFactory = MainViewModelFactory(repository)
-        viewModel.getPost()
-        viewModel.myResponse.observe(viewLifecycleOwner, Observer { response ->
-            Log.d("Response", response.userId.toString())
-            Log.d("Response", response.id.toString())
-            Log.d("Response", response.title)
-            Log.d("Response", response.body)
-        })
-
+        
         return view
     }
 }
