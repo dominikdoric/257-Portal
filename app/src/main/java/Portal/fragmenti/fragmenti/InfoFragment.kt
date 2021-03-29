@@ -1,9 +1,6 @@
 package Portal.fragmenti.fragmenti
 
 import Portal.a257.R
-import Portal.retrofit.repository.Repository
-import Portal.retrofit.viewModel.MainViewModel
-import Portal.retrofit.viewModel.MainViewModelFactory
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
