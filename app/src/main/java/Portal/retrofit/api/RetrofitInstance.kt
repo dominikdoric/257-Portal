@@ -14,18 +14,6 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object RetrofitInstance {
 
-    /*
-    @Provides
-    @Singleton
-    private val retrofit by lazy {
-        Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-    }
-
-     */
-
     @Provides
     @Singleton
     fun provideRetrofit(): Retrofit{
@@ -34,11 +22,6 @@ object RetrofitInstance {
              .addConverterFactory(GsonConverterFactory.create())
              .build()
     }
-/*
-    val api: SimpleApi by lazy {
-        retrofit.create(SimpleApi::class.java)
-    }
- */
 
     @Provides
     @Singleton

@@ -18,7 +18,6 @@ import kotlinx.android.synthetic.main.info_fragment.view.*
 class InfoFragment : Fragment() {
 
     private val infoViewModel: MainViewModel by viewModels()
-    private lateinit var someObject: WeatherModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,8 +27,8 @@ class InfoFragment : Fragment() {
         val view = inflater.inflate(R.layout.info_fragment, container, false)
 
         infoViewModel.getWeather()
-        infoViewModel.myResponse.observe(requireContext(), Observer { response ->
-            view.visibility.(someObject.visibility)
+        infoViewModel.myResponse.observe(viewLifecycleOwner, Observer { response ->
+            Log.d("Response",response.visibility.toString())
         })
 
         return view
