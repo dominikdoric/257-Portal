@@ -1,36 +1,36 @@
 package Portal.fragmenti.fragmenti
 
 import Portal.a257.R
+import Portal.a257.databinding.OglasnikFragmentBinding
 import Portal.adapter.OglasnikAdapter
 import Portal.viewModel.OglasnikViewModel
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.oglasnik_fragment.*
-import kotlinx.android.synthetic.main.oglasnik_fragment.view.*
 
 @AndroidEntryPoint
-class OglasnikFragment : Fragment() {
+class OglasnikFragment : Fragment(R.layout.oglasnik_fragment) {
 
     private val mOglasnikViewModel: OglasnikViewModel by viewModels()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.oglasnik_fragment, container, false)
+    private lateinit var binding: OglasnikFragmentBinding
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.recyclerViewOglasnik.addItemDecoration(
+            DividerItemDecoration
+                (binding.recyclerViewOglasnik.context, DividerItemDecoration.VERTICAL)
+        )
 
         //RecyclerView
         val adapter = OglasnikAdapter()
-        val recyclerOglasnik = view.recyclerViewOglasnik
+        val recyclerOglasnik = binding.recyclerViewOglasnik
         recyclerOglasnik.adapter = adapter
         recyclerOglasnik.layoutManager = LinearLayoutManager(requireContext())
 
@@ -39,15 +39,5 @@ class OglasnikFragment : Fragment() {
             adapter.setData(oglasnik)
         })
 
-        return view
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        recyclerViewOglasnik.addItemDecoration(
-            DividerItemDecoration
-                (recyclerViewOglasnik.context, DividerItemDecoration.VERTICAL)
-        )
     }
 }
