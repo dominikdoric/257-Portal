@@ -1,21 +1,18 @@
 package Portal.fragmenti.updateDelete
 
 import Portal.a257.R
+import Portal.a257.databinding.UpdateDeleteZabavaFragmentBinding
 import Portal.database.table.ZabavaTable
 import Portal.viewModel.ZabavaViewModel
 import android.app.AlertDialog
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.update_delete_zabava_fragment.*
-import kotlinx.android.synthetic.main.update_delete_zabava_fragment.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -24,26 +21,22 @@ class UpdateDeleteZabavaFragment : Fragment() {
 
     private val args by navArgs<UpdateDeleteZabavaFragmentArgs>()
     private val mZabavaViewModel: ZabavaViewModel by viewModels()
+    private lateinit var binding: UpdateDeleteZabavaFragmentBinding
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.update_delete_zabava_fragment, container, false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding = UpdateDeleteZabavaFragmentBinding.bind(view)
 
-        view.updateZabavaNaslov.setText(args.currentZabava.zabavaNaslov)
-        view.updateZabavaClanak.setText(args.currentZabava.zabavaClanak)
+        binding.updateZabavaNaslov.setText(args.currentZabava.zabavaNaslov)
+        binding.updateZabavaClanak.setText(args.currentZabava.zabavaClanak)
 
-        view.gumbUpdateZabava.setOnClickListener {
+        binding.gumbUpdateZabava.setOnClickListener {
             updateItemZabava()
         }
 
-        view.gumbDeleteZabava.setOnClickListener {
+        binding.gumbDeleteZabava.setOnClickListener {
             deleteItemZabava()
         }
-
-        return view
     }
 
     private fun deleteItemZabava() {
@@ -63,8 +56,8 @@ class UpdateDeleteZabavaFragment : Fragment() {
         val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
         val currentDate = sdf.format(Date())
 
-        val naslovZabava = updateZabavaNaslov.text.toString()
-        val clanakZabava = updateZabavaClanak.text.toString()
+        val naslovZabava = binding.updateZabavaNaslov.text.toString()
+        val clanakZabava = binding.updateZabavaClanak.text.toString()
         val vrijemeZabava = currentDate
         val slikaZabava = 0
 
