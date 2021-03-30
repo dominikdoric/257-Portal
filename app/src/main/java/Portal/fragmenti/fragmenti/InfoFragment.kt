@@ -14,6 +14,8 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class InfoFragment : Fragment() {
 
+    
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
