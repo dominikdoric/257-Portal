@@ -20,7 +20,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 @AndroidEntryPoint
-class DodajNovoVijesti : Fragment() {
+class DodajNovoVijesti : Fragment(R.layout.dodaj_novo_vijesti_fragment) {
 
     private val mVijestiViewModel: VijestiViewModel by viewModels()
 
@@ -28,6 +28,7 @@ class DodajNovoVijesti : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding = DodajNovoVijestiFragmentBinding.bind(view)
 
         binding.gumbSpremiVijest.setOnClickListener {
             val action = DodajNovoVijestiDirections.actionMenuDodajNovuVijestToVijestiNavDrawer()

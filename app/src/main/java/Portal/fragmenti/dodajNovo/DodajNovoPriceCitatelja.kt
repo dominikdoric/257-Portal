@@ -1,6 +1,7 @@
 package Portal.fragmenti.dodajNovo
 
 import Portal.a257.R
+import Portal.a257.databinding.DodajNovoPriceCitateljaFragmentBinding
 import Portal.database.table.PriceCitateljaTable
 import Portal.viewModel.PriceCitateljaViewModel
 import android.os.Bundle
@@ -18,41 +19,40 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 @AndroidEntryPoint
-class DodajNovoPriceCitatelja: Fragment() {
+class DodajNovoPriceCitatelja : Fragment(R.layout.dodaj_novo_price_citatelja_fragment) {
 
     private val mPriceCitateljaViewModel: PriceCitateljaViewModel by viewModels()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.dodaj_novo_price_citatelja_fragment,container,false)
+    private lateinit var binding: DodajNovoPriceCitateljaFragmentBinding
 
-        view.gumbSpremiPriceCitatelja.setOnClickListener {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding = DodajNovoPriceCitateljaFragmentBinding.bind(view)
+
+        binding.gumbSpremiPriceCitatelja.setOnClickListener {
             val action =
                 DodajNovoPriceCitateljaDirections.actionMenuDodajNovuPricuCitateljaToPriceCitateljaNavDrawer()
             findNavController().navigate(action)
-            Toast.makeText(requireContext(),
+            Toast.makeText(
+                requireContext(),
                 "Vaš članak je zaprimljen te je poslan adminu na odobrenje.Hvala!",
-                Toast.LENGTH_LONG)
+                Toast.LENGTH_LONG
+            )
                 .show()
             insertDataToDatabase()
         }
-
-        return view
     }
 
     private fun insertDataToDatabase() {
         val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
         val currentDate = sdf.format(Date())
 
-        val noviNaslov = et_priceCitatelja_naslov.text.toString()
+        val noviNaslov = binding.etPriceCitateljaNaslov.text.toString()
         val novoVrijeme = currentDate
-        val noviClanak = et_priceCitatelja_clanak.text.toString()
+        val noviClanak = binding.etPriceCitateljaClanak.text.toString()
         val novaSlika = R.drawable.jaksic
 
-        val priceCitatelja = PriceCitateljaTable(0,noviNaslov,noviClanak,novoVrijeme,novaSlika)
+        val priceCitatelja = PriceCitateljaTable(0, noviNaslov, noviClanak, novoVrijeme, novaSlika)
         mPriceCitateljaViewModel.addPriceCitatelja(priceCitatelja)
     }
 

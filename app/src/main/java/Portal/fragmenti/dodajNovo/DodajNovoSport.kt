@@ -1,6 +1,7 @@
 package Portal.fragmenti.dodajNovo
 
 import Portal.a257.R
+import Portal.a257.databinding.DodajNovoSportFragmentBinding
 import Portal.database.table.SportTable
 import Portal.viewModel.SportViewModel
 import android.annotation.SuppressLint
@@ -19,18 +20,17 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 @AndroidEntryPoint
-class DodajNovoSport : Fragment() {
+class DodajNovoSport : Fragment(R.layout.dodaj_novo_sport_fragment) {
 
     private val mSportViewModel: SportViewModel by viewModels()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.dodaj_novo_sport_fragment, container, false)
+    private lateinit var binding: DodajNovoSportFragmentBinding
 
-        view.gumbSpremiSport.setOnClickListener {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding = DodajNovoSportFragmentBinding.bind(view)
+
+        binding.gumbSpremiSport.setOnClickListener {
             val action = DodajNovoSportDirections.actionMenuDodajNoviSportToSportNavDrawer()
             findNavController().navigate(action)
             Toast.makeText(
@@ -42,7 +42,6 @@ class DodajNovoSport : Fragment() {
             insertDataToDatabase()
         }
 
-        return view
     }
 
     @SuppressLint("SimpleDateFormat")
@@ -50,9 +49,9 @@ class DodajNovoSport : Fragment() {
         val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
         val currentDate = sdf.format(Date())
 
-        val noviNaslov = et_sport_naslov.text.toString()
+        val noviNaslov = binding.etSportNaslov.text.toString()
         val novoVrijeme = currentDate
-        val noviClanak = et_sport_clanak.text.toString()
+        val noviClanak = binding.etSportClanak.text.toString()
         val novaSlika = R.drawable.jaksic
 
         val sport = SportTable(0, noviNaslov, noviClanak, novoVrijeme, novaSlika)
