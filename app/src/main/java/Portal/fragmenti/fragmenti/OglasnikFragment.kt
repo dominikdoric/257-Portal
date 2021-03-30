@@ -22,6 +22,7 @@ class OglasnikFragment : Fragment(R.layout.oglasnik_fragment) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding = OglasnikFragmentBinding.bind(view)
 
         binding.recyclerViewOglasnik.addItemDecoration(
             DividerItemDecoration

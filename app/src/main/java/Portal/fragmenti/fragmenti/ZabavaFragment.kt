@@ -22,6 +22,7 @@ class ZabavaFragment : Fragment(R.layout.zabava_fragment) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding = ZabavaFragmentBinding.bind(view)
 
         binding.recyclerViewZabava.addItemDecoration(
             DividerItemDecoration
