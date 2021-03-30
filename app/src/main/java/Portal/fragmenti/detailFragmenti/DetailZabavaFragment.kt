@@ -17,8 +17,8 @@ class DetailZabavaFragment : Fragment(R.layout.detail_zabava_fragment) {
         super.onViewCreated(view, savedInstanceState)
         binding = DetailZabavaFragmentBinding.bind(view)
 
-        binding.detailZabavaNaslov.setText(args.zabavaData.zabavaNaslov)
-        binding.detailZabavaClanak.setText(args.zabavaData.zabavaClanak)
+        binding.detailZabavaNaslov.text = args.zabavaData.zabavaNaslov
+        binding.detailZabavaClanak.text = args.zabavaData.zabavaClanak
     }
 
 }

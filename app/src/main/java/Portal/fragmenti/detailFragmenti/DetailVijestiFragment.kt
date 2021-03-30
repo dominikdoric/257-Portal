@@ -3,12 +3,9 @@ package Portal.fragmenti.detailFragmenti
 import Portal.a257.R
 import Portal.a257.databinding.DetailVijestiFragmentBinding
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
-import kotlinx.android.synthetic.main.detail_vijesti_fragment.view.*
 
 class DetailVijestiFragment : Fragment(R.layout.detail_vijesti_fragment) {
 
@@ -20,8 +17,8 @@ class DetailVijestiFragment : Fragment(R.layout.detail_vijesti_fragment) {
         super.onViewCreated(view, savedInstanceState)
         binding = DetailVijestiFragmentBinding.bind(view)
 
-        binding.detailVijestiNaslov.setText(args.vijestiData.vijestiNaslov)
-        binding.detailVijestiClanak.setText(args.vijestiData.vijestiClanak)
+        binding.detailVijestiNaslov.text = args.vijestiData.vijestiNaslov
+        binding.detailVijestiClanak.text = args.vijestiData.vijestiClanak
     }
 
 }

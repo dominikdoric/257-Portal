@@ -3,12 +3,9 @@ package Portal.fragmenti.detailFragmenti
 import Portal.a257.R
 import Portal.a257.databinding.DetailSportFragmentBinding
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
-import kotlinx.android.synthetic.main.detail_sport_fragment.view.*
 
 class DetailSportFragment : Fragment(R.layout.detail_sport_fragment) {
 
@@ -20,8 +17,8 @@ class DetailSportFragment : Fragment(R.layout.detail_sport_fragment) {
         super.onViewCreated(view, savedInstanceState)
         binding = DetailSportFragmentBinding.bind(view)
 
-        binding.detailSportNaslov.setText(args.sportData.sportNaslov)
-        binding.detailSportClanak.setText(args.sportData.sportClanak)
+        binding.detailSportNaslov.text = args.sportData.sportNaslov
+        binding.detailSportClanak.text = args.sportData.sportClanak
     }
 
 }
