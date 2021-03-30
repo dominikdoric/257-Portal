@@ -1,6 +1,7 @@
 package Portal.fragmenti.updateDelete
 
 import Portal.a257.R
+import Portal.a257.databinding.UpdateDeleteObavijestiFragmentBinding
 import Portal.database.table.ObavijestiTable
 import Portal.viewModel.ObavijestiViewModel
 import android.app.AlertDialog
@@ -14,36 +15,31 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.update_delete_obavijesti_fragment.*
-import kotlinx.android.synthetic.main.update_delete_obavijesti_fragment.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
 @AndroidEntryPoint
-class UpdateDeleteObavijestiFragment : Fragment() {
+class UpdateDeleteObavijestiFragment : Fragment(R.layout.update_delete_obavijesti_fragment) {
 
     private val args by navArgs<UpdateDeleteObavijestiFragmentArgs>()
     private val mObavijestiViewModel: ObavijestiViewModel by viewModels()
+    private lateinit var binding: UpdateDeleteObavijestiFragmentBinding
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.update_delete_obavijesti_fragment, container, false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding = UpdateDeleteObavijestiFragmentBinding.bind(view)
 
-        view.updateObavijestiNaslov.setText(args.currentObavijest.obavijestiNaslov)
-        view.updateObavijestiClanak.setText(args.currentObavijest.obavijestiClanak)
+        binding.updateObavijestiNaslov.setText(args.currentObavijest.obavijestiNaslov)
+        binding.updateObavijestiClanak.setText(args.currentObavijest.obavijestiClanak)
 
-        view.gumbUpdateObavijesti.setOnClickListener {
+        binding.gumbUpdateObavijesti.setOnClickListener {
             updateItemObavijesti()
         }
 
-        view.gumbDeleteObavijesti.setOnClickListener {
+        binding.gumbDeleteObavijesti.setOnClickListener {
             deleteItemObavijesti()
         }
 
-        return view
     }
 
     private fun deleteItemObavijesti() {
@@ -63,8 +59,8 @@ class UpdateDeleteObavijestiFragment : Fragment() {
         val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
         val currentDate = sdf.format(Date())
 
-        val naslovObavijesti = updateObavijestiNaslov.text.toString()
-        val clanakObavijesti = updateObavijestiClanak.text.toString()
+        val naslovObavijesti = binding.updateObavijestiNaslov.text.toString()
+        val clanakObavijesti = binding.updateObavijestiClanak.text.toString()
         val slikaObavijesti = 0
         val vrijemeObavijesti = currentDate
 

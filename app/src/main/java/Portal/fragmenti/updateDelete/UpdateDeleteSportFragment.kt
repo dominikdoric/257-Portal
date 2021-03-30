@@ -1,49 +1,42 @@
 package Portal.fragmenti.updateDelete
 
 import Portal.a257.R
+import Portal.a257.databinding.UpdateDeleteSportFragmentBinding
 import Portal.database.table.SportTable
 import Portal.viewModel.SportViewModel
 import android.app.AlertDialog
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.update_delete_sport_fragment.*
-import kotlinx.android.synthetic.main.update_delete_sport_fragment.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
 @AndroidEntryPoint
-class UpdateDeleteSportFragment : Fragment() {
+class UpdateDeleteSportFragment : Fragment(R.layout.update_delete_sport_fragment) {
 
     private val args by navArgs<UpdateDeleteSportFragmentArgs>()
     private val mSportViewModel: SportViewModel by viewModels()
+    private lateinit var binding: UpdateDeleteSportFragmentBinding
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container:  ViewGroup? ,
-        savedInstanceState:  Bundle?
-    ): View? {
-        val view  =  inflater.inflate(R.layout.update_delete_sport_fragment, container, false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding = UpdateDeleteSportFragmentBinding.bind(view)
 
-        view.updateSportNaslov.setText(args.currentSport.sportNaslov)
-        view.updateSportClanak.setText(args.currentSport.sportClanak)
+        binding.updateSportNaslov.setText(args.currentSport.sportNaslov)
+        binding.updateSportClanak.setText(args.currentSport.sportClanak)
 
-        view.gumbUpdateSport.setOnClickListener {
+        binding.gumbUpdateSport.setOnClickListener {
             updateItemSport()
         }
 
-        view.gumbDeleteSport.setOnClickListener {
+        binding.gumbDeleteSport.setOnClickListener {
             deleteItemSport()
         }
-
-        return view
     }
 
     private fun deleteItemSport() {
@@ -63,8 +56,8 @@ class UpdateDeleteSportFragment : Fragment() {
         val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
         val currentDate = sdf.format(Date())
 
-        val naslovSport = updateSportNaslov.text.toString()
-        val clanakSport = updateSportClanak.text.toString()
+        val naslovSport = binding.updateSportNaslov.text.toString()
+        val clanakSport = binding.updateSportClanak.text.toString()
         val vrijemeSport = currentDate
         val slikaSport = 0
 

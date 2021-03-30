@@ -1,53 +1,45 @@
 package Portal.fragmenti.updateDelete
 
 import Portal.a257.R
+import Portal.a257.databinding.UpdateDeleteOglasnikFragmentBinding
 import Portal.database.table.OglasnikTable
 import Portal.viewModel.OglasnikViewModel
 import android.app.AlertDialog
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.update_delete_oglasnik_fragment.*
-import kotlinx.android.synthetic.main.update_delete_oglasnik_fragment.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
 @AndroidEntryPoint
-class UpdateDeleteOglasnikFragment : Fragment() {
+class UpdateDeleteOglasnikFragment : Fragment(R.layout.update_delete_oglasnik_fragment) {
 
     private val args by navArgs<UpdateDeleteOglasnikFragmentArgs>()
     private val mOglasnikViewModel: OglasnikViewModel by viewModels()
+    private lateinit var binding: UpdateDeleteOglasnikFragmentBinding
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding = UpdateDeleteOglasnikFragmentBinding.bind(view)
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.update_delete_oglasnik_fragment, container, false)
+        binding.updateOglasnikNaslov.setText(args.currentOglasnik.oglasnikNaslov)
+        binding.updateOglasnikClanak.setText(args.currentOglasnik.oglasnikClanak)
+        binding.updateOglasnikCijena.setText(args.currentOglasnik.oglasnikCijena)
+        binding.updateOglasnikLokacija.setText(args.currentOglasnik.oglasnikLokacija)
+        binding.updateOglasnikBroj.setText(args.currentOglasnik.oglasnikBroj)
 
-        view.updateOglasnikNaslov.setText(args.currentOglasnik.oglasnikNaslov)
-        view.updateOglasnikClanak.setText(args.currentOglasnik.oglasnikClanak)
-        view.updateOglasnikCijena.setText(args.currentOglasnik.oglasnikCijena)
-        view.updateOglasnikLokacija.setText(args.currentOglasnik.oglasnikLokacija)
-        view.updateOglasnikBroj.setText(args.currentOglasnik.oglasnikBroj)
-
-        view.gumbUpdateOglasnik.setOnClickListener {
+        binding.gumbUpdateOglasnik.setOnClickListener {
             updateItemOglasnik()
         }
 
-        view.gumbDeleteOglasnik.setOnClickListener {
+        binding.gumbDeleteOglasnik.setOnClickListener {
             deleteItemOglasnik()
         }
-
-        return view
     }
 
     private fun deleteItemOglasnik() {
@@ -67,11 +59,11 @@ class UpdateDeleteOglasnikFragment : Fragment() {
         val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
         val currentDate = sdf.format(Date())
 
-        val naslovOglasnik = updateOglasnikNaslov.text.toString()
-        val clanakOglasnik = updateOglasnikClanak.text.toString()
-        val cijenaOglasnik = updateOglasnikCijena.text.toString()
-        val lokacijaOglasnik = updateOglasnikLokacija.text.toString()
-        val brojOglasnik = updateOglasnikBroj.text.toString()
+        val naslovOglasnik = binding.updateOglasnikNaslov.text.toString()
+        val clanakOglasnik = binding.updateOglasnikClanak.text.toString()
+        val cijenaOglasnik = binding.updateOglasnikCijena.text.toString()
+        val lokacijaOglasnik = binding.updateOglasnikLokacija.text.toString()
+        val brojOglasnik = binding.updateOglasnikBroj.text.toString()
         val vrijemeOglasnik = currentDate
         val slikaOglasnik = 0
 
