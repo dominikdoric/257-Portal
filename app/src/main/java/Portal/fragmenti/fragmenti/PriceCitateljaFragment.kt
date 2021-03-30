@@ -17,7 +17,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class PriceCitateljaFragment : Fragment(R.layout.price_citatelja_fragment) {
 
     private val mPriceCitateljaViewModel: PriceCitateljaViewModel by viewModels()
-
     private lateinit var binding: PriceCitateljaFragmentBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

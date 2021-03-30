@@ -17,7 +17,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class ObavijestiFragment : Fragment(R.layout.obavijesti_fragment) {
 
     private val mObavijestiViewModel: ObavijestiViewModel by viewModels()
-
     private lateinit var binding: ObavijestiFragmentBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -10,7 +10,6 @@ import androidx.navigation.fragment.navArgs
 class DetailOglasnikFragment : Fragment(R.layout.detail_oglasnik_fragment) {
 
     private val args by navArgs<DetailOglasnikFragmentArgs>()
-
     private lateinit var binding: DetailOglasnikFragmentBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

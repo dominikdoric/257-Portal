@@ -21,7 +21,6 @@ import java.util.*
 class DodajNovoZabava : Fragment(R.layout.dodaj_novo_zabava_fragment) {
 
     private val mZabavaViewModel: ZabavaViewModel by viewModels()
-
     private lateinit var binding: DodajNovoZabavaFragmentBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

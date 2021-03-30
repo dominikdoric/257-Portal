@@ -17,7 +17,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class ZabavaFragment : Fragment(R.layout.zabava_fragment) {
 
     private val mZabavaViewModel: ZabavaViewModel by viewModels()
-
     private lateinit var binding: ZabavaFragmentBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

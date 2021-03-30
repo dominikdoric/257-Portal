@@ -10,7 +10,6 @@ import androidx.navigation.fragment.navArgs
 class DetailSportFragment : Fragment(R.layout.detail_sport_fragment) {
 
     private val args by navArgs<DetailSportFragmentArgs>()
-
     private lateinit var binding: DetailSportFragmentBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

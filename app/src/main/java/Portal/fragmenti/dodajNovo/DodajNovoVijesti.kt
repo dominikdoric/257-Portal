@@ -23,7 +23,6 @@ import java.util.*
 class DodajNovoVijesti : Fragment(R.layout.dodaj_novo_vijesti_fragment) {
 
     private val mVijestiViewModel: VijestiViewModel by viewModels()
-
     private lateinit var binding: DodajNovoVijestiFragmentBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

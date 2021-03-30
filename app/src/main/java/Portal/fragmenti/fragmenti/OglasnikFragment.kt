@@ -17,7 +17,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class OglasnikFragment : Fragment(R.layout.oglasnik_fragment) {
 
     private val mOglasnikViewModel: OglasnikViewModel by viewModels()
-
     private lateinit var binding: OglasnikFragmentBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

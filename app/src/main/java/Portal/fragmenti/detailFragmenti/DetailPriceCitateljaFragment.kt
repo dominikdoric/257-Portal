@@ -10,7 +10,6 @@ import androidx.navigation.fragment.navArgs
 class DetailPriceCitateljaFragment : Fragment(R.layout.detail_price_citatelja_fragment) {
 
     private val args by navArgs<DetailPriceCitateljaFragmentArgs>()
-
     private lateinit var binding: DetailPriceCitateljaFragmentBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

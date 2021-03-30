@@ -17,7 +17,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class VijestiFragment : Fragment(R.layout.vijesti_fragment) {
 
     private val mVijestiViewModel: VijestiViewModel by viewModels()
-
     private lateinit var binding: VijestiFragmentBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

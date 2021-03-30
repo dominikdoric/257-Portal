@@ -10,7 +10,6 @@ import androidx.navigation.fragment.navArgs
 class DetailObavijestiFragment : Fragment(R.layout.detail_obavijesti_fragment) {
 
     private val args by navArgs<DetailObavijestiFragmentArgs>()
-
     private lateinit var binding: DetailObavijestiFragmentBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -23,7 +23,6 @@ import java.util.*
 class DodajNovoSport : Fragment(R.layout.dodaj_novo_sport_fragment) {
 
     private val mSportViewModel: SportViewModel by viewModels()
-
     private lateinit var binding: DodajNovoSportFragmentBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

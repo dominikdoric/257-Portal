@@ -22,7 +22,6 @@ import java.util.*
 class DodajNovoPriceCitatelja : Fragment(R.layout.dodaj_novo_price_citatelja_fragment) {
 
     private val mPriceCitateljaViewModel: PriceCitateljaViewModel by viewModels()
-
     private lateinit var binding: DodajNovoPriceCitateljaFragmentBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

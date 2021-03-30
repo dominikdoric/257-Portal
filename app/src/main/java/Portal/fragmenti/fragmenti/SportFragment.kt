@@ -17,7 +17,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class SportFragment : Fragment(R.layout.sport_fragment) {
 
     private val sportViewModel: SportViewModel by viewModels()
-
     private lateinit var binding: SportFragmentBinding
 
 

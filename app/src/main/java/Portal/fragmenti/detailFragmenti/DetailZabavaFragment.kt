@@ -10,7 +10,6 @@ import androidx.navigation.fragment.navArgs
 class DetailZabavaFragment : Fragment(R.layout.detail_zabava_fragment) {
 
     private val args by navArgs<DetailZabavaFragmentArgs>()
-
     private lateinit var binding: DetailZabavaFragmentBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
