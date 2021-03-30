@@ -5,8 +5,14 @@ import Portal.retrofit.model.WeatherModel
 
 class Repository {
 
+/*
     suspend fun getWeather(): WeatherModel{
        return RetrofitInstance.api.getWeather()
+    }
+ */
+
+    suspend fun getWeather(): WeatherModel{
+        return RetrofitInstance.provideApi().getWeather()
     }
 
 }
