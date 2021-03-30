@@ -1,6 +1,7 @@
 package Portal.fragmenti.dodajNovo
 
 import Portal.a257.R
+import Portal.a257.databinding.DodajNovoVijestiFragmentBinding
 import Portal.database.table.VijestiTable
 import Portal.viewModel.VijestiViewModel
 import android.annotation.SuppressLint
@@ -19,28 +20,26 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 @AndroidEntryPoint
-class DodajNovoVijesti: Fragment() {
+class DodajNovoVijesti : Fragment() {
 
     private val mVijestiViewModel: VijestiViewModel by viewModels()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.dodaj_novo_vijesti_fragment,container,false)
+    private lateinit var binding: DodajNovoVijestiFragmentBinding
 
-        view.gumbSpremiVijest.setOnClickListener {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.gumbSpremiVijest.setOnClickListener {
             val action = DodajNovoVijestiDirections.actionMenuDodajNovuVijestToVijestiNavDrawer()
             findNavController().navigate(action)
-            Toast.makeText(requireContext(),
+            Toast.makeText(
+                requireContext(),
                 "Vaš članak je zaprimljen te je poslan adminu na odobrenje.Hvala!",
-                Toast.LENGTH_LONG)
+                Toast.LENGTH_LONG
+            )
                 .show()
             insertDataToDatabase()
         }
-
-        return view
     }
 
     @SuppressLint("SimpleDateFormat")
@@ -48,12 +47,12 @@ class DodajNovoVijesti: Fragment() {
         val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
         val currentDate = sdf.format(Date())
 
-        val noviNaslov = et_vijesti_naslov.text.toString()
+        val noviNaslov = binding.etVijestiNaslov.text.toString()
         val novoVrijeme = currentDate
-        val noviClanak = et_vijesti_clanak.text.toString()
+        val noviClanak = binding.etVijestiClanak.text.toString()
         val novaSlika = R.drawable.jaksic
 
-        val vijesti = VijestiTable(0,noviNaslov,noviClanak,novoVrijeme,novaSlika)
+        val vijesti = VijestiTable(0, noviNaslov, noviClanak, novoVrijeme, novaSlika)
         mVijestiViewModel.addVijesti(vijesti)
     }
 

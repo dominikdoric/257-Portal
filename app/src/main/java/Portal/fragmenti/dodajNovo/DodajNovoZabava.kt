@@ -24,7 +24,6 @@ class DodajNovoZabava : Fragment(R.layout.dodaj_novo_zabava_fragment) {
 
     private lateinit var binding: DodajNovoZabavaFragmentBinding
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = DodajNovoZabavaFragmentBinding.bind(view)
@@ -46,9 +45,9 @@ class DodajNovoZabava : Fragment(R.layout.dodaj_novo_zabava_fragment) {
         val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
         val currentDate = sdf.format(Date())
 
-        val noviNaslov = binding.et_zabava_naslov.text.toString()
+        val noviNaslov = binding.etZabavaNaslov.text.toString()
         val novoVrijeme = currentDate
-        val noviClanak = binding.et_zabava_clanak.text.toString()
+        val noviClanak = binding.etZabavaClanak.text.toString()
         val novaSlika = R.drawable.jaksic
 
         val zabava = ZabavaTable(0, noviNaslov, noviClanak, novoVrijeme, novaSlika)
