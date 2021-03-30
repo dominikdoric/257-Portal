@@ -1,6 +1,7 @@
 package Portal.fragmenti.fragmenti
 
 import Portal.a257.R
+import Portal.a257.databinding.SportFragmentBinding
 import Portal.adapter.SportAdapter
 import Portal.viewModel.SportViewModel
 import android.os.Bundle
@@ -13,24 +14,28 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.sport_fragment.*
-import kotlinx.android.synthetic.main.sport_fragment.view.*
 
 @AndroidEntryPoint
-class SportFragment : Fragment() {
+class SportFragment : Fragment(R.layout.sport_fragment) {
 
     private val sportViewModel: SportViewModel by viewModels()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.sport_fragment, container, false)
+    private lateinit var binding: SportFragmentBinding
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding = SportFragmentBinding.bind(view)
+
+        binding.recyclerViewSport.addItemDecoration(
+            DividerItemDecoration(
+                binding.recyclerViewSport.context,DividerItemDecoration.VERTICAL
+            )
+        )
 
         //RecyclerView
         val adapter = SportAdapter()
-        val recyclerSport = view.recyclerViewSport
+        val recyclerSport = binding.recyclerViewSport
         recyclerSport.adapter = adapter
         recyclerSport.layoutManager = LinearLayoutManager(requireContext())
 
@@ -39,15 +44,5 @@ class SportFragment : Fragment() {
             adapter.setData(sport)
         })
 
-        return view
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        recyclerViewSport.addItemDecoration(
-            DividerItemDecoration
-                (recyclerViewSport.context, DividerItemDecoration.VERTICAL)
-        )
     }
 }
