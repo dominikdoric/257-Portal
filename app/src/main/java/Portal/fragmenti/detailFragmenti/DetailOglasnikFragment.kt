@@ -1,6 +1,7 @@
 package Portal.fragmenti.detailFragmenti
 
 import Portal.a257.R
+import Portal.a257.databinding.DetailOglasnikFragmentBinding
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,24 +10,22 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import kotlinx.android.synthetic.main.detail_oglasnik_fragment.view.*
 
-class DetailOglasnikFragment : Fragment() {
+class DetailOglasnikFragment : Fragment(R.layout.detail_oglasnik_fragment) {
 
     private val args by navArgs<DetailOglasnikFragmentArgs>()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.detail_oglasnik_fragment, container, false)
+    private lateinit var binding: DetailOglasnikFragmentBinding
 
-        view.detailOglasnikNaslov.setText(args.oglasnikData.oglasnikNaslov)
-        view.detailOglasnikCijena.setText(args.oglasnikData.oglasnikCijena)
-        view.detailOglasnikLokacija.setText(args.oglasnikData.oglasnikLokacija)
-        view.detailOglasnikBroj.setText(args.oglasnikData.oglasnikBroj)
-        view.detailOglasnikClanak.setText(args.oglasnikData.oglasnikClanak)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding = DetailOglasnikFragmentBinding.bind(view)
 
-        return view
+        binding.detailOglasnikNaslov.setText(args.oglasnikData.oglasnikNaslov)
+        binding.detailOglasnikCijena.setText(args.oglasnikData.oglasnikCijena)
+        binding.detailOglasnikLokacija.setText(args.oglasnikData.oglasnikLokacija)
+        binding.detailOglasnikBroj.setText(args.oglasnikData.oglasnikBroj)
+        binding.detailOglasnikClanak.setText(args.oglasnikData.oglasnikClanak)
+
     }
 
 }
