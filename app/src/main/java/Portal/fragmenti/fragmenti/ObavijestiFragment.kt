@@ -23,6 +23,7 @@ class ObavijestiFragment : Fragment(R.layout.obavijesti_fragment) {
         super.onViewCreated(view, savedInstanceState)
         binding = ObavijestiFragmentBinding.bind(view)
 
+
         binding.recyclerViewObavijesti.addItemDecoration(
             DividerItemDecoration
                 (binding.recyclerViewObavijesti.context, DividerItemDecoration.VERTICAL)
