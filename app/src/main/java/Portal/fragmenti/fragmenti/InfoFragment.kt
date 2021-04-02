@@ -11,7 +11,9 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
@@ -25,11 +27,13 @@ class InfoFragment : Fragment(R.layout.info_fragment) {
     val NOTIFICATION_ID = 0
     private lateinit var binding: InfoFragmentBinding
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding = InfoFragmentBinding.bind(view)
-        creatiNotificationChannel()
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
 
+        creatiNotificationChannel()
         val intent = Intent(requireContext(),InfoFragment::class.java)
         val pendingIntent = TaskStackBuilder.create(requireContext()).run {
             addNextIntentWithParentStack(intent)
@@ -49,9 +53,18 @@ class InfoFragment : Fragment(R.layout.info_fragment) {
         binding.buttonNoticifation.setOnClickListener {
             notificationManager.notify(NOTIFICATION_ID,notification)
         }
+
+        return super.onCreateView(inflater, container, savedInstanceState)
+
+
     }
 
-    fun creatiNotificationChannel(){
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding = InfoFragmentBinding.bind(view)
+    }
+
+    private fun creatiNotificationChannel(){
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
             val channel = NotificationChannel(CHANNEL_ID,CHANNEL_NAME,
                 NotificationManager.IMPORTANCE_DEFAULT).apply {
