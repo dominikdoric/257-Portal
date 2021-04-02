@@ -17,7 +17,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 @AndroidEntryPoint
-class UpdateDeleteZabavaFragment : Fragment() {
+class UpdateDeleteZabavaFragment : Fragment(R.layout.update_delete_zabava_fragment) {
 
     private val args by navArgs<UpdateDeleteZabavaFragmentArgs>()
     private val mZabavaViewModel: ZabavaViewModel by viewModels()
