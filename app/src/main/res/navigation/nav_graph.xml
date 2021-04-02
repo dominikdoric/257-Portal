@@ -280,21 +280,26 @@
     <fragment
         android:id="@+id/detailPoljoprivredaFragment"
         android:name="Portal.fragmenti.detailFragmenti.DetailPoljoprivredaFragment"
-        android:label="DetailPoljoprivredaFragment" />
+        android:label="DetailPoljoprivredaFragment"
+        tools:layout="@layout/detail_poljoprivreda_fragment"/>
     <fragment
         android:id="@+id/dodajNovoPoljoprivreda"
         android:name="Portal.fragmenti.dodajNovo.DodajNovoPoljoprivreda"
-        android:label="DodajNovoPoljoprivreda" />
+        android:label="DodajNovoPoljoprivreda"
+        tools:layout="@layout/dodaj_novo_poljoprivreda_fragment"/>
     <fragment
-        android:id="@+id/poljoprivredaFragment"
+        android:id="@+id/poljoprivredaNavDrawer"
         android:name="Portal.fragmenti.fragmenti.PoljoprivredaFragment"
-        android:label="PoljoprivredaFragment" />
+        android:label="PoljoprivredaFragment"
+        tools:layout="@layout/poljoprivreda_fragment"/>
     <fragment
         android:id="@+id/updateDeletePoljoprivredaFragment"
         android:name="Portal.fragmenti.updateDelete.UpdateDeletePoljoprivredaFragment"
-        android:label="UpdateDeletePoljoprivredaFragment" />
+        android:label="UpdateDeletePoljoprivredaFragment"
+        tools:layout="@layout/update_delete_poljoprivreda_fragment"/>
     <fragment
-        android:id="@+id/adminFragment"
+        android:id="@+id/menu_admin"
         android:name="Portal.fragmenti.fragmenti.AdminFragment"
-        android:label="AdminFragment" />
+        android:label="AdminFragment"
+        tools:layout="@layout/admin_fragment"/>
 </navigation>
