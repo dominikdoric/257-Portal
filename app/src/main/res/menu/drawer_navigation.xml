@@ -10,6 +10,10 @@
         android:title="Obavijesti"
         android:icon="@drawable/ic_email"/>
     <item
+        android:id="@+id/poljoprivredaNavDrawer"
+        android:title="Poljoprivreda"
+        android:icon="@drawable/ic_email"/>
+    <item
         android:id="@+id/sportNavDrawer"
         android:title="Sport"
         android:icon="@drawable/ic_email"/>
