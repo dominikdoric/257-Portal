@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/cardViewSport"
+    android:id="@+id/cardViewPoljoprivreda"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardElevation="10dp"
     app:cardCornerRadius="12dp"
@@ -16,17 +17,17 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imageViewSportSlika"
+            android:id="@+id/imageViewPoljoprivredaSlika"
             android:layout_width="match_parent"
             android:layout_height="130dp"
             android:scaleType="centerCrop"
             android:src="@drawable/jaksic" />
 
         <TextView
-            android:id="@+id/textViewSportNaslov"
+            android:id="@+id/textViewPoljoprivredaNaslov"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imageViewSportSlika"
+            android:layout_below="@+id/imageViewPoljoprivredaSlika"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
@@ -39,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:orientation="horizontal"
-            android:layout_below="@id/textViewSportNaslov">
+            android:layout_below="@id/textViewPoljoprivredaNaslov">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -50,7 +51,7 @@
                 android:textColor="#000"/>
 
             <TextView
-                android:id="@+id/textViewSportVrijeme"
+                android:id="@+id/textViewPoljoprivredaVrijeme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
