@@ -20,7 +20,6 @@ class PoljoprivredaAdapter : RecyclerView.Adapter<PoljoprivredaAdapter.ViewHolde
     }
 
     override fun onBindViewHolder(holder: PoljoprivredaAdapter.ViewHolder, position: Int) {
-
         val currentItem = poljoprivredaList[position]
         binding.textViewPoljoprivredaNaslov.text = currentItem.poljoprivredaNaslov
         binding.textViewPoljoprivredaVrijeme.text = currentItem.poljoprivredaVrijeme
