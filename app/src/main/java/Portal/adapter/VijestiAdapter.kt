@@ -1,30 +1,32 @@
 package Portal.adapter
 
+import Portal.a257.R
 import Portal.a257.databinding.JedanRedVijestiBinding
 import Portal.database.table.VijestiTable
 import Portal.fragmenti.fragmenti.VijestiFragmentDirections
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.jedan_red_vijesti.view.*
 
 class VijestiAdapter() : RecyclerView.Adapter<VijestiAdapter.ViewHolder>() {
 
     private var vijestiList = emptyList<VijestiTable>()
-    private lateinit var binding: JedanRedVijestiBinding
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VijestiAdapter.ViewHolder {
-        val binding = JedanRedVijestiBinding
-            .inflate(LayoutInflater.from(parent.context),parent,false)
-        return ViewHolder(binding)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.jedan_red_oglasnik, parent, false)
+        return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: VijestiAdapter.ViewHolder, position: Int) {
         val currentItem = vijestiList[position]
-        binding.textViewVijestiNaslov.text = currentItem.vijestiNaslov
-        binding.textViewVijestiVrijeme.text = currentItem.vijestiVrijeme
+        holder.itemView.textViewVijestiNaslov.text = currentItem.vijestiNaslov
+        holder.itemView.textViewVijestiVrijeme.text = currentItem.vijestiVrijeme
 
-        binding.cardViewVijesti.setOnLongClickListener {
+        holder.itemView.cardViewVijesti.setOnLongClickListener {
             val action =
                 VijestiFragmentDirections.actionVijestiNavDrawerToUpdateDeleteVijestiFragment(
                     currentItem
@@ -33,7 +35,7 @@ class VijestiAdapter() : RecyclerView.Adapter<VijestiAdapter.ViewHolder>() {
             true
         }
 
-        binding.cardViewVijesti.setOnClickListener {
+        holder.itemView.cardViewVijesti.setOnClickListener {
             val action =
                 VijestiFragmentDirections.actionVijestiNavDrawerToDetailVijestiFragment(currentItem)
             holder.itemView.findNavController().navigate(action)
@@ -45,7 +47,7 @@ class VijestiAdapter() : RecyclerView.Adapter<VijestiAdapter.ViewHolder>() {
         return vijestiList.size
     }
 
-    inner class ViewHolder(binding: JedanRedVijestiBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     }
 

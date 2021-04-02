@@ -1,33 +1,34 @@
 package Portal.adapter
 
-import Portal.a257.databinding.JedanRedOglasnikBinding
+import Portal.a257.R
 import Portal.database.table.OglasnikTable
 import Portal.fragmenti.fragmenti.OglasnikFragmentDirections
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.jedan_red_oglasnik.view.*
 
 class OglasnikAdapter() : RecyclerView.Adapter<OglasnikAdapter.ViewHolder>() {
 
     private var oglasnikList = emptyList<OglasnikTable>()
-    private lateinit var binding: JedanRedOglasnikBinding
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OglasnikAdapter.ViewHolder {
-        val binding = JedanRedOglasnikBinding
-            .inflate(LayoutInflater.from(parent.context),parent,false)
-        return ViewHolder(binding)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.jedan_red_oglasnik, parent, false)
+        return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: OglasnikAdapter.ViewHolder, position: Int) {
         val currentItem = oglasnikList[position]
-        binding.textViewOglasnikNaslov.text = currentItem.oglasnikNaslov
-        binding.textViewOglasnikCijena.text = currentItem.oglasnikCijena
-        binding.textViewOglasnikLokacija.text = currentItem.oglasnikLokacija
-        binding.textViewOglasnikBroj.text = currentItem.oglasnikBroj
-        binding.textViewOglasnikVrijeme.text = currentItem.oglasnikVrijeme
+        holder.itemView.textViewOglasnikNaslov.text = currentItem.oglasnikNaslov
+        holder.itemView.textViewOglasnikCijena.text = currentItem.oglasnikCijena
+        holder.itemView.textViewOglasnikLokacija.text = currentItem.oglasnikLokacija
+        holder.itemView.textViewOglasnikBroj.text = currentItem.oglasnikBroj
+        holder.itemView.textViewOglasnikVrijeme.text = currentItem.oglasnikVrijeme
 
-        binding.cardViewOglasnik.setOnLongClickListener {
+        holder.itemView.cardViewOglasnik.setOnLongClickListener {
             val action =
                 OglasnikFragmentDirections.actionOglasnikNavDrawerToUpdateDeleteOglasnikFragment(
                     currentItem
@@ -36,7 +37,7 @@ class OglasnikAdapter() : RecyclerView.Adapter<OglasnikAdapter.ViewHolder>() {
             true
         }
 
-        binding.cardViewOglasnik.setOnClickListener {
+        holder.itemView.cardViewOglasnik.setOnClickListener {
             val action = OglasnikFragmentDirections.actionOglasnikNavDrawerToDetailOglasnikFragment(
                 currentItem
             )
@@ -49,7 +50,7 @@ class OglasnikAdapter() : RecyclerView.Adapter<OglasnikAdapter.ViewHolder>() {
         return oglasnikList.size
     }
 
-    inner class ViewHolder(binding: JedanRedOglasnikBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     }
 

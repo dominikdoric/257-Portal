@@ -38,6 +38,9 @@ class DodajNovoSport : Fragment(R.layout.dodaj_novo_sport_fragment) {
                 Toast.LENGTH_LONG
             )
                 .show()
+            if (binding.etSportNaslov.text.toString().trim().isEmpty()){
+                binding.etSportNaslov.setError("Ovo polje je obavezno!")
+            }
             insertDataToDatabase()
         }
 
