@@ -8,7 +8,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 @Entity(tableName = "price_citatelja")
-data class PriceCitateljaTable (
+data class PriceCitateljaTable(
     @PrimaryKey(autoGenerate = true)
     var id: Int,
 
@@ -23,4 +23,4 @@ data class PriceCitateljaTable (
 
     @ColumnInfo(name = "priceCitatelja_slika")
     val priceCitateljaSlika: Int
-        ): Parcelable
+) : Parcelable

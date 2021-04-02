@@ -8,7 +8,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 @Entity(tableName = "sport")
-data class SportTable (
+data class SportTable(
 
     @PrimaryKey(autoGenerate = true)
     var id: Int,
@@ -24,4 +24,4 @@ data class SportTable (
 
     @ColumnInfo(name = "sport_slika")
     val sportSlika: Int
-        ): Parcelable
+) : Parcelable
