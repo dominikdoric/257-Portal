@@ -22,59 +22,6 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class InfoFragment : Fragment(R.layout.info_fragment) {
 
-    val CHANNEL_ID = "channelID"
-    val CHANNEL_NAME = "channelName"
-    val NOTIFICATION_ID = 0
-    private lateinit var binding: InfoFragmentBinding
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-
-        creatiNotificationChannel()
-        val intent = Intent(requireContext(),InfoFragment::class.java)
-        val pendingIntent = TaskStackBuilder.create(requireContext()).run {
-            addNextIntentWithParentStack(intent)
-            getPendingIntent(0,PendingIntent.FLAG_UPDATE_CURRENT)
-        }
-
-        val notification = NotificationCompat.Builder(requireContext(),CHANNEL_ID)
-            .setContentTitle("Awesome notification")
-            .setContentText("This is the content text")
-            .setSmallIcon(R.drawable.ic_email)
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-            .setContentIntent(pendingIntent)
-            .build()
-
-        val notificationManager = NotificationManagerCompat.from(requireContext())
-
-        binding.buttonNoticifation.setOnClickListener {
-            notificationManager.notify(NOTIFICATION_ID,notification)
-        }
-
-        return super.onCreateView(inflater, container, savedInstanceState)
-
-
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding = InfoFragmentBinding.bind(view)
-    }
-
-    private fun creatiNotificationChannel(){
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            val channel = NotificationChannel(CHANNEL_ID,CHANNEL_NAME,
-                NotificationManager.IMPORTANCE_DEFAULT).apply {
-                    lightColor = Color.GREEN
-                enableLights(true)
-            }
-            val manager = activity?.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            manager.createNotificationChannel(channel)
-        }
-    }
 
 }
 
