@@ -41,6 +41,5 @@ class ObavijestiFragment : Fragment(R.layout.obavijesti_fragment) {
             Observer { obavijesti ->
                 adapter.setData(obavijesti)
             })
-
     }
 }
