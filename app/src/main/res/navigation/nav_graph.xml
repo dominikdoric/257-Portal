@@ -281,7 +281,11 @@
         android:id="@+id/detailPoljoprivredaFragment"
         android:name="Portal.fragmenti.detailFragmenti.DetailPoljoprivredaFragment"
         android:label="DetailPoljoprivredaFragment"
-        tools:layout="@layout/detail_poljoprivreda_fragment"/>
+        tools:layout="@layout/detail_poljoprivreda_fragment">
+        <argument
+            android:name="detailPoljoprivredaArgs"
+            app:argType="Portal.database.table.PoljoprivredaTable" />
+    </fragment>
     <fragment
         android:id="@+id/menu_dodajNovuPoljoprivredu"
         android:name="Portal.fragmenti.dodajNovo.DodajNovoPoljoprivreda"
@@ -311,6 +315,9 @@
         <action
             android:id="@+id/action_updateDeletePoljoprivredaFragment_to_poljoprivredaNavDrawer"
             app:destination="@id/poljoprivredaNavDrawer" />
+        <argument
+            android:name="updatePoljoprivredaArgs"
+            app:argType="Portal.database.table.PoljoprivredaTable" />
     </fragment>
     <fragment
         android:id="@+id/menu_admin"
