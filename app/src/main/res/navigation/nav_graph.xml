@@ -283,20 +283,35 @@
         android:label="DetailPoljoprivredaFragment"
         tools:layout="@layout/detail_poljoprivreda_fragment"/>
     <fragment
-        android:id="@+id/dodajNovoPoljoprivreda"
+        android:id="@+id/menu_dodajNovuPoljoprivredu"
         android:name="Portal.fragmenti.dodajNovo.DodajNovoPoljoprivreda"
         android:label="DodajNovoPoljoprivreda"
-        tools:layout="@layout/dodaj_novo_poljoprivreda_fragment"/>
+        tools:layout="@layout/dodaj_novo_poljoprivreda_fragment">
+        <action
+            android:id="@+id/action_menu_dodajNovuPoljoprivredu_to_poljoprivredaNavDrawer"
+            app:destination="@id/poljoprivredaNavDrawer" />
+    </fragment>
     <fragment
         android:id="@+id/poljoprivredaNavDrawer"
         android:name="Portal.fragmenti.fragmenti.PoljoprivredaFragment"
         android:label="PoljoprivredaFragment"
-        tools:layout="@layout/poljoprivreda_fragment"/>
+        tools:layout="@layout/poljoprivreda_fragment">
+        <action
+            android:id="@+id/action_poljoprivredaNavDrawer_to_updateDeletePoljoprivredaFragment"
+            app:destination="@id/updateDeletePoljoprivredaFragment" />
+        <action
+            android:id="@+id/action_poljoprivredaNavDrawer_to_detailPoljoprivredaFragment"
+            app:destination="@id/detailPoljoprivredaFragment" />
+    </fragment>
     <fragment
         android:id="@+id/updateDeletePoljoprivredaFragment"
         android:name="Portal.fragmenti.updateDelete.UpdateDeletePoljoprivredaFragment"
         android:label="UpdateDeletePoljoprivredaFragment"
-        tools:layout="@layout/update_delete_poljoprivreda_fragment"/>
+        tools:layout="@layout/update_delete_poljoprivreda_fragment">
+        <action
+            android:id="@+id/action_updateDeletePoljoprivredaFragment_to_poljoprivredaNavDrawer"
+            app:destination="@id/poljoprivredaNavDrawer" />
+    </fragment>
     <fragment
         android:id="@+id/menu_admin"
         android:name="Portal.fragmenti.fragmenti.AdminFragment"

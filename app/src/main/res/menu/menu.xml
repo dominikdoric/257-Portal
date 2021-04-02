@@ -18,6 +18,11 @@
         app:showAsAction="never"
         android:menuCategory="secondary"/>
     <item
+        android:id="@+id/menu_dodajNovuPoljoprivredu"
+        android:title="Dodaj novi oglas"
+        app:showAsAction="never"
+        android:menuCategory="secondary"/>
+    <item
         android:id="@+id/menu_dodajNoviSport"
         android:title="Dodaj novi sport"
         app:showAsAction="never"
