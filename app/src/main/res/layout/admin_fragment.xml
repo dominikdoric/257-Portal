@@ -8,16 +8,19 @@
     android:gravity="center">
 
     <EditText
+        android:id="@+id/etAdminKorisnickoIme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
         android:hint="Ovdje unesite korisničko ime"/>
     <EditText
+        android:id="@+id/etAdminLozinka"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
         android:hint="Ovdje unesite lozinku"/>
     <EditText
+        android:id="@+id/etAdminToken"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
