@@ -17,7 +17,7 @@ class ZabavaAdapter() : RecyclerView.Adapter<ZabavaAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ZabavaAdapter.ViewHolder {
         val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.jedan_red_oglasnik, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.jedan_red_zabava, parent, false)
         return ViewHolder(view)
     }
 

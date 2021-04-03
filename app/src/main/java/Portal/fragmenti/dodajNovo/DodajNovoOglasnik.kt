@@ -26,15 +26,27 @@ class DodajNovoOglasnik : Fragment(R.layout.dodaj_novo_oglasnik_fragment) {
         binding = DodajNovoOglasnikFragmentBinding.bind(view)
 
         binding.gumbSpremiOglasnik.setOnClickListener {
-            val action = DodajNovoOglasnikDirections.actionMenuDodajNoviOglasToOglasnikNavDrawer()
-            findNavController().navigate(action)
-            Toast.makeText(
-                requireContext(),
-                "Vaš članak je zaprimljen te je poslan adminu na odobrenje.Hvala!",
-                Toast.LENGTH_LONG
-            )
-                .show()
-            insertDataToDatabase()
+            if (binding.etOglasnikNaslov.text.toString().trim().isEmpty()) {
+                binding.etOglasnikNaslov.error = "Ovo polje je obavezno!"
+            } else if (binding.etOglasnikCijena.text.toString().trim().isEmpty()) {
+                binding.etOglasnikCijena.error = "Ovo polje je obavezno"
+            } else if (binding.etOglasnikLokacija.text.toString().trim().isEmpty()) {
+                binding.etOglasnikLokacija.error = "Ovo polje je obavezno"
+            } else if (binding.etOglasnikBroj.text.toString().trim().isEmpty()) {
+                binding.etOglasnikBroj.error = "Ovo polje je obavezno"
+            } else if (binding.etOglasnikClanak.text.toString().trim().isEmpty()) {
+                binding.etOglasnikClanak.error = "Ovo polje je obavezno"
+            } else {
+                insertDataToDatabase()
+                val action =
+                    DodajNovoOglasnikDirections.actionMenuDodajNoviOglasToOglasnikNavDrawer()
+                findNavController().navigate(action)
+                Toast.makeText(
+                    requireContext(),
+                    "Vaš članak je zaprimljen te je poslan adminu na odobrenje.Hvala!",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
         }
     }
 

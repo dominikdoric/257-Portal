@@ -32,9 +32,9 @@ class DodajNovoSport : Fragment(R.layout.dodaj_novo_sport_fragment) {
 
         binding.gumbSpremiSport.setOnClickListener {
             if (binding.etSportNaslov.text.toString().trim().isEmpty()){
-                binding.etSportNaslov.setError("Ovo polje je obavezno!")
+                binding.etSportNaslov.error = "Ovo polje je obavezno!"
             }else if (binding.etSportClanak.text.toString().trim().isEmpty()){
-                binding.etSportClanak.setError("Ovo polje je obavezno")
+                binding.etSportClanak.error = "Ovo polje je obavezno"
             }
             else{
                 insertDataToDatabase()

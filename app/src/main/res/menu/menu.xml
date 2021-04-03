@@ -19,7 +19,7 @@
         android:menuCategory="secondary"/>
     <item
         android:id="@+id/menu_dodajNovuPoljoprivredu"
-        android:title="Dodaj novi oglas"
+        android:title="Dodaj novi poljoprivredu"
         app:showAsAction="never"
         android:menuCategory="secondary"/>
     <item

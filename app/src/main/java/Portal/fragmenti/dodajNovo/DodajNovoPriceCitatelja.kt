@@ -29,16 +29,21 @@ class DodajNovoPriceCitatelja : Fragment(R.layout.dodaj_novo_price_citatelja_fra
         binding = DodajNovoPriceCitateljaFragmentBinding.bind(view)
 
         binding.gumbSpremiPriceCitatelja.setOnClickListener {
-            val action =
-                DodajNovoPriceCitateljaDirections.actionMenuDodajNovuPricuCitateljaToPriceCitateljaNavDrawer()
-            findNavController().navigate(action)
-            Toast.makeText(
-                requireContext(),
-                "Vaš članak je zaprimljen te je poslan adminu na odobrenje.Hvala!",
-                Toast.LENGTH_LONG
-            )
-                .show()
-            insertDataToDatabase()
+            if (binding.etPriceCitateljaNaslov.text.toString().trim().isEmpty()){
+                binding.etPriceCitateljaNaslov.error = "Ovo polje je obavezno!"
+            }else if (binding.etPriceCitateljaClanak.text.toString().trim().isEmpty()){
+                binding.etPriceCitateljaClanak.error = "Ovo polje je obavezno"
+            }
+            else{
+                insertDataToDatabase()
+                val action = DodajNovoPriceCitateljaDirections.actionMenuDodajNovuPricuCitateljaToPriceCitateljaNavDrawer()
+                findNavController().navigate(action)
+                Toast.makeText(
+                    requireContext(),
+                    "Vaš članak je zaprimljen te je poslan adminu na odobrenje.Hvala!",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
         }
     }
 

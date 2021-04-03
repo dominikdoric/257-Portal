@@ -30,15 +30,21 @@ class DodajNovoVijesti : Fragment(R.layout.dodaj_novo_vijesti_fragment) {
         binding = DodajNovoVijestiFragmentBinding.bind(view)
 
         binding.gumbSpremiVijest.setOnClickListener {
-            val action = DodajNovoVijestiDirections.actionMenuDodajNovuVijestToVijestiNavDrawer()
-            findNavController().navigate(action)
-            Toast.makeText(
-                requireContext(),
-                "Vaš članak je zaprimljen te je poslan adminu na odobrenje.Hvala!",
-                Toast.LENGTH_LONG
-            )
-                .show()
-            insertDataToDatabase()
+            if (binding.etVijestiNaslov.text.toString().trim().isEmpty()){
+                binding.etVijestiNaslov.error = "Ovo polje je obavezno!"
+            }else if (binding.etVijestiClanak.text.toString().trim().isEmpty()){
+                binding.etVijestiClanak.error = "Ovo polje je obavezno"
+            }
+            else{
+                insertDataToDatabase()
+                val action = DodajNovoVijestiDirections.actionMenuDodajNovuVijestToVijestiNavDrawer()
+                findNavController().navigate(action)
+                Toast.makeText(
+                    requireContext(),
+                    "Vaš članak je zaprimljen te je poslan adminu na odobrenje.Hvala!",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
         }
     }
 

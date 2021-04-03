@@ -26,15 +26,21 @@ class DodajNovoPoljoprivreda: Fragment(R.layout.dodaj_novo_poljoprivreda_fragmen
         binding = DodajNovoPoljoprivredaFragmentBinding.bind(view)
 
         binding.gumbSpremiPoljoprivredu.setOnClickListener {
-            val action = DodajNovoPoljoprivredaDirections.actionMenuDodajNovuPoljoprivreduToPoljoprivredaNavDrawer()
-            findNavController().navigate(action)
-            Toast.makeText(
-                requireContext(),
-                "Vaš članak je zaprimljen te je poslan adminu na odobrenje.Hvala!",
-                Toast.LENGTH_LONG
-            )
-                .show()
-            insertDataToDatabase()
+            if (binding.etPoljoprivredaNaslov.text.toString().trim().isEmpty()){
+                binding.etPoljoprivredaNaslov.error = "Ovo polje je obavezno!"
+            }else if (binding.etPoljoprivredaClanak.text.toString().trim().isEmpty()){
+                binding.etPoljoprivredaClanak.error = "Ovo polje je obavezno"
+            }
+            else{
+                insertDataToDatabase()
+                val action = DodajNovoPoljoprivredaDirections.actionMenuDodajNovuPoljoprivreduToPoljoprivredaNavDrawer()
+                findNavController().navigate(action)
+                Toast.makeText(
+                    requireContext(),
+                    "Vaš članak je zaprimljen te je poslan adminu na odobrenje.Hvala!",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
         }
 
     }

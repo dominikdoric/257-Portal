@@ -17,7 +17,7 @@ class VijestiAdapter() : RecyclerView.Adapter<VijestiAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VijestiAdapter.ViewHolder {
         val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.jedan_red_oglasnik, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.jedan_red_vijesti, parent, false)
         return ViewHolder(view)
     }
 

@@ -26,16 +26,23 @@ class DodajNovoZabava : Fragment(R.layout.dodaj_novo_zabava_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = DodajNovoZabavaFragmentBinding.bind(view)
+
         binding.gumbSpremiZabavu.setOnClickListener {
-            val action = DodajNovoZabavaDirections.actionMenuDodajNovuZabavaToZabavaNavDrawer()
-            findNavController().navigate(action)
-            Toast.makeText(
-                requireContext(),
-                "Vaš članak je zaprimljen te je poslan adminu na odobrenje.Hvala!",
-                Toast.LENGTH_LONG
-            )
-                .show()
-            insertDataToDatabase()
+            if (binding.etZabavaNaslov.text.toString().trim().isEmpty()){
+                binding.etZabavaNaslov.error = "Ovo polje je obavezno!"
+            }else if (binding.etZabavaClanak.text.toString().trim().isEmpty()){
+                binding.etZabavaClanak.error = "Ovo polje je obavezno"
+            }
+            else{
+                insertDataToDatabase()
+                val action = DodajNovoZabavaDirections.actionMenuDodajNovuZabavaToZabavaNavDrawer()
+                findNavController().navigate(action)
+                Toast.makeText(
+                    requireContext(),
+                    "Vaš članak je zaprimljen te je poslan adminu na odobrenje.Hvala!",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
         }
     }
 
