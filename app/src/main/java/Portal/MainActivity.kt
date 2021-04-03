@@ -30,7 +30,14 @@ class MainActivity : AppCompatActivity() {
                 R.id.naslovnicaBottomNav,
                 R.id.vrijemeBottomNav,
                 R.id.infoBottomNav,
-                R.id.kontaktBottomNav
+                R.id.kontaktBottomNav,
+                R.id.vijestiNavDrawer,
+                R.id.sportNavDrawer,
+                R.id.obavijestiNavDrawer,
+                R.id.oglasnikNavDrawer,
+                R.id.poljoprivredaNavDrawer,
+                R.id.priceCitateljaNavDrawer,
+                R.id.zabavaNavDrawer
             ),
             main_drawer_layout
         )

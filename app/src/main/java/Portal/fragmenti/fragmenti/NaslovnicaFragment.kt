@@ -25,47 +25,5 @@ import kotlinx.android.synthetic.main.zabava_fragment.*
 @AndroidEntryPoint
 class NaslovnicaFragment : Fragment(R.layout.naslovnica_fragment) {
 
-    private val sportViewModel: SportViewModel by viewModels()
-    private val zabavaViewModel: ZabavaViewModel by viewModels()
-    private val obavijestiViewModel: ObavijestiViewModel by viewModels()
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        //RecyclerViewObavijesti
-        val adapterObavijesti = ObavijestiAdapter()
-        val recyclerObavijesti = recyclerViewNaslovnica
-        recyclerObavijesti.adapter = adapterObavijesti
-        recyclerObavijesti.layoutManager = LinearLayoutManager(requireContext())
-
-        //RecyclerViewSport
-        val adapterSport = SportAdapter()
-        val recyclerSport = recyclerViewNaslovnica
-        recyclerSport.adapter = adapterSport
-        recyclerSport.layoutManager = LinearLayoutManager(requireContext())
-
-        //RecyclerViewZabava
-        val adapterZabava = ZabavaAdapter()
-        val recyclerZabava = recyclerViewNaslovnica
-        recyclerZabava.adapter = adapterZabava
-        recyclerZabava.layoutManager = LinearLayoutManager(requireContext())
-
-
-        //RasporedViewModel
-        zabavaViewModel.readAllDataZabava.observe(viewLifecycleOwner,{ zabava ->
-            adapterZabava.setData(zabava)
-        })
-
-        //RasporedViewModel
-        obavijestiViewModel.readAllDataObavijesti.observe(viewLifecycleOwner,{ obavijesti ->
-            adapterObavijesti.setData(obavijesti)
-        })
-
-        //RasporedViewModel
-        sportViewModel.readAllDataSport.observe(viewLifecycleOwner,{ sport ->
-            adapterSport.setData(sport)
-        })
-
-    }
 
 }
