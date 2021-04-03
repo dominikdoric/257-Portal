@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.naslovnica_fragment.*
 import kotlinx.android.synthetic.main.sport_fragment.*
 import kotlinx.android.synthetic.main.zabava_fragment.*
 
@@ -30,7 +31,7 @@ class NaslovnicaFragment : Fragment(R.layout.naslovnica_fragment) {
 
         //RecyclerView
         val adapterSport = SportAdapter()
-        val recyclerSport = recyclerViewSport
+        val recyclerSport = recyclerViewNaslovnica
         recyclerSport.adapter = adapterSport
         recyclerSport.layoutManager = LinearLayoutManager(requireContext())
 
@@ -41,7 +42,7 @@ class NaslovnicaFragment : Fragment(R.layout.naslovnica_fragment) {
 
         //RecyclerView
         val adapterZabava = ZabavaAdapter()
-        val recyclerZabava = recyclerViewZabava
+        val recyclerZabava = recyclerViewNaslovnica
         recyclerZabava.adapter = adapterZabava
         recyclerZabava.layoutManager = LinearLayoutManager(requireContext())
 
