@@ -11,7 +11,9 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PoljoprivredaFragment: Fragment(R.layout.poljoprivreda_fragment) {
 
     private val poljoprivredaViewModel: PoljoprivredaViewModel by viewModels()
