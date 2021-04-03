@@ -14,6 +14,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.naslovnica_fragment.*
@@ -31,40 +32,40 @@ class NaslovnicaFragment : Fragment(R.layout.naslovnica_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //RecyclerView
+        //RecyclerViewObavijesti
+        val adapterObavijesti = ObavijestiAdapter()
+        val recyclerObavijesti = recyclerViewNaslovnica
+        recyclerObavijesti.adapter = adapterObavijesti
+        recyclerObavijesti.layoutManager = LinearLayoutManager(requireContext())
+
+        //RecyclerViewSport
         val adapterSport = SportAdapter()
         val recyclerSport = recyclerViewNaslovnica
         recyclerSport.adapter = adapterSport
         recyclerSport.layoutManager = LinearLayoutManager(requireContext())
 
-        //RasporedViewModel
-        sportViewModel.readAllDataSport.observe(viewLifecycleOwner,{ sport ->
-            adapterSport.setData(sport)
-        })
-
-        //RecyclerView
+        //RecyclerViewZabava
         val adapterZabava = ZabavaAdapter()
         val recyclerZabava = recyclerViewNaslovnica
         recyclerZabava.adapter = adapterZabava
         recyclerZabava.layoutManager = LinearLayoutManager(requireContext())
+
 
         //RasporedViewModel
         zabavaViewModel.readAllDataZabava.observe(viewLifecycleOwner,{ zabava ->
             adapterZabava.setData(zabava)
         })
 
-        //RecyclerView
-        val adapterObavijesti = ObavijestiAdapter()
-        val recyclerObavijesti = recyclerViewNaslovnica
-        recyclerObavijesti.adapter = adapterObavijesti
-        recyclerObavijesti.layoutManager = LinearLayoutManager(requireContext())
-
         //RasporedViewModel
         obavijestiViewModel.readAllDataObavijesti.observe(viewLifecycleOwner,{ obavijesti ->
             adapterObavijesti.setData(obavijesti)
         })
 
-    }
+        //RasporedViewModel
+        sportViewModel.readAllDataSport.observe(viewLifecycleOwner,{ sport ->
+            adapterSport.setData(sport)
+        })
 
+    }
 
 }
