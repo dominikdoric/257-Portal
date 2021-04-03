@@ -8,19 +8,6 @@ import androidx.room.*
 @Dao
 interface NaslovnicaDao {
 
-    @Query("SELECT * FROM naslovnica ORDER BY id ASC")
-    fun getAllDataNaslovnica(): LiveData<List<NaslovnicaTable>>
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertNaslovnica(naslovnicaTable: NaslovnicaTable)
-
-    @Update
-    suspend fun updateNaslovnica(naslovnicaTable: NaslovnicaTable)
-
-    @Delete
-    suspend fun deleteNaslovnica(naslovnicaTable: NaslovnicaTable)
-
-    @Query(" DELETE FROM naslovnica")
-    suspend fun deleteAllNaslovnica()
 
 }

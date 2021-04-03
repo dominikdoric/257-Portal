@@ -7,18 +7,30 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "naslovnica")
 data class NaslovnicaTable(
 
+    @PrimaryKey(autoGenerate = true)
+    var id: Int,
+
     @ColumnInfo(name = "naslovnica_naslov")
-    val naslovnicaNaslov: String,
+    val naslovnicaSportNaslov: String,
 
     @ColumnInfo(name = "naslovnica_clanak")
-    val naslovnicaClanak: String,
+    val naslovnicaSportClanak: String,
 
     @ColumnInfo(name = "naslovnica_vrijeme")
-    val naslovnicaVrijeme: String,
+    val naslovnicaSportVrijeme: String,
 
     @ColumnInfo(name = "naslovnica_slika")
-    val naslovnicaSlika: Int
-) {
-    @PrimaryKey(autoGenerate = true)
-    var id: Int = 0
-}
+    val naslovnicaSportSlika: Int,
+
+    @ColumnInfo(name = "naslovnica_naslov")
+    val naslovnicaZabavaNaslov: String,
+
+    @ColumnInfo(name = "naslovnica_clanak")
+    val naslovnicaZabavaClanak: String,
+
+    @ColumnInfo(name = "naslovnica_vrijeme")
+    val naslovnicaZabavaVrijeme: String,
+
+    @ColumnInfo(name = "naslovnica_slika")
+    val naslovnicaZabavaSlika: Int
+)
