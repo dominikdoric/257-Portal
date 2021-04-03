@@ -5,6 +5,7 @@
     <string name="close">Close</string>
     <string name="database">257_Portal_Baza</string>
     <string name="zabava">U Jakšiću organiziran corona party na kojem je prisustvovalo oko 300 ljud</string>
+    <string name="infoText">257 portal je satirično humoristični portal. Sve vijesti koje su objavljene na portalu su izmišljene ili stvarne sa ciljem stvaranja satiričko-humorističnog djela te ih stoga ne treba shvaćati ozbiljno. Svaka sličnost sa stvarnim osobama, pojavama ili instituticjama je slučajna, osim u svrhu upoznavanje s Jakšićkim događajima u svrhu promocije i upoznavanjem određenih događaja.</string>
 
     <string-array name="spinnerItems">
         <item>Kritike</item>
