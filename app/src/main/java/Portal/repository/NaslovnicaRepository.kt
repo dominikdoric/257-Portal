@@ -1,28 +1,53 @@
 package Portal.repository
 
 import Portal.database.dao.NaslovnicaDao
+import Portal.database.dao.SportDao
+import Portal.database.dao.ZabavaDao
 import Portal.database.table.NaslovnicaTable
 import Portal.database.table.SportTable
+import Portal.database.table.ZabavaTable
 import androidx.lifecycle.LiveData
+import javax.inject.Inject
 
-class NaslovnicaRepository(private val naslovnicaDao: NaslovnicaDao) {
+class NaslovnicaRepository @Inject constructor(
+    private val sportDao: SportDao,
+    private val zabavaDao: ZabavaDao
+) {
+    fun getAllDataSport() = sportDao.getAllDataSport()
 
-    val readAllDataNaslovnica: LiveData<List<NaslovnicaTable>> = naslovnicaDao.getAllDataNaslovnica()
-
-    suspend fun addNaslovnica(naslovnicaTable: NaslovnicaTable){
-        naslovnicaDao.insertNaslovnica(naslovnicaTable)
+    suspend fun addSport(sportTable: SportTable) {
+        sportDao.insertSport(sportTable)
     }
 
-    suspend fun updateNaslovnica(naslovnicaTable: NaslovnicaTable){
-        naslovnicaDao.updateNaslovnica(naslovnicaTable)
+    suspend fun updateSport(sportTable: SportTable) {
+        sportDao.updateSport(sportTable)
     }
 
-    suspend fun deleteNaslovnica(naslovnicaTable: NaslovnicaTable){
-        naslovnicaDao.deleteNaslovnica(naslovnicaTable)
+    suspend fun deleteSport(sportTable: SportTable) {
+        sportDao.deleteSport(sportTable)
     }
 
-    suspend fun deleteAllNaslovnica(){
-        naslovnicaDao.deleteAllNaslovnica()
+    suspend fun deleteAllSport() {
+        sportDao.deleteAllSport()
+    }
+
+
+    fun getAllDataZabava() = zabavaDao.getAllDataZabava()
+
+    suspend fun addZabava(zabavaTable: ZabavaTable) {
+        zabavaDao.insertZabava(zabavaTable)
+    }
+
+    suspend fun updateZabava(zabavaTable: ZabavaTable) {
+        zabavaDao.updateZabava(zabavaTable)
+    }
+
+    suspend fun deleteZabava(zabavaTable: ZabavaTable) {
+        zabavaDao.deleteZabava(zabavaTable)
+    }
+
+    suspend fun deleteAllZabava() {
+        zabavaDao.deleteAllZabava()
     }
 
 }
