@@ -6,6 +6,7 @@ import Portal.database.table.SportTable
 import Portal.viewModel.SportViewModel
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,21 +31,25 @@ class DodajNovoSport : Fragment(R.layout.dodaj_novo_sport_fragment) {
         binding = DodajNovoSportFragmentBinding.bind(view)
 
         binding.gumbSpremiSport.setOnClickListener {
-            val action = DodajNovoSportDirections.actionMenuDodajNoviSportToSportNavDrawer()
-            findNavController().navigate(action)
-            Toast.makeText(
-                requireContext(),
-                "Vaš članak je zaprimljen te je poslan adminu na odobrenje.Hvala!",
-                Toast.LENGTH_LONG
-            )
-                .show()
             if (binding.etSportNaslov.text.toString().trim().isEmpty()){
                 binding.etSportNaslov.setError("Ovo polje je obavezno!")
+            }else if (binding.etSportClanak.text.toString().trim().isEmpty()){
+                binding.etSportClanak.setError("Ovo polje je obavezno")
             }
-            insertDataToDatabase()
+            else{
+                insertDataToDatabase()
+                val action = DodajNovoSportDirections.actionMenuDodajNoviSportToSportNavDrawer()
+                findNavController().navigate(action)
+                Toast.makeText(
+                    requireContext(),
+                    "Vaš članak je zaprimljen te je poslan adminu na odobrenje.Hvala!",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
         }
 
     }
+
 
     @SuppressLint("SimpleDateFormat")
     private fun insertDataToDatabase() {
