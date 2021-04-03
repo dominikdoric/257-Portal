@@ -323,5 +323,14 @@
         android:id="@+id/menu_admin"
         android:name="Portal.fragmenti.fragmenti.AdminFragment"
         android:label="Admin"
-        tools:layout="@layout/admin_fragment"/>
+        tools:layout="@layout/admin_fragment">
+        <action
+            android:id="@+id/action_menu_admin_to_adminPrijavljenFragment"
+            app:destination="@id/adminPrijavljenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminPrijavljenFragment"
+        android:name="Portal.fragmenti.fragmenti.AdminPrijavljenFragment"
+        android:label="Prijavljeni ste"
+        tools:layout="@layout/admin_prijavljen_fragment"/>
 </navigation>
