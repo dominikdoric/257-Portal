@@ -8,22 +8,22 @@
     <fragment
         android:id="@+id/infoBottomNav"
         android:name="Portal.fragmenti.fragmenti.InfoFragment"
-        android:label="InfoFragment"
+        android:label="Info"
         tools:layout="@layout/info_fragment"/>
     <fragment
         android:id="@+id/kontaktBottomNav"
         android:name="Portal.fragmenti.fragmenti.KontaktFragment"
-        android:label="KontaktFragment"
+        android:label="Kontakt"
         tools:layout="@layout/kontakt_fragment"/>
     <fragment
         android:id="@+id/naslovnicaBottomNav"
         android:name="Portal.fragmenti.fragmenti.NaslovnicaFragment"
-        android:label="NaslovnicaFragment"
+        android:label="Naslovnica"
         tools:layout="@layout/naslovnica_fragment"/>
     <fragment
         android:id="@+id/obavijestiNavDrawer"
         android:name="Portal.fragmenti.fragmenti.ObavijestiFragment"
-        android:label="ObavijestiFragment"
+        android:label="Obavijesti"
         tools:layout="@layout/obavijesti_fragment">
         <action
             android:id="@+id/action_obavijestiNavDrawer_to_updateDeleteObavijestiFragment2"
@@ -35,7 +35,7 @@
     <fragment
         android:id="@+id/oglasnikNavDrawer"
         android:name="Portal.fragmenti.fragmenti.OglasnikFragment"
-        android:label="OglasnikFragment"
+        android:label="Oglasnik"
         tools:layout="@layout/oglasnik_fragment">
         <action
             android:id="@+id/action_oglasnikNavDrawer_to_updateDeleteOglasnikFragment"
@@ -47,7 +47,7 @@
     <fragment
         android:id="@+id/priceCitateljaNavDrawer"
         android:name="Portal.fragmenti.fragmenti.PriceCitateljaFragment"
-        android:label="PriceCitateljaFragment"
+        android:label="Priče čitatelja"
         tools:layout="@layout/price_citatelja_fragment">
         <action
             android:id="@+id/action_priceCitateljaNavDrawer_to_detailPriceCitateljaFragment"
@@ -59,7 +59,7 @@
     <fragment
         android:id="@+id/sportNavDrawer"
         android:name="Portal.fragmenti.fragmenti.SportFragment"
-        android:label="SportFragment"
+        android:label="Sport"
         tools:layout="@layout/sport_fragment">
         <action
             android:id="@+id/action_sportNavDrawer_to_updateDeleteSportFragment"
@@ -71,7 +71,7 @@
     <fragment
         android:id="@+id/vijestiNavDrawer"
         android:name="Portal.fragmenti.fragmenti.VijestiFragment"
-        android:label="VijestiFragment"
+        android:label="Vijesti"
         tools:layout="@layout/vijesti_fragment">
         <action
             android:id="@+id/action_vijestiNavDrawer_to_updateDeleteVijestiFragment"
@@ -83,7 +83,7 @@
     <fragment
         android:id="@+id/zabavaNavDrawer"
         android:name="Portal.fragmenti.fragmenti.ZabavaFragment"
-        android:label="ZabavaFragment"
+        android:label="Zabava"
         tools:layout="@layout/zabava_fragment">
         <action
             android:id="@+id/action_zabavaNavDrawer_to_updateDeleteZabavaFragment"
@@ -95,12 +95,12 @@
     <fragment
         android:id="@+id/vrijemeBottomNav"
         android:name="Portal.fragmenti.fragmenti.VrijemeFragment"
-        android:label="VrijemeFragment"
+        android:label="Vrijeme"
         tools:layout="@layout/vrijeme_fragment"/>
     <fragment
         android:id="@+id/menu_dodajNovuVijest"
         android:name="Portal.fragmenti.dodajNovo.DodajNovoVijesti"
-        android:label="DodajNovoVijesti"
+        android:label="Dodaj novu vijesti"
         tools:layout="@layout/dodaj_novo_vijesti_fragment">
         <action
             android:id="@+id/action_menu_dodajNovuVijest_to_vijestiNavDrawer"
@@ -109,7 +109,7 @@
     <fragment
         android:id="@+id/menu_dodajNovuObavijest"
         android:name="Portal.fragmenti.dodajNovo.DodajNovoObavijesti"
-        android:label="DodajNovoObavijesti"
+        android:label="Dodaj novu obavijest"
         tools:layout="@layout/dodaj_novo_obavijesti_fragment">
         <action
             android:id="@+id/action_menu_dodajNovuObavijest_to_obavijestiNavDrawer"
@@ -118,7 +118,7 @@
     <fragment
         android:id="@+id/menu_dodajNoviSport"
         android:name="Portal.fragmenti.dodajNovo.DodajNovoSport"
-        android:label="DodajNovoSport"
+        android:label="Dodaj novi sport"
         tools:layout="@layout/dodaj_novo_sport_fragment">
         <action
             android:id="@+id/action_menu_dodajNoviSport_to_sportNavDrawer"
@@ -127,7 +127,7 @@
     <fragment
         android:id="@+id/menu_dodajNovuZabava"
         android:name="Portal.fragmenti.dodajNovo.DodajNovoZabava"
-        android:label="DodajNovoZabava"
+        android:label="Dodaj novu zabavu"
         tools:layout="@layout/dodaj_novo_zabava_fragment">
         <action
             android:id="@+id/action_menu_dodajNovuZabava_to_zabavaNavDrawer"
@@ -136,7 +136,7 @@
     <fragment
         android:id="@+id/menu_dodajNoviOglas"
         android:name="Portal.fragmenti.dodajNovo.DodajNovoOglasnik"
-        android:label="DodajNovoOglasnik"
+        android:label="Dodaj novi oglas"
         tools:layout="@layout/dodaj_novo_oglasnik_fragment">
         <action
             android:id="@+id/action_menu_dodajNoviOglas_to_oglasnikNavDrawer"
@@ -145,7 +145,7 @@
     <fragment
         android:id="@+id/updateDeleteObavijestiFragment2"
         android:name="Portal.fragmenti.updateDelete.UpdateDeleteObavijestiFragment"
-        android:label="UpdateDeleteObavijestiFragment"
+        android:label="Ažuriraj ili obriši obavijest"
         tools:layout="@layout/update_delete_obavijesti_fragment">
         <action
             android:id="@+id/action_updateDeleteObavijestiFragment2_to_obavijestiNavDrawer"
@@ -157,7 +157,7 @@
     <fragment
         android:id="@+id/updateDeleteSportFragment"
         android:name="Portal.fragmenti.updateDelete.UpdateDeleteSportFragment"
-        android:label="UpdateDeleteSportFragment"
+        android:label="Ažuriraj ili obriši sport"
         tools:layout="@layout/update_delete_sport_fragment">
         <action
             android:id="@+id/action_updateDeleteSportFragment_to_sportNavDrawer"
@@ -169,7 +169,7 @@
     <fragment
         android:id="@+id/updateDeleteVijestiFragment"
         android:name="Portal.fragmenti.updateDelete.UpdateDeleteVijestiFragment"
-        android:label="UpdateDeleteVijestiFragment"
+        android:label="Ažuriraj ili obriši vijest"
         tools:layout="@layout/update_delete_vijesti_fragment">
         <action
             android:id="@+id/action_updateDeleteVijestiFragment_to_vijestiNavDrawer"
@@ -181,7 +181,7 @@
     <fragment
         android:id="@+id/updateDeleteZabavaFragment"
         android:name="Portal.fragmenti.updateDelete.UpdateDeleteZabavaFragment"
-        android:label="UpdateDeleteZabavaFragment"
+        android:label="Ažuriraj ili obriši zabavu"
         tools:layout="@layout/update_delete_zabava_fragment">
         <action
             android:id="@+id/action_updateDeleteZabavaFragment_to_zabavaNavDrawer"
@@ -193,7 +193,7 @@
     <fragment
         android:id="@+id/updateDeleteOglasnikFragment"
         android:name="Portal.fragmenti.updateDelete.UpdateDeleteOglasnikFragment"
-        android:label="UpdateDeleteOglasnikFragment"
+        android:label="Ažuriraj ili obriši oglas"
         tools:layout="@layout/update_delete_oglasnik_fragment">
         <action
             android:id="@+id/action_updateDeleteOglasnikFragment_to_oglasnikNavDrawer"
@@ -205,7 +205,7 @@
     <fragment
         android:id="@+id/detailSportFragment"
         android:name="Portal.fragmenti.detailFragmenti.DetailSportFragment"
-        android:label="DetailSportFragment"
+        android:label="Detalji sport"
         tools:layout="@layout/detail_sport_fragment">
         <argument
             android:name="sportData"
@@ -214,7 +214,7 @@
     <fragment
         android:id="@+id/detailFragmentZabava"
         android:name="Portal.fragmenti.detailFragmenti.DetailZabavaFragment"
-        android:label="DetailFragmentZabava"
+        android:label="Detalji zabava"
         tools:layout="@layout/detail_zabava_fragment">
         <argument
             android:name="zabavaData"
@@ -223,7 +223,7 @@
     <fragment
         android:id="@+id/detailObavijestiFragment"
         android:name="Portal.fragmenti.detailFragmenti.DetailObavijestiFragment"
-        android:label="DetailObavijestiFragment"
+        android:label="Detalji obavijest"
         tools:layout="@layout/detail_obavijesti_fragment">
         <argument
             android:name="obavijestiData"
@@ -232,7 +232,7 @@
     <fragment
         android:id="@+id/detailOglasnikFragment"
         android:name="Portal.fragmenti.detailFragmenti.DetailOglasnikFragment"
-        android:label="DetailOglasnikFragment"
+        android:label="Detalji oglas"
         tools:layout="@layout/detail_oglasnik_fragment">
         <argument
             android:name="oglasnikData"
@@ -241,7 +241,7 @@
     <fragment
         android:id="@+id/detailVijestiFragment"
         android:name="Portal.fragmenti.detailFragmenti.DetailVijestiFragment"
-        android:label="DetailVijestiFragment"
+        android:label="Detalji vijest"
         tools:layout="@layout/detail_vijesti_fragment">
         <argument
             android:name="vijestiData"
@@ -250,7 +250,7 @@
     <fragment
         android:id="@+id/menu_dodajNovuPricuCitatelja"
         android:name="Portal.fragmenti.dodajNovo.DodajNovoPriceCitatelja"
-        android:label="DodajNovoPriceCitatelja"
+        android:label="Dodaj novu priču čitatelja"
         tools:layout="@layout/dodaj_novo_price_citatelja_fragment">
         <action
             android:id="@+id/action_menu_dodajNovuPricuCitatelja_to_priceCitateljaNavDrawer"
@@ -259,7 +259,7 @@
     <fragment
         android:id="@+id/detailPriceCitateljaFragment"
         android:name="Portal.fragmenti.detailFragmenti.DetailPriceCitateljaFragment"
-        android:label="DetailPriceCitateljaFragment"
+        android:label="Detalji priča čitatelja"
         tools:layout="@layout/detail_price_citatelja_fragment">
         <argument
             android:name="priceCitateljaData"
@@ -268,7 +268,7 @@
     <fragment
         android:id="@+id/updateDeletePriceCitateljaFragment"
         android:name="Portal.fragmenti.updateDelete.UpdateDeletePriceCitateljaFragment"
-        android:label="UpdateDeletePriceCitateljaFragment"
+        android:label="Ažuriraj ili obriši priču čitatelja"
         tools:layout="@layout/update_delete_price_citatelja_fragment">
         <action
             android:id="@+id/action_updateDeletePriceCitateljaFragment_to_priceCitateljaNavDrawer"
@@ -280,7 +280,7 @@
     <fragment
         android:id="@+id/detailPoljoprivredaFragment"
         android:name="Portal.fragmenti.detailFragmenti.DetailPoljoprivredaFragment"
-        android:label="DetailPoljoprivredaFragment"
+        android:label="Detalji poljoprivreda"
         tools:layout="@layout/detail_poljoprivreda_fragment">
         <argument
             android:name="detailPoljoprivredaArgs"
@@ -289,7 +289,7 @@
     <fragment
         android:id="@+id/menu_dodajNovuPoljoprivredu"
         android:name="Portal.fragmenti.dodajNovo.DodajNovoPoljoprivreda"
-        android:label="DodajNovoPoljoprivreda"
+        android:label="Dodaj novu poljoprivredu"
         tools:layout="@layout/dodaj_novo_poljoprivreda_fragment">
         <action
             android:id="@+id/action_menu_dodajNovuPoljoprivredu_to_poljoprivredaNavDrawer"
@@ -298,7 +298,7 @@
     <fragment
         android:id="@+id/poljoprivredaNavDrawer"
         android:name="Portal.fragmenti.fragmenti.PoljoprivredaFragment"
-        android:label="PoljoprivredaFragment"
+        android:label="Poljoprivreda"
         tools:layout="@layout/poljoprivreda_fragment">
         <action
             android:id="@+id/action_poljoprivredaNavDrawer_to_updateDeletePoljoprivredaFragment"
@@ -310,7 +310,7 @@
     <fragment
         android:id="@+id/updateDeletePoljoprivredaFragment"
         android:name="Portal.fragmenti.updateDelete.UpdateDeletePoljoprivredaFragment"
-        android:label="UpdateDeletePoljoprivredaFragment"
+        android:label="Ažuriraj ili obiriši poljoprivredu"
         tools:layout="@layout/update_delete_poljoprivreda_fragment">
         <action
             android:id="@+id/action_updateDeletePoljoprivredaFragment_to_poljoprivredaNavDrawer"
@@ -322,6 +322,6 @@
     <fragment
         android:id="@+id/menu_admin"
         android:name="Portal.fragmenti.fragmenti.AdminFragment"
-        android:label="AdminFragment"
+        android:label="Admin"
         tools:layout="@layout/admin_fragment"/>
 </navigation>
