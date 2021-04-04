@@ -321,7 +321,7 @@
     </fragment>
     <fragment
         android:id="@+id/adminBottomNav"
-        android:name="Portal.fragmenti.fragmenti.AdminFragment"
+        android:name="Portal.fragmenti.admin.AdminFragment"
         android:label="Admin"
         tools:layout="@layout/admin_fragment">
         <action
@@ -330,7 +330,16 @@
     </fragment>
     <fragment
         android:id="@+id/adminPrijavljenFragment"
-        android:name="Portal.fragmenti.fragmenti.AdminPrijavljenFragment"
+        android:name="Portal.fragmenti.admin.AdminPrijavljenFragment"
         android:label="Prijavljeni ste"
-        tools:layout="@layout/admin_prijavljen_fragment"/>
+        tools:layout="@layout/admin_prijavljen_fragment">
+        <action
+            android:id="@+id/action_adminPrijavljenFragment_to_adminOdobriZabavu"
+            app:destination="@id/adminOdobriZabavu" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminOdobriZabavu"
+        android:name="Portal.fragmenti.admin.AdminOdobriZabavu"
+        android:label="AdminOdobriZabavu"
+        tools:layout="@layout/admin_odobri_zabava"/>
 </navigation>

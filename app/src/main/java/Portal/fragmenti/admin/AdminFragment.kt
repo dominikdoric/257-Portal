@@ -1,4 +1,4 @@
-package Portal.fragmenti.fragmenti
+package Portal.fragmenti.admin
 
 import Portal.a257.R
 import Portal.a257.databinding.AdminFragmentBinding
