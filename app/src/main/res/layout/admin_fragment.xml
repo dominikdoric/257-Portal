@@ -2,32 +2,32 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:orientation="vertical"
-    android:padding="10dp">
+    android:padding="30dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="10dp"
         android:text="Ovaj dio aplikacije je namjenjen za admina kako bi odobrio vaše priče.
         Molim vas ako niste admin nemojte se pokušavati prijavljivati.Hvala."
         android:textColor="#000"
-        android:textSize="22dp" />
+        android:textSize="18dp" />
 
     <EditText
         android:id="@+id/etAdminKorisnickoIme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="30dp"
+        android:layout_marginTop="20dp"
         android:hint="Ovdje unesite korisničko ime" />
 
     <EditText
         android:id="@+id/etAdminLozinka"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="30dp"
+        android:layout_marginTop="20dp"
         android:hint="Ovdje unesite lozinku"
         android:inputType="textPassword" />
 
@@ -35,7 +35,7 @@
         android:id="@+id/etAdminToken"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="30dp"
+        android:layout_marginTop="20dp"
         android:hint="Ovdje unesite token"
         android:inputType="textPassword" />
 
@@ -43,6 +43,7 @@
         android:id="@+id/gumbAdminPrijaviSe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="Prijavi se" />
 
 </LinearLayout>

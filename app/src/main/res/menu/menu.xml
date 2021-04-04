@@ -37,10 +37,5 @@
         android:title="Dodaj novu pricu"
         app:showAsAction="never"
         android:menuCategory="secondary"/>
-    <item
-        android:id="@+id/menu_admin"
-        android:title="Admin"
-        app:showAsAction="never"
-        android:menuCategory="secondary"/>
 
 </menu>
