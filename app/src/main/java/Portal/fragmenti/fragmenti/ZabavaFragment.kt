@@ -38,6 +38,5 @@ class ZabavaFragment : Fragment(R.layout.zabava_fragment) {
         mZabavaViewModel.readAllDataZabava.observe(viewLifecycleOwner, Observer { zabava ->
             adapter.setData(zabava)
         })
-
     }
 }
