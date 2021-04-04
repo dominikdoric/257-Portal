@@ -17,16 +17,22 @@ class AdminFragment: Fragment(R.layout.admin_fragment) {
         binding = AdminFragmentBinding.bind(view)
 
         binding.gumbAdminPrijaviSe.setOnClickListener {
-            if (binding.etAdminKorisnickoIme.text.toString().isEmpty()){
+            val korisnickoIme = binding.etAdminKorisnickoIme.text.toString()
+            val token = binding.etAdminToken.text.toString()
+            val lozinka = binding.etAdminLozinka.text.toString()
+            if(korisnickoIme == "Dominik" && token == "token" && lozinka == "lozinka"){
+                val action = AdminFragmentDirections.actionMenuAdminToAdminPrijavljenFragment()
+                findNavController().navigate(action)
+                Toast.makeText(requireContext(),"Upješno ste se prijavili!",Toast.LENGTH_LONG).show()
+            }
+            else if (binding.etAdminKorisnickoIme.text.toString().isEmpty()){
                 binding.etAdminKorisnickoIme.error = "Ovo polje je obavezno!"
             }else if (binding.etAdminLozinka.text.toString().isEmpty()){
                 binding.etAdminLozinka.error = "Ovo polje je obavezno!"
             }else if(binding.etAdminToken.text.toString().isEmpty()){
                 binding.etAdminToken.error = "Ovo polje je obavezno!"
             }else{
-                val action = AdminFragmentDirections.actionMenuAdminToAdminPrijavljenFragment()
-                findNavController().navigate(action)
-                Toast.makeText(requireContext(),"Upješno ste se prijavili!",Toast.LENGTH_LONG).show()
+                Toast.makeText(requireContext(),"Unjeli ste krive podatke!",Toast.LENGTH_LONG).show()
             }
         }
 
