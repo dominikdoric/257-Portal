@@ -8,7 +8,7 @@ import androidx.room.*
 @Dao
 interface OglasnikDao {
 
-    @Query("SELECT * FROM oglasnik ORDER BY id ASC")
+    @Query("SELECT * FROM oglasnik ORDER BY id DESC")
     fun getAllDataOglasnik(): LiveData<List<OglasnikTable>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

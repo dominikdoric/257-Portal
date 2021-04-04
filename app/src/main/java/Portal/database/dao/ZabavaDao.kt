@@ -7,7 +7,7 @@ import androidx.room.*
 @Dao
 interface ZabavaDao {
 
-    @Query("SELECT * FROM zabava ORDER BY id ASC")
+    @Query("SELECT * FROM zabava ORDER BY id DESC")
     fun getAllDataZabava(): LiveData<List<ZabavaTable>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

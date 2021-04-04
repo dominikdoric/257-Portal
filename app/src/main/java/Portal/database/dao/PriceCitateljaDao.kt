@@ -8,7 +8,7 @@ import androidx.room.*
 @Dao
 interface PriceCitateljaDao {
 
-    @Query("SELECT * FROM price_citatelja ORDER BY id ASC")
+    @Query("SELECT * FROM price_citatelja ORDER BY id DESC")
     fun getAllDataPriceCitatelja(): LiveData<List<PriceCitateljaTable>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

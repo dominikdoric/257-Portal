@@ -9,7 +9,7 @@ import androidx.room.*
 @Dao
 interface InfoDao {
 
-    @Query("SELECT * FROM info ORDER BY id ASC")
+    @Query("SELECT * FROM info ORDER BY id DESC")
     fun getAllDataInfo(): LiveData<List<InfoTable>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

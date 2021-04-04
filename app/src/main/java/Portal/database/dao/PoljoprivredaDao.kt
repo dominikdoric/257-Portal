@@ -7,7 +7,7 @@ import androidx.room.*
 @Dao
 interface PoljoprivredaDao {
 
-    @Query("SELECT * FROM poljoprivreda ORDER BY id ASC")
+    @Query("SELECT * FROM poljoprivreda ORDER BY id DESC")
     fun getAllDataPoljoprivreda(): LiveData<List<PoljoprivredaTable>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
