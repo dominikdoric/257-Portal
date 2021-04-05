@@ -363,25 +363,31 @@
     <fragment
         android:id="@+id/adminOdobriObavijesti"
         android:name="Portal.fragmenti.admin.AdminOdobriObavijesti"
-        android:label="AdminOdobriObavijesti" />
+        android:label="AdminOdobriObavijesti"
+        tools:layout="@layout/admin_odobri_obavijest"/>
     <fragment
         android:id="@+id/adminOdobriOglasnik"
         android:name="Portal.fragmenti.admin.AdminOdobriOglasnik"
-        android:label="AdminOdobriOglasnik" />
+        android:label="AdminOdobriOglasnik"
+        tools:layout="@layout/admin_odobri_oglasnik"/>
     <fragment
         android:id="@+id/adminOdobriPoljoprivreda"
         android:name="Portal.fragmenti.admin.AdminOdobriPoljoprivreda"
-        android:label="AdminOdobriPoljoprivreda" />
+        android:label="AdminOdobriPoljoprivreda"
+        tools:layout="@layout/admin_odobri_poljoprivreda"/>
     <fragment
         android:id="@+id/adminOdobriPriceCitatelja"
         android:name="Portal.fragmenti.admin.AdminOdobriPriceCitatelja"
-        android:label="AdminOdobriPriceCitatelja" />
+        android:label="AdminOdobriPriceCitatelja"
+        tools:layout="@layout/admin_odobri_price_citatelja"/>
     <fragment
         android:id="@+id/adminOdobriSport"
         android:name="Portal.fragmenti.admin.AdminOdobriSport"
-        android:label="AdminOdobriSport" />
+        android:label="AdminOdobriSport"
+        tools:layout="@layout/admin_odobri_sport"/>
     <fragment
         android:id="@+id/adminOdobriVijesti"
         android:name="Portal.fragmenti.admin.AdminOdobriVijesti"
-        android:label="AdminOdobriVijesti" />
+        android:label="AdminOdobriVijesti"
+        tools:layout="@layout/admin_odobri_vijesti"/>
 </navigation>
