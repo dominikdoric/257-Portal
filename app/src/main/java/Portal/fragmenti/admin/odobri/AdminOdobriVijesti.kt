@@ -3,6 +3,7 @@ package Portal.fragmenti.admin.odobri
 import Portal.a257.R
 import Portal.a257.databinding.AdminOdobriVijestiBinding
 import Portal.adapter.VijestiAdapter
+import Portal.adapter.adminAdapter.AdminVijestiAdapter
 import Portal.viewModel.VijestiViewModel
 import android.os.Bundle
 import android.view.View
@@ -23,7 +24,7 @@ class AdminOdobriVijesti: Fragment(R.layout.admin_odobri_vijesti) {
         binding = AdminOdobriVijestiBinding.bind(view)
 
         //RecyclerView
-        val adapter = VijestiAdapter()
+        val adapter = AdminVijestiAdapter()
         val recyclerOdobriVijesti = binding.recyclerViewOdobriVijesti
         recyclerOdobriVijesti.adapter = adapter
         recyclerOdobriVijesti.layoutManager = LinearLayoutManager(requireContext())
