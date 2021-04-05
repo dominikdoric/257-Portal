@@ -1,4 +1,4 @@
-package Portal.fragmenti.admin
+package Portal.fragmenti.admin.odobri
 
 import Portal.a257.R
 import Portal.a257.databinding.AdminOdobriVijestiBinding

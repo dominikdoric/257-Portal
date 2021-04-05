@@ -357,32 +357,32 @@
     </fragment>
     <fragment
         android:id="@+id/adminOdobriZabavu"
-        android:name="Portal.fragmenti.admin.AdminOdobriZabavu"
+        android:name="Portal.fragmenti.admin.odobri.AdminOdobriZabavu"
         android:label="AdminOdobriZabavu"
         tools:layout="@layout/admin_odobri_zabava"/>
     <fragment
         android:id="@+id/adminOdobriObavijesti"
-        android:name="Portal.fragmenti.admin.AdminOdobriObavijesti"
+        android:name="Portal.fragmenti.admin.odobri.AdminOdobriObavijesti"
         android:label="AdminOdobriObavijesti"
         tools:layout="@layout/admin_odobri_obavijest"/>
     <fragment
         android:id="@+id/adminOdobriOglasnik"
-        android:name="Portal.fragmenti.admin.AdminOdobriOglasnik"
+        android:name="Portal.fragmenti.admin.odobri.AdminOdobriOglasnik"
         android:label="AdminOdobriOglasnik"
         tools:layout="@layout/admin_odobri_oglasnik"/>
     <fragment
         android:id="@+id/adminOdobriPoljoprivreda"
-        android:name="Portal.fragmenti.admin.AdminOdobriPoljoprivreda"
+        android:name="Portal.fragmenti.admin.odobri.AdminOdobriPoljoprivreda"
         android:label="AdminOdobriPoljoprivreda"
         tools:layout="@layout/admin_odobri_poljoprivreda"/>
     <fragment
         android:id="@+id/adminOdobriPriceCitatelja"
-        android:name="Portal.fragmenti.admin.AdminOdobriPriceCitatelja"
+        android:name="Portal.fragmenti.admin.odobri.AdminOdobriPriceCitatelja"
         android:label="AdminOdobriPriceCitatelja"
         tools:layout="@layout/admin_odobri_price_citatelja"/>
     <fragment
         android:id="@+id/adminOdobriSport"
-        android:name="Portal.fragmenti.admin.AdminOdobriSport"
+        android:name="Portal.fragmenti.admin.odobri.AdminOdobriSport"
         android:label="AdminOdobriSport"
         tools:layout="@layout/admin_odobri_sport">
         <action
@@ -391,11 +391,11 @@
     </fragment>
     <fragment
         android:id="@+id/adminOdobriVijesti"
-        android:name="Portal.fragmenti.admin.AdminOdobriVijesti"
+        android:name="Portal.fragmenti.admin.odobri.AdminOdobriVijesti"
         android:label="AdminOdobriVijesti"
         tools:layout="@layout/admin_odobri_vijesti"/>
     <fragment
         android:id="@+id/adminPotvrdiSport"
-        android:name="Portal.fragmenti.admin.AdminPotvrdiSport"
+        android:name="Portal.fragmenti.admin.potvrdi.AdminPotvrdiSport"
         android:label="AdminPotvrdiSport" />
 </navigation>
