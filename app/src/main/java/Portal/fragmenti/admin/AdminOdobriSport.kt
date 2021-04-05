@@ -3,6 +3,7 @@ package Portal.fragmenti.admin
 import Portal.a257.R
 import Portal.a257.databinding.AdminOdobriSportBinding
 import Portal.adapter.SportAdapter
+import Portal.adapter.adminAdapter.AdminSportAdapter
 import Portal.viewModel.SportViewModel
 import android.os.Bundle
 import android.view.View
@@ -23,7 +24,7 @@ class AdminOdobriSport: Fragment(R.layout.admin_odobri_sport) {
         binding = AdminOdobriSportBinding.bind(view)
 
         //RecyclerView
-        val adapter = SportAdapter()
+        val adapter = AdminSportAdapter()
         val recyclerOdobriSport = binding.recyclerViewOdobriSport
         recyclerOdobriSport.adapter = adapter
         recyclerOdobriSport.layoutManager = LinearLayoutManager(requireContext())

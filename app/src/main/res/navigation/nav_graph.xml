@@ -384,10 +384,18 @@
         android:id="@+id/adminOdobriSport"
         android:name="Portal.fragmenti.admin.AdminOdobriSport"
         android:label="AdminOdobriSport"
-        tools:layout="@layout/admin_odobri_sport"/>
+        tools:layout="@layout/admin_odobri_sport">
+        <action
+            android:id="@+id/action_adminOdobriSport_to_adminPotvrdiSport"
+            app:destination="@id/adminPotvrdiSport" />
+    </fragment>
     <fragment
         android:id="@+id/adminOdobriVijesti"
         android:name="Portal.fragmenti.admin.AdminOdobriVijesti"
         android:label="AdminOdobriVijesti"
         tools:layout="@layout/admin_odobri_vijesti"/>
+    <fragment
+        android:id="@+id/adminPotvrdiSport"
+        android:name="Portal.fragmenti.admin.AdminPotvrdiSport"
+        android:label="AdminPotvrdiSport" />
 </navigation>
