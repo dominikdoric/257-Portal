@@ -3,6 +3,8 @@ package Portal.fragmenti.admin.odobri
 import Portal.a257.R
 import Portal.a257.databinding.AdminOdobriPriceCitateljaBinding
 import Portal.adapter.PriceCitateljaAdapter
+import Portal.adapter.adminAdapter.AdminPoljoprivredaAdapter
+import Portal.adapter.adminAdapter.AdminPriceCitateljaAdapter
 import Portal.viewModel.PriceCitateljaViewModel
 import android.os.Bundle
 import android.view.View
@@ -23,7 +25,7 @@ class AdminOdobriPriceCitatelja: Fragment(R.layout.admin_odobri_price_citatelja)
         binding = AdminOdobriPriceCitateljaBinding.bind(view)
 
         //RecyclerView
-        val adapter = PriceCitateljaAdapter()
+        val adapter = AdminPriceCitateljaAdapter()
         val recyclerOdobriPriceCitatelja = binding.recyclerViewOdobriPriceCitatelja
         recyclerOdobriPriceCitatelja.adapter = adapter
         recyclerOdobriPriceCitatelja.layoutManager = LinearLayoutManager(requireContext())

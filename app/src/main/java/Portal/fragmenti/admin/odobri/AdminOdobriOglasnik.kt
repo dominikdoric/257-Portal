@@ -3,6 +3,7 @@ package Portal.fragmenti.admin.odobri
 import Portal.a257.R
 import Portal.a257.databinding.AdminOdobriOglasnikBinding
 import Portal.adapter.OglasnikAdapter
+import Portal.adapter.adminAdapter.AdminOglasnikAdapter
 import Portal.viewModel.OglasnikViewModel
 import android.os.Bundle
 import android.view.View
@@ -23,7 +24,7 @@ class AdminOdobriOglasnik: Fragment(R.layout.admin_odobri_oglasnik) {
         binding = AdminOdobriOglasnikBinding.bind(view)
 
         //RecyclerView
-        val adapter = OglasnikAdapter()
+        val adapter = AdminOglasnikAdapter()
         val recyclerOdobriOglasnik = binding.recyclerViewOdobriOglasnik
         recyclerOdobriOglasnik.adapter = adapter
         recyclerOdobriOglasnik.layoutManager = LinearLayoutManager(requireContext())
