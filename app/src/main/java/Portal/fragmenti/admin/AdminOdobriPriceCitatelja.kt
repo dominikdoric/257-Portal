@@ -1,4 +1,7 @@
 package Portal.fragmenti.admin
 
-class AdminOdobriPriceCitatelja {
+import Portal.a257.R
+import androidx.fragment.app.Fragment
+
+class AdminOdobriPriceCitatelja: Fragment(R.layout.admin_odobri_price_citatelja) {
 }

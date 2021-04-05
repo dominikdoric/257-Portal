@@ -1,4 +1,10 @@
 package Portal.fragmenti.admin
 
-class AdminOdobriPoljoprivreda {
+import Portal.a257.R
+import androidx.fragment.app.Fragment
+
+class AdminOdobriPoljoprivreda: Fragment(R.layout.admin_odobri_poljoprivreda) {
+
+
+
 }

@@ -1,4 +1,10 @@
 package Portal.fragmenti.admin
 
-class AdminOdobriOglasnik {
+import Portal.a257.R
+import androidx.fragment.app.Fragment
+
+class AdminOdobriOglasnik: Fragment(R.layout.admin_odobri_oglasnik) {
+
+
+
 }
