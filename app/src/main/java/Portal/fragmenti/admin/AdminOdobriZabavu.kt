@@ -1,6 +1,7 @@
 package Portal.fragmenti.admin
 
 import Portal.a257.R
+import Portal.a257.databinding.AdminOdobriZabavaBinding
 import Portal.adapter.ZabavaAdapter
 import Portal.viewModel.ZabavaViewModel
 import android.os.Bundle
@@ -10,19 +11,20 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.admin_odobri_zabava.*
 
 @AndroidEntryPoint
 class AdminOdobriZabavu: Fragment(R.layout.admin_odobri_zabava) {
 
     private val mZabavaViewModel: ZabavaViewModel by viewModels()
+    private lateinit var binding: AdminOdobriZabavaBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding = AdminOdobriZabavaBinding.bind(view)
 
         //RecyclerView
         val adapter = ZabavaAdapter()
-        val recyclerOdobriZabava = recyclerViewOdobriZabava
+        val recyclerOdobriZabava = binding.recyclerViewOdobriZabava
         recyclerOdobriZabava.adapter = adapter
         recyclerOdobriZabava.layoutManager = LinearLayoutManager(requireContext())
 
