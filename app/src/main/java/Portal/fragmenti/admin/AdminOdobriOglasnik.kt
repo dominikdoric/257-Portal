@@ -10,7 +10,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AdminOdobriOglasnik: Fragment(R.layout.admin_odobri_oglasnik) {
 
     private val mOglasnikViewModel: OglasnikViewModel by viewModels()

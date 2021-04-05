@@ -10,7 +10,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AdminOdobriObavijesti: Fragment(R.layout.admin_odobri_obavijest) {
 
     private val mObavijestiViewModel: ObavijestiViewModel by viewModels()

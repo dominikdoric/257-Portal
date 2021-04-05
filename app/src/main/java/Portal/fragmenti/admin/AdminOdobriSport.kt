@@ -10,7 +10,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AdminOdobriSport: Fragment(R.layout.admin_odobri_sport) {
 
     private val mSportViewModel: SportViewModel by viewModels()
