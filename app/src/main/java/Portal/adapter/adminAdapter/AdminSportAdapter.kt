@@ -28,7 +28,7 @@ class AdminSportAdapter() : RecyclerView.Adapter<AdminSportAdapter.ViewHolder>()
 
         holder.itemView.cardViewSport.setOnClickListener {
             val action =
-                AdminOdobriSportDirections.actionAdminOdobriSportToAdminPotvrdiSport()
+                AdminOdobriSportDirections.actionAdminOdobriSportToAdminPotvrdiSport(currentItem)
             holder.itemView.findNavController().navigate(action)
         }
     }

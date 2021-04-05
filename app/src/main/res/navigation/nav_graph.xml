@@ -422,35 +422,63 @@
         android:id="@+id/adminPotvrdiSport"
         android:name="Portal.fragmenti.admin.potvrdi.AdminPotvrdiSport"
         android:label="AdminPotvrdiSport"
-        tools:layout="@layout/admin_potvrdi_sport"/>
+        tools:layout="@layout/admin_potvrdi_sport">
+        <argument
+            android:name="adminSportArgs"
+            app:argType="Portal.database.table.SportTable" />
+    </fragment>
     <fragment
         android:id="@+id/adminPotvrdiObavijesti"
         android:name="Portal.fragmenti.admin.potvrdi.AdminPotvrdiObavijesti"
         android:label="AdminPotvrdiObavijesti"
-        tools:layout="@layout/admin_potvrdi_obavijesti"/>
+        tools:layout="@layout/admin_potvrdi_obavijesti">
+        <argument
+            android:name="adminObavijestiArgs"
+            app:argType="Portal.database.table.ObavijestiTable" />
+    </fragment>
     <fragment
         android:id="@+id/adminPotvrdiOglasnik"
         android:name="Portal.fragmenti.admin.potvrdi.AdminPotvrdiOglasnik"
         android:label="AdminPotvrdiOglasnik"
-        tools:layout="@layout/admin_potvrdi_oglasnik"/>
+        tools:layout="@layout/admin_potvrdi_oglasnik">
+        <argument
+            android:name="adminOglasnikArgs"
+            app:argType="Portal.database.table.OglasnikTable" />
+    </fragment>
     <fragment
         android:id="@+id/adminPotvrdiPoljoprivreda"
         android:name="Portal.fragmenti.admin.potvrdi.AdminPotvrdiPoljoprivreda"
         android:label="AdminPotvrdiPoljoprivreda"
-        tools:layout="@layout/admin_potvrdi_poljoprivreda"/>
+        tools:layout="@layout/admin_potvrdi_poljoprivreda">
+        <argument
+            android:name="adminPoljoprivredaArgs"
+            app:argType="Portal.database.table.PoljoprivredaTable" />
+    </fragment>
     <fragment
         android:id="@+id/adminPotvrdiPriceCitatelja"
         android:name="Portal.fragmenti.admin.potvrdi.AdminPotvrdiPriceCitatelja"
         android:label="AdminPotvrdiPriceCitatelja"
-        tools:layout="@layout/admin_potvrdi_price_citatelja"/>
+        tools:layout="@layout/admin_potvrdi_price_citatelja">
+        <argument
+            android:name="adminPriceArgs"
+            app:argType="Portal.database.table.PriceCitateljaTable" />
+    </fragment>
     <fragment
         android:id="@+id/adminPotvrdiVijesti"
         android:name="Portal.fragmenti.admin.potvrdi.AdminPotvrdiVijesti"
         android:label="AdminPotvrdiVijesti"
-        tools:layout="@layout/admin_potvrdi_vijesti"/>
+        tools:layout="@layout/admin_potvrdi_vijesti">
+        <argument
+            android:name="adminVijestiArgs"
+            app:argType="Portal.database.table.VijestiTable" />
+    </fragment>
     <fragment
         android:id="@+id/adminPotvrdiZabavu"
         android:name="Portal.fragmenti.admin.potvrdi.AdminPotvrdiZabavu"
         android:label="AdminPotvrdiZabavu"
-        tools:layout="@layout/admin_potvrdi_zabavu"/>
+        tools:layout="@layout/admin_potvrdi_zabavu">
+        <argument
+            android:name="adminZabavaArgs"
+            app:argType="Portal.database.table.ZabavaTable" />
+    </fragment>
 </navigation>

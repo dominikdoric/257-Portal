@@ -28,7 +28,7 @@ class AdminPoljoprivredaAdapter : RecyclerView.Adapter<AdminPoljoprivredaAdapter
 
         holder.itemView.cardViewPoljoprivreda.setOnClickListener {
             val action =
-                AdminOdobriPoljoprivredaDirections.actionAdminOdobriPoljoprivredaToAdminPotvrdiPoljoprivreda()
+                AdminOdobriPoljoprivredaDirections.actionAdminOdobriPoljoprivredaToAdminPotvrdiPoljoprivreda(currentItem)
             holder.itemView.findNavController().navigate(action)
         }
 

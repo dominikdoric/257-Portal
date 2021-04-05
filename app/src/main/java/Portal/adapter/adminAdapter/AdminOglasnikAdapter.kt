@@ -29,7 +29,7 @@ class AdminOglasnikAdapter() : RecyclerView.Adapter<AdminOglasnikAdapter.ViewHol
         holder.itemView.textViewOglasnikVrijeme.text = currentItem.oglasnikVrijeme
 
         holder.itemView.cardViewOglasnik.setOnClickListener {
-            val action = AdminOdobriOglasnikDirections.actionAdminOdobriOglasnikToAdminPotvrdiOglasnik()
+            val action = AdminOdobriOglasnikDirections.actionAdminOdobriOglasnikToAdminPotvrdiOglasnik(currentItem)
             holder.itemView.findNavController().navigate(action)
         }
 

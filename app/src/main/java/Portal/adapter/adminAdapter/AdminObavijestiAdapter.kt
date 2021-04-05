@@ -31,7 +31,7 @@ class AdminObavijestiAdapter() : RecyclerView.Adapter<AdminObavijestiAdapter.Vie
 
         holder.itemView.cardViewObavijesti.setOnClickListener {
             val action =
-                AdminOdobriObavijestiDirections.actionAdminOdobriObavijestiToAdminPotvrdiObavijesti()
+                AdminOdobriObavijestiDirections.actionAdminOdobriObavijestiToAdminPotvrdiObavijesti(currentItem)
             holder.itemView.findNavController().navigate(action)
         }
 

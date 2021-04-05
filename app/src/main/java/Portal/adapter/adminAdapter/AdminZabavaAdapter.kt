@@ -28,7 +28,7 @@ class AdminZabavaAdapter() : RecyclerView.Adapter<AdminZabavaAdapter.ViewHolder>
 
         holder.itemView.cardViewZabava.setOnClickListener {
             val action =
-                AdminOdobriZabavuDirections.actionAdminOdobriZabavuToAdminPotvrdiZabavu()
+                AdminOdobriZabavuDirections.actionAdminOdobriZabavuToAdminPotvrdiZabavu(currentItem)
             holder.itemView.findNavController().navigate(action)
         }
 

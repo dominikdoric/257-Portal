@@ -30,7 +30,7 @@ class AdminPriceCitateljaAdapter : RecyclerView.Adapter<AdminPriceCitateljaAdapt
 
         holder.itemView.cardViewPricaCitatelja.setOnClickListener {
             val action =
-                AdminOdobriPriceCitateljaDirections.actionAdminOdobriPriceCitateljaToAdminPotvrdiPriceCitatelja()
+                AdminOdobriPriceCitateljaDirections.actionAdminOdobriPriceCitateljaToAdminPotvrdiPriceCitatelja(currentItem)
             holder.itemView.findNavController().navigate(action)
         }
 

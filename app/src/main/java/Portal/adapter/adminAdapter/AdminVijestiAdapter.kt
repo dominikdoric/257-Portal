@@ -28,7 +28,7 @@ class AdminVijestiAdapter() : RecyclerView.Adapter<AdminVijestiAdapter.ViewHolde
 
         holder.itemView.cardViewVijesti.setOnClickListener {
             val action =
-                AdminOdobriVijestiDirections.actionAdminOdobriVijestiToAdminPotvrdiVijesti()
+                AdminOdobriVijestiDirections.actionAdminOdobriVijestiToAdminPotvrdiVijesti(currentItem)
             holder.itemView.findNavController().navigate(action)
         }
 
