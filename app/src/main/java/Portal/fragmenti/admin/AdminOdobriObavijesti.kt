@@ -22,9 +22,9 @@ class AdminOdobriObavijesti: Fragment(R.layout.admin_odobri_obavijest) {
 
         //RecyclerView
         val adapter = ObavijestiAdapter()
-        val recyclerOdobriZabava = binding.recyclerViewOdobriObavijesti
-        recyclerOdobriZabava.adapter = adapter
-        recyclerOdobriZabava.layoutManager = LinearLayoutManager(requireContext())
+        val recyclerOdobriObavijesti = binding.recyclerViewOdobriObavijesti
+        recyclerOdobriObavijesti.adapter = adapter
+        recyclerOdobriObavijesti.layoutManager = LinearLayoutManager(requireContext())
 
         //RasporedViewModel
         mObavijestiViewModel.readAllDataObavijesti.observe(viewLifecycleOwner, Observer { obavijesti ->

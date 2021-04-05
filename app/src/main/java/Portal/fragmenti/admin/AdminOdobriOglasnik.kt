@@ -22,9 +22,9 @@ class AdminOdobriOglasnik: Fragment(R.layout.admin_odobri_oglasnik) {
 
         //RecyclerView
         val adapter = OglasnikAdapter()
-        val recyclerOdobriZabava = binding.recyclerViewOdobriOglasnik
-        recyclerOdobriZabava.adapter = adapter
-        recyclerOdobriZabava.layoutManager = LinearLayoutManager(requireContext())
+        val recyclerOdobriOglasnik = binding.recyclerViewOdobriOglasnik
+        recyclerOdobriOglasnik.adapter = adapter
+        recyclerOdobriOglasnik.layoutManager = LinearLayoutManager(requireContext())
 
         //RasporedViewModel
         mOglasnikViewModel.readAllDataOglasnik.observe(viewLifecycleOwner, Observer { oglasnik ->
