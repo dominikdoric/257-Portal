@@ -359,27 +359,47 @@
         android:id="@+id/adminOdobriZabavu"
         android:name="Portal.fragmenti.admin.odobri.AdminOdobriZabavu"
         android:label="AdminOdobriZabavu"
-        tools:layout="@layout/admin_odobri_zabava"/>
+        tools:layout="@layout/admin_odobri_zabava">
+        <action
+            android:id="@+id/action_adminOdobriZabavu_to_adminPotvrdiZabavu"
+            app:destination="@id/adminPotvrdiZabavu" />
+    </fragment>
     <fragment
         android:id="@+id/adminOdobriObavijesti"
         android:name="Portal.fragmenti.admin.odobri.AdminOdobriObavijesti"
         android:label="AdminOdobriObavijesti"
-        tools:layout="@layout/admin_odobri_obavijest"/>
+        tools:layout="@layout/admin_odobri_obavijest">
+        <action
+            android:id="@+id/action_adminOdobriObavijesti_to_adminPotvrdiObavijesti"
+            app:destination="@id/adminPotvrdiObavijesti" />
+    </fragment>
     <fragment
         android:id="@+id/adminOdobriOglasnik"
         android:name="Portal.fragmenti.admin.odobri.AdminOdobriOglasnik"
         android:label="AdminOdobriOglasnik"
-        tools:layout="@layout/admin_odobri_oglasnik"/>
+        tools:layout="@layout/admin_odobri_oglasnik">
+        <action
+            android:id="@+id/action_adminOdobriOglasnik_to_adminPotvrdiOglasnik"
+            app:destination="@id/adminPotvrdiOglasnik" />
+    </fragment>
     <fragment
         android:id="@+id/adminOdobriPoljoprivreda"
         android:name="Portal.fragmenti.admin.odobri.AdminOdobriPoljoprivreda"
         android:label="AdminOdobriPoljoprivreda"
-        tools:layout="@layout/admin_odobri_poljoprivreda"/>
+        tools:layout="@layout/admin_odobri_poljoprivreda">
+        <action
+            android:id="@+id/action_adminOdobriPoljoprivreda_to_adminPotvrdiPoljoprivreda"
+            app:destination="@id/adminPotvrdiPoljoprivreda" />
+    </fragment>
     <fragment
         android:id="@+id/adminOdobriPriceCitatelja"
         android:name="Portal.fragmenti.admin.odobri.AdminOdobriPriceCitatelja"
         android:label="AdminOdobriPriceCitatelja"
-        tools:layout="@layout/admin_odobri_price_citatelja"/>
+        tools:layout="@layout/admin_odobri_price_citatelja">
+        <action
+            android:id="@+id/action_adminOdobriPriceCitatelja_to_adminPotvrdiPriceCitatelja"
+            app:destination="@id/adminPotvrdiPriceCitatelja" />
+    </fragment>
     <fragment
         android:id="@+id/adminOdobriSport"
         android:name="Portal.fragmenti.admin.odobri.AdminOdobriSport"
@@ -393,9 +413,44 @@
         android:id="@+id/adminOdobriVijesti"
         android:name="Portal.fragmenti.admin.odobri.AdminOdobriVijesti"
         android:label="AdminOdobriVijesti"
-        tools:layout="@layout/admin_odobri_vijesti"/>
+        tools:layout="@layout/admin_odobri_vijesti">
+        <action
+            android:id="@+id/action_adminOdobriVijesti_to_adminPotvrdiVijesti"
+            app:destination="@id/adminPotvrdiVijesti" />
+    </fragment>
     <fragment
         android:id="@+id/adminPotvrdiSport"
         android:name="Portal.fragmenti.admin.potvrdi.AdminPotvrdiSport"
-        android:label="AdminPotvrdiSport" />
+        android:label="AdminPotvrdiSport"
+        tools:layout="@layout/admin_potvrdi_sport"/>
+    <fragment
+        android:id="@+id/adminPotvrdiObavijesti"
+        android:name="Portal.fragmenti.admin.potvrdi.AdminPotvrdiObavijesti"
+        android:label="AdminPotvrdiObavijesti"
+        tools:layout="@layout/admin_potvrdi_obavijesti"/>
+    <fragment
+        android:id="@+id/adminPotvrdiOglasnik"
+        android:name="Portal.fragmenti.admin.potvrdi.AdminPotvrdiOglasnik"
+        android:label="AdminPotvrdiOglasnik"
+        tools:layout="@layout/admin_potvrdi_oglasnik"/>
+    <fragment
+        android:id="@+id/adminPotvrdiPoljoprivreda"
+        android:name="Portal.fragmenti.admin.potvrdi.AdminPotvrdiPoljoprivreda"
+        android:label="AdminPotvrdiPoljoprivreda"
+        tools:layout="@layout/admin_potvrdi_poljoprivreda"/>
+    <fragment
+        android:id="@+id/adminPotvrdiPriceCitatelja"
+        android:name="Portal.fragmenti.admin.potvrdi.AdminPotvrdiPriceCitatelja"
+        android:label="AdminPotvrdiPriceCitatelja"
+        tools:layout="@layout/admin_potvrdi_price_citatelja"/>
+    <fragment
+        android:id="@+id/adminPotvrdiVijesti"
+        android:name="Portal.fragmenti.admin.potvrdi.AdminPotvrdiVijesti"
+        android:label="AdminPotvrdiVijesti"
+        tools:layout="@layout/admin_potvrdi_vijesti"/>
+    <fragment
+        android:id="@+id/adminPotvrdiZabavu"
+        android:name="Portal.fragmenti.admin.potvrdi.AdminPotvrdiZabavu"
+        android:label="AdminPotvrdiZabavu"
+        tools:layout="@layout/admin_potvrdi_zabavu"/>
 </navigation>

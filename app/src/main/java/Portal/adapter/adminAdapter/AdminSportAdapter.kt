@@ -2,9 +2,7 @@ package Portal.adapter.adminAdapter
 
 import Portal.a257.R
 import Portal.database.table.SportTable
-import Portal.fragmenti.admin.AdminOdobriSportDirections
-import Portal.fragmenti.admin.AdminPrijavljenFragmentDirections
-import Portal.fragmenti.fragmenti.SportFragmentDirections
+import Portal.fragmenti.admin.odobri.AdminOdobriSportDirections
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
