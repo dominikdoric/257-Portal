@@ -34,5 +34,4 @@ class AdminOdobriZabavu: Fragment(R.layout.admin_odobri_zabava) {
             adapter.setData(zabava)
         })
     }
-
 }
