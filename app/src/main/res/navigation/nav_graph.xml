@@ -26,11 +26,11 @@
         android:label="Obavijesti"
         tools:layout="@layout/obavijesti_fragment">
         <action
-            android:id="@+id/action_obavijestiNavDrawer_to_updateDeleteObavijestiFragment2"
-            app:destination="@id/updateDeleteObavijestiFragment2" />
-        <action
             android:id="@+id/action_obavijestiNavDrawer_to_detailObavijestiFragment"
             app:destination="@id/detailObavijestiFragment" />
+        <action
+            android:id="@+id/action_obavijestiNavDrawer_to_adminPrijavaObavijestiFragment"
+            app:destination="@id/adminPrijavaObavijestiFragment" />
     </fragment>
     <fragment
         android:id="@+id/oglasnikNavDrawer"
@@ -38,11 +38,11 @@
         android:label="Oglasnik"
         tools:layout="@layout/oglasnik_fragment">
         <action
-            android:id="@+id/action_oglasnikNavDrawer_to_updateDeleteOglasnikFragment"
-            app:destination="@id/updateDeleteOglasnikFragment" />
-        <action
             android:id="@+id/action_oglasnikNavDrawer_to_detailOglasnikFragment"
             app:destination="@id/detailOglasnikFragment" />
+        <action
+            android:id="@+id/action_oglasnikNavDrawer_to_adminPrijavaOglasnikFragment"
+            app:destination="@id/adminPrijavaOglasnikFragment" />
     </fragment>
     <fragment
         android:id="@+id/priceCitateljaNavDrawer"
@@ -53,8 +53,8 @@
             android:id="@+id/action_priceCitateljaNavDrawer_to_detailPriceCitateljaFragment"
             app:destination="@id/detailPriceCitateljaFragment" />
         <action
-            android:id="@+id/action_priceCitateljaNavDrawer_to_updateDeletePriceCitateljaFragment"
-            app:destination="@id/updateDeletePriceCitateljaFragment" />
+            android:id="@+id/action_priceCitateljaNavDrawer_to_adminPrijavaPriceCitateljaFragment"
+            app:destination="@id/adminPrijavaPriceCitateljaFragment" />
     </fragment>
     <fragment
         android:id="@+id/sportNavDrawer"
@@ -74,11 +74,11 @@
         android:label="Vijesti"
         tools:layout="@layout/vijesti_fragment">
         <action
-            android:id="@+id/action_vijestiNavDrawer_to_updateDeleteVijestiFragment"
-            app:destination="@id/updateDeleteVijestiFragment" />
-        <action
             android:id="@+id/action_vijestiNavDrawer_to_detailVijestiFragment"
             app:destination="@id/detailVijestiFragment" />
+        <action
+            android:id="@+id/action_vijestiNavDrawer_to_adminPrijavaVijestiFragment"
+            app:destination="@id/adminPrijavaVijestiFragment" />
     </fragment>
     <fragment
         android:id="@+id/zabavaNavDrawer"
@@ -86,11 +86,11 @@
         android:label="Zabava"
         tools:layout="@layout/zabava_fragment">
         <action
-            android:id="@+id/action_zabavaNavDrawer_to_updateDeleteZabavaFragment"
-            app:destination="@id/updateDeleteZabavaFragment" />
-        <action
             android:id="@+id/action_zabavaNavDrawer_to_detailFragmentZabava"
             app:destination="@id/detailFragmentZabava" />
+        <action
+            android:id="@+id/action_zabavaNavDrawer_to_adminPrijavaZabavaFragment"
+            app:destination="@id/adminPrijavaZabavaFragment" />
     </fragment>
     <fragment
         android:id="@+id/vrijemeBottomNav"
@@ -301,11 +301,11 @@
         android:label="Poljoprivreda"
         tools:layout="@layout/poljoprivreda_fragment">
         <action
-            android:id="@+id/action_poljoprivredaNavDrawer_to_updateDeletePoljoprivredaFragment"
-            app:destination="@id/updateDeletePoljoprivredaFragment" />
-        <action
             android:id="@+id/action_poljoprivredaNavDrawer_to_detailPoljoprivredaFragment"
             app:destination="@id/detailPoljoprivredaFragment" />
+        <action
+            android:id="@+id/action_poljoprivredaNavDrawer_to_adminPrijavaPoljoprivradaFragment"
+            app:destination="@id/adminPrijavaPoljoprivradaFragment" />
     </fragment>
     <fragment
         android:id="@+id/updateDeletePoljoprivredaFragment"
@@ -492,5 +492,71 @@
         <argument
             android:name="currentSport"
             app:argType="Portal.database.table.SportTable" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminPrijavaObavijestiFragment"
+        android:name="Portal.fragmenti.adminPrijava.AdminPrijavaObavijestiFragment"
+        android:label="AdminPrijavaObavijestiFragment" >
+        <action
+            android:id="@+id/action_adminPrijavaObavijestiFragment_to_updateDeleteObavijestiFragment2"
+            app:destination="@id/updateDeleteObavijestiFragment2" />
+        <argument
+            android:name="currentObavijesti"
+            app:argType="Portal.database.table.ObavijestiTable" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminPrijavaOglasnikFragment"
+        android:name="Portal.fragmenti.adminPrijava.AdminPrijavaOglasnikFragment"
+        android:label="AdminPrijavaOglasnikFragment" >
+        <action
+            android:id="@+id/action_adminPrijavaOglasnikFragment_to_updateDeleteOglasnikFragment"
+            app:destination="@id/updateDeleteOglasnikFragment" />
+        <argument
+            android:name="currentOglasnik"
+            app:argType="Portal.database.table.OglasnikTable" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminPrijavaPoljoprivradaFragment"
+        android:name="Portal.fragmenti.adminPrijava.AdminPrijavaPoljoprivradaFragment"
+        android:label="AdminPrijavaPoljoprivradaFragment" >
+        <action
+            android:id="@+id/action_adminPrijavaPoljoprivradaFragment_to_updateDeletePoljoprivredaFragment"
+            app:destination="@id/updateDeletePoljoprivredaFragment" />
+        <argument
+            android:name="currentPoljoprivreda"
+            app:argType="Portal.database.table.PoljoprivredaTable" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminPrijavaPriceCitateljaFragment"
+        android:name="Portal.fragmenti.adminPrijava.AdminPrijavaPriceCitateljaFragment"
+        android:label="AdminPrijavaPriceCitateljaFragment" >
+        <action
+            android:id="@+id/action_adminPrijavaPriceCitateljaFragment_to_updateDeletePriceCitateljaFragment"
+            app:destination="@id/updateDeletePriceCitateljaFragment" />
+        <argument
+            android:name="currentPoljoprivreda"
+            app:argType="Portal.database.table.PoljoprivredaTable" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminPrijavaVijestiFragment"
+        android:name="Portal.fragmenti.adminPrijava.AdminPrijavaVijestiFragment"
+        android:label="AdminPrijavaVijestiFragment" >
+        <action
+            android:id="@+id/action_adminPrijavaVijestiFragment_to_updateDeleteVijestiFragment"
+            app:destination="@id/updateDeleteVijestiFragment" />
+        <argument
+            android:name="currentVijesti"
+            app:argType="Portal.database.table.VijestiTable" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminPrijavaZabavaFragment"
+        android:name="Portal.fragmenti.adminPrijava.AdminPrijavaZabavaFragment"
+        android:label="AdminPrijavaZabavaFragment" >
+        <action
+            android:id="@+id/action_adminPrijavaZabavaFragment_to_updateDeleteZabavaFragment"
+            app:destination="@id/updateDeleteZabavaFragment" />
+        <argument
+            android:name="currentZabava"
+            app:argType="Portal.database.table.ZabavaTable" />
     </fragment>
 </navigation>
