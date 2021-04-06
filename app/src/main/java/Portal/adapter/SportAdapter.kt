@@ -4,10 +4,15 @@ import Portal.a257.R
 import Portal.a257.databinding.JedanRedSportBinding
 import Portal.database.table.SportTable
 import Portal.fragmenti.fragmenti.SportFragmentDirections
+import android.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.jedan_red_sport.view.*
 
@@ -26,6 +31,8 @@ class SportAdapter() : RecyclerView.Adapter<SportAdapter.ViewHolder>() {
 
         holder.itemView.textViewSportNaslov.text = currentItem.sportNaslov
         holder.itemView.textViewSportVrijeme.text = currentItem.sportVrijeme
+        holder.itemView.textViewSportNaslov.context
+
         holder.itemView.cardViewSport.setOnLongClickListener {
             val action =
                 SportFragmentDirections.actionSportNavDrawerToUpdateDeleteSportFragment(currentItem)
@@ -46,7 +53,6 @@ class SportAdapter() : RecyclerView.Adapter<SportAdapter.ViewHolder>() {
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
     }
 
     fun setData(sport: List<SportTable>) {
