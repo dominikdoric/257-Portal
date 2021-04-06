@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:orientation="vertical"
-    android:padding="40dp">
+    android:padding="10dp">
 
     <EditText
-        android:id="@+id/updateSportNaslov"
+        android:id="@+id/dialogName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp" />
-
+        android:hint="Enter Name"/>
     <EditText
-        android:id="@+id/updateSportClanak"
+        android:id="@+id/dialogEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp" />
+        android:hint="Enter Email"/>
+    <EditText
+        android:id="@+id/dialogPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Password"
+        android:inputType="textPassword"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,22 +29,19 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/gumbUpdateSport"
+            android:id="@+id/dialogLoginBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:text="Update" />
+            android:text="Login"/>
+        <Button
+            android:id="@+id/dialogCancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="150dp"
+            android:text="Cancel"/>
 
-        <Button
-            android:id="@+id/gumbDeleteSport"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Delete" />
-        <Button
-            android:id="@+id/gumbPokusSport"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Pokus" />
+
     </LinearLayout>
 
 </LinearLayout>
