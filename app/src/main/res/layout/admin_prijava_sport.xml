@@ -17,14 +17,14 @@
         android:textSize="18dp" />
 
     <EditText
-        android:id="@+id/etAdminKorisnickoIme"
+        android:id="@+id/etPrijavaAdminKorisnickoIme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:hint="Ovdje unesite korisničko ime" />
 
     <EditText
-        android:id="@+id/etAdminLozinka"
+        android:id="@+id/etPrijavaAdminLozinka"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -32,7 +32,7 @@
         android:inputType="textPassword" />
 
     <EditText
-        android:id="@+id/etAdminToken"
+        android:id="@+id/etPrijavaAdminToken"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -40,7 +40,7 @@
         android:inputType="textPassword" />
 
     <Button
-        android:id="@+id/gumbAdminPrijaviSe"
+        android:id="@+id/gumbPrijavaAdminPrijaviSe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"

@@ -35,7 +35,7 @@ class SportAdapter() : RecyclerView.Adapter<SportAdapter.ViewHolder>() {
 
         holder.itemView.cardViewSport.setOnLongClickListener {
             val action =
-                SportFragmentDirections.actionSportNavDrawerToUpdateDeleteSportFragment(currentItem)
+                SportFragmentDirections.actionSportNavDrawerToAdminPrijavaSportFragment(currentItem)
             holder.itemView.findNavController().navigate(action)
             true
         }

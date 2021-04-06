@@ -62,11 +62,11 @@
         android:label="Sport"
         tools:layout="@layout/sport_fragment">
         <action
-            android:id="@+id/action_sportNavDrawer_to_updateDeleteSportFragment"
-            app:destination="@id/updateDeleteSportFragment" />
-        <action
             android:id="@+id/action_sportNavDrawer_to_detailSportFragment"
             app:destination="@id/detailSportFragment" />
+        <action
+            android:id="@+id/action_sportNavDrawer_to_adminPrijavaSportFragment"
+            app:destination="@id/adminPrijavaSportFragment" />
     </fragment>
     <fragment
         android:id="@+id/vijestiNavDrawer"
@@ -480,5 +480,17 @@
         <argument
             android:name="adminZabavaArgs"
             app:argType="Portal.database.table.ZabavaTable" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminPrijavaSportFragment"
+        android:name="Portal.fragmenti.adminPrijava.AdminPrijavaSportFragment"
+        android:label="AdminPrijavaSportFragment"
+        tools:layout="@layout/admin_prijava_sport">
+        <action
+            android:id="@+id/action_adminPrijavaSportFragment_to_updateDeleteSportFragment"
+            app:destination="@id/updateDeleteSportFragment" />
+        <argument
+            android:name="currentSport"
+            app:argType="Portal.database.table.SportTable" />
     </fragment>
 </navigation>
