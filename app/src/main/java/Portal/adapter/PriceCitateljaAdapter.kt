@@ -30,9 +30,7 @@ class PriceCitateljaAdapter : RecyclerView.Adapter<PriceCitateljaAdapter.ViewHol
 
         holder.itemView.cardViewPricaCitatelja.setOnLongClickListener {
             val action =
-                PriceCitateljaFragmentDirections.actionPriceCitateljaNavDrawerToUpdateDeletePriceCitateljaFragment(
-                    currentItem
-                )
+                PriceCitateljaFragmentDirections.actionPriceCitateljaNavDrawerToAdminPrijavaPriceCitateljaFragment(currentItem)
             holder.itemView.findNavController().navigate(action)
             true
         }

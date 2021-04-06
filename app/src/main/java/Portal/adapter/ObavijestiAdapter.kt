@@ -20,7 +20,8 @@ class ObavijestiAdapter() : RecyclerView.Adapter<ObavijestiAdapter.ViewHolder>()
         viewType: Int
     ): ObavijestiAdapter.ViewHolder {
         val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.jedan_red_obavijesti, parent, false)
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.jedan_red_obavijesti, parent, false)
         return ViewHolder(view)
     }
 
@@ -31,9 +32,7 @@ class ObavijestiAdapter() : RecyclerView.Adapter<ObavijestiAdapter.ViewHolder>()
 
         holder.itemView.cardViewObavijesti.setOnLongClickListener {
             val action =
-                ObavijestiFragmentDirections.actionObavijestiNavDrawerToUpdateDeleteObavijestiFragment2(
-                    currentItem
-                )
+                ObavijestiFragmentDirections.actionObavijestiNavDrawerToAdminPrijavaObavijestiFragment(currentItem)
             holder.itemView.findNavController().navigate(action)
             true
         }

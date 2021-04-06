@@ -28,9 +28,7 @@ class VijestiAdapter() : RecyclerView.Adapter<VijestiAdapter.ViewHolder>() {
 
         holder.itemView.cardViewVijesti.setOnLongClickListener {
             val action =
-                VijestiFragmentDirections.actionVijestiNavDrawerToUpdateDeleteVijestiFragment(
-                    currentItem
-                )
+                VijestiFragmentDirections.actionVijestiNavDrawerToAdminPrijavaVijestiFragment(currentItem)
             holder.itemView.findNavController().navigate(action)
             true
         }

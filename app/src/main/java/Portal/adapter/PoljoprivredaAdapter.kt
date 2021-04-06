@@ -27,7 +27,7 @@ class PoljoprivredaAdapter : RecyclerView.Adapter<PoljoprivredaAdapter.ViewHolde
 
         holder.itemView.cardViewPoljoprivreda.setOnLongClickListener {
             val action =
-                PoljoprivredaFragmentDirections.actionPoljoprivredaNavDrawerToUpdateDeletePoljoprivredaFragment(currentItem)
+                PoljoprivredaFragmentDirections.actionPoljoprivredaNavDrawerToAdminPrijavaPoljoprivradaFragment(currentItem)
             holder.itemView.findNavController().navigate(action)
             true
         }

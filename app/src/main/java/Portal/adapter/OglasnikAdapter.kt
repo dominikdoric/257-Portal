@@ -30,9 +30,7 @@ class OglasnikAdapter() : RecyclerView.Adapter<OglasnikAdapter.ViewHolder>() {
 
         holder.itemView.cardViewOglasnik.setOnLongClickListener {
             val action =
-                OglasnikFragmentDirections.actionOglasnikNavDrawerToUpdateDeleteOglasnikFragment(
-                    currentItem
-                )
+                OglasnikFragmentDirections.actionOglasnikNavDrawerToAdminPrijavaOglasnikFragment(currentItem)
             holder.itemView.findNavController().navigate(action)
             true
         }
