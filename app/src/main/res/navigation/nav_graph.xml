@@ -496,7 +496,8 @@
     <fragment
         android:id="@+id/adminPrijavaObavijestiFragment"
         android:name="Portal.fragmenti.adminPrijava.AdminPrijavaObavijestiFragment"
-        android:label="AdminPrijavaObavijestiFragment" >
+        android:label="AdminPrijavaObavijestiFragment"
+        tools:layout="@layout/admin_prijava_obavijesti">
         <action
             android:id="@+id/action_adminPrijavaObavijestiFragment_to_updateDeleteObavijestiFragment2"
             app:destination="@id/updateDeleteObavijestiFragment2" />
@@ -507,7 +508,8 @@
     <fragment
         android:id="@+id/adminPrijavaOglasnikFragment"
         android:name="Portal.fragmenti.adminPrijava.AdminPrijavaOglasnikFragment"
-        android:label="AdminPrijavaOglasnikFragment" >
+        android:label="AdminPrijavaOglasnikFragment"
+        tools:layout="@layout/admin_prijava_oglasnik">
         <action
             android:id="@+id/action_adminPrijavaOglasnikFragment_to_updateDeleteOglasnikFragment"
             app:destination="@id/updateDeleteOglasnikFragment" />
@@ -518,7 +520,8 @@
     <fragment
         android:id="@+id/adminPrijavaPoljoprivradaFragment"
         android:name="Portal.fragmenti.adminPrijava.AdminPrijavaPoljoprivradaFragment"
-        android:label="AdminPrijavaPoljoprivradaFragment" >
+        android:label="AdminPrijavaPoljoprivradaFragment"
+        tools:layout="@layout/admin_prijava_poljoprivreda">
         <action
             android:id="@+id/action_adminPrijavaPoljoprivradaFragment_to_updateDeletePoljoprivredaFragment"
             app:destination="@id/updateDeletePoljoprivredaFragment" />
@@ -529,18 +532,20 @@
     <fragment
         android:id="@+id/adminPrijavaPriceCitateljaFragment"
         android:name="Portal.fragmenti.adminPrijava.AdminPrijavaPriceCitateljaFragment"
-        android:label="AdminPrijavaPriceCitateljaFragment" >
+        android:label="AdminPrijavaPriceCitateljaFragment"
+        tools:layout="@layout/admin_prijava_price_citetalja">
         <action
             android:id="@+id/action_adminPrijavaPriceCitateljaFragment_to_updateDeletePriceCitateljaFragment"
             app:destination="@id/updateDeletePriceCitateljaFragment" />
         <argument
-            android:name="currentPoljoprivreda"
-            app:argType="Portal.database.table.PoljoprivredaTable" />
+            android:name="currentPriceCitatelja"
+            app:argType="Portal.database.table.PriceCitateljaTable" />
     </fragment>
     <fragment
         android:id="@+id/adminPrijavaVijestiFragment"
         android:name="Portal.fragmenti.adminPrijava.AdminPrijavaVijestiFragment"
-        android:label="AdminPrijavaVijestiFragment" >
+        android:label="AdminPrijavaVijestiFragment"
+        tools:layout="@layout/admin_prijava_vijesti">
         <action
             android:id="@+id/action_adminPrijavaVijestiFragment_to_updateDeleteVijestiFragment"
             app:destination="@id/updateDeleteVijestiFragment" />
@@ -551,7 +556,8 @@
     <fragment
         android:id="@+id/adminPrijavaZabavaFragment"
         android:name="Portal.fragmenti.adminPrijava.AdminPrijavaZabavaFragment"
-        android:label="AdminPrijavaZabavaFragment" >
+        android:label="AdminPrijavaZabavaFragment"
+        tools:layout="@layout/admin_prijava_zabava">
         <action
             android:id="@+id/action_adminPrijavaZabavaFragment_to_updateDeleteZabavaFragment"
             app:destination="@id/updateDeleteZabavaFragment" />

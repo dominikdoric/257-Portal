@@ -1,6 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="30dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="10dp"
+        android:text="Ovaj dio aplikacije je namjenjen za admina kako bi odobrio vaše priče.
+        Molim vas ako niste admin nemojte se pokušavati prijavljivati.Hvala."
+        android:textColor="#000"
+        android:textSize="18dp" />
+
+    <EditText
+        android:id="@+id/etPrijavaAdminKorisnickoIme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="Ovdje unesite korisničko ime" />
+
+    <EditText
+        android:id="@+id/etPrijavaAdminLozinka"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="Ovdje unesite lozinku"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/etPrijavaAdminToken"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="Ovdje unesite token"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/gumbPrijavaAdminPrijaviSe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Prijavi se" />
+
+</LinearLayout>
