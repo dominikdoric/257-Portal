@@ -35,7 +35,6 @@ class AdminPrijavaSportFragment: Fragment(R.layout.admin_prijava_sport) {
             }else{
                 Toast.makeText(requireContext(),"Unjeli ste krive podatke!", Toast.LENGTH_LONG).show()
             }
-
         }
     }
 

@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 
-class AdminPrijavaZabavaFragment: Fragment(R.layout.admin_prijava_zabava) {
+class AdminPrijavaZabavaFragment : Fragment(R.layout.admin_prijava_zabava) {
 
     private lateinit var binding: AdminPrijavaZabavaBinding
     private val args by navArgs<AdminPrijavaZabavaFragmentArgs>()
@@ -23,17 +23,21 @@ class AdminPrijavaZabavaFragment: Fragment(R.layout.admin_prijava_zabava) {
             val lozinka = binding.etPrijavaAdminLozinka.text.toString()
             val token = binding.etPrijavaAdminToken.text.toString()
 
-            if(korisnickoIme == "Dominik" && token == "token" && lozinka == "lozinka"){
-                val action = AdminPrijavaZabavaFragmentDirections.actionAdminPrijavaZabavaFragmentToUpdateDeleteZabavaFragment(args.currentZabava)
+            if (korisnickoIme == "Dominik" && token == "token" && lozinka == "lozinka") {
+                val action =
+                    AdminPrijavaZabavaFragmentDirections.actionAdminPrijavaZabavaFragmentToUpdateDeleteZabavaFragment(
+                        args.currentZabava
+                    )
                 findNavController().navigate(action)
-            }else if (binding.etPrijavaAdminKorisnickoIme.text.toString().isEmpty()){
+            } else if (binding.etPrijavaAdminKorisnickoIme.text.toString().isEmpty()) {
                 binding.etPrijavaAdminKorisnickoIme.error = "Ovo polje je obavezno!"
-            }else if (binding.etPrijavaAdminLozinka.text.toString().isEmpty()){
+            } else if (binding.etPrijavaAdminLozinka.text.toString().isEmpty()) {
                 binding.etPrijavaAdminLozinka.error = "Ovo polje je obavezno!"
-            }else if(binding.etPrijavaAdminToken.text.toString().isEmpty()){
+            } else if (binding.etPrijavaAdminToken.text.toString().isEmpty()) {
                 binding.etPrijavaAdminToken.error = "Ovo polje je obavezno!"
-            }else{
-                Toast.makeText(requireContext(),"Unjeli ste krive podatke!", Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(requireContext(), "Unjeli ste krive podatke!", Toast.LENGTH_LONG)
+                    .show()
             }
         }
     }
