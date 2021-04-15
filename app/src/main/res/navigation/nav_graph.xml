@@ -358,7 +358,7 @@
     <fragment
         android:id="@+id/adminOdobriZabavu"
         android:name="Portal.fragmenti.admin.odobri.AdminOdobriZabavu"
-        android:label="AdminOdobriZabavu"
+        android:label="Admin"
         tools:layout="@layout/admin_odobri_zabava">
         <action
             android:id="@+id/action_adminOdobriZabavu_to_adminPotvrdiZabavu"
@@ -367,7 +367,7 @@
     <fragment
         android:id="@+id/adminOdobriObavijesti"
         android:name="Portal.fragmenti.admin.odobri.AdminOdobriObavijesti"
-        android:label="AdminOdobriObavijesti"
+        android:label="Admin"
         tools:layout="@layout/admin_odobri_obavijest">
         <action
             android:id="@+id/action_adminOdobriObavijesti_to_adminPotvrdiObavijesti"
@@ -376,7 +376,7 @@
     <fragment
         android:id="@+id/adminOdobriOglasnik"
         android:name="Portal.fragmenti.admin.odobri.AdminOdobriOglasnik"
-        android:label="AdminOdobriOglasnik"
+        android:label="Admin"
         tools:layout="@layout/admin_odobri_oglasnik">
         <action
             android:id="@+id/action_adminOdobriOglasnik_to_adminPotvrdiOglasnik"
@@ -385,7 +385,7 @@
     <fragment
         android:id="@+id/adminOdobriPoljoprivreda"
         android:name="Portal.fragmenti.admin.odobri.AdminOdobriPoljoprivreda"
-        android:label="AdminOdobriPoljoprivreda"
+        android:label="Admin"
         tools:layout="@layout/admin_odobri_poljoprivreda">
         <action
             android:id="@+id/action_adminOdobriPoljoprivreda_to_adminPotvrdiPoljoprivreda"
@@ -394,7 +394,7 @@
     <fragment
         android:id="@+id/adminOdobriPriceCitatelja"
         android:name="Portal.fragmenti.admin.odobri.AdminOdobriPriceCitatelja"
-        android:label="AdminOdobriPriceCitatelja"
+        android:label="Admin"
         tools:layout="@layout/admin_odobri_price_citatelja">
         <action
             android:id="@+id/action_adminOdobriPriceCitatelja_to_adminPotvrdiPriceCitatelja"
@@ -403,7 +403,7 @@
     <fragment
         android:id="@+id/adminOdobriSport"
         android:name="Portal.fragmenti.admin.odobri.AdminOdobriSport"
-        android:label="AdminOdobriSport"
+        android:label="Admin"
         tools:layout="@layout/admin_odobri_sport">
         <action
             android:id="@+id/action_adminOdobriSport_to_adminPotvrdiSport"
@@ -412,7 +412,7 @@
     <fragment
         android:id="@+id/adminOdobriVijesti"
         android:name="Portal.fragmenti.admin.odobri.AdminOdobriVijesti"
-        android:label="AdminOdobriVijesti"
+        android:label="Admin"
         tools:layout="@layout/admin_odobri_vijesti">
         <action
             android:id="@+id/action_adminOdobriVijesti_to_adminPotvrdiVijesti"
@@ -421,7 +421,7 @@
     <fragment
         android:id="@+id/adminPotvrdiSport"
         android:name="Portal.fragmenti.admin.potvrdi.AdminPotvrdiSport"
-        android:label="AdminPotvrdiSport"
+        android:label="Admin"
         tools:layout="@layout/admin_potvrdi_sport">
         <argument
             android:name="adminSportArgs"
@@ -430,7 +430,7 @@
     <fragment
         android:id="@+id/adminPotvrdiObavijesti"
         android:name="Portal.fragmenti.admin.potvrdi.AdminPotvrdiObavijesti"
-        android:label="AdminPotvrdiObavijesti"
+        android:label="Admin"
         tools:layout="@layout/admin_potvrdi_obavijesti">
         <argument
             android:name="adminObavijestiArgs"
@@ -439,7 +439,7 @@
     <fragment
         android:id="@+id/adminPotvrdiOglasnik"
         android:name="Portal.fragmenti.admin.potvrdi.AdminPotvrdiOglasnik"
-        android:label="AdminPotvrdiOglasnik"
+        android:label="Admin"
         tools:layout="@layout/admin_potvrdi_oglasnik">
         <argument
             android:name="adminOglasnikArgs"
@@ -448,7 +448,7 @@
     <fragment
         android:id="@+id/adminPotvrdiPoljoprivreda"
         android:name="Portal.fragmenti.admin.potvrdi.AdminPotvrdiPoljoprivreda"
-        android:label="AdminPotvrdiPoljoprivreda"
+        android:label="Admin"
         tools:layout="@layout/admin_potvrdi_poljoprivreda">
         <argument
             android:name="adminPoljoprivredaArgs"
@@ -457,7 +457,7 @@
     <fragment
         android:id="@+id/adminPotvrdiPriceCitatelja"
         android:name="Portal.fragmenti.admin.potvrdi.AdminPotvrdiPriceCitatelja"
-        android:label="AdminPotvrdiPriceCitatelja"
+        android:label="Admin"
         tools:layout="@layout/admin_potvrdi_price_citatelja">
         <argument
             android:name="adminPriceArgs"
@@ -466,7 +466,7 @@
     <fragment
         android:id="@+id/adminPotvrdiVijesti"
         android:name="Portal.fragmenti.admin.potvrdi.AdminPotvrdiVijesti"
-        android:label="AdminPotvrdiVijesti"
+        android:label="Admin"
         tools:layout="@layout/admin_potvrdi_vijesti">
         <argument
             android:name="adminVijestiArgs"
@@ -475,7 +475,7 @@
     <fragment
         android:id="@+id/adminPotvrdiZabavu"
         android:name="Portal.fragmenti.admin.potvrdi.AdminPotvrdiZabavu"
-        android:label="AdminPotvrdiZabavu"
+        android:label="Admin"
         tools:layout="@layout/admin_potvrdi_zabavu">
         <argument
             android:name="adminZabavaArgs"
@@ -484,7 +484,7 @@
     <fragment
         android:id="@+id/adminPrijavaSportFragment"
         android:name="Portal.fragmenti.adminPrijava.AdminPrijavaSportFragment"
-        android:label="AdminPrijavaSportFragment"
+        android:label="Admin"
         tools:layout="@layout/admin_prijava_sport">
         <action
             android:id="@+id/action_adminPrijavaSportFragment_to_updateDeleteSportFragment"
@@ -496,7 +496,7 @@
     <fragment
         android:id="@+id/adminPrijavaObavijestiFragment"
         android:name="Portal.fragmenti.adminPrijava.AdminPrijavaObavijestiFragment"
-        android:label="AdminPrijavaObavijestiFragment"
+        android:label="Admin"
         tools:layout="@layout/admin_prijava_obavijesti">
         <action
             android:id="@+id/action_adminPrijavaObavijestiFragment_to_updateDeleteObavijestiFragment2"
@@ -508,7 +508,7 @@
     <fragment
         android:id="@+id/adminPrijavaOglasnikFragment"
         android:name="Portal.fragmenti.adminPrijava.AdminPrijavaOglasnikFragment"
-        android:label="AdminPrijavaOglasnikFragment"
+        android:label="Admin"
         tools:layout="@layout/admin_prijava_oglasnik">
         <action
             android:id="@+id/action_adminPrijavaOglasnikFragment_to_updateDeleteOglasnikFragment"
@@ -532,7 +532,7 @@
     <fragment
         android:id="@+id/adminPrijavaPriceCitateljaFragment"
         android:name="Portal.fragmenti.adminPrijava.AdminPrijavaPriceCitateljaFragment"
-        android:label="AdminPrijavaPriceCitateljaFragment"
+        android:label="Admin"
         tools:layout="@layout/admin_prijava_price_citetalja">
         <action
             android:id="@+id/action_adminPrijavaPriceCitateljaFragment_to_updateDeletePriceCitateljaFragment"
@@ -544,7 +544,7 @@
     <fragment
         android:id="@+id/adminPrijavaVijestiFragment"
         android:name="Portal.fragmenti.adminPrijava.AdminPrijavaVijestiFragment"
-        android:label="AdminPrijavaVijestiFragment"
+        android:label="Admin"
         tools:layout="@layout/admin_prijava_vijesti">
         <action
             android:id="@+id/action_adminPrijavaVijestiFragment_to_updateDeleteVijestiFragment"
@@ -556,7 +556,7 @@
     <fragment
         android:id="@+id/adminPrijavaZabavaFragment"
         android:name="Portal.fragmenti.adminPrijava.AdminPrijavaZabavaFragment"
-        android:label="AdminPrijavaZabavaFragment"
+        android:label="Admin"
         tools:layout="@layout/admin_prijava_zabava">
         <action
             android:id="@+id/action_adminPrijavaZabavaFragment_to_updateDeleteZabavaFragment"
