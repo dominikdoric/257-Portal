@@ -29,14 +29,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
-            android:text="Update" />
+            android:text="Ažuriraj" />
 
         <Button
             android:id="@+id/gumbDeleteVijesti"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="70dp"
-            android:text="Delete" />
+            android:text="Obriši" />
     </LinearLayout>
 
 </LinearLayout>
