@@ -46,14 +46,14 @@
             android:id="@+id/gumbUpdateOglasnik"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="30dp"
             android:text="Update" />
 
         <Button
             android:id="@+id/gumbDeleteOglasnik"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
+            android:layout_marginLeft="70dp"
             android:text="Delete" />
     </LinearLayout>
 
