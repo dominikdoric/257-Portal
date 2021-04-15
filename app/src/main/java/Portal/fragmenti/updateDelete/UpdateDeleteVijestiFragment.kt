@@ -42,14 +42,14 @@ class UpdateDeleteVijestiFragment : Fragment(R.layout.update_delete_vijesti_frag
 
     private fun deleteItemVijesti() {
         val builder = AlertDialog.Builder(requireContext())
-        builder.setPositiveButton("Yes") { _, _ ->
+        builder.setPositiveButton("Da") { _, _ ->
             mVijestiViewModel.deleteVijesti(args.currentVijest)
             Toast.makeText(requireContext(), "Brisanje uspješno!", Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_updateDeleteVijestiFragment_to_vijestiNavDrawer)
         }
-        builder.setNegativeButton("No") { _, _ -> }
-        builder.setTitle("Delete ${args.currentVijest.vijestiNaslov}?")
-        builder.setMessage("Are you sure you want to delete ${args.currentVijest.vijestiNaslov}?")
+        builder.setNegativeButton("Ne") { _, _ -> }
+        builder.setTitle("Obrisati ${args.currentVijest.vijestiNaslov}?")
+        builder.setMessage("Jeste li sigurni da želite obrisati ${args.currentVijest.vijestiNaslov}?")
         builder.create().show()
     }
 

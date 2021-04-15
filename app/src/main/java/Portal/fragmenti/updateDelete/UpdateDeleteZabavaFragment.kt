@@ -41,14 +41,14 @@ class UpdateDeleteZabavaFragment : Fragment(R.layout.update_delete_zabava_fragme
 
     private fun deleteItemZabava() {
         val builder = AlertDialog.Builder(requireContext())
-        builder.setPositiveButton("Yes") { _, _ ->
+        builder.setPositiveButton("Da") { _, _ ->
             mZabavaViewModel.deleteZabava(args.currentZabava)
             Toast.makeText(requireContext(), "Brisanje uspješno!", Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_updateDeleteZabavaFragment_to_zabavaNavDrawer)
         }
-        builder.setNegativeButton("No") { _, _ -> }
-        builder.setTitle("Delete ${args.currentZabava.zabavaNaslov}?")
-        builder.setMessage("Are you sure you want to delete ${args.currentZabava.zabavaNaslov}?")
+        builder.setNegativeButton("Ne") { _, _ -> }
+        builder.setTitle("Obrisati ${args.currentZabava.zabavaNaslov}?")
+        builder.setMessage("Jeste li sigurni da želite obrisati ${args.currentZabava.zabavaNaslov}?")
         builder.create().show()
     }
 

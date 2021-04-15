@@ -42,14 +42,14 @@ class UpdateDeleteSportFragment : Fragment(R.layout.update_delete_sport_fragment
 
     private fun deleteItemSport() {
         val builder = AlertDialog.Builder(requireContext())
-        builder.setPositiveButton("Yes") { _, _ ->
+        builder.setPositiveButton("Da") { _, _ ->
             mSportViewModel.deleteSport(args.currentSport)
             Toast.makeText(requireContext(), "Brisanje uspješno!", Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_updateDeleteSportFragment_to_sportNavDrawer)
         }
-        builder.setNegativeButton("No") { _, _ -> }
-        builder.setTitle("Delete ${args.currentSport.sportNaslov}?")
-        builder.setMessage("Are you sure you want to delete ${args.currentSport.sportNaslov}?")
+        builder.setNegativeButton("Ne") { _, _ -> }
+        builder.setTitle("Obrisati ${args.currentSport.sportNaslov}?")
+        builder.setMessage("Jeste li sigurni da želite obrisati ${args.currentSport.sportNaslov}?")
         builder.create().show()
     }
 

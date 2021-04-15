@@ -44,14 +44,14 @@ class UpdateDeleteObavijestiFragment : Fragment(R.layout.update_delete_obavijest
 
     private fun deleteItemObavijesti() {
         val builder = AlertDialog.Builder(requireContext())
-        builder.setPositiveButton("Yes") { _, _ ->
+        builder.setPositiveButton("Da") { _, _ ->
             mObavijestiViewModel.deleteObavijesti(args.currentObavijest)
             Toast.makeText(requireContext(), "Brisanje uspješno!", Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_updateDeleteObavijestiFragment2_to_obavijestiNavDrawer)
         }
-        builder.setNegativeButton("No") { _, _ -> }
-        builder.setTitle("Delete ${args.currentObavijest.obavijestiNaslov}?")
-        builder.setMessage("Are you sure you want to delete ${args.currentObavijest.obavijestiNaslov}?")
+        builder.setNegativeButton("Ne") { _, _ -> }
+        builder.setTitle("Obrisati ${args.currentObavijest.obavijestiNaslov}?")
+        builder.setMessage("Jeste li sigurni da želite obrisati?")
         builder.create().show()
     }
 

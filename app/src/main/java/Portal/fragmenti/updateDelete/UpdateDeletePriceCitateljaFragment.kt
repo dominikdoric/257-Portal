@@ -43,14 +43,14 @@ class UpdateDeletePriceCitateljaFragment :
 
     private fun deleteItemPriceCitatelja() {
         val builder = AlertDialog.Builder(requireContext())
-        builder.setPositiveButton("Yes") { _, _ ->
+        builder.setPositiveButton("Da") { _, _ ->
             mPriceCitateljaViewModel.deletePriceCitatelja(args.currentPriceCitatelja)
             Toast.makeText(requireContext(), "Brisanje uspješno!", Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_updateDeletePriceCitateljaFragment_to_priceCitateljaNavDrawer)
         }
-        builder.setNegativeButton("No") { _, _ -> }
-        builder.setTitle("Delete ${args.currentPriceCitatelja.priceCitateljaNaslov}?")
-        builder.setMessage("Are you sure you want to delete ${args.currentPriceCitatelja.priceCitateljaNaslov}?")
+        builder.setNegativeButton("Ne") { _, _ -> }
+        builder.setTitle("Obrisati ${args.currentPriceCitatelja.priceCitateljaNaslov}?")
+        builder.setMessage("Jeste li sigurni da želite obrisati ${args.currentPriceCitatelja.priceCitateljaNaslov}?")
         builder.create().show()
     }
 

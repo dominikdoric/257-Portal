@@ -44,14 +44,14 @@ class UpdateDeleteOglasnikFragment : Fragment(R.layout.update_delete_oglasnik_fr
 
     private fun deleteItemOglasnik() {
         val builder = AlertDialog.Builder(requireContext())
-        builder.setPositiveButton("Yes") { _, _ ->
+        builder.setPositiveButton("Da") { _, _ ->
             mOglasnikViewModel.deleteOglasnik(args.currentOglasnik)
             Toast.makeText(requireContext(), "Brisanje uspješno!", Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_updateDeleteOglasnikFragment_to_oglasnikNavDrawer)
         }
-        builder.setNegativeButton("No") { _, _ -> }
-        builder.setTitle("Delete ${args.currentOglasnik.oglasnikNaslov}?")
-        builder.setMessage("Are you sure you want to delete ${args.currentOglasnik.oglasnikNaslov}?")
+        builder.setNegativeButton("Ne") { _, _ -> }
+        builder.setTitle("Obrisati ${args.currentOglasnik.oglasnikNaslov}?")
+        builder.setMessage("Jeste li sigurni da želite obrisati ${args.currentOglasnik.oglasnikNaslov}?")
         builder.create().show()
     }
 
