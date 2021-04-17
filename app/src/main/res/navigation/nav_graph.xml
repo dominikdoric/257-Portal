@@ -394,7 +394,11 @@
         tools:layout="@layout/update_delete_poljoprivreda_fragment">
         <action
             android:id="@+id/action_updateDeletePoljoprivredaFragment_to_poljoprivredaNavDrawer"
-            app:destination="@id/poljoprivredaNavDrawer" />
+            app:destination="@id/poljoprivredaNavDrawer"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_left"/>
         <argument
             android:name="updatePoljoprivredaArgs"
             app:argType="Portal.database.table.PoljoprivredaTable" />
@@ -568,7 +572,11 @@
         tools:layout="@layout/admin_prijava_sport">
         <action
             android:id="@+id/action_adminPrijavaSportFragment_to_updateDeleteSportFragment"
-            app:destination="@id/updateDeleteSportFragment" />
+            app:destination="@id/updateDeleteSportFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <argument
             android:name="currentSport"
             app:argType="Portal.database.table.SportTable" />
@@ -580,7 +588,11 @@
         tools:layout="@layout/admin_prijava_obavijesti">
         <action
             android:id="@+id/action_adminPrijavaObavijestiFragment_to_updateDeleteObavijestiFragment2"
-            app:destination="@id/updateDeleteObavijestiFragment2" />
+            app:destination="@id/updateDeleteObavijestiFragment2"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <argument
             android:name="currentObavijesti"
             app:argType="Portal.database.table.ObavijestiTable" />
@@ -592,7 +604,11 @@
         tools:layout="@layout/admin_prijava_oglasnik">
         <action
             android:id="@+id/action_adminPrijavaOglasnikFragment_to_updateDeleteOglasnikFragment"
-            app:destination="@id/updateDeleteOglasnikFragment" />
+            app:destination="@id/updateDeleteOglasnikFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <argument
             android:name="currentOglasnik"
             app:argType="Portal.database.table.OglasnikTable" />
@@ -604,7 +620,11 @@
         tools:layout="@layout/admin_prijava_poljoprivreda">
         <action
             android:id="@+id/action_adminPrijavaPoljoprivradaFragment_to_updateDeletePoljoprivredaFragment"
-            app:destination="@id/updateDeletePoljoprivredaFragment" />
+            app:destination="@id/updateDeletePoljoprivredaFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <argument
             android:name="currentPoljoprivreda"
             app:argType="Portal.database.table.PoljoprivredaTable" />
@@ -616,7 +636,11 @@
         tools:layout="@layout/admin_prijava_price_citetalja">
         <action
             android:id="@+id/action_adminPrijavaPriceCitateljaFragment_to_updateDeletePriceCitateljaFragment"
-            app:destination="@id/updateDeletePriceCitateljaFragment" />
+            app:destination="@id/updateDeletePriceCitateljaFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <argument
             android:name="currentPriceCitatelja"
             app:argType="Portal.database.table.PriceCitateljaTable" />
@@ -628,7 +652,11 @@
         tools:layout="@layout/admin_prijava_vijesti">
         <action
             android:id="@+id/action_adminPrijavaVijestiFragment_to_updateDeleteVijestiFragment"
-            app:destination="@id/updateDeleteVijestiFragment" />
+            app:destination="@id/updateDeleteVijestiFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <argument
             android:name="currentVijesti"
             app:argType="Portal.database.table.VijestiTable" />
@@ -640,7 +668,11 @@
         tools:layout="@layout/admin_prijava_zabava">
         <action
             android:id="@+id/action_adminPrijavaZabavaFragment_to_updateDeleteZabavaFragment"
-            app:destination="@id/updateDeleteZabavaFragment" />
+            app:destination="@id/updateDeleteZabavaFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <argument
             android:name="currentZabava"
             app:argType="Portal.database.table.ZabavaTable" />
