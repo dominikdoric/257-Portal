@@ -193,7 +193,11 @@
         tools:layout="@layout/update_delete_obavijesti_fragment">
         <action
             android:id="@+id/action_updateDeleteObavijestiFragment2_to_obavijestiNavDrawer"
-            app:destination="@id/obavijestiNavDrawer" />
+            app:destination="@id/obavijestiNavDrawer"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_left"/>
         <argument
             android:name="currentObavijest"
             app:argType="Portal.database.table.ObavijestiTable" />
@@ -205,7 +209,11 @@
         tools:layout="@layout/update_delete_sport_fragment">
         <action
             android:id="@+id/action_updateDeleteSportFragment_to_sportNavDrawer"
-            app:destination="@id/sportNavDrawer" />
+            app:destination="@id/sportNavDrawer"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_left"/>
         <argument
             android:name="currentSport"
             app:argType="Portal.database.table.SportTable" />
@@ -217,7 +225,11 @@
         tools:layout="@layout/update_delete_vijesti_fragment">
         <action
             android:id="@+id/action_updateDeleteVijestiFragment_to_vijestiNavDrawer"
-            app:destination="@id/vijestiNavDrawer" />
+            app:destination="@id/vijestiNavDrawer"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_left"/>
         <argument
             android:name="currentVijest"
             app:argType="Portal.database.table.VijestiTable" />
@@ -229,7 +241,11 @@
         tools:layout="@layout/update_delete_zabava_fragment">
         <action
             android:id="@+id/action_updateDeleteZabavaFragment_to_zabavaNavDrawer"
-            app:destination="@id/zabavaNavDrawer" />
+            app:destination="@id/zabavaNavDrawer"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_left"/>
         <argument
             android:name="currentZabava"
             app:argType="Portal.database.table.ZabavaTable" />
@@ -241,7 +257,11 @@
         tools:layout="@layout/update_delete_oglasnik_fragment">
         <action
             android:id="@+id/action_updateDeleteOglasnikFragment_to_oglasnikNavDrawer"
-            app:destination="@id/oglasnikNavDrawer" />
+            app:destination="@id/oglasnikNavDrawer"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_left"/>
         <argument
             android:name="currentOglasnik"
             app:argType="Portal.database.table.OglasnikTable" />
@@ -298,7 +318,11 @@
         tools:layout="@layout/dodaj_novo_price_citatelja_fragment">
         <action
             android:id="@+id/action_menu_dodajNovuPricuCitatelja_to_priceCitateljaNavDrawer"
-            app:destination="@id/priceCitateljaNavDrawer" />
+            app:destination="@id/priceCitateljaNavDrawer"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_left"/>
     </fragment>
     <fragment
         android:id="@+id/detailPriceCitateljaFragment"
@@ -316,7 +340,11 @@
         tools:layout="@layout/update_delete_price_citatelja_fragment">
         <action
             android:id="@+id/action_updateDeletePriceCitateljaFragment_to_priceCitateljaNavDrawer"
-            app:destination="@id/priceCitateljaNavDrawer" />
+            app:destination="@id/priceCitateljaNavDrawer"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_left"/>
         <argument
             android:name="currentPriceCitatelja"
             app:argType="Portal.database.table.PriceCitateljaTable" />
@@ -337,7 +365,11 @@
         tools:layout="@layout/dodaj_novo_poljoprivreda_fragment">
         <action
             android:id="@+id/action_menu_dodajNovuPoljoprivredu_to_poljoprivredaNavDrawer"
-            app:destination="@id/poljoprivredaNavDrawer" />
+            app:destination="@id/poljoprivredaNavDrawer"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_left"/>
     </fragment>
     <fragment
         android:id="@+id/poljoprivredaNavDrawer"
