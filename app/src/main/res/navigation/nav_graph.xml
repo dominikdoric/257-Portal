@@ -431,13 +431,25 @@
             app:destination="@id/adminOdobriPoljoprivreda" />
         <action
             android:id="@+id/action_adminPrijavljenFragment_to_adminOdobriPriceCitatelja"
-            app:destination="@id/adminOdobriPriceCitatelja" />
+            app:destination="@id/adminOdobriPriceCitatelja"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_adminPrijavljenFragment_to_adminOdobriSport"
-            app:destination="@id/adminOdobriSport" />
+            app:destination="@id/adminOdobriSport"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_adminPrijavljenFragment_to_adminOdobriVijesti"
-            app:destination="@id/adminOdobriVijesti" />
+            app:destination="@id/adminOdobriVijesti"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/adminOdobriZabavu"
@@ -446,7 +458,11 @@
         tools:layout="@layout/admin_odobri_zabava">
         <action
             android:id="@+id/action_adminOdobriZabavu_to_adminPotvrdiZabavu"
-            app:destination="@id/adminPotvrdiZabavu" />
+            app:destination="@id/adminPotvrdiZabavu"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/adminOdobriObavijesti"
@@ -455,7 +471,11 @@
         tools:layout="@layout/admin_odobri_obavijest">
         <action
             android:id="@+id/action_adminOdobriObavijesti_to_adminPotvrdiObavijesti"
-            app:destination="@id/adminPotvrdiObavijesti" />
+            app:destination="@id/adminPotvrdiObavijesti"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/adminOdobriOglasnik"
@@ -464,7 +484,11 @@
         tools:layout="@layout/admin_odobri_oglasnik">
         <action
             android:id="@+id/action_adminOdobriOglasnik_to_adminPotvrdiOglasnik"
-            app:destination="@id/adminPotvrdiOglasnik" />
+            app:destination="@id/adminPotvrdiOglasnik"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/adminOdobriPoljoprivreda"
@@ -473,7 +497,11 @@
         tools:layout="@layout/admin_odobri_poljoprivreda">
         <action
             android:id="@+id/action_adminOdobriPoljoprivreda_to_adminPotvrdiPoljoprivreda"
-            app:destination="@id/adminPotvrdiPoljoprivreda" />
+            app:destination="@id/adminPotvrdiPoljoprivreda"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/adminOdobriPriceCitatelja"
@@ -482,7 +510,11 @@
         tools:layout="@layout/admin_odobri_price_citatelja">
         <action
             android:id="@+id/action_adminOdobriPriceCitatelja_to_adminPotvrdiPriceCitatelja"
-            app:destination="@id/adminPotvrdiPriceCitatelja" />
+            app:destination="@id/adminPotvrdiPriceCitatelja"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/adminOdobriSport"
@@ -491,7 +523,11 @@
         tools:layout="@layout/admin_odobri_sport">
         <action
             android:id="@+id/action_adminOdobriSport_to_adminPotvrdiSport"
-            app:destination="@id/adminPotvrdiSport" />
+            app:destination="@id/adminPotvrdiSport"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/adminOdobriVijesti"
@@ -500,7 +536,11 @@
         tools:layout="@layout/admin_odobri_vijesti">
         <action
             android:id="@+id/action_adminOdobriVijesti_to_adminPotvrdiVijesti"
-            app:destination="@id/adminPotvrdiVijesti" />
+            app:destination="@id/adminPotvrdiVijesti"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/adminPotvrdiSport"
