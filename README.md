@@ -15,7 +15,7 @@ At this point the app consists of Navigation Drawer and Bottom Navigation Drawer
 - Minimum SDK Level 26
 - [Kotlin](https://kotlinlang.org/) - First class and official programming language for Android development.
 - [Firebase](https://firebase.google.com/)- Firebase is Google's mobile platform that helps you quickly develop high-quality apps.
-- [Coroutines](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/) - For asynchronous and more..
+- [Coroutines](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/) - For asynchronous and non_blocking programming
 - [Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/) - A cold asynchronous data stream that sequentially emits values and completes normally or with an exception.
 - [Navigation Component](https://developer.android.com/guide/navigation) -  Android Jetpack's Navigation component helps you implement navigation, from simple button clicks to more complex patterns, such as app bars and the navigation drawer.
 - [Retrofit](https://square.github.io/retrofit/) - to aid with API communicaton
