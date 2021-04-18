@@ -7,6 +7,7 @@ plugins {
 
 apply plugin: 'androidx.navigation.safeargs.kotlin'
 apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 30
@@ -85,5 +86,8 @@ dependencies {
 
     // Activity KTX for viewModels()
     implementation "androidx.activity:activity-ktx:1.2.2"
+
+    //Firebase
+    implementation 'com.google.firebase:firebase-analytics'
 
 }
