@@ -59,8 +59,8 @@ dependencies {
     androidTestImplementation "androidx.room:room-testing:2.2.6"
 
     //Navigation Components
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.4'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.3.4'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
 
     //Kotlin Components
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
@@ -88,6 +88,6 @@ dependencies {
     implementation "androidx.activity:activity-ktx:1.2.2"
 
     //Firebase
-    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-firestore-ktx:22.1.2'
 
 }

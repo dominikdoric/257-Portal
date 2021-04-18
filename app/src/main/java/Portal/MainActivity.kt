@@ -1,6 +1,7 @@
 package Portal
 
 import Portal.a257.R
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -55,6 +56,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == R.id.firestore){
+            val intent = Intent(this,Firestore::class.java)
+            startActivity(intent)
+        }
         return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
     }
 
