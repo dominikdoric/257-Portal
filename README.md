@@ -11,6 +11,17 @@ At this stage there are a few things with which I am satisfied but app is still 
 # About
 At this point the app consists of Navigation Drawer and Bottom Navigation Drawer and when I clik on any of their items app sends me to the specific fragment. App consists of fragments for general news, sport news, notices, news about fun events a there is also implemented that users of this app can also add their own story. When clicked on any of items in RecyclerView app sends us to detail fragment where we see much more information about the specific piece of news. Also this app has implemented functionality that when RecyclerView item is long pressed then we are navigated to a login fragment where admin logs in and only he can update or delete specific item. This app is still in process of making so there will be more features in future.
 
+<p float="left"> 
+  <img src="https://user-images.githubusercontent.com/64093104/115160141-f6239e00-a096-11eb-9274-2fd4b03de893.png" width="200" height="400"/>
+  <img src="https://user-images.githubusercontent.com/64093104/115160057-7d244680-a096-11eb-9267-cbe1c2215e78.png" width="200" height="400"/>
+  <img src="https://user-images.githubusercontent.com/64093104/115160107-bceb2e00-a096-11eb-9cf7-a8943bf22634.png" width="200" height="400"/>
+</p>
+
+<p float="left"> 
+  <img src="https://user-images.githubusercontent.com/64093104/115160334-00926780-a098-11eb-8957-c5a8061e2e72.png" width="200" height="400"/>
+  <img src="https://user-images.githubusercontent.com/64093104/115160454-772f6500-a098-11eb-850e-7212556c7e3c.png" width="200" height="400"/>
+</p>
+
 # Tech stack & Open-source libraries 🛠
 - Minimum SDK Level 26
 - [Kotlin](https://kotlinlang.org/) - First class and official programming language for Android development.
