@@ -1,20 +1,20 @@
 # 257 Portal
-257 Portal is a small aplication for my hometown and i started developing it just a few week ago, this app is like most of the news app and will contain all relevant data about place.
-At this stage there is not very much things implemented in the app but but these are things which I will implement over time. This app is based on modern Android application tech-stacks, and MVVM architecture and also this app is made in single activity multiple fragments design pattern. App is stil in a process of making.
+257 Portal is a small aplication about my hometown and i started developing it for about month and i half ago, this app is like most of the news app and will contain all relevant data about place.
+At this stage there are a few things with which I am satisfied but app is still long way from what I imagine it would be. This app is based on modern Android application tech-stacks, and MVVM architecture and also this app is made in single activity multiple fragments design pattern. App is stil in a process of making and at this stage I am implementing Firebase as backend service.
   - Information about sport events
   - Part of the app where all notices will be available
   - Information about all fun events and doings
   - There will also be a marketplace where people will sell their stuff
   - Part of the app where weather will be displayed
-  - Searching through databse to find needed data
   - And there will also be a section where readers can enter their own articles
 
 # About
-At this point the app consists of Navigation Drawer and Bottom Navigation Drawer and when I clik on any of their items app sends me to the specific fragment. App consists of fragments for general news, sport news, notices, news about fun events a there is also implemented that users of this app can also add their own story. When clicked on any of items in RecyclerView app sends us to detail fragment where we see much more information about the specific piece of news. Also this app has implemented functionality that when long pressed we can update or delete specific item. This app is still in process of making so there will be more features in future.
+At this point the app consists of Navigation Drawer and Bottom Navigation Drawer and when I clik on any of their items app sends me to the specific fragment. App consists of fragments for general news, sport news, notices, news about fun events a there is also implemented that users of this app can also add their own story. When clicked on any of items in RecyclerView app sends us to detail fragment where we see much more information about the specific piece of news. Also this app has implemented functionality that when RecyclerView item is long pressed then we are navigated to a login fragment where admin logs in and only he can update or delete specific item. This app is still in process of making so there will be more features in future.
 
 # Tech stack & Open-source libraries 🛠
 - Minimum SDK Level 26
 - [Kotlin](https://kotlinlang.org/) - First class and official programming language for Android development.
+- [Firebase](https://firebase.google.com/)- Firebase is Google's mobile platform that helps you quickly develop high-quality apps.
 - [Coroutines](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/) - For asynchronous and more..
 - [Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/) - A cold asynchronous data stream that sequentially emits values and completes normally or with an exception.
 - [Navigation Component](https://developer.android.com/guide/navigation) -  Android Jetpack's Navigation component helps you implement navigation, from simple button clicks to more complex patterns, such as app bars and the navigation drawer.
