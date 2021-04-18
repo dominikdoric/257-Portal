@@ -30,10 +30,29 @@ class Firestore: AppCompatActivity() {
             savePerson(person)
         }
 
-        btn_retrieveFirestore.setOnClickListener {
+        subscribeToRealTimeUpdates()
 
+        //btn_retrieveFirestore.setOnClickListener {
+        //    retrievePersons()
+        //}
+
+    }
+
+    private fun subscribeToRealTimeUpdates(){
+        personCollectionRef.addSnapshotListener { querySnapshot, firebaseFirestoreException ->
+            firebaseFirestoreException?.let {
+                Toast.makeText(this,it.message,Toast.LENGTH_LONG).show()
+                return@addSnapshotListener
+            }
+            querySnapshot?.let {
+                val sb = StringBuilder()
+                for(document in it){
+                    val person = document.toObject<Person>()
+                    sb.append("$person\n")
+                }
+                firestore_textView.text = sb.toString()
+            }
         }
-
     }
 
     private fun retrievePersons() = CoroutineScope(Dispatchers.IO).launch {
