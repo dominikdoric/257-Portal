@@ -33,5 +33,16 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Save data to database" />
+    <Button
+        android:id="@+id/btn_retrieveFirestore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Retrieve data" />
+
+    <TextView
+        android:id="@+id/firestore_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

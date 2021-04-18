@@ -89,5 +89,6 @@ dependencies {
 
     //Firebase
     implementation 'com.google.firebase:firebase-firestore-ktx:22.1.2'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.1.1'
 
 }
