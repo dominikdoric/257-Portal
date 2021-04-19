@@ -4,6 +4,7 @@ import Portal.a257.R
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
@@ -32,6 +33,13 @@ class Firestore: AppCompatActivity() {
         btn_retrieveFirestore.setOnClickListener {
             retrievePersons()
         }
+
+        btn_updateFirestore.setOnClickListener {
+            val oldPerson = getOldPerson()
+            val newPersonMap = getNewPersonMap()
+            updatePerson(oldPerson,newPersonMap)
+        }
+
     }
 
     private fun getOldPerson(): Person{
@@ -68,9 +76,15 @@ class Firestore: AppCompatActivity() {
         if (personQuery.documents.isNotEmpty()){
             for(document in personQuery){
                 try {
-
-                }catch (){
-
+                    personCollectionRef.document(document.id).set(
+                        newPersonMap,
+                        SetOptions.merge()
+                    ).await()
+                }catch (e: Exception){
+                    withContext(Dispatchers.Main){
+                        Toast.makeText(this@Firestore,e.message,
+                            Toast.LENGTH_LONG).show()
+                    }
                 }
             }
         }else{
