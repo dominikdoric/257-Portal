@@ -761,4 +761,9 @@
             android:name="currentZabava"
             app:argType="Portal.database.table.ZabavaTable" />
     </fragment>
+    <fragment
+        android:id="@+id/firestoreFragment"
+        android:name="Portal.firestore.FirestoreFragment"
+        android:label="FirestoreFragment"
+        tools:layout="@layout/firestore_fragment"/>
 </navigation>
