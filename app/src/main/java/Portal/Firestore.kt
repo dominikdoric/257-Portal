@@ -30,7 +30,7 @@ class Firestore: AppCompatActivity() {
             savePerson(person)
         }
 
-        subscribeToRealTimeUpdates()
+        //subscribeToRealTimeUpdates()
 
         //btn_retrieveFirestore.setOnClickListener {
         //    retrievePersons()

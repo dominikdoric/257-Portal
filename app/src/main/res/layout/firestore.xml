@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:orientation="vertical"
     android:padding="40dp">
 
@@ -10,22 +9,22 @@
         android:id="@+id/firestore_firstName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="First name"
-        android:layout_marginBottom="20dp" />
+        android:layout_marginBottom="20dp"
+        android:hint="First name" />
 
     <EditText
         android:id="@+id/firestore_lastName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Last name"
-        android:layout_marginBottom="20dp" />
+        android:layout_marginBottom="20dp"
+        android:hint="Last name" />
 
     <EditText
         android:id="@+id/firestore_age"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Age"
-        android:layout_marginBottom="20dp" />
+        android:layout_marginBottom="20dp"
+        android:hint="Age" />
 
     <Button
         android:id="@+id/btn_firestore"
@@ -33,16 +32,40 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Save data to database" />
+
     <Button
         android:id="@+id/btn_retrieveFirestore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:text="Retrieve data" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/et_od"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="6"
+            android:hint="Od" />
+
+        <EditText
+            android:id="@+id/et_do"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:ems="6"
+            android:hint="Do" />
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/firestore_textView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
 </LinearLayout>
