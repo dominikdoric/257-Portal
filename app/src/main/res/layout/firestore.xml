@@ -75,17 +75,17 @@
 
         <Button
             android:id="@+id/btn_saveFirestore"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
             android:text="Save data" />
 
         <Button
             android:id="@+id/btn_updateFirestore"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="20dp"
             android:text="Update data" />
     </LinearLayout>
@@ -97,21 +97,29 @@
 
         <Button
             android:id="@+id/btn_retrieveFirestore"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:text="Retrieve data" />
 
         <Button
             android:id="@+id/btn_deleteFirestore"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
             android:text="Delete data" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_batchedFirestore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Do batched write" />
 
     <LinearLayout
         android:layout_width="match_parent"
