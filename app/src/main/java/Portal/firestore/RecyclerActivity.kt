@@ -8,7 +8,6 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
-import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_recycler.*
 
 class RecyclerActivity : AppCompatActivity() {
@@ -27,9 +26,9 @@ class RecyclerActivity : AppCompatActivity() {
 
     private fun setUpRecyclerView() {
         val query: Query = collectionReference
-        val firestoreRecyclerOption: FirestoreRecyclerOptions<UserModel> =
-            FirestoreRecyclerOptions.Builder<UserModel>()
-                .setQuery(query,UserModel::class.java)
+        val firestoreRecyclerOption: FirestoreRecyclerOptions<Person> =
+            FirestoreRecyclerOptions.Builder<Person>()
+                .setQuery(query,Person::class.java)
                 .build()
         userAdapter = FirestoreAdapter(firestoreRecyclerOption)
         firestoreRecycler.layoutManager = LinearLayoutManager(this)
