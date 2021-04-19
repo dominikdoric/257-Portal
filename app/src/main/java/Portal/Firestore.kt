@@ -46,6 +46,10 @@ class Firestore: AppCompatActivity() {
             deletePerson(person)
         }
 
+        btn_batchedFirestore.setOnClickListener {
+            changeName("778c5nhEMfjzJ6zdAvM4","Elon","Musk")
+        }
+
     }
 
     private fun getOldPerson(): Person{
@@ -127,6 +131,20 @@ class Firestore: AppCompatActivity() {
                 Toast.makeText(this@Firestore,"No person matched to query",
                 Toast.LENGTH_LONG).show()
             }
+        }
+    }
+
+    private fun changeName(personId: String,newFirstName: String, newLastName: String) = CoroutineScope(Dispatchers.IO).launch {
+        try {
+            Firebase.firestore.runBatch { batch ->
+                val personRef = personCollectionRef.document(personId)
+                batch.update(personRef, "firstName",newFirstName)
+                batch.update(personRef,"lastName",newLastName)
+            }.await()
+        }catch (e: Exception){
+           withContext(Dispatchers.Main){
+               Toast.makeText(this@Firestore,e.message,Toast.LENGTH_LONG).show()
+           }
         }
     }
 
