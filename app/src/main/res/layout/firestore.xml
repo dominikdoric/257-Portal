@@ -3,40 +3,97 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="40dp">
+    android:padding="20dp">
 
-    <EditText
-        android:id="@+id/firestore_firstName"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:hint="First name" />
+        android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/firestore_lastName"
+        <EditText
+            android:id="@+id/firestore_firstName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:hint="First name" />
+
+        <EditText
+            android:id="@+id/firestore_firstNameUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="20dp"
+            android:hint="First name" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:hint="Last name" />
+        android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/firestore_age"
+        <EditText
+            android:id="@+id/firestore_lastName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:hint="First name" />
+
+        <EditText
+            android:id="@+id/firestore_lastNameUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="20dp"
+            android:hint="First name" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:hint="Age" />
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/btn_firestore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Save data to database" />
+        <EditText
+            android:id="@+id/firestore_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:hint="First name" />
+
+        <EditText
+            android:id="@+id/firestore_ageUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="20dp"
+            android:hint="First name" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_saveFirestore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:text="Save data" />
+
+        <Button
+            android:id="@+id/btn_updateFirestore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp"
+            android:text="Update data" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/btn_retrieveFirestore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:text="Retrieve data" />
 
@@ -64,10 +121,19 @@
     </LinearLayout>
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="PERSON DATA"
+        android:textColor="#000"
+        android:textSize="20dp" />
+
+    <TextView
         android:id="@+id/firestore_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16dp"
-        android:textColor="#000"/>
+        android:layout_marginTop="20dp"
+        android:textColor="#000"
+        android:textSize="16dp" />
 
 </LinearLayout>
