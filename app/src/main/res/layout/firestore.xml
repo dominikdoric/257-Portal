@@ -56,8 +56,8 @@
             android:id="@+id/firestore_age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="4"
             android:layout_marginBottom="20dp"
+            android:ems="4"
             android:hint="Age" />
 
         <EditText
@@ -90,13 +90,28 @@
             android:text="Update data" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_retrieveFirestore"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp"
-        android:text="Retrieve data" />
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_retrieveFirestore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:text="Retrieve data" />
+
+        <Button
+            android:id="@+id/btn_deleteFirestore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:text="Delete data" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

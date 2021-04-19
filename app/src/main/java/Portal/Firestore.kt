@@ -4,6 +4,7 @@ import Portal.a257.R
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
@@ -40,6 +41,11 @@ class Firestore: AppCompatActivity() {
             updatePerson(oldPerson,newPersonMap)
         }
 
+        btn_deleteFirestore.setOnClickListener {
+            val person = getOldPerson()
+            deletePerson(person)
+        }
+
     }
 
     private fun getOldPerson(): Person{
@@ -64,6 +70,35 @@ class Firestore: AppCompatActivity() {
             map["age"] = age.toInt()
         }
         return map
+    }
+
+    private fun deletePerson(person: Person) = CoroutineScope(Dispatchers.IO).launch {
+        val personQuery = personCollectionRef
+            .whereEqualTo("firstName",person.firstName)
+            .whereEqualTo("lastName",person.lastName)
+            .whereEqualTo("age",person.age)
+            .get()
+            .await()
+        if (personQuery.documents.isNotEmpty()){
+            for(document in personQuery){
+                try {
+                    personCollectionRef.document(document.id).delete().await()
+                    //personCollectionRef.document(document.id).update(mapOf(
+                    //    "firstName" to FieldValue.delete()
+                    //))
+                }catch (e: Exception){
+                    withContext(Dispatchers.Main){
+                        Toast.makeText(this@Firestore,e.message,
+                            Toast.LENGTH_LONG).show()
+                    }
+                }
+            }
+        }else{
+            withContext(Dispatchers.Main){
+                Toast.makeText(this@Firestore,"No person matched to query",
+                    Toast.LENGTH_LONG).show()
+            }
+        }
     }
 
     private fun updatePerson(person: Person, newPersonMap: Map<String,Any>) = CoroutineScope(Dispatchers.IO).launch {
