@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Portal257">
-        <activity android:name="Portal.Firestore"/>
+        <activity android:name="Portal.firestore.RecyclerActivity"></activity>
+        <activity android:name="Portal.firestore.Firestore" />
         <activity android:name="Portal.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

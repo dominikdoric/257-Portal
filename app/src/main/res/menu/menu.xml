@@ -42,5 +42,10 @@
         android:title="Firestore"
         app:showAsAction="never"
         android:menuCategory="secondary"/>
+    <item
+        android:id="@+id/firestoreRecycler"
+        android:title="Firestore Recycler"
+        app:showAsAction="never"
+        android:menuCategory="secondary"/>
 
 </menu>

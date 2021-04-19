@@ -1,4 +1,4 @@
-package Portal
+package Portal.firestore
 
 data class Person (
     var firstName: String = "",

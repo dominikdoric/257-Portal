@@ -1,10 +1,9 @@
-package Portal
+package Portal.firestore
 
 import Portal.a257.R
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
@@ -56,7 +55,7 @@ class Firestore: AppCompatActivity() {
 
     }
 
-    private fun getOldPerson(): Person{
+    private fun getOldPerson(): Person {
         val firstName = firestore_firstName.text.toString()
         val lastName = firestore_lastName.text.toString()
         val age = firestore_age.text.toString().toInt()
