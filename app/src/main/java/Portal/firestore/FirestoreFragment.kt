@@ -9,7 +9,7 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
-import kotlinx.android.synthetic.main.activity_recycler.*
+import kotlinx.android.synthetic.main.firestore_fragment.*
 
 class FirestoreFragment: Fragment(R.layout.firestore_fragment) {
 
@@ -31,11 +31,10 @@ class FirestoreFragment: Fragment(R.layout.firestore_fragment) {
                 .setQuery(query,Person::class.java)
                 .build()
         userAdapter = FirestoreAdapter(firestoreRecyclerOption)
-        firestoreRecycler.layoutManager = LinearLayoutManager(requireContext())
-        firestoreRecycler.adapter = userAdapter
+        fragmentRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        fragmentRecyclerView.adapter = userAdapter
     }
 
-    /*
     override fun onStart() {
         super.onStart()
         userAdapter!!.startListening()
@@ -45,6 +44,5 @@ class FirestoreFragment: Fragment(R.layout.firestore_fragment) {
         super.onDestroy()
         userAdapter!!.stopListening()
     }
-     */
 
 }
