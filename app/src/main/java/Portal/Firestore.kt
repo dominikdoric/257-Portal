@@ -32,9 +32,9 @@ class Firestore: AppCompatActivity() {
 
         //subscribeToRealTimeUpdates()
 
-        //btn_retrieveFirestore.setOnClickListener {
-        //    retrievePersons()
-        //}
+        btn_retrieveFirestore.setOnClickListener {
+            retrievePersons()
+        }
 
     }
 
@@ -56,8 +56,16 @@ class Firestore: AppCompatActivity() {
     }
 
     private fun retrievePersons() = CoroutineScope(Dispatchers.IO).launch {
+        val fromAge = et_od.text.toString().toInt()
+        val toAge = et_do.text.toString().toInt()
         try {
-            val querySnapshot = personCollectionRef.get().await()
+            //val querySnapshot = personCollectionRef.get().await()
+            val querySnapshot = personCollectionRef
+                .whereGreaterThan("age",fromAge)
+                .whereLessThan("age",toAge)
+                .orderBy("age")
+                .get()
+                .await()
             val sb = StringBuilder()
             for(document in querySnapshot.documents){
                 val person = document.toObject<Person>()
