@@ -114,12 +114,27 @@
             android:text="Delete data" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_batchedFirestore"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="Do batched write" />
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_batchedFirestore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="20dp"
+            android:text="Batched write" />
+
+        <Button
+            android:id="@+id/btn_transactionFirestore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="30dp"
+            android:text="Transaction" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
