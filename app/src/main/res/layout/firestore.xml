@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginBottom="20dp"
-            android:hint="First name" />
+            android:hint="New first name" />
     </LinearLayout>
 
     <LinearLayout
@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:hint="First name" />
+            android:hint="Last name" />
 
         <EditText
             android:id="@+id/firestore_lastNameUpdate"
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginBottom="20dp"
-            android:hint="First name" />
+            android:hint="New last name" />
     </LinearLayout>
 
     <LinearLayout
@@ -56,8 +56,9 @@
             android:id="@+id/firestore_age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:ems="4"
             android:layout_marginBottom="20dp"
-            android:hint="First name" />
+            android:hint="Age" />
 
         <EditText
             android:id="@+id/firestore_ageUpdate"
@@ -65,7 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginBottom="20dp"
-            android:hint="First name" />
+            android:hint="New age" />
     </LinearLayout>
 
     <LinearLayout

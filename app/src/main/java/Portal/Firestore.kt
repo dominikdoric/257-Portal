@@ -22,11 +22,8 @@ class Firestore: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.firestore)
 
-        btn_firestore.setOnClickListener {
-            val firstName = firestore_firstName.text.toString()
-            val lastName = firestore_lastName.text.toString()
-            val age = firestore_age.text.toString().toInt()
-            val person = Person(firstName, lastName, age)
+        btn_saveFirestore.setOnClickListener {
+            val person = getOldPerson()
             savePerson(person)
         }
 
@@ -35,7 +32,53 @@ class Firestore: AppCompatActivity() {
         btn_retrieveFirestore.setOnClickListener {
             retrievePersons()
         }
+    }
 
+    private fun getOldPerson(): Person{
+        val firstName = firestore_firstName.text.toString()
+        val lastName = firestore_lastName.text.toString()
+        val age = firestore_age.text.toString().toInt()
+        return Person(firstName, lastName, age)
+    }
+
+    private fun getNewPersonMap(): Map<String,Any>{
+        val firstName = firestore_firstNameUpdate.text.toString()
+        val lastName = firestore_lastNameUpdate.text.toString()
+        val age = firestore_ageUpdate.text.toString()
+        val map = mutableMapOf<String,Any>()
+        if (firstName.isNotEmpty()){
+            map["firstName"] = firstName
+        }
+        if (lastName.isNotEmpty()){
+            map["lastName"] = lastName
+        }
+        if (age.isNotEmpty()){
+            map["age"] = age.toInt()
+        }
+        return map
+    }
+
+    private fun updatePerson(person: Person, newPersonMap: Map<String,Any>) = CoroutineScope(Dispatchers.IO).launch {
+        val personQuery = personCollectionRef
+            .whereEqualTo("firstName",person.firstName)
+            .whereEqualTo("lastName",person.lastName)
+            .whereEqualTo("age",person.age)
+            .get()
+            .await()
+        if (personQuery.documents.isNotEmpty()){
+            for(document in personQuery){
+                try {
+
+                }catch (){
+
+                }
+            }
+        }else{
+            withContext(Dispatchers.Main){
+                Toast.makeText(this@Firestore,"No person matched to query",
+                Toast.LENGTH_LONG).show()
+            }
+        }
     }
 
     private fun subscribeToRealTimeUpdates(){
