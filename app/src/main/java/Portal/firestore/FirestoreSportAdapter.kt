@@ -18,6 +18,10 @@ class FirestoreSportAdapter(options: FirestoreRecyclerOptions<SportModel>): Fire
     override fun onBindViewHolder(holder: ViewHolder, position: Int, model: SportModel) {
         holder.sportNaslov.text = model.sportNaslov
         holder.sportVrijeme.text = model.sportVrijeme
+
+        holder.itemView.firestoreCardViewSport.setOnClickListener {
+
+        }
     }
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {

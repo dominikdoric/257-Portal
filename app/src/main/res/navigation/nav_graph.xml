@@ -770,5 +770,14 @@
         android:id="@+id/firestoreSportFragment"
         android:name="Portal.firestore.FirestoreSportFragment"
         android:label="FirestoreSportFragment"
-        tools:layout="@layout/firestore_sport_fragment"/>
+        tools:layout="@layout/firestore_sport_fragment">
+        <action
+            android:id="@+id/action_firestoreSportFragment_to_firebaseSportDetailFragment"
+            app:destination="@id/firebaseSportDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/firebaseSportDetailFragment"
+        android:name="Portal.firestore.FirebaseSportDetailFragment"
+        android:label="FirebaseSportDetailFragment"
+        tools:layout="@layout/firebase_sport_detail_fragment"/>
 </navigation>
