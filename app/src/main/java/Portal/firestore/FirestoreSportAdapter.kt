@@ -1,6 +1,7 @@
 package Portal.firestore
 
 import Portal.a257.R
+import Portal.database.table.SportTable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,13 +20,12 @@ class FirestoreSportAdapter(options: FirestoreRecyclerOptions<SportModel>): Fire
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int, model: SportModel) {
-        val currentItem = sportFirestore[position]
 
         holder.sportNaslov.text = model.sportNaslov
         holder.sportVrijeme.text = model.sportVrijeme
 
         holder.itemView.firestoreCardViewSport.setOnClickListener {
-            val action = FirestoreSportFragmentDirections.actionFirestoreSportFragmentToFirebaseSportDetailFragment(currentItem)
+            val action = FirestoreSportFragmentDirections.actionFirestoreSportFragmentToFirebaseSportDetailFragment()
             holder.itemView.findNavController().navigate(action)
         }
     }
