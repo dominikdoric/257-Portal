@@ -47,5 +47,10 @@
         android:title="Firestore Fragment"
         app:showAsAction="never"
         android:menuCategory="secondary"/>
+    <item
+        android:id="@+id/firestoreSportFragment"
+        android:title="Firestore Sport Fragment"
+        app:showAsAction="never"
+        android:menuCategory="secondary"/>
 
 </menu>

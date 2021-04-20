@@ -766,4 +766,9 @@
         android:name="Portal.firestore.FirestoreFragment"
         android:label="FirestoreFragment"
         tools:layout="@layout/firestore_fragment"/>
+    <fragment
+        android:id="@+id/firestoreSportFragment"
+        android:name="Portal.firestore.FirestoreSportFragment"
+        android:label="FirestoreSportFragment"
+        tools:layout="@layout/firestore_sport_fragment"/>
 </navigation>
