@@ -2,7 +2,6 @@ package Portal
 
 import Portal.a257.R
 import Portal.firestore.Firestore
-import Portal.firestore.RecyclerActivity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -60,10 +59,6 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item.itemId == R.id.firestore){
             val intent = Intent(this, Firestore::class.java)
-            startActivity(intent)
-        }
-        if (item.itemId == R.id.firestoreRecycler){
-            val intent = Intent(this,RecyclerActivity::class.java)
             startActivity(intent)
         }
         return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
