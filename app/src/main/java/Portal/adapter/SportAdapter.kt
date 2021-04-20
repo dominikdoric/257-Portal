@@ -16,7 +16,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.jedan_red_sport.view.*
 
-class SportAdapter() : RecyclerView.Adapter<SportAdapter.ViewHolder>() {
+class SportAdapter : RecyclerView.Adapter<SportAdapter.ViewHolder>() {
 
     private var sportList = emptyList<SportTable>()
 
@@ -31,7 +31,6 @@ class SportAdapter() : RecyclerView.Adapter<SportAdapter.ViewHolder>() {
 
         holder.itemView.textViewSportNaslov.text = currentItem.sportNaslov
         holder.itemView.textViewSportVrijeme.text = currentItem.sportVrijeme
-        holder.itemView.textViewSportNaslov.context
 
         holder.itemView.cardViewSport.setOnLongClickListener {
             val action =

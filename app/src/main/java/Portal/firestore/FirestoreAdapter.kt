@@ -14,7 +14,6 @@ class FirestoreAdapter(options: FirestoreRecyclerOptions<Person>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserAdapterViewHolder {
         return UserAdapterViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.firestore_jedan_red,parent,false))
-
     }
 
     override fun onBindViewHolder(holder: UserAdapterViewHolder, position: Int, model: Person) {
