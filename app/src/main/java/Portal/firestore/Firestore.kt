@@ -17,66 +17,27 @@ import kotlinx.coroutines.withContext
 
 class Firestore: AppCompatActivity() {
 
-    private val personCollectionRef = Firebase.firestore.collection("persons")
+    private val personCollectionRef = Firebase.firestore.collection("sport")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.firestore)
 
         btn_saveFirestore.setOnClickListener {
-            val person = getOldPerson()
-            savePerson(person)
+            val sport = getOldPerson()
+            savePerson(sport)
         }
 
         //subscribeToRealTimeUpdates()
 
-        btn_retrieveFirestore.setOnClickListener {
-            retrievePersons()
-        }
-
-        btn_updateFirestore.setOnClickListener {
-            val oldPerson = getOldPerson()
-            val newPersonMap = getNewPersonMap()
-            updatePerson(oldPerson,newPersonMap)
-        }
-
-        btn_deleteFirestore.setOnClickListener {
-            val person = getOldPerson()
-            deletePerson(person)
-        }
-
-        btn_batchedFirestore.setOnClickListener {
-            changeName("778c5nhEMfjzJ6zdAvM4","Elon","Musk")
-        }
-
-        btn_transactionFirestore.setOnClickListener {
-            birthday("778c5nhEMfjzJ6zdAvM4")
-        }
-
     }
 
-    private fun getOldPerson(): Person {
-        val firstName = firestore_firstName.text.toString()
-        val lastName = firestore_lastName.text.toString()
-        val age = firestore_age.text.toString().toInt()
-        return Person(firstName, lastName, age)
-    }
-
-    private fun getNewPersonMap(): Map<String,Any>{
-        val firstName = firestore_firstNameUpdate.text.toString()
-        val lastName = firestore_lastNameUpdate.text.toString()
-        val age = firestore_ageUpdate.text.toString()
-        val map = mutableMapOf<String,Any>()
-        if (firstName.isNotEmpty()){
-            map["firstName"] = firstName
-        }
-        if (lastName.isNotEmpty()){
-            map["lastName"] = lastName
-        }
-        if (age.isNotEmpty()){
-            map["age"] = age.toInt()
-        }
-        return map
+    private fun getOldPerson(): SportModel {
+        val naslov = firestore_firstName.text.toString()
+        val clanak = firestore_lastName.text.toString()
+        val vrijeme = firestore_age.text.toString()
+        val slika = firestore_age.text.toString().toInt()
+        return SportModel(naslov,clanak,vrijeme,slika)
     }
 
     private fun deletePerson(person: Person) = CoroutineScope(Dispatchers.IO).launch {
@@ -184,35 +145,9 @@ class Firestore: AppCompatActivity() {
         }
     }
 
-    private fun retrievePersons() = CoroutineScope(Dispatchers.IO).launch {
-        val fromAge = et_od.text.toString().toInt()
-        val toAge = et_do.text.toString().toInt()
+    private fun savePerson(sport: SportModel) = CoroutineScope(Dispatchers.IO).launch {
         try {
-            //val querySnapshot = personCollectionRef.get().await()
-            val querySnapshot = personCollectionRef
-                .whereGreaterThan("age",fromAge)
-                .whereLessThan("age",toAge)
-                .orderBy("age")
-                .get()
-                .await()
-            val sb = StringBuilder()
-            for(document in querySnapshot.documents){
-                val person = document.toObject<Person>()
-                sb.append("$person\n")
-            }
-            withContext(Dispatchers.Main){
-                firestore_textView.text = sb.toString()
-            }
-        }catch (e: Exception){
-            withContext(Dispatchers.Main){
-                Toast.makeText(this@Firestore,e.message,Toast.LENGTH_LONG).show()
-            }
-        }
-    }
-
-    private fun savePerson(person: Person) = CoroutineScope(Dispatchers.IO).launch {
-        try {
-            personCollectionRef.add(person)
+            personCollectionRef.add(sport)
             withContext(Dispatchers.Main){
                 Toast.makeText(this@Firestore,"Successfully saved data",Toast.LENGTH_LONG).show()
             }

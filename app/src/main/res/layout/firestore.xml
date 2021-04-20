@@ -5,159 +5,37 @@
     android:orientation="vertical"
     android:padding="20dp">
 
-    <LinearLayout
+    <EditText
+        android:id="@+id/firestore_firstName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginBottom="20dp"
+        android:hint="First name" />
 
-        <EditText
-            android:id="@+id/firestore_firstName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:hint="First name" />
 
-        <EditText
-            android:id="@+id/firestore_firstNameUpdate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginBottom="20dp"
-            android:hint="New first name" />
-    </LinearLayout>
-
-    <LinearLayout
+    <EditText
+        android:id="@+id/firestore_lastName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginBottom="20dp"
+        android:hint="Last name" />
 
-        <EditText
-            android:id="@+id/firestore_lastName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:hint="Last name" />
-
-        <EditText
-            android:id="@+id/firestore_lastNameUpdate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginBottom="20dp"
-            android:hint="New last name" />
-    </LinearLayout>
-
-    <LinearLayout
+    <EditText
+        android:id="@+id/firestore_age"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginBottom="20dp"
+        android:ems="4"
+        android:hint="Age" />
 
-        <EditText
-            android:id="@+id/firestore_age"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:ems="4"
-            android:hint="Age" />
-
-        <EditText
-            android:id="@+id/firestore_ageUpdate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginBottom="20dp"
-            android:hint="New age" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:id="@+id/btn_saveFirestore"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:text="Save data" />
-
-        <Button
-            android:id="@+id/btn_updateFirestore"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
-            android:text="Update data" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/btn_saveFirestore"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Save data" />
 
-        <Button
-            android:id="@+id/btn_retrieveFirestore"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:text="Retrieve data" />
-
-        <Button
-            android:id="@+id/btn_deleteFirestore"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:text="Delete data" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btn_batchedFirestore"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="20dp"
-            android:text="Batched write" />
-
-        <Button
-            android:id="@+id/btn_transactionFirestore"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="30dp"
-            android:text="Transaction" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:orientation="horizontal">
-
-        <EditText
-            android:id="@+id/et_od"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="6"
-            android:hint="Od" />
-
-        <EditText
-            android:id="@+id/et_do"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:ems="6"
-            android:hint="Do" />
-
-    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
