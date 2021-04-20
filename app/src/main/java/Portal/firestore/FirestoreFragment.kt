@@ -14,8 +14,8 @@ import kotlinx.android.synthetic.main.firestore_fragment.*
 class FirestoreFragment: Fragment(R.layout.firestore_fragment) {
 
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
-    private val collectionReference: CollectionReference = db.collection("persons")
-    var userAdapter: FirestoreAdapter? = null
+    private val collectionReference: CollectionReference = db.collection("sport")
+    var sportAdapter: FirestoreAdapter? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -26,23 +26,23 @@ class FirestoreFragment: Fragment(R.layout.firestore_fragment) {
 
     private fun setUpRecyclerView() {
         val query: Query = collectionReference
-        val firestoreRecyclerOption: FirestoreRecyclerOptions<Person> =
-            FirestoreRecyclerOptions.Builder<Person>()
-                .setQuery(query,Person::class.java)
+        val firestoreRecyclerOption: FirestoreRecyclerOptions<SportModel> =
+            FirestoreRecyclerOptions.Builder<SportModel>()
+                .setQuery(query,SportModel::class.java)
                 .build()
-        userAdapter = FirestoreAdapter(firestoreRecyclerOption)
+        sportAdapter = FirestoreAdapter(firestoreRecyclerOption)
         fragmentRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        fragmentRecyclerView.adapter = userAdapter
+        fragmentRecyclerView.adapter = sportAdapter
     }
 
     override fun onStart() {
         super.onStart()
-        userAdapter!!.startListening()
+        sportAdapter!!.startListening()
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        userAdapter!!.stopListening()
+        sportAdapter!!.stopListening()
     }
 
 }
