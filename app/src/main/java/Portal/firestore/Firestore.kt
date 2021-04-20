@@ -33,10 +33,10 @@ class Firestore: AppCompatActivity() {
     }
 
     private fun getOldPerson(): SportModel {
-        val naslov = firestore_firstName.text.toString()
-        val clanak = firestore_lastName.text.toString()
-        val vrijeme = firestore_age.text.toString()
-        val slika = firestore_age.text.toString().toInt()
+        val naslov = firestore_naslov.text.toString()
+        val clanak = firestore_clanak.text.toString()
+        val vrijeme = firestore_vrijeme.text.toString()
+        val slika = 1
         return SportModel(naslov,clanak,vrijeme,slika)
     }
 

@@ -6,7 +6,7 @@
     android:padding="20dp">
 
     <EditText
-        android:id="@+id/firestore_firstName"
+        android:id="@+id/firestore_naslov"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
@@ -14,14 +14,14 @@
 
 
     <EditText
-        android:id="@+id/firestore_lastName"
+        android:id="@+id/firestore_clanak"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:hint="Last name" />
 
     <EditText
-        android:id="@+id/firestore_age"
+        android:id="@+id/firestore_vrijeme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
