@@ -20,7 +20,7 @@ import java.util.*
 @AndroidEntryPoint
 class UpdateDeleteSportFragment : Fragment(R.layout.update_delete_sport_fragment) {
 
-    private val args by navArgs<UpdateDeleteSportFragmentArgs>()
+    //private val args by navArgs<UpdateDeleteSportFragmentArgs>()
     private val mSportViewModel: SportViewModel by viewModels()
     private lateinit var binding: UpdateDeleteSportFragmentBinding
 
@@ -28,8 +28,8 @@ class UpdateDeleteSportFragment : Fragment(R.layout.update_delete_sport_fragment
         super.onViewCreated(view, savedInstanceState)
         binding = UpdateDeleteSportFragmentBinding.bind(view)
 
-        binding.updateSportNaslov.setText(args.currentSport.sportNaslov)
-        binding.updateSportClanak.setText(args.currentSport.sportClanak)
+        //binding.updateSportNaslov.setText(args.currentSport.sportNaslov)
+        //binding.updateSportClanak.setText(args.currentSport.sportClanak)
 
         binding.gumbUpdateSport.setOnClickListener {
             updateItemSport()
@@ -43,13 +43,13 @@ class UpdateDeleteSportFragment : Fragment(R.layout.update_delete_sport_fragment
     private fun deleteItemSport() {
         val builder = AlertDialog.Builder(requireContext())
         builder.setPositiveButton("Da") { _, _ ->
-            mSportViewModel.deleteSport(args.currentSport)
+            //mSportViewModel.deleteSport(args.currentSport)
             Toast.makeText(requireContext(), "Brisanje uspješno!", Toast.LENGTH_LONG).show()
-            findNavController().navigate(R.id.action_updateDeleteSportFragment_to_sportNavDrawer)
+            //findNavController().navigate(R.id.action_updateDeleteSportFragment_to_sportNavDrawer)
         }
         builder.setNegativeButton("Ne") { _, _ -> }
-        builder.setTitle("Obrisati ${args.currentSport.sportNaslov}?")
-        builder.setMessage("Jeste li sigurni da želite obrisati ${args.currentSport.sportNaslov}?")
+        //builder.setTitle("Obrisati ${args.currentSport.sportNaslov}?")
+        builder.setMessage("Jeste li sigurni da želite obrisati ?")
         builder.create().show()
     }
 
@@ -62,10 +62,10 @@ class UpdateDeleteSportFragment : Fragment(R.layout.update_delete_sport_fragment
         val vrijemeSport = currentDate
         val slikaSport = 0
 
-        val updateSport =
-            SportTable(args.currentSport.id, naslovSport, clanakSport, vrijemeSport, slikaSport)
-        mSportViewModel.updateSport(updateSport)
-        findNavController().navigate(R.id.action_updateDeleteSportFragment_to_sportNavDrawer)
+        //val updateSport =
+            //SportTable(args.currentSport.id, naslovSport, clanakSport, vrijemeSport, slikaSport)
+        //mSportViewModel.updateSport(updateSport)
+        //findNavController().navigate(R.id.action_updateDeleteSportFragment_to_sportNavDrawer)
     }
 
 }

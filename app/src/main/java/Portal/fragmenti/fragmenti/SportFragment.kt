@@ -25,7 +25,7 @@ class SportFragment : Fragment(R.layout.firestore_sport_fragment) {
 
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
     private val collectionReference: CollectionReference = db.collection("sport")
-    var sportAdapter: FirestoreSportAdapter? = null
+    var sportAdapter: SportAdapter? = null
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -36,9 +36,7 @@ class SportFragment : Fragment(R.layout.firestore_sport_fragment) {
                 sportFirestoreRecycler.context,DividerItemDecoration.VERTICAL
             )
         )
-
         setUpRecyclerView()
-
     }
 
     private fun setUpRecyclerView() {
@@ -47,7 +45,7 @@ class SportFragment : Fragment(R.layout.firestore_sport_fragment) {
             FirestoreRecyclerOptions.Builder<SportModel>()
                 .setQuery(query, SportModel::class.java)
                 .build()
-        sportAdapter = FirestoreSportAdapter(firestoreRecyclerOption)
+        sportAdapter = SportAdapter(firestoreRecyclerOption)
         sportFirestoreRecycler.layoutManager = LinearLayoutManager(requireContext())
         sportFirestoreRecycler.adapter = sportAdapter
     }

@@ -33,8 +33,8 @@ class DodajNovoSport : Fragment(R.layout.dodaj_novo_sport_fragment) {
             }
             else{
                 insertDataToDatabase()
-                val action = DodajNovoSportDirections.actionMenuDodajNoviSportToSportNavDrawer()
-                findNavController().navigate(action)
+                //val action = DodajNovoSportDirections.actionMenuDodajNoviSportToSportNavDrawer()
+                //findNavController().navigate(action)
                 Toast.makeText(
                     requireContext(),
                     "Vaš članak je zaprimljen te je poslan adminu na odobrenje.Hvala!",
