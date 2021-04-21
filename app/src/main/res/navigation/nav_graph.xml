@@ -92,6 +92,9 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_sportNavDrawer_to_updateDeleteSportFragment"
+            app:destination="@id/updateDeleteSportFragment" />
     </fragment>
     <fragment
         android:id="@+id/vijestiNavDrawer"
@@ -735,6 +738,15 @@
         tools:layout="@layout/dodaj_novo_sport_fragment">
         <action
             android:id="@+id/action_dodajNovoSport_to_sportNavDrawer"
+            app:destination="@id/sportNavDrawer" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateDeleteSportFragment"
+        android:name="Portal.fragmenti.updateDelete.UpdateDeleteSportFragment"
+        android:label="UpdateDeleteSportFragment"
+        tools:layout="@layout/update_delete_sport_fragment">
+        <action
+            android:id="@+id/action_updateDeleteSportFragment_to_sportNavDrawer"
             app:destination="@id/sportNavDrawer" />
     </fragment>
 </navigation>
