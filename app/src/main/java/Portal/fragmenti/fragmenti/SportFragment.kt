@@ -38,6 +38,7 @@ class SportFragment : Fragment(R.layout.firestore_sport_fragment) {
         )
 
         setUpRecyclerView()
+
     }
 
     private fun setUpRecyclerView() {
