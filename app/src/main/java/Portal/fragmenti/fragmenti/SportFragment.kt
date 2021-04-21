@@ -3,6 +3,8 @@ package Portal.fragmenti.fragmenti
 import Portal.a257.R
 import Portal.a257.databinding.SportFragmentBinding
 import Portal.adapter.SportAdapter
+import Portal.firestore.FirestoreSportAdapter
+import Portal.firestore.SportModel
 import Portal.viewModel.SportViewModel
 import android.os.Bundle
 import android.view.View
@@ -11,35 +13,52 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.firestore_sport_fragment.*
 
 @AndroidEntryPoint
-class SportFragment : Fragment(R.layout.sport_fragment) {
+class SportFragment : Fragment(R.layout.firestore_sport_fragment) {
 
-    private val sportViewModel: SportViewModel by viewModels()
-    private lateinit var binding: SportFragmentBinding
+    private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
+    private val collectionReference: CollectionReference = db.collection("sport")
+    var sportAdapter: FirestoreSportAdapter? = null
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = SportFragmentBinding.bind(view)
 
-        binding.recyclerViewSport.addItemDecoration(
+        sportFirestoreRecycler.addItemDecoration(
             DividerItemDecoration(
-                binding.recyclerViewSport.context,DividerItemDecoration.VERTICAL
+                sportFirestoreRecycler.context,DividerItemDecoration.VERTICAL
             )
         )
 
-        //RecyclerView
-        val adapter = SportAdapter()
-        val recyclerSport = binding.recyclerViewSport
-        recyclerSport.adapter = adapter
-        recyclerSport.layoutManager = LinearLayoutManager(requireContext())
-
-        //RasporedViewModel
-        sportViewModel.readAllDataSport.observe(viewLifecycleOwner, Observer { sport ->
-            adapter.setData(sport)
-        })
-
+        setUpRecyclerView()
     }
+
+    private fun setUpRecyclerView() {
+        val query: Query = collectionReference
+        val firestoreRecyclerOption: FirestoreRecyclerOptions<SportModel> =
+            FirestoreRecyclerOptions.Builder<SportModel>()
+                .setQuery(query, SportModel::class.java)
+                .build()
+        sportAdapter = FirestoreSportAdapter(firestoreRecyclerOption)
+        sportFirestoreRecycler.layoutManager = LinearLayoutManager(requireContext())
+        sportFirestoreRecycler.adapter = sportAdapter
+    }
+
+    override fun onStart() {
+        super.onStart()
+        sportAdapter!!.startListening()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        sportAdapter!!.stopListening()
+    }
+
 }

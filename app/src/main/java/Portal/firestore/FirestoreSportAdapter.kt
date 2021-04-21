@@ -13,8 +13,6 @@ import kotlinx.android.synthetic.main.firestore_jedan_red_sport.view.*
 
 class FirestoreSportAdapter(options: FirestoreRecyclerOptions<SportModel>): FirestoreRecyclerAdapter<SportModel,FirestoreSportAdapter.ViewHolder>(options) {
 
-    private var sportFirestore = emptyList<SportModel>()
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return  ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.firestore_jedan_red_sport,parent,false))
     }
@@ -34,5 +32,4 @@ class FirestoreSportAdapter(options: FirestoreRecyclerOptions<SportModel>): Fire
         var sportNaslov = itemView.firestoreSportNaslov
         var sportVrijeme = itemView.firestoreSportVrijeme
     }
-
 }
