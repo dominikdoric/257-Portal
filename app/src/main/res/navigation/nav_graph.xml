@@ -92,13 +92,6 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
-        <action
-            android:id="@+id/action_sportNavDrawer_to_adminPrijavaSportFragment"
-            app:destination="@id/adminPrijavaSportFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/vijestiNavDrawer"
@@ -172,19 +165,6 @@
             app:popExitAnim="@anim/slide_out_left"/>
     </fragment>
     <fragment
-        android:id="@+id/menu_dodajNoviSport"
-        android:name="Portal.fragmenti.dodajNovo.DodajNovoSport"
-        android:label="Dodaj novi sport"
-        tools:layout="@layout/dodaj_novo_sport_fragment">
-        <action
-            android:id="@+id/action_menu_dodajNoviSport_to_sportNavDrawer"
-            app:destination="@id/sportNavDrawer"
-            app:enterAnim="@anim/slide_in_left"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_left"/>
-    </fragment>
-    <fragment
         android:id="@+id/menu_dodajNovuZabava"
         android:name="Portal.fragmenti.dodajNovo.DodajNovoZabava"
         android:label="Dodaj novu zabavu"
@@ -225,22 +205,6 @@
         <argument
             android:name="currentObavijest"
             app:argType="Portal.database.table.ObavijestiTable" />
-    </fragment>
-    <fragment
-        android:id="@+id/updateDeleteSportFragment"
-        android:name="Portal.fragmenti.updateDelete.UpdateDeleteSportFragment"
-        android:label="Ažuriraj ili obriši sport"
-        tools:layout="@layout/update_delete_sport_fragment">
-        <action
-            android:id="@+id/action_updateDeleteSportFragment_to_sportNavDrawer"
-            app:destination="@id/sportNavDrawer"
-            app:enterAnim="@anim/slide_in_left"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_left"/>
-        <argument
-            android:name="currentSport"
-            app:argType="Portal.database.table.SportTable" />
     </fragment>
     <fragment
         android:id="@+id/updateDeleteVijestiFragment"
@@ -648,22 +612,6 @@
         <argument
             android:name="adminZabavaArgs"
             app:argType="Portal.database.table.ZabavaTable" />
-    </fragment>
-    <fragment
-        android:id="@+id/adminPrijavaSportFragment"
-        android:name="Portal.fragmenti.adminPrijava.AdminPrijavaSportFragment"
-        android:label="Admin"
-        tools:layout="@layout/admin_prijava_sport">
-        <action
-            android:id="@+id/action_adminPrijavaSportFragment_to_updateDeleteSportFragment"
-            app:destination="@id/updateDeleteSportFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
-        <argument
-            android:name="currentSport"
-            app:argType="Portal.database.table.SportTable" />
     </fragment>
     <fragment
         android:id="@+id/adminPrijavaObavijestiFragment"
