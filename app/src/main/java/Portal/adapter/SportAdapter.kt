@@ -23,8 +23,6 @@ import kotlinx.android.synthetic.main.jedan_red_sport.view.*
 class SportAdapter(options: FirestoreRecyclerOptions<SportModel>) :
     FirestoreRecyclerAdapter<SportModel, SportAdapter.ViewHolder>(options) {
 
-    private var sportList = emptyList<SportTable>()
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.jedan_red_sport, parent, false)
@@ -34,10 +32,6 @@ class SportAdapter(options: FirestoreRecyclerOptions<SportModel>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int, model: SportModel) {
         holder.sportNaslov.text = model.sportNaslov
         holder.sportVrijeme.text = model.sportVrijeme
-    }
-
-    override fun getItemCount(): Int {
-        return sportList.size
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

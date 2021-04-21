@@ -728,4 +728,13 @@
         android:name="Portal.firestore.FirebaseSportDetailFragment"
         android:label="FirebaseSportDetailFragment"
         tools:layout="@layout/firebase_sport_detail_fragment"/>
+    <fragment
+        android:id="@+id/menu_dodajNoviSport"
+        android:name="Portal.fragmenti.dodajNovo.DodajNovoSport"
+        android:label="DodajNovoSport"
+        tools:layout="@layout/dodaj_novo_sport_fragment">
+        <action
+            android:id="@+id/action_dodajNovoSport_to_sportNavDrawer"
+            app:destination="@id/sportNavDrawer" />
+    </fragment>
 </navigation>
