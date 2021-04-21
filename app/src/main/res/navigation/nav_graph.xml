@@ -261,11 +261,7 @@
         android:id="@+id/detailSportFragment"
         android:name="Portal.fragmenti.detailFragmenti.DetailSportFragment"
         android:label="Detalji sport"
-        tools:layout="@layout/detail_sport_fragment">
-        <argument
-            android:name="sportData"
-            app:argType="Portal.database.table.SportTable" />
-    </fragment>
+        tools:layout="@layout/detail_sport_fragment"/>
     <fragment
         android:id="@+id/detailFragmentZabava"
         android:name="Portal.fragmenti.detailFragmenti.DetailZabavaFragment"

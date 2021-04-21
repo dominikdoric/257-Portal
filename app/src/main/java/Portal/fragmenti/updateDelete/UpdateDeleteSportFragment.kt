@@ -21,7 +21,6 @@ import java.util.*
 class UpdateDeleteSportFragment : Fragment(R.layout.update_delete_sport_fragment) {
 
     //private val args by navArgs<UpdateDeleteSportFragmentArgs>()
-    private val mSportViewModel: SportViewModel by viewModels()
     private lateinit var binding: UpdateDeleteSportFragmentBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

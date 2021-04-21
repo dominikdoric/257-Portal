@@ -32,6 +32,18 @@ class SportAdapter(options: FirestoreRecyclerOptions<SportModel>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int, model: SportModel) {
         holder.sportNaslov.text = model.sportNaslov
         holder.sportVrijeme.text = model.sportVrijeme
+
+        holder.itemView.cardViewSport.setOnClickListener {
+            val action = SportFragmentDirections.actionSportNavDrawerToDetailSportFragment()
+            holder.itemView.findNavController().navigate(action)
+        }
+
+        holder.itemView.cardViewSport.setOnLongClickListener {
+            val action = SportFragmentDirections.actionSportNavDrawerToUpdateDeleteSportFragment()
+            holder.itemView.findNavController().navigate(action)
+            true
+        }
+
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
