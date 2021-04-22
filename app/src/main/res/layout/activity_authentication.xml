@@ -24,6 +24,7 @@
         android:text="Email" />
 
     <EditText
+        android:id="@+id/etEmailRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter email" />
@@ -34,11 +35,13 @@
         android:text="Email" />
 
     <EditText
+        android:id="@+id/etPasswordRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Password" />
 
     <Button
+        android:id="@+id/btnRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
@@ -59,6 +62,7 @@
         android:text="Email" />
 
     <EditText
+        android:id="@+id/etEmailLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter email" />
@@ -69,17 +73,20 @@
         android:text="Email" />
 
     <EditText
+        android:id="@+id/etPasswordLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Password" />
 
     <Button
+        android:id="@+id/btnLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:text="Login" />
 
     <TextView
+        android:id="@+id/tvLoggedIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"

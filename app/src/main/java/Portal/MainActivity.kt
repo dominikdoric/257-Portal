@@ -1,6 +1,7 @@
 package Portal
 
 import Portal.a257.R
+import Portal.firestore.Authentication
 import Portal.firestore.Firestore
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -59,6 +60,10 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item.itemId == R.id.firestore){
             val intent = Intent(this, Firestore::class.java)
+            startActivity(intent)
+        }
+        if(item.itemId == R.id.firestoreAuthetication){
+            val intent = Intent(this, Authentication::class.java)
             startActivity(intent)
         }
         return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
