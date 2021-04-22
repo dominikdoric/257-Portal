@@ -43,7 +43,7 @@ class Authentication : AppCompatActivity() {
         checkLoggedInState()
     }
 
-    private fun updateProfil(){
+    private fun updateProfil() {
         auth.currentUser?.let { user ->
             val userName = etUsername.text.toString()
             val photoURI = Uri.parse("android.resource:///$packageName/${R.drawable.jaksic}")
@@ -54,50 +54,55 @@ class Authentication : AppCompatActivity() {
             CoroutineScope(Dispatchers.IO).launch {
                 try {
                     user.updateProfile(profileUpdate).await()
-                    withContext(Dispatchers.Main){
-                        Toast.makeText(this@Authentication,"Successfully updated",Toast.LENGTH_LONG).show()
+                    withContext(Dispatchers.Main) {
+                        checkLoggedInState()
+                        Toast.makeText(
+                            this@Authentication,
+                            "Successfully updated",
+                            Toast.LENGTH_LONG
+                        ).show()
                     }
-                }catch (e: Exception){
-                    withContext(Dispatchers.Main){
-                        Toast.makeText(this@Authentication,e.message,Toast.LENGTH_LONG).show()
+                } catch (e: Exception) {
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(this@Authentication, e.message, Toast.LENGTH_LONG).show()
                     }
                 }
             }
         }
     }
 
-    private fun registerUser(){
+    private fun registerUser() {
         val email = etEmailRegister.text.toString()
         val password = etPasswordRegister.text.toString()
-        if (email.isNotEmpty() && password.isNotEmpty()){
+        if (email.isNotEmpty() && password.isNotEmpty()) {
             CoroutineScope(Dispatchers.IO).launch {
                 try {
                     auth.createUserWithEmailAndPassword(email, password).await()
-                    withContext(Dispatchers.Main){
+                    withContext(Dispatchers.Main) {
                         checkLoggedInState()
                     }
-                }catch (e: Exception){
-                    withContext(Dispatchers.Main){
-                        Toast.makeText(this@Authentication,e.message,Toast.LENGTH_LONG).show()
+                } catch (e: Exception) {
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(this@Authentication, e.message, Toast.LENGTH_LONG).show()
                     }
                 }
             }
         }
     }
 
-    private fun loginUser(){
+    private fun loginUser() {
         val email = etEmailLogin.text.toString()
         val password = etPasswordLogin.text.toString()
-        if (email.isNotEmpty() && password.isNotEmpty()){
+        if (email.isNotEmpty() && password.isNotEmpty()) {
             CoroutineScope(Dispatchers.IO).launch {
                 try {
                     auth.signInWithEmailAndPassword(email, password).await()
-                    withContext(Dispatchers.Main){
+                    withContext(Dispatchers.Main) {
                         checkLoggedInState()
                     }
-                }catch (e: Exception){
-                    withContext(Dispatchers.Main){
-                        Toast.makeText(this@Authentication,e.message,Toast.LENGTH_LONG).show()
+                } catch (e: Exception) {
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(this@Authentication, e.message, Toast.LENGTH_LONG).show()
                     }
                 }
             }
@@ -105,10 +110,13 @@ class Authentication : AppCompatActivity() {
     }
 
     private fun checkLoggedInState() {
-        if (auth.currentUser == null){
+        val user = auth.currentUser
+        if (user == null) {
             tvLoggedIn.text = "You are not logged in"
-        }else{
+        } else {
             tvLoggedIn.text = "You are logged in"
+            etUsername.setText(user.displayName)
+            ivProfilePicture.setImageURI(user.photoUrl)
         }
     }
 }
