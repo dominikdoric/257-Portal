@@ -20,6 +20,7 @@ class Authentication : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_authentication)
         auth = FirebaseAuth.getInstance()
+        auth.signOut()
 
         btnRegister.setOnClickListener {
             registerUser()
