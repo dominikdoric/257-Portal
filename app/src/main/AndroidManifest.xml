@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Portal257">
-        <activity android:name="Portal.firestore.Authentication"></activity>
+        <activity android:name="Portal.firestore.PushActivity"></activity>
+        <activity android:name="Portal.firestore.Authentication" />
         <activity android:name="Portal.firestore.RecyclerActivity" />
         <activity android:name="Portal.firestore.Firestore" />
         <activity android:name="Portal.MainActivity">

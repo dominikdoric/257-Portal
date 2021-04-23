@@ -57,5 +57,10 @@
         android:title="Authentication"
         app:showAsAction="never"
         android:menuCategory="secondary"/>
+    <item
+        android:id="@+id/pushNotification"
+        android:title="Push Notification"
+        app:showAsAction="never"
+        android:menuCategory="secondary"/>
 
 </menu>
