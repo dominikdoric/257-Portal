@@ -3,6 +3,7 @@ package Portal
 import Portal.a257.R
 import Portal.firestore.Authentication
 import Portal.firestore.Firestore
+import Portal.firestore.PushActivity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -64,6 +65,10 @@ class MainActivity : AppCompatActivity() {
         }
         if(item.itemId == R.id.firestoreAuthetication){
             val intent = Intent(this, Authentication::class.java)
+            startActivity(intent)
+        }
+        if(item.itemId == R.id.pushNotification){
+            val intent = Intent(this, PushActivity::class.java)
             startActivity(intent)
         }
         return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
