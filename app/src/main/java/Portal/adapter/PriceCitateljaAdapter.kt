@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.jedan_red_price_citatelja.view.*
 
 class PriceCitateljaAdapter : RecyclerView.Adapter<PriceCitateljaAdapter.ViewHolder>() {
 

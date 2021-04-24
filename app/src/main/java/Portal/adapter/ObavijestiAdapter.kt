@@ -12,23 +12,28 @@ import androidx.recyclerview.widget.RecyclerView
 
 class ObavijestiAdapter() : RecyclerView.Adapter<ObavijestiAdapter.ViewHolder>() {
 
-
-
     private var obavijestiList = emptyList<ObavijestiTable>()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ObavijestiAdapter.ViewHolder {
-        val view =
-            LayoutInflater.from(parent.context)
-                .inflate(R.layout.jedan_red_obavijesti, parent, false)
-        return ViewHolder(view)
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): ObavijestiAdapter.ViewHolder {
+        return ViewHolder(
+            JedanRedObavijestiBinding
+                .inflate(
+                    LayoutInflater.from(parent.context),
+                    parent,
+                    false
+                )
+        )
     }
 
     override fun onBindViewHolder(holder: ObavijestiAdapter.ViewHolder, position: Int) {
         val currentItem = obavijestiList[position]
         holder.binding.textViewObavijestNaslov.text = currentItem.obavijestiNaslov
-        holder.itemView.textViewObavijestVrijeme.text = currentItem.obavijestiVrijeme
+        holder.binding.textViewObavijestVrijeme.text = currentItem.obavijestiVrijeme
 
-        holder.itemView.cardViewObavijesti.setOnLongClickListener {
+        holder.binding.cardViewObavijesti.setOnLongClickListener {
             val action =
                 ObavijestiFragmentDirections.actionObavijestiNavDrawerToAdminPrijavaObavijestiFragment(
                     currentItem
@@ -37,7 +42,7 @@ class ObavijestiAdapter() : RecyclerView.Adapter<ObavijestiAdapter.ViewHolder>()
             true
         }
 
-        holder.itemView.cardViewObavijesti.setOnClickListener {
+        holder.binding.cardViewObavijesti.setOnClickListener {
             val action =
                 ObavijestiFragmentDirections.actionObavijestiNavDrawerToDetailObavijestiFragment(
                     currentItem
@@ -51,7 +56,8 @@ class ObavijestiAdapter() : RecyclerView.Adapter<ObavijestiAdapter.ViewHolder>()
         return obavijestiList.size
     }
 
-    inner class ViewHolder(val binding: ObavijestiAdapterBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(val binding: JedanRedObavijestiBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
     }
 
