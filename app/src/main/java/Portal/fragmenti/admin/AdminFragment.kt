@@ -21,8 +21,6 @@ class AdminFragment: Fragment(R.layout.admin_fragment) {
             val token = binding.etAdminToken.text.toString()
             val lozinka = binding.etAdminLozinka.text.toString()
             if(korisnickoIme == "Dominik" && token == "token" && lozinka == "lozinka"){
-                val action = AdminFragmentDirections.actionMenuAdminToAdminPrijavljenFragment()
-                findNavController().navigate(action)
                 Toast.makeText(requireContext(),"Upješno ste se prijavili!",Toast.LENGTH_LONG).show()
             }
             else if (binding.etAdminKorisnickoIme.text.toString().isEmpty()){
