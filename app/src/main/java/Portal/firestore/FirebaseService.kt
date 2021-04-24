@@ -28,7 +28,7 @@ class FirebaseService: FirebaseMessagingService() {
         val notificationID = Random.nextInt()
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-
+            createNotificationChannel(notificationManager)
         }
 
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)

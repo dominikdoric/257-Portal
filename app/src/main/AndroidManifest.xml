@@ -3,6 +3,7 @@
     package="Portal.a257">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
     <application
         android:name="Portal.di.ApplicationClass"
@@ -12,9 +13,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Portal257">
-        <activity android:name="Portal.firestore.PushActivity"></activity>
+        <service
+            android:name="Portal.firestore.FirebaseService"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="com.google.firebase.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+
+        <activity android:name="Portal.firestore.PushActivity" />
         <activity android:name="Portal.firestore.Authentication" />
-        <activity android:name="Portal.firestore.RecyclerActivity" />
         <activity android:name="Portal.firestore.Firestore" />
         <activity android:name="Portal.MainActivity">
             <intent-filter>
