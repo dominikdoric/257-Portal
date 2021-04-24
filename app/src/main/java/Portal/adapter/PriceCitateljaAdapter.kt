@@ -1,10 +1,9 @@
 package Portal.adapter
 
-import Portal.a257.R
+import Portal.a257.databinding.JedanRedPriceCitateljaBinding
 import Portal.database.table.PriceCitateljaTable
 import Portal.fragmenti.fragmenti.PriceCitateljaFragmentDirections
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
@@ -17,24 +16,30 @@ class PriceCitateljaAdapter : RecyclerView.Adapter<PriceCitateljaAdapter.ViewHol
         parent: ViewGroup,
         viewType: Int
     ): PriceCitateljaAdapter.ViewHolder {
-        val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.jedan_red_price_citatelja, parent, false)
-        return ViewHolder(view)
+        return ViewHolder(
+            JedanRedPriceCitateljaBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: PriceCitateljaAdapter.ViewHolder, position: Int) {
         val currentItem = priceCitateljaList[position]
-        holder.itemView.textViewPricaCitateljaNaslov.text = currentItem.priceCitateljaNaslov
-        holder.itemView.textViewPricaCitateljaVrijeme.text = currentItem.priceCitateljaVrijeme
+        holder.binding.textViewPricaCitateljaNaslov.text = currentItem.priceCitateljaNaslov
+        holder.binding.textViewPricaCitateljaVrijeme.text = currentItem.priceCitateljaVrijeme
 
-        holder.itemView.cardViewPricaCitatelja.setOnLongClickListener {
+        holder.binding.cardViewPricaCitatelja.setOnLongClickListener {
             val action =
-                PriceCitateljaFragmentDirections.actionPriceCitateljaNavDrawerToAdminPrijavaPriceCitateljaFragment(currentItem)
+                PriceCitateljaFragmentDirections.actionPriceCitateljaNavDrawerToAdminPrijavaPriceCitateljaFragment(
+                    currentItem
+                )
             holder.itemView.findNavController().navigate(action)
             true
         }
 
-        holder.itemView.cardViewPricaCitatelja.setOnClickListener {
+        holder.binding.cardViewPricaCitatelja.setOnClickListener {
             val action =
                 PriceCitateljaFragmentDirections.actionPriceCitateljaNavDrawerToDetailPriceCitateljaFragment(
                     currentItem
@@ -48,7 +53,8 @@ class PriceCitateljaAdapter : RecyclerView.Adapter<PriceCitateljaAdapter.ViewHol
         return priceCitateljaList.size
     }
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(val binding: JedanRedPriceCitateljaBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
     }
 
