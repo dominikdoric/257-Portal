@@ -1,7 +1,7 @@
 package Portal
 
 import Portal.a257.R
-import android.content.Intent
+import Portal.a257.databinding.ActivityMainBinding
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -11,13 +11,13 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.*
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.activity_main.*
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,13 +40,13 @@ class MainActivity : AppCompatActivity() {
                 R.id.priceCitateljaNavDrawer,
                 R.id.zabavaNavDrawer
             ),
-            main_drawer_layout
+            binding.mainDrawerLayout
         )
-        setSupportActionBar(toolbar)
+        setSupportActionBar(binding.toolbar)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-        bottom_navigation.setupWithNavController(navController)
-        navigation_drawer.setupWithNavController(navController)
+        binding.bottomNavigation.setupWithNavController(navController)
+        binding.navigationDrawer.setupWithNavController(navController)
 
     }
 
