@@ -56,14 +56,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId == R.id.firestore){
-            val intent = Intent(this, Firestore::class.java)
-            startActivity(intent)
-        }
-        if(item.itemId == R.id.firestoreAuthetication){
-            val intent = Intent(this, Authentication::class.java)
-            startActivity(intent)
-        }
         return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
     }
 

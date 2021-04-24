@@ -37,25 +37,5 @@
         android:title="Dodaj novu pricu"
         app:showAsAction="never"
         android:menuCategory="secondary"/>
-    <item
-        android:id="@+id/firestore"
-        android:title="Firestore"
-        app:showAsAction="never"
-        android:menuCategory="secondary"/>
-    <item
-        android:id="@+id/firestoreFragment"
-        android:title="Firestore Fragment"
-        app:showAsAction="never"
-        android:menuCategory="secondary"/>
-    <item
-        android:id="@+id/firestoreSportFragment"
-        android:title="Firestore Sport Fragment"
-        app:showAsAction="never"
-        android:menuCategory="secondary"/>
-    <item
-        android:id="@+id/firestoreAuthetication"
-        android:title="Authentication"
-        app:showAsAction="never"
-        android:menuCategory="secondary"/>
 
 </menu>
