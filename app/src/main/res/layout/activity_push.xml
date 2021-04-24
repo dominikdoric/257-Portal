@@ -7,21 +7,25 @@
     android:padding="30dp">
 
     <EditText
+        android:id="@+id/etMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter title"/>
 
     <EditText
+        android:id="@+id/etTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter message"/>
 
     <EditText
+        android:id="@+id/etToken"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Enter token"/>
 
     <Button
+        android:id="@+id/btnSend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Send" />
