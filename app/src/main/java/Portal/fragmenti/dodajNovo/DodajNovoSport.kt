@@ -1,7 +1,6 @@
 package Portal.fragmenti.dodajNovo
 
 import Portal.a257.R
-import Portal.firestore.SportModel
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast

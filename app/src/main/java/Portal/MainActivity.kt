@@ -1,8 +1,6 @@
 package Portal
 
 import Portal.a257.R
-import Portal.firestore.Authentication
-import Portal.firestore.Firestore
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
