@@ -38,6 +38,5 @@ class VijestiFragment : Fragment(R.layout.vijesti_fragment) {
         mVijestiViewModel.readAllDataVijesti.observe(viewLifecycleOwner, Observer { vijesti ->
             adapter.setData(vijesti)
         })
-
     }
 }
