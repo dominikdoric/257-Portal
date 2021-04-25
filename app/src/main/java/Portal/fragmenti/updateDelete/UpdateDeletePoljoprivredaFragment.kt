@@ -44,7 +44,7 @@ class UpdateDeletePoljoprivredaFragment: Fragment(R.layout.update_delete_poljopr
         builder.setPositiveButton("Da") { _, _ ->
             mPoljoprivredaViewModel.deletePoljoprivreda(args.updatePoljoprivredaArgs)
             Toast.makeText(requireContext(), "Brisanje uspješno!", Toast.LENGTH_LONG).show()
-            //findNavController().navigate(R.id.action_updateDeleteSportFragment_to_sportNavDrawer)
+            findNavController().navigate(R.id.action_updateDeletePoljoprivredaFragment_to_poljoprivredaNavDrawer)
         }
         builder.setNegativeButton("Ne") { _, _ -> }
         builder.setTitle("Obrisati ${args.updatePoljoprivredaArgs.poljoprivredaNaslov}?")
@@ -64,7 +64,7 @@ class UpdateDeletePoljoprivredaFragment: Fragment(R.layout.update_delete_poljopr
         val updatePoljoprivreda =
             PoljoprivredaTable(args.updatePoljoprivredaArgs.id, naslovSport, clanakSport, vrijemeSport, slikaSport)
         mPoljoprivredaViewModel.updatePoljoprivreda(updatePoljoprivreda)
-        //findNavController().navigate(R.id.action_updateDeleteSportFragment_to_sportNavDrawer)
+        findNavController().navigate(R.id.action_updateDeleteSportFragment_to_sportNavDrawer)
     }
 
 }

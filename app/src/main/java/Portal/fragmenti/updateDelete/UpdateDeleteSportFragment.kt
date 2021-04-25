@@ -53,8 +53,8 @@ class UpdateDeleteSportFragment : Fragment(R.layout.update_delete_sport_fragment
     }
 
     private fun updateItemSport() {
-        val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
-        val currentDate = sdf.format(Date())
+        //val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
+        //val currentDate = sdf.format(Date())
 
         //val naslovSport = binding.updateSportNaslov.text.toString()
         //val clanakSport = binding.updateSportClanak.text.toString()
