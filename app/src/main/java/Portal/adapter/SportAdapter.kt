@@ -4,6 +4,7 @@ import Portal.a257.databinding.JedanRedSportBinding
 import Portal.a257.databinding.JedanRedVijestiBinding
 import Portal.database.table.SportTable
 import Portal.database.table.VijestiTable
+import Portal.fragmenti.fragmenti.SportFragmentDirections
 import Portal.fragmenti.fragmenti.VijestiFragmentDirections
 import android.view.LayoutInflater
 import android.view.View
@@ -30,20 +31,20 @@ class SportAdapter: RecyclerView.Adapter<SportAdapter.ViewHolder>()  {
         holder.binding.textViewSportNaslov.text = currentItem.sportNaslov
         holder.binding.textViewSportVrijeme.text = currentItem.sportVrijeme
 
-        /*
+
         holder.binding.cardViewSport.setOnLongClickListener {
             val action =
-                VijestiFragmentDirections.actionVijestiNavDrawerToAdminPrijavaVijestiFragment()
+                SportFragmentDirections.actionSportNavDrawerToUpdateDeleteSportFragment(currentItem)
             holder.itemView.findNavController().navigate(action)
             true
         }
 
         holder.binding.cardViewSport.setOnClickListener {
             val action =
-                VijestiFragmentDirections.actionVijestiNavDrawerToDetailVijestiFragment()
+                SportFragmentDirections.actionSportNavDrawerToDetailSportFragment(currentItem)
             holder.itemView.findNavController().navigate(action)
         }
-         */
+
     }
 
     override fun getItemCount(): Int {

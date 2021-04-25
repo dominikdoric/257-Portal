@@ -261,7 +261,11 @@
         android:id="@+id/detailSportFragment"
         android:name="Portal.fragmenti.detailFragmenti.DetailSportFragment"
         android:label="Detalji sport"
-        tools:layout="@layout/detail_sport_fragment"/>
+        tools:layout="@layout/detail_sport_fragment">
+        <argument
+            android:name="detailSportArgs"
+            app:argType="Portal.database.table.SportTable" />
+    </fragment>
     <fragment
         android:id="@+id/detailFragmentZabava"
         android:name="Portal.fragmenti.detailFragmenti.DetailZabavaFragment"
@@ -510,5 +514,8 @@
         <action
             android:id="@+id/action_updateDeleteSportFragment_to_sportNavDrawer"
             app:destination="@id/sportNavDrawer" />
+        <argument
+            android:name="currentSportArgs"
+            app:argType="Portal.database.table.SportTable" />
     </fragment>
 </navigation>
