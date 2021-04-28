@@ -37,5 +37,10 @@
         android:title="Dodaj novu pricu"
         app:showAsAction="never"
         android:menuCategory="secondary"/>
+    <item
+        android:id="@+id/firestore"
+        android:title="Firestore"
+        app:showAsAction="never"
+        android:menuCategory="secondary"/>
 
 </menu>
