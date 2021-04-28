@@ -518,4 +518,9 @@
             android:name="currentSportArgs"
             app:argType="Portal.database.table.SportTable" />
     </fragment>
+    <fragment
+        android:id="@+id/firestore"
+        android:name="Portal.firestore.FirestoreFragment"
+        android:label="FirestoreFragment"
+        tools:layout="@layout/firestore_fragment"/>
 </navigation>

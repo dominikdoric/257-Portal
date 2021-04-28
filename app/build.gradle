@@ -86,4 +86,6 @@ dependencies {
     // Activity KTX for viewModels()
     implementation "androidx.activity:activity-ktx:1.2.2"
 
+    //Firebase
+    implementation 'com.google.firebase:firebase-firestore-ktx:22.1.2'
 }
