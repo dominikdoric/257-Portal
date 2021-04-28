@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "265209737671",
+    "project_id": "portal-257",
+    "storage_bucket": "portal-257.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:265209737671:android:666dea23e7977e3ea529e2",
+        "android_client_info": {
+          "package_name": "Portal.a257"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "265209737671-r6ntlvm2gf55k47dtg3ehpo5inb6a9ip.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "Portal.a257",
+            "certificate_hash": "b3036a8098e5a55ff78debd8a3da99bca288ae7c"
+          }
+        },
+        {
+          "client_id": "265209737671-dmlhed1s4u03g4m8kjarj2r0gj56n9f1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDe1rYDxyDEM_yXJnmU1RdJi6ZhcMWbMOQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "265209737671-dmlhed1s4u03g4m8kjarj2r0gj56n9f1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
