@@ -33,4 +33,21 @@
         android:layout_marginTop="40dp"
         android:text="Spremi" />
 
+    <Button
+        android:id="@+id/firstorePrikaži"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40dp"
+        android:text="Prikaži" />
+
+    <TextView
+        android:id="@+id/textViewFirestore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Firestore"
+        android:textColor="#000"
+        android:textSize="20dp" />
+
 </LinearLayout>
