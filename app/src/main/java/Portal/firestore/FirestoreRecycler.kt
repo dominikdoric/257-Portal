@@ -14,7 +14,7 @@ import com.google.firebase.firestore.Query
 class FirestoreRecycler : Fragment(R.layout.firestore_recycler) {
 
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
-    private val collectionReference: CollectionReference = db.collection("person")
+    private val collectionReference: CollectionReference = db.collection("persons")
     var personAdapter: FirestoreAdapter? = null
     private lateinit var binding: FirestoreRecyclerBinding
 
