@@ -523,4 +523,8 @@
         android:name="Portal.firestore.FirestoreFragment"
         android:label="FirestoreFragment"
         tools:layout="@layout/firestore_fragment"/>
+    <fragment
+        android:id="@+id/firestoreRecycler"
+        android:name="Portal.firestore.FirestoreRecycler"
+        android:label="FirestoreRecycler" />
 </navigation>
