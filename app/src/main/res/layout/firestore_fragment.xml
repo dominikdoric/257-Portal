@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="40dp">
+    android:padding="20dp">
 
     <EditText
         android:id="@+id/firstName"
@@ -15,14 +15,14 @@
         android:id="@+id/lastName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:hint="Last Name" />
 
     <EditText
         android:id="@+id/age"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:hint="Age" />
 
     <Button
@@ -30,15 +30,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:text="Spremi" />
 
     <Button
-        android:id="@+id/firstorePrikaži"
+        android:id="@+id/firstorePrikazi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:text="Prikaži" />
 
     <TextView

@@ -34,7 +34,7 @@ class FirestoreFragment : Fragment(R.layout.firestore_fragment) {
             savePerson(person)
         }
 
-        binding.firstorePrikaži.setOnClickListener {
+        binding.firstorePrikazi.setOnClickListener {
             retrievePersons()
         }
 
