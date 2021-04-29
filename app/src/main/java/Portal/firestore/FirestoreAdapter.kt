@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 
-class FirestoreAdapter : RecyclerView.Adapter<FirestoreAdapter.PersonViewHolder>() {
+class FirestoreAdapter(options: FirestoreRecyclerOptions<Person>): FirestoreRecyclerAdapter<Person, FirestoreAdapter.PersonViewHolder>(options) {
 
     private var personList = emptyList<Person>()
 
@@ -22,7 +22,7 @@ class FirestoreAdapter : RecyclerView.Adapter<FirestoreAdapter.PersonViewHolder>
         )
     }
 
-    override fun onBindViewHolder(holder: PersonViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: PersonViewHolder, position: Int, model: Person) {
         val currentItem = personList[position]
 
         holder.firstName.text = currentItem.firstName
@@ -46,5 +46,4 @@ class FirestoreAdapter : RecyclerView.Adapter<FirestoreAdapter.PersonViewHolder>
         var lastName = binding.rowFirstName
         var age = binding.rowAge
     }
-
 }
