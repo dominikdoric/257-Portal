@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 
 class DetailZabavaFragment : Fragment(R.layout.detail_zabava_fragment) {
 
@@ -18,6 +19,11 @@ class DetailZabavaFragment : Fragment(R.layout.detail_zabava_fragment) {
 
         binding.detailZabavaNaslov.text = args.zabavaData.zabavaNaslov
         binding.detailZabavaClanak.text = args.zabavaData.zabavaClanak
+        val image = binding.detailZabavaImage
+
+        Glide.with(requireContext())
+            .load(R.drawable.jaksic)
+            .into(image)
     }
 
 }

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 
 class DetailPoljoprivredaFragment: Fragment(R.layout.detail_poljoprivreda_fragment) {
 
@@ -18,6 +19,11 @@ class DetailPoljoprivredaFragment: Fragment(R.layout.detail_poljoprivreda_fragme
 
         binding.detailPoljoprivredaNaslov.text = args.detailPoljoprivredaArgs.poljoprivredaNaslov
         binding.detailPoljoprivredaClanak.text = args.detailPoljoprivredaArgs.poljoprivredaClanak
+        val image = binding.detailPoljoprivredaImage
+
+        Glide.with(requireContext())
+            .load(R.drawable.jaksic)
+            .into(image)
     }
 
 }

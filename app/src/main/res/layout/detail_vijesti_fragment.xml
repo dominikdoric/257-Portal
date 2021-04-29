@@ -12,8 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_alignParentTop="true"
-        android:scaleType="centerCrop"
-        android:src="@drawable/jaksic" />
+        android:scaleType="centerCrop" />
 
     <TextView
         android:id="@+id/detailVijestiNaslov"

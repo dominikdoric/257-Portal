@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 
 class DetailOglasnikFragment : Fragment(R.layout.detail_oglasnik_fragment) {
 
@@ -21,6 +22,11 @@ class DetailOglasnikFragment : Fragment(R.layout.detail_oglasnik_fragment) {
         binding.detailOglasnikLokacija.text = args.oglasnikData.oglasnikLokacija
         binding.detailOglasnikBroj.text = args.oglasnikData.oglasnikBroj
         binding.detailOglasnikClanak.text = args.oglasnikData.oglasnikClanak
+        val image = binding.detailOglasnikImage
+
+        Glide.with(requireContext())
+            .load(R.drawable.jaksic)
+            .into(image)
 
     }
 
