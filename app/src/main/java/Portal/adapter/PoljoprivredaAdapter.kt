@@ -1,7 +1,7 @@
 package Portal.adapter
 
 import Portal.a257.databinding.JedanRedPoljoprivredaBinding
-import Portal.database.table.PoljoprivredaTable
+import Portal.model.PoljoprivredaTable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView

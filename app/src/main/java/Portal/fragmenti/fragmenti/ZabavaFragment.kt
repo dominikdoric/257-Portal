@@ -3,7 +3,7 @@ package Portal.fragmenti.fragmenti
 import Portal.a257.R
 import Portal.a257.databinding.ZabavaFragmentBinding
 import Portal.adapter.ZabavaAdapter
-import Portal.database.table.ZabavaTable
+import Portal.model.ZabavaTable
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment

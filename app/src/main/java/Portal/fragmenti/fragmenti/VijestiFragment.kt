@@ -2,10 +2,8 @@ package Portal.fragmenti.fragmenti
 
 import Portal.a257.R
 import Portal.a257.databinding.VijestiFragmentBinding
-import Portal.adapter.SportAdapter
 import Portal.adapter.VijestiAdapter
-import Portal.database.table.SportTable
-import Portal.database.table.VijestiTable
+import Portal.model.VijestiTable
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment

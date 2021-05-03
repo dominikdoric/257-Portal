@@ -1,7 +1,7 @@
 package Portal.adapter
 
 import Portal.a257.databinding.JedanRedSportBinding
-import Portal.database.table.SportTable
+import Portal.model.SportTable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView

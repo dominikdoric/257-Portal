@@ -1,12 +1,9 @@
 package Portal.adapter
 
 import Portal.a257.databinding.JedanRedOglasnikBinding
-import Portal.a257.databinding.JedanRedSportBinding
-import Portal.database.table.OglasnikTable
-import Portal.database.table.SportTable
+import Portal.model.OglasnikTable
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions

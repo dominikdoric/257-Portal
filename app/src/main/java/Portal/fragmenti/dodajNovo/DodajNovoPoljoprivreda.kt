@@ -2,7 +2,7 @@ package Portal.fragmenti.dodajNovo
 
 import Portal.a257.R
 import Portal.a257.databinding.DodajNovoPoljoprivredaFragmentBinding
-import Portal.database.table.PoljoprivredaTable
+import Portal.model.PoljoprivredaTable
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast

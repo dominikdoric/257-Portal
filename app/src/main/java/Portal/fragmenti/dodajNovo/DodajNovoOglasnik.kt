@@ -2,7 +2,7 @@ package Portal.fragmenti.dodajNovo
 
 import Portal.a257.R
 import Portal.a257.databinding.DodajNovoOglasnikFragmentBinding
-import Portal.database.table.OglasnikTable
+import Portal.model.OglasnikTable
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast

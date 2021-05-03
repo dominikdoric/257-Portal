@@ -2,8 +2,7 @@ package Portal.fragmenti.dodajNovo
 
 import Portal.a257.R
 import Portal.a257.databinding.DodajNovoPriceCitateljaFragmentBinding
-import Portal.database.table.PriceCitateljaTable
-import Portal.database.table.SportTable
+import Portal.model.PriceCitateljaTable
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast

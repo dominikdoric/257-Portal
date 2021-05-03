@@ -144,7 +144,7 @@
     </fragment>
     <fragment
         android:id="@+id/adminBottomNav"
-        android:name="Portal.fragmenti.admin.AdminFragment"
+        android:name="Portal.fragmenti.fragmenti.AdminFragment"
         android:label="Admin"
         tools:layout="@layout/admin_fragment">
     </fragment>

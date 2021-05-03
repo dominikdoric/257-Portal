@@ -2,8 +2,7 @@ package Portal.fragmenti.dodajNovo
 
 import Portal.a257.R
 import Portal.a257.databinding.DodajNovoZabavaFragmentBinding
-import Portal.database.table.SportTable
-import Portal.database.table.ZabavaTable
+import Portal.model.ZabavaTable
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast

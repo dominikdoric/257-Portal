@@ -1,7 +1,7 @@
 package Portal.adapter
 
 import Portal.a257.databinding.JedanRedVijestiBinding
-import Portal.database.table.VijestiTable
+import Portal.model.VijestiTable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView

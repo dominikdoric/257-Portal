@@ -1,7 +1,7 @@
 package Portal.adapter
 
 import Portal.a257.databinding.JedanRedObavijestiBinding
-import Portal.database.table.ObavijestiTable
+import Portal.model.ObavijestiTable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView

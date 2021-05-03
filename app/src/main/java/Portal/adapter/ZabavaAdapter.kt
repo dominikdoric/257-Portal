@@ -2,7 +2,7 @@ package Portal.adapter
 
 
 import Portal.a257.databinding.JedanRedZabavaBinding
-import Portal.database.table.ZabavaTable
+import Portal.model.ZabavaTable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
