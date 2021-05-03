@@ -26,20 +26,6 @@
         android:name="Portal.fragmenti.fragmenti.OglasnikFragment"
         android:label="Oglasnik"
         tools:layout="@layout/oglasnik_fragment">
-        <action
-            android:id="@+id/action_oglasnikNavDrawer_to_detailOglasnikFragment"
-            app:destination="@id/detailOglasnikFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
-        <action
-            android:id="@+id/action_oglasnikNavDrawer_to_adminPrijavaOglasnikFragment"
-            app:destination="@id/adminPrijavaOglasnikFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/priceCitateljaNavDrawer"
@@ -123,32 +109,7 @@
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_left"/>
     </fragment>
-    <fragment
-        android:id="@+id/updateDeleteOglasnikFragment"
-        android:name="Portal.fragmenti.updateDelete.UpdateDeleteOglasnikFragment"
-        android:label="Ažuriraj ili obriši oglas"
-        tools:layout="@layout/update_delete_oglasnik_fragment">
-        <action
-            android:id="@+id/action_updateDeleteOglasnikFragment_to_oglasnikNavDrawer"
-            app:destination="@id/oglasnikNavDrawer"
-            app:enterAnim="@anim/slide_in_left"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_left"/>
-        <argument
-            android:name="currentOglasnik"
-            app:argType="Portal.database.table.OglasnikTable" />
-    </fragment>
 
-    <fragment
-        android:id="@+id/detailOglasnikFragment"
-        android:name="Portal.fragmenti.detailFragmenti.DetailOglasnikFragment"
-        android:label="Detalji oglas"
-        tools:layout="@layout/detail_oglasnik_fragment">
-        <argument
-            android:name="oglasnikData"
-            app:argType="Portal.database.table.OglasnikTable" />
-    </fragment>
     <fragment
         android:id="@+id/menu_dodajNovuPricuCitatelja"
         android:name="Portal.fragmenti.dodajNovo.DodajNovoPriceCitatelja"
@@ -186,23 +147,6 @@
         android:name="Portal.fragmenti.admin.AdminFragment"
         android:label="Admin"
         tools:layout="@layout/admin_fragment">
-    </fragment>
-
-    <fragment
-        android:id="@+id/adminPrijavaOglasnikFragment"
-        android:name="Portal.fragmenti.adminPrijava.AdminPrijavaOglasnikFragment"
-        android:label="Admin"
-        tools:layout="@layout/admin_prijava_oglasnik">
-        <action
-            android:id="@+id/action_adminPrijavaOglasnikFragment_to_updateDeleteOglasnikFragment"
-            app:destination="@id/updateDeleteOglasnikFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
-        <argument
-            android:name="currentOglasnik"
-            app:argType="Portal.database.table.OglasnikTable" />
     </fragment>
     <fragment
         android:id="@+id/menu_dodajNoviSport"

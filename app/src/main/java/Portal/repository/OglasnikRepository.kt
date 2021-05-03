@@ -1,8 +1,6 @@
 package Portal.repository
 
-import Portal.database.dao.OglasnikDao
 import Portal.database.table.OglasnikTable
-import androidx.lifecycle.LiveData
 import javax.inject.Inject
 
 class OglasnikRepository @Inject constructor(

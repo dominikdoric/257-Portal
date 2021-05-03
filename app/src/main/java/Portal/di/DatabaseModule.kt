@@ -25,12 +25,4 @@ object DatabaseModule {
     ).fallbackToDestructiveMigration()
         .build()
 
-    @Provides
-    @Singleton
-    fun provideInfoDao(portal257Database: Portal257Database) = portal257Database.infoDao()
-
-    @Provides
-    @Singleton
-    fun provideOglasnikDao(portal257Database: Portal257Database) = portal257Database.oglasnikDao()
-
 }

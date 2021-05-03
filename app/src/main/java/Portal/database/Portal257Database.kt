@@ -8,17 +8,11 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 @Database(
-    entities = [
-        OglasnikTable::class,
-        InfoTable::class],
-        version = 13,
+    entities = [],
+        version = 14,
         exportSchema = false
 )
 abstract class Portal257Database : RoomDatabase() {
-
-    abstract fun oglasnikDao(): OglasnikDao
-    abstract fun infoDao(): InfoDao
-
 
     companion object {
         @Volatile
