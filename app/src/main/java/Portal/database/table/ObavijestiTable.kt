@@ -9,11 +9,8 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class ObavijestiTable(
 
-    val obavijestiNaslov: String,
+    val obavijestiNaslov: String = "",
+    val obavijestiClanak: String = "",
+    val obavijestiVrijeme: String = ""
 
-    val obavijestiClanak: String,
-
-    val obavijestiVrijeme: String,
-
-    val obavijestiSlika: Int
 ) : Parcelable

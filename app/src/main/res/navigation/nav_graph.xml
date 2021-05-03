@@ -25,20 +25,6 @@
         android:name="Portal.fragmenti.fragmenti.ObavijestiFragment"
         android:label="Obavijesti"
         tools:layout="@layout/obavijesti_fragment">
-        <action
-            android:id="@+id/action_obavijestiNavDrawer_to_detailObavijestiFragment"
-            app:destination="@id/detailObavijestiFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
-        <action
-            android:id="@+id/action_obavijestiNavDrawer_to_adminPrijavaObavijestiFragment"
-            app:destination="@id/adminPrijavaObavijestiFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/oglasnikNavDrawer"
@@ -170,22 +156,6 @@
             app:popExitAnim="@anim/slide_out_left"/>
     </fragment>
     <fragment
-        android:id="@+id/updateDeleteObavijestiFragment2"
-        android:name="Portal.fragmenti.updateDelete.UpdateDeleteObavijestiFragment"
-        android:label="Ažuriraj ili obriši obavijest"
-        tools:layout="@layout/update_delete_obavijesti_fragment">
-        <action
-            android:id="@+id/action_updateDeleteObavijestiFragment2_to_obavijestiNavDrawer"
-            app:destination="@id/obavijestiNavDrawer"
-            app:enterAnim="@anim/slide_in_left"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_left"/>
-        <argument
-            android:name="currentObavijest"
-            app:argType="Portal.database.table.ObavijestiTable" />
-    </fragment>
-    <fragment
         android:id="@+id/updateDeleteVijestiFragment"
         android:name="Portal.fragmenti.updateDelete.UpdateDeleteVijestiFragment"
         android:label="Ažuriraj ili obriši vijest"
@@ -218,15 +188,6 @@
             app:argType="Portal.database.table.OglasnikTable" />
     </fragment>
 
-    <fragment
-        android:id="@+id/detailObavijestiFragment"
-        android:name="Portal.fragmenti.detailFragmenti.DetailObavijestiFragment"
-        android:label="Detalji obavijest"
-        tools:layout="@layout/detail_obavijesti_fragment">
-        <argument
-            android:name="obavijestiData"
-            app:argType="Portal.database.table.ObavijestiTable" />
-    </fragment>
     <fragment
         android:id="@+id/detailOglasnikFragment"
         android:name="Portal.fragmenti.detailFragmenti.DetailOglasnikFragment"
@@ -344,22 +305,6 @@
         tools:layout="@layout/admin_fragment">
     </fragment>
 
-    <fragment
-        android:id="@+id/adminPrijavaObavijestiFragment"
-        android:name="Portal.fragmenti.adminPrijava.AdminPrijavaObavijestiFragment"
-        android:label="Admin"
-        tools:layout="@layout/admin_prijava_obavijesti">
-        <action
-            android:id="@+id/action_adminPrijavaObavijestiFragment_to_updateDeleteObavijestiFragment2"
-            app:destination="@id/updateDeleteObavijestiFragment2"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
-        <argument
-            android:name="currentObavijesti"
-            app:argType="Portal.database.table.ObavijestiTable" />
-    </fragment>
     <fragment
         android:id="@+id/adminPrijavaOglasnikFragment"
         android:name="Portal.fragmenti.adminPrijava.AdminPrijavaOglasnikFragment"
