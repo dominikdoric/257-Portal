@@ -7,19 +7,30 @@
     android:orientation="vertical">
 
     <EditText
-        android:id="@+id/et_sport_naslov"
+        android:id="@+id/naslov"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Naslov"/>
     <EditText
-        android:id="@+id/et_sport_clanak"
+        android:id="@+id/clanak"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:gravity="bottom"
         android:hint="Clanak"/>
+    <EditText
+        android:id="@+id/vrijeme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:hint="Vrijeme"/>
     <Button
         android:id="@+id/gumbSpremiSport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Spremi"
+        android:layout_gravity="end"/>
+    <Button
+        android:id="@+id/gumbPrikaziSport"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Spremi"

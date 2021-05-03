@@ -1,13 +1,7 @@
 package Portal.viewModel
 
-import Portal.database.Portal257Database
 import Portal.database.table.OglasnikTable
-import Portal.database.table.SportTable
 import Portal.repository.OglasnikRepository
-import Portal.repository.SportRepository
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel

@@ -1,13 +1,7 @@
 package Portal.viewModel
 
-import Portal.database.Portal257Database
-import Portal.database.table.SportTable
 import Portal.database.table.ZabavaTable
-import Portal.repository.SportRepository
 import Portal.repository.ZabavaRepository
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
