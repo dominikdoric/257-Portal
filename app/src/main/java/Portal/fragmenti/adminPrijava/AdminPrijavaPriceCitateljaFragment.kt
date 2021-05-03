@@ -2,7 +2,6 @@ package Portal.fragmenti.adminPrijava
 
 import Portal.a257.R
 import Portal.a257.databinding.AdminPrijavaPriceCitetaljaBinding
-import Portal.a257.databinding.AdminPrijavaSportBinding
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast

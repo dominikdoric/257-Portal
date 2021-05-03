@@ -31,10 +31,6 @@ object DatabaseModule {
 
     @Provides
     @Singleton
-    fun provideZabavaDao(portal257Database: Portal257Database) = portal257Database.zabavaDao()
-
-    @Provides
-    @Singleton
     fun provideVijestiDao(portal257Database: Portal257Database) = portal257Database.vijestiDao()
 
     @Provides

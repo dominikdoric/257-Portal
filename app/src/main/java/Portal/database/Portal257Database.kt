@@ -12,7 +12,6 @@ import androidx.room.RoomDatabase
         ObavijestiTable::class,
         VijestiTable::class,
         OglasnikTable::class,
-        NaslovnicaTable::class,
         PriceCitateljaTable::class,
         InfoTable::class,
         PoljoprivredaTable::class],
@@ -24,7 +23,6 @@ abstract class Portal257Database : RoomDatabase() {
     abstract fun obavijestiDao(): ObavijestiDao
     abstract fun vijestiDao(): VijestiDao
     abstract fun oglasnikDao(): OglasnikDao
-    abstract fun naslovnicaDao(): NaslovnicaDao
     abstract fun priceCitateljaDao(): PriceCitateljaDao
     abstract fun infoDao(): InfoDao
     abstract fun poljoprivredaDao(): PoljoprivredaDao

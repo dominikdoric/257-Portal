@@ -111,20 +111,6 @@
         android:name="Portal.fragmenti.fragmenti.ZabavaFragment"
         android:label="Zabava"
         tools:layout="@layout/zabava_fragment">
-        <action
-            android:id="@+id/action_zabavaNavDrawer_to_detailFragmentZabava"
-            app:destination="@id/detailFragmentZabava"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
-        <action
-            android:id="@+id/action_zabavaNavDrawer_to_adminPrijavaZabavaFragment"
-            app:destination="@id/adminPrijavaZabavaFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/vrijemeBottomNav"
@@ -216,22 +202,6 @@
             app:argType="Portal.database.table.VijestiTable" />
     </fragment>
     <fragment
-        android:id="@+id/updateDeleteZabavaFragment"
-        android:name="Portal.fragmenti.updateDelete.UpdateDeleteZabavaFragment"
-        android:label="Ažuriraj ili obriši zabavu"
-        tools:layout="@layout/update_delete_zabava_fragment">
-        <action
-            android:id="@+id/action_updateDeleteZabavaFragment_to_zabavaNavDrawer"
-            app:destination="@id/zabavaNavDrawer"
-            app:enterAnim="@anim/slide_in_left"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_left"/>
-        <argument
-            android:name="currentZabava"
-            app:argType="Portal.database.table.ZabavaTable" />
-    </fragment>
-    <fragment
         android:id="@+id/updateDeleteOglasnikFragment"
         android:name="Portal.fragmenti.updateDelete.UpdateDeleteOglasnikFragment"
         android:label="Ažuriraj ili obriši oglas"
@@ -248,15 +218,6 @@
             app:argType="Portal.database.table.OglasnikTable" />
     </fragment>
 
-    <fragment
-        android:id="@+id/detailFragmentZabava"
-        android:name="Portal.fragmenti.detailFragmenti.DetailZabavaFragment"
-        android:label="Detalji zabava"
-        tools:layout="@layout/detail_zabava_fragment">
-        <argument
-            android:name="zabavaData"
-            app:argType="Portal.database.table.ZabavaTable" />
-    </fragment>
     <fragment
         android:id="@+id/detailObavijestiFragment"
         android:name="Portal.fragmenti.detailFragmenti.DetailObavijestiFragment"
@@ -462,22 +423,6 @@
         <argument
             android:name="currentVijesti"
             app:argType="Portal.database.table.VijestiTable" />
-    </fragment>
-    <fragment
-        android:id="@+id/adminPrijavaZabavaFragment"
-        android:name="Portal.fragmenti.adminPrijava.AdminPrijavaZabavaFragment"
-        android:label="Admin"
-        tools:layout="@layout/admin_prijava_zabava">
-        <action
-            android:id="@+id/action_adminPrijavaZabavaFragment_to_updateDeleteZabavaFragment"
-            app:destination="@id/updateDeleteZabavaFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
-        <argument
-            android:name="currentZabava"
-            app:argType="Portal.database.table.ZabavaTable" />
     </fragment>
     <fragment
         android:id="@+id/menu_dodajNoviSport"
