@@ -46,20 +46,6 @@
         android:name="Portal.fragmenti.fragmenti.PriceCitateljaFragment"
         android:label="Priče čitatelja"
         tools:layout="@layout/price_citatelja_fragment">
-        <action
-            android:id="@+id/action_priceCitateljaNavDrawer_to_detailPriceCitateljaFragment"
-            app:destination="@id/detailPriceCitateljaFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
-        <action
-            android:id="@+id/action_priceCitateljaNavDrawer_to_adminPrijavaPriceCitateljaFragment"
-            app:destination="@id/adminPrijavaPriceCitateljaFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/sportNavDrawer"
@@ -177,31 +163,6 @@
             app:popExitAnim="@anim/slide_out_left"/>
     </fragment>
     <fragment
-        android:id="@+id/detailPriceCitateljaFragment"
-        android:name="Portal.fragmenti.detailFragmenti.DetailPriceCitateljaFragment"
-        android:label="Detalji priča čitatelja"
-        tools:layout="@layout/detail_price_citatelja_fragment">
-        <argument
-            android:name="priceCitateljaData"
-            app:argType="Portal.database.table.PriceCitateljaTable" />
-    </fragment>
-    <fragment
-        android:id="@+id/updateDeletePriceCitateljaFragment"
-        android:name="Portal.fragmenti.updateDelete.UpdateDeletePriceCitateljaFragment"
-        android:label="Ažuriraj ili obriši priču čitatelja"
-        tools:layout="@layout/update_delete_price_citatelja_fragment">
-        <action
-            android:id="@+id/action_updateDeletePriceCitateljaFragment_to_priceCitateljaNavDrawer"
-            app:destination="@id/priceCitateljaNavDrawer"
-            app:enterAnim="@anim/slide_in_left"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_left"/>
-        <argument
-            android:name="currentPriceCitatelja"
-            app:argType="Portal.database.table.PriceCitateljaTable" />
-    </fragment>
-    <fragment
         android:id="@+id/menu_dodajNovuPoljoprivredu"
         android:name="Portal.fragmenti.dodajNovo.DodajNovoPoljoprivreda"
         android:label="Dodaj novu poljoprivredu"
@@ -242,22 +203,6 @@
         <argument
             android:name="currentOglasnik"
             app:argType="Portal.database.table.OglasnikTable" />
-    </fragment>
-    <fragment
-        android:id="@+id/adminPrijavaPriceCitateljaFragment"
-        android:name="Portal.fragmenti.adminPrijava.AdminPrijavaPriceCitateljaFragment"
-        android:label="Admin"
-        tools:layout="@layout/admin_prijava_price_citetalja">
-        <action
-            android:id="@+id/action_adminPrijavaPriceCitateljaFragment_to_updateDeletePriceCitateljaFragment"
-            app:destination="@id/updateDeletePriceCitateljaFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
-        <argument
-            android:name="currentPriceCitatelja"
-            app:argType="Portal.database.table.PriceCitateljaTable" />
     </fragment>
     <fragment
         android:id="@+id/menu_dodajNoviSport"

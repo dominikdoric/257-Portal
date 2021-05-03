@@ -1,6 +1,5 @@
 package Portal.repository
 
-import Portal.database.dao.PriceCitateljaDao
 import Portal.database.table.PriceCitateljaTable
 import javax.inject.Inject
 
