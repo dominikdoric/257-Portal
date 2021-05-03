@@ -3,6 +3,7 @@ package Portal.fragmenti.dodajNovo
 import Portal.a257.R
 import Portal.a257.databinding.DodajNovoPoljoprivredaFragmentBinding
 import Portal.database.table.PoljoprivredaTable
+import Portal.database.table.SportTable
 import Portal.viewModel.PoljoprivredaViewModel
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -11,14 +12,24 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.toObject
+import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withContext
+import java.lang.Exception
+import java.lang.StringBuilder
 import java.text.SimpleDateFormat
 import java.util.*
 
 @AndroidEntryPoint
 class DodajNovoPoljoprivreda: Fragment(R.layout.dodaj_novo_poljoprivreda_fragment) {
 
-    private val mPoljoprivredaViewModel: PoljoprivredaViewModel by viewModels()
+    private val personCollectionRef = Firebase.firestore.collection("poljoprivreda")
     private lateinit var binding: DodajNovoPoljoprivredaFragmentBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -26,25 +37,48 @@ class DodajNovoPoljoprivreda: Fragment(R.layout.dodaj_novo_poljoprivreda_fragmen
         binding = DodajNovoPoljoprivredaFragmentBinding.bind(view)
 
         binding.gumbSpremiPoljoprivredu.setOnClickListener {
-            if (binding.etPoljoprivredaNaslov.text.toString().trim().isEmpty()){
-                binding.etPoljoprivredaNaslov.error = "Ovo polje je obavezno!"
-            }else if (binding.etPoljoprivredaClanak.text.toString().trim().isEmpty()){
-                binding.etPoljoprivredaClanak.error = "Ovo polje je obavezno"
-            }
-            else{
-                insertDataToDatabase()
-                val action = DodajNovoPoljoprivredaDirections.actionMenuDodajNovuPoljoprivreduToPoljoprivredaNavDrawer()
-                findNavController().navigate(action)
-                Toast.makeText(
-                    requireContext(),
-                    "Vaš članak je zaprimljen te je poslan adminu na odobrenje.Hvala!",
-                    Toast.LENGTH_LONG
-                ).show()
-            }
+            val naslov = binding.naslov.text.toString()
+            val clanak = binding.clanak.text.toString()
+            val vrijeme = binding.vrijeme.text.toString()
+            val poljoprivreda = PoljoprivredaTable(naslov, clanak, vrijeme)
+            savePerson(poljoprivreda)
+        }
+
+        binding.gumbPrikaziPoljoprivredu.setOnClickListener {
+            retrievePersons()
         }
 
     }
 
+    private fun savePerson(poljoprivreda: PoljoprivredaTable) = CoroutineScope(Dispatchers.IO).launch {
+        try {
+            personCollectionRef.add(poljoprivreda).await()
+            withContext(Dispatchers.Main) {
+                Toast.makeText(requireContext(), "Uspješno spremljeno!", Toast.LENGTH_LONG).show()
+            }
+        } catch (e: Exception) {
+            withContext(Dispatchers.Main) {
+                Toast.makeText(requireContext(), e.message, Toast.LENGTH_LONG).show()
+            }
+        }
+    }
+
+    private fun retrievePersons() = CoroutineScope(Dispatchers.IO).launch {
+        try {
+            val querySnapshot = personCollectionRef.get().await()
+            val sb = StringBuilder()
+            for (document in querySnapshot.documents) {
+                val poljoprivreda = document.toObject<PoljoprivredaTable>()
+                sb.append("$poljoprivreda\n")
+            }
+        } catch (e: Exception) {
+            withContext(Dispatchers.Main) {
+                Toast.makeText(requireContext(), e.message, Toast.LENGTH_LONG).show()
+            }
+        }
+    }
+
+    /*
     @SuppressLint("SimpleDateFormat")
     private fun insertDataToDatabase() {
         val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
@@ -58,5 +92,7 @@ class DodajNovoPoljoprivreda: Fragment(R.layout.dodaj_novo_poljoprivreda_fragmen
         val poljoprivreda = PoljoprivredaTable(0, noviNaslov, noviClanak, novoVrijeme, novaSlika)
         mPoljoprivredaViewModel.addPoljoprivreda(poljoprivreda)
     }
+
+     */
 
 }
