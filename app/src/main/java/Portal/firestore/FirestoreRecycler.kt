@@ -14,7 +14,7 @@ import com.google.firebase.firestore.Query
 class FirestoreRecycler : Fragment(R.layout.firestore_recycler) {
 
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
-    private val collectionReference: CollectionReference = db.collection("persons")
+    private val collectionReference: CollectionReference = db.collection("sport")
     var personAdapter: FirestoreAdapter? = null
     private lateinit var binding: FirestoreRecyclerBinding
 
@@ -27,9 +27,9 @@ class FirestoreRecycler : Fragment(R.layout.firestore_recycler) {
 
     private fun setUpRecyclerView() {
         val query: Query = collectionReference
-        val firestoreRecyclerOptions: FirestoreRecyclerOptions<Person> =
-            FirestoreRecyclerOptions.Builder<Person>()
-                .setQuery(query, Person::class.java)
+        val firestoreRecyclerOptions: FirestoreRecyclerOptions<SportFirestore> =
+            FirestoreRecyclerOptions.Builder<SportFirestore>()
+                .setQuery(query, SportFirestore::class.java)
                 .build()
         personAdapter = FirestoreAdapter(firestoreRecyclerOptions)
 

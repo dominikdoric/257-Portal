@@ -6,24 +6,24 @@
     android:padding="20dp">
 
     <EditText
-        android:id="@+id/firstName"
+        android:id="@+id/naslov"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="First Name" />
+        android:hint="Naslov" />
 
     <EditText
-        android:id="@+id/lastName"
+        android:id="@+id/clanak"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:hint="Last Name" />
+        android:hint="Clanak" />
 
     <EditText
-        android:id="@+id/age"
+        android:id="@+id/vrijeme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:hint="Age" />
+        android:hint="Vrijeme" />
 
     <Button
         android:id="@+id/firstoreSpremi"

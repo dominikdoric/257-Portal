@@ -528,21 +528,6 @@
         android:name="Portal.firestore.FirestoreRecycler"
         android:label="FirestoreRecycler"
         tools:layout="@layout/firestore_recycler">
-        <action
-            android:id="@+id/action_firestoreRecycler_to_firestoreDetail"
-            app:destination="@id/firestoreDetail"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
-    <fragment
-        android:id="@+id/firestoreDetail"
-        android:name="Portal.firestore.FirestoreDetail"
-        android:label="FirestoreDetail"
-        tools:layout="@layout/firestore_detail">
-        <argument
-            android:name="firestoreArgs"
-            app:argType="Portal.firestore.Person" />
-    </fragment>
+
 </navigation>

@@ -19,7 +19,7 @@ import java.lang.StringBuilder
 
 class FirestoreFragment : Fragment(R.layout.firestore_fragment) {
 
-    private val personCollectionRef = Firebase.firestore.collection("persons")
+    private val personCollectionRef = Firebase.firestore.collection("sport")
     private lateinit var binding: FirestoreFragmentBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -27,11 +27,11 @@ class FirestoreFragment : Fragment(R.layout.firestore_fragment) {
         binding = FirestoreFragmentBinding.bind(view)
 
         binding.firstoreSpremi.setOnClickListener {
-            val firstName = binding.firstName.text.toString()
-            val lastName = binding.lastName.text.toString()
-            val age = binding.age.text.toString()
-            val person = Person(firstName, lastName, age)
-            savePerson(person)
+            val naslov = binding.naslov.text.toString()
+            val clanak = binding.clanak.text.toString()
+            val vrijeme = binding.vrijeme.text.toString()
+            val sport = SportFirestore(naslov, clanak, vrijeme)
+            savePerson(sport)
         }
 
         binding.firstorePrikazi.setOnClickListener {
@@ -40,9 +40,9 @@ class FirestoreFragment : Fragment(R.layout.firestore_fragment) {
 
     }
 
-    private fun savePerson(person: Person) = CoroutineScope(Dispatchers.IO).launch {
+    private fun savePerson(sport: SportFirestore) = CoroutineScope(Dispatchers.IO).launch {
         try {
-            personCollectionRef.add(person).await()
+            personCollectionRef.add(sport).await()
             withContext(Dispatchers.Main) {
                 Toast.makeText(requireContext(), "Uspješno spremljeno!", Toast.LENGTH_LONG).show()
             }
@@ -58,8 +58,8 @@ class FirestoreFragment : Fragment(R.layout.firestore_fragment) {
             val querySnapshot = personCollectionRef.get().await()
             val sb = StringBuilder()
             for (document in querySnapshot.documents) {
-                val person = document.toObject<Person>()
-                sb.append("$person\n")
+                val sport = document.toObject<SportFirestore>()
+                sb.append("$sport\n")
             }
             withContext(Dispatchers.Main) {
                 binding.textViewFirestore.text = sb.toString()

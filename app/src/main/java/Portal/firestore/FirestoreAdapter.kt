@@ -12,8 +12,8 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class FirestoreAdapter(options: FirestoreRecyclerOptions<Person>) :
-    FirestoreRecyclerAdapter<Person, FirestoreAdapter.PersonViewHolder>(options) {
+class FirestoreAdapter(options: FirestoreRecyclerOptions<SportFirestore>) :
+    FirestoreRecyclerAdapter<SportFirestore, FirestoreAdapter.PersonViewHolder>(options) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PersonViewHolder {
         return PersonViewHolder(
@@ -25,7 +25,7 @@ class FirestoreAdapter(options: FirestoreRecyclerOptions<Person>) :
         )
     }
 
-    override fun onBindViewHolder(holder: PersonViewHolder, position: Int, model: Person) {
+    override fun onBindViewHolder(holder: PersonViewHolder, position: Int, model: SportFirestore) {
 
         holder.firstName.text = model.naslov
         holder.lastName.text = model.clanak
