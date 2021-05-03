@@ -1,6 +1,5 @@
 package Portal.adapter
 
-import Portal.a257.databinding.FirestoreJedanRedBinding
 import Portal.a257.databinding.JedanRedSportBinding
 import Portal.database.table.SportTable
 import android.view.LayoutInflater

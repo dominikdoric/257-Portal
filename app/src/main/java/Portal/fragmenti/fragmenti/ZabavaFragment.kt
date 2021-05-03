@@ -19,7 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class ZabavaFragment : Fragment(R.layout.zabava_fragment) {
 
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
-    private val collectionReference: CollectionReference = db.collection("sport")
+    private val collectionReference: CollectionReference = db.collection("zabava")
     var zabavaAdapter: ZabavaAdapter? = null
     private lateinit var binding: ZabavaFragmentBinding
 
