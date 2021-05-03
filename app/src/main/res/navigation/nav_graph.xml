@@ -85,16 +85,6 @@
         android:name="Portal.fragmenti.fragmenti.SportFragment"
         android:label="Sport"
         tools:layout="@layout/sport_fragment">
-        <action
-            android:id="@+id/action_sportNavDrawer_to_detailSportFragment"
-            app:destination="@id/detailSportFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
-        <action
-            android:id="@+id/action_sportNavDrawer_to_updateDeleteSportFragment"
-            app:destination="@id/updateDeleteSportFragment" />
     </fragment>
     <fragment
         android:id="@+id/vijestiNavDrawer"
@@ -257,15 +247,7 @@
             android:name="currentOglasnik"
             app:argType="Portal.database.table.OglasnikTable" />
     </fragment>
-    <fragment
-        android:id="@+id/detailSportFragment"
-        android:name="Portal.fragmenti.detailFragmenti.DetailSportFragment"
-        android:label="Detalji sport"
-        tools:layout="@layout/detail_sport_fragment">
-        <argument
-            android:name="detailSportArgs"
-            app:argType="Portal.database.table.SportTable" />
-    </fragment>
+
     <fragment
         android:id="@+id/detailFragmentZabava"
         android:name="Portal.fragmenti.detailFragmenti.DetailZabavaFragment"
@@ -505,18 +487,6 @@
         <action
             android:id="@+id/action_dodajNovoSport_to_sportNavDrawer"
             app:destination="@id/sportNavDrawer" />
-    </fragment>
-    <fragment
-        android:id="@+id/updateDeleteSportFragment"
-        android:name="Portal.fragmenti.updateDelete.UpdateDeleteSportFragment"
-        android:label="UpdateDeleteSportFragment"
-        tools:layout="@layout/update_delete_sport_fragment">
-        <action
-            android:id="@+id/action_updateDeleteSportFragment_to_sportNavDrawer"
-            app:destination="@id/sportNavDrawer" />
-        <argument
-            android:name="currentSportArgs"
-            app:argType="Portal.database.table.SportTable" />
     </fragment>
     <fragment
         android:id="@+id/firestore"
