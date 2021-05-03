@@ -1,6 +1,5 @@
 package Portal.repository
 
-import Portal.database.dao.PoljoprivredaDao
 import Portal.database.table.PoljoprivredaTable
 import javax.inject.Inject
 

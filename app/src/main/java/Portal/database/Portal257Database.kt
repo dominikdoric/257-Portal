@@ -12,9 +12,8 @@ import androidx.room.RoomDatabase
         VijestiTable::class,
         OglasnikTable::class,
         PriceCitateljaTable::class,
-        InfoTable::class,
-        PoljoprivredaTable::class],
-        version = 10,
+        InfoTable::class],
+        version = 11,
         exportSchema = false
 )
 abstract class Portal257Database : RoomDatabase() {
@@ -23,7 +22,6 @@ abstract class Portal257Database : RoomDatabase() {
     abstract fun oglasnikDao(): OglasnikDao
     abstract fun priceCitateljaDao(): PriceCitateljaDao
     abstract fun infoDao(): InfoDao
-    abstract fun poljoprivredaDao(): PoljoprivredaDao
 
 
     companion object {

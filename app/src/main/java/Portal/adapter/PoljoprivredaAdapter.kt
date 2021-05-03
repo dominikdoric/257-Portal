@@ -1,63 +1,47 @@
 package Portal.adapter
 
 import Portal.a257.databinding.JedanRedPoljoprivredaBinding
+import Portal.a257.databinding.JedanRedSportBinding
+import Portal.database.table.ObavijestiTable
 import Portal.database.table.PoljoprivredaTable
+import Portal.database.table.SportTable
 import Portal.fragmenti.fragmenti.PoljoprivredaFragmentDirections
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
 
-class PoljoprivredaAdapter : RecyclerView.Adapter<PoljoprivredaAdapter.ViewHolder>() {
+class PoljoprivredaAdapter(options: FirestoreRecyclerOptions<PoljoprivredaTable>) :
+    FirestoreRecyclerAdapter<PoljoprivredaTable, PoljoprivredaAdapter.PersonViewHolder>(options) {
 
-    private var poljoprivredaList = emptyList<PoljoprivredaTable>()
-
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): PoljoprivredaAdapter.ViewHolder {
-        return ViewHolder(
-            JedanRedPoljoprivredaBinding
-                .inflate(LayoutInflater.from(parent.context), parent, false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PersonViewHolder {
+        return PersonViewHolder(
+            JedanRedPoljoprivredaBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
         )
     }
 
-    override fun onBindViewHolder(holder: PoljoprivredaAdapter.ViewHolder, position: Int) {
-        val currentItem = poljoprivredaList[position]
-        holder.binding.textViewPoljoprivredaNaslov.text = currentItem.poljoprivredaNaslov
-        holder.binding.textViewPoljoprivredaVrijeme.text = currentItem.poljoprivredaVrijeme
+    override fun onBindViewHolder(
+        holder: PersonViewHolder,
+        position: Int,
+        model: PoljoprivredaTable
+    ) {
 
-        holder.binding.cardViewPoljoprivreda.setOnLongClickListener {
-            val action =
-                PoljoprivredaFragmentDirections.actionPoljoprivredaNavDrawerToAdminPrijavaPoljoprivradaFragment(
-                    currentItem
-                )
-            holder.itemView.findNavController().navigate(action)
-            true
-        }
-
-        holder.binding.cardViewPoljoprivreda.setOnClickListener {
-            val action =
-                PoljoprivredaFragmentDirections.actionPoljoprivredaNavDrawerToDetailPoljoprivredaFragment(
-                    currentItem
-                )
-            holder.itemView.findNavController().navigate(action)
-        }
+        holder.naslov.text = model.poljoprivredaNaslov
+        holder.clanak.text = model.poljoprivredaClanak
+        holder.vrijeme.text = model.poljoprivredaVrijeme
 
     }
 
-    override fun getItemCount(): Int {
-        return poljoprivredaList.size
-    }
-
-    inner class ViewHolder(val binding: JedanRedPoljoprivredaBinding) :
+    class PersonViewHolder(val binding: JedanRedPoljoprivredaBinding) :
         RecyclerView.ViewHolder(binding.root) {
-
+        var naslov = binding.naslov
+        var clanak = binding.clanak
+        var vrijeme = binding.vrijeme
     }
-
-    fun setData(poljoprivreda: List<PoljoprivredaTable>) {
-        this.poljoprivredaList = poljoprivreda
-        notifyDataSetChanged()
-    }
-
 }

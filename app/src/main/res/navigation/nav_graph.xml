@@ -245,15 +245,6 @@
             app:argType="Portal.database.table.PriceCitateljaTable" />
     </fragment>
     <fragment
-        android:id="@+id/detailPoljoprivredaFragment"
-        android:name="Portal.fragmenti.detailFragmenti.DetailPoljoprivredaFragment"
-        android:label="Detalji poljoprivreda"
-        tools:layout="@layout/detail_poljoprivreda_fragment">
-        <argument
-            android:name="detailPoljoprivredaArgs"
-            app:argType="Portal.database.table.PoljoprivredaTable" />
-    </fragment>
-    <fragment
         android:id="@+id/menu_dodajNovuPoljoprivredu"
         android:name="Portal.fragmenti.dodajNovo.DodajNovoPoljoprivreda"
         android:label="Dodaj novu poljoprivredu"
@@ -271,32 +262,6 @@
         android:name="Portal.fragmenti.fragmenti.PoljoprivredaFragment"
         android:label="Poljoprivreda"
         tools:layout="@layout/poljoprivreda_fragment">
-        <action
-            android:id="@+id/action_poljoprivredaNavDrawer_to_detailPoljoprivredaFragment"
-            app:destination="@id/detailPoljoprivredaFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
-        <action
-            android:id="@+id/action_poljoprivredaNavDrawer_to_adminPrijavaPoljoprivradaFragment"
-            app:destination="@id/adminPrijavaPoljoprivradaFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/updateDeletePoljoprivredaFragment"
-        android:name="Portal.fragmenti.updateDelete.UpdateDeletePoljoprivredaFragment"
-        android:label="Ažuriraj ili obiriši poljoprivredu"
-        tools:layout="@layout/update_delete_poljoprivreda_fragment">
-        <action
-            android:id="@+id/action_updateDeletePoljoprivredaFragment_to_poljoprivredaNavDrawer"
-            app:destination="@id/poljoprivredaNavDrawer"
-            app:enterAnim="@anim/slide_in_left"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_left"/>
-        <argument
-            android:name="updatePoljoprivredaArgs"
-            app:argType="Portal.database.table.PoljoprivredaTable" />
     </fragment>
     <fragment
         android:id="@+id/adminBottomNav"
@@ -320,22 +285,6 @@
         <argument
             android:name="currentOglasnik"
             app:argType="Portal.database.table.OglasnikTable" />
-    </fragment>
-    <fragment
-        android:id="@+id/adminPrijavaPoljoprivradaFragment"
-        android:name="Portal.fragmenti.adminPrijava.AdminPrijavaPoljoprivradaFragment"
-        android:label="AdminPrijavaPoljoprivradaFragment"
-        tools:layout="@layout/admin_prijava_poljoprivreda">
-        <action
-            android:id="@+id/action_adminPrijavaPoljoprivradaFragment_to_updateDeletePoljoprivredaFragment"
-            app:destination="@id/updateDeletePoljoprivredaFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
-        <argument
-            android:name="currentPoljoprivreda"
-            app:argType="Portal.database.table.PoljoprivredaTable" />
     </fragment>
     <fragment
         android:id="@+id/adminPrijavaPriceCitateljaFragment"

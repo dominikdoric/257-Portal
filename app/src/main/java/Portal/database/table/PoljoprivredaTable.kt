@@ -7,21 +7,11 @@ import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-@Entity(tableName = "poljoprivreda")
 data class PoljoprivredaTable(
 
-    @PrimaryKey(autoGenerate = true)
-    var id: Int,
+    val poljoprivredaNaslov: String = "",
 
-    @ColumnInfo(name = "poljoprivreda_naslov")
-    val poljoprivredaNaslov: String,
+    val poljoprivredaClanak: String = "",
 
-    @ColumnInfo(name = "poljoprivreda_clanak")
-    val poljoprivredaClanak: String,
-
-    @ColumnInfo(name = "poljoprivreda_vrijeme")
-    val poljoprivredaVrijeme: String,
-
-    @ColumnInfo(name = "poljoprivreda_slika")
-    val poljoprivredaSlika: Int
-): Parcelable
+    val poljoprivredaVrijeme: String = ""
+) : Parcelable
