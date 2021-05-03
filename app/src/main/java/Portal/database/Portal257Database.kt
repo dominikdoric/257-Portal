@@ -9,18 +9,16 @@ import androidx.room.RoomDatabase
 
 @Database(
     entities = [
-        ObavijestiTable::class,
         VijestiTable::class,
         OglasnikTable::class,
         PriceCitateljaTable::class,
         InfoTable::class,
         PoljoprivredaTable::class],
-        version = 9,
+        version = 10,
         exportSchema = false
 )
 abstract class Portal257Database : RoomDatabase() {
 
-    abstract fun obavijestiDao(): ObavijestiDao
     abstract fun vijestiDao(): VijestiDao
     abstract fun oglasnikDao(): OglasnikDao
     abstract fun priceCitateljaDao(): PriceCitateljaDao

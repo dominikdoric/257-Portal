@@ -1,6 +1,5 @@
 package Portal.repository
 
-import Portal.database.dao.ObavijestiDao
 import Portal.database.table.ObavijestiTable
 import javax.inject.Inject
 
