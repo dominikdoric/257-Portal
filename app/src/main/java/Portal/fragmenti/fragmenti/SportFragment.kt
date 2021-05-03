@@ -3,7 +3,7 @@ package Portal.fragmenti.fragmenti
 import Portal.a257.R
 import Portal.a257.databinding.SportFragmentBinding
 import Portal.adapter.SportAdapter
-import Portal.firestore.SportFirestore
+import Portal.database.table.SportTable
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -20,7 +20,7 @@ class SportFragment : Fragment(R.layout.sport_fragment) {
 
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
     private val collectionReference: CollectionReference = db.collection("sport")
-    var personAdapter: SportAdapter? = null
+    var sportAdapter: SportAdapter? = null
     private lateinit var binding: SportFragmentBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -37,24 +37,24 @@ class SportFragment : Fragment(R.layout.sport_fragment) {
 
     private fun setUpRecyclerView() {
         val query: Query = collectionReference
-        val firestoreRecyclerOptions: FirestoreRecyclerOptions<SportFirestore> =
-            FirestoreRecyclerOptions.Builder<SportFirestore>()
-                .setQuery(query, SportFirestore::class.java)
+        val tableRecyclerOptions: FirestoreRecyclerOptions<SportTable> =
+            FirestoreRecyclerOptions.Builder<SportTable>()
+                .setQuery(query, SportTable::class.java)
                 .build()
-        personAdapter = SportAdapter(firestoreRecyclerOptions)
+        sportAdapter = SportAdapter(tableRecyclerOptions)
 
         binding.recyclerViewSport.layoutManager = LinearLayoutManager(requireContext())
-        binding.recyclerViewSport.adapter = personAdapter
+        binding.recyclerViewSport.adapter = sportAdapter
     }
 
     override fun onStart() {
         super.onStart()
-        personAdapter!!.startListening()
+        sportAdapter!!.startListening()
     }
 
     override fun onStop() {
         super.onStop()
-        personAdapter!!.stopListening()
+        sportAdapter!!.stopListening()
     }
 
 }

@@ -3,6 +3,7 @@ package Portal.firestore
 import Portal.a257.R
 import Portal.a257.databinding.FirestoreRecyclerBinding
 import Portal.adapter.SportAdapter
+import Portal.database.table.SportTable
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -28,11 +29,11 @@ class FirestoreRecycler : Fragment(R.layout.firestore_recycler) {
 
     private fun setUpRecyclerView() {
         val query: Query = collectionReference
-        val firestoreRecyclerOptions: FirestoreRecyclerOptions<SportFirestore> =
-            FirestoreRecyclerOptions.Builder<SportFirestore>()
-                .setQuery(query, SportFirestore::class.java)
+        val tableRecyclerOptions: FirestoreRecyclerOptions<SportTable> =
+            FirestoreRecyclerOptions.Builder<SportTable>()
+                .setQuery(query, SportTable::class.java)
                 .build()
-        personAdapter = SportAdapter(firestoreRecyclerOptions)
+        personAdapter = SportAdapter(tableRecyclerOptions)
 
         binding.firestoreRecycler.layoutManager = LinearLayoutManager(requireContext())
         binding.firestoreRecycler.adapter = personAdapter

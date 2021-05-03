@@ -16,17 +16,28 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imageViewSportSlika"
+            android:id="@+id/slika"
             android:layout_width="match_parent"
             android:layout_height="130dp"
             android:scaleType="centerCrop"
             android:src="@drawable/jaksic" />
 
         <TextView
-            android:id="@+id/textViewSportNaslov"
+            android:id="@+id/naslov"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imageViewSportSlika"
+            android:layout_below="@+id/slika"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:text="@string/zabava"
+            android:textColor="#000"
+            android:textSize="20dp" />
+        <TextView
+            android:id="@+id/clanak"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/naslov"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
@@ -39,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:orientation="horizontal"
-            android:layout_below="@id/textViewSportNaslov">
+            android:layout_below="@id/clanak">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -50,7 +61,7 @@
                 android:textColor="#000"/>
 
             <TextView
-                android:id="@+id/textViewSportVrijeme"
+                android:id="@+id/vrijeme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"

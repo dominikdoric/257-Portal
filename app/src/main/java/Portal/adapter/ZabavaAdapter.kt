@@ -1,20 +1,19 @@
 package Portal.adapter
 
-import Portal.a257.R
+
 import Portal.a257.databinding.JedanRedZabavaBinding
 import Portal.database.table.ZabavaTable
-import Portal.fragmenti.fragmenti.ZabavaFragmentDirections
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
 
-class ZabavaAdapter : RecyclerView.Adapter<ZabavaAdapter.ViewHolder>() {
+class ZabavaAdapter(options: FirestoreRecyclerOptions<ZabavaTable>) :
+    FirestoreRecyclerAdapter<ZabavaTable, ZabavaAdapter.PersonViewHolder>(options) {
 
-    private var zabavaList = emptyList<ZabavaTable>()
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ZabavaAdapter.ViewHolder {
-        return ViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PersonViewHolder {
+        return PersonViewHolder(
             JedanRedZabavaBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
@@ -23,38 +22,18 @@ class ZabavaAdapter : RecyclerView.Adapter<ZabavaAdapter.ViewHolder>() {
         )
     }
 
-    override fun onBindViewHolder(holder: ZabavaAdapter.ViewHolder, position: Int) {
-        val currentItem = zabavaList[position]
-        holder.binding.textViewZabavaNaslov.text = currentItem.zabavaNaslov
-        holder.binding.textViewZabavaVrijeme.text = currentItem.zabavaVrijeme
+    override fun onBindViewHolder(holder: PersonViewHolder, position: Int, model: ZabavaTable) {
 
-        holder.binding.cardViewZabava.setOnLongClickListener {
-            val action = ZabavaFragmentDirections.actionZabavaNavDrawerToAdminPrijavaZabavaFragment(
-                currentItem
-            )
-            holder.itemView.findNavController().navigate(action)
-            true
-        }
-
-        holder.binding.cardViewZabava.setOnClickListener {
-            val action =
-                ZabavaFragmentDirections.actionZabavaNavDrawerToDetailFragmentZabava(currentItem)
-            holder.itemView.findNavController().navigate(action)
-        }
+        holder.naslov.text = model.zabavaNaslov
+        holder.clanak.text = model.zabavaClanak
+        holder.vrijeme.text = model.zabavaVrijeme
 
     }
 
-    override fun getItemCount(): Int {
-        return zabavaList.size
-    }
-
-    inner class ViewHolder(val binding: JedanRedZabavaBinding) :
+    class PersonViewHolder(val binding: JedanRedZabavaBinding) :
         RecyclerView.ViewHolder(binding.root) {
-
-    }
-
-    fun setData(zabava: List<ZabavaTable>) {
-        this.zabavaList = zabava
-        notifyDataSetChanged()
+        var naslov = binding.naslov
+        var clanak = binding.clanak
+        var vrijeme = binding.vrijeme
     }
 }

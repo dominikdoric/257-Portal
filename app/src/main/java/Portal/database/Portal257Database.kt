@@ -8,7 +8,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 @Database(
-    entities = [ZabavaTable::class,
+    entities = [
         ObavijestiTable::class,
         VijestiTable::class,
         OglasnikTable::class,
@@ -21,7 +21,6 @@ import androidx.room.RoomDatabase
 )
 abstract class Portal257Database : RoomDatabase() {
 
-    abstract fun zabavaDao(): ZabavaDao
     abstract fun obavijestiDao(): ObavijestiDao
     abstract fun vijestiDao(): VijestiDao
     abstract fun oglasnikDao(): OglasnikDao

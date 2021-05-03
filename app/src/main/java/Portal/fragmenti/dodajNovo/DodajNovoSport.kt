@@ -2,7 +2,7 @@ package Portal.fragmenti.dodajNovo
 
 import Portal.a257.R
 import Portal.a257.databinding.DodajNovoSportFragmentBinding
-import Portal.firestore.SportFirestore
+import Portal.database.table.SportTable
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -33,7 +33,7 @@ class DodajNovoSport : Fragment(R.layout.dodaj_novo_sport_fragment) {
             val naslov = binding.naslov.text.toString()
             val clanak = binding.clanak.text.toString()
             val vrijeme = binding.vrijeme.text.toString()
-            val sport = SportFirestore(naslov, clanak, vrijeme)
+            val sport = SportTable(naslov, clanak, vrijeme)
             savePerson(sport)
         }
 
@@ -42,7 +42,7 @@ class DodajNovoSport : Fragment(R.layout.dodaj_novo_sport_fragment) {
         }
     }
 
-    private fun savePerson(sport: SportFirestore) = CoroutineScope(Dispatchers.IO).launch {
+    private fun savePerson(sport: SportTable) = CoroutineScope(Dispatchers.IO).launch {
         try {
             personCollectionRef.add(sport).await()
             withContext(Dispatchers.Main) {
@@ -60,7 +60,7 @@ class DodajNovoSport : Fragment(R.layout.dodaj_novo_sport_fragment) {
             val querySnapshot = personCollectionRef.get().await()
             val sb = StringBuilder()
             for (document in querySnapshot.documents) {
-                val sport = document.toObject<SportFirestore>()
+                val sport = document.toObject<SportTable>()
                 sb.append("$sport\n")
             }
         } catch (e: Exception) {

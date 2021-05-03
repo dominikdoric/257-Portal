@@ -1,19 +1,20 @@
 package Portal.adapter
 
 import Portal.a257.databinding.FirestoreJedanRedBinding
-import Portal.firestore.SportFirestore
+import Portal.a257.databinding.JedanRedSportBinding
+import Portal.database.table.SportTable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 
-class SportAdapter(options: FirestoreRecyclerOptions<SportFirestore>) :
-    FirestoreRecyclerAdapter<SportFirestore, SportAdapter.PersonViewHolder>(options) {
+class SportAdapter(options: FirestoreRecyclerOptions<SportTable>) :
+    FirestoreRecyclerAdapter<SportTable, SportAdapter.PersonViewHolder>(options) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PersonViewHolder {
         return PersonViewHolder(
-            FirestoreJedanRedBinding.inflate(
+            JedanRedSportBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -21,18 +22,17 @@ class SportAdapter(options: FirestoreRecyclerOptions<SportFirestore>) :
         )
     }
 
-    override fun onBindViewHolder(holder: PersonViewHolder, position: Int, model: SportFirestore) {
+    override fun onBindViewHolder(holder: PersonViewHolder, position: Int, model: SportTable) {
 
-        holder.firstName.text = model.naslov
-        holder.lastName.text = model.clanak
-        holder.age.text = model.vrijeme
+        holder.naslov.text = model.naslov
+        holder.clanak.text = model.clanak
+        holder.vrijeme.text = model.vrijeme
 
     }
 
-    class PersonViewHolder(val binding: FirestoreJedanRedBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-        var firstName = binding.rowFirstName
-        var lastName = binding.rowLastName
-        var age = binding.rowAge
+    class PersonViewHolder(val binding: JedanRedSportBinding) : RecyclerView.ViewHolder(binding.root) {
+        var naslov = binding.naslov
+        var clanak = binding.clanak
+        var vrijeme = binding.vrijeme
     }
 }
