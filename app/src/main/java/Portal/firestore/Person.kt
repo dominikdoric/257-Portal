@@ -5,7 +5,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Person (
-    var firstName: String = "",
-    var lastName: String = "",
-    var age: Int = -1
+    var naslov: String = "",
+    var clanak: String = "",
+    var vrijeme: String = ""
         ): Parcelable

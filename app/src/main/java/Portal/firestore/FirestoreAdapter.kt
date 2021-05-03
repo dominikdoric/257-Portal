@@ -12,9 +12,8 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class FirestoreAdapter(options: FirestoreRecyclerOptions<Person>): FirestoreRecyclerAdapter<Person, FirestoreAdapter.PersonViewHolder>(options) {
-
-    //private var personList = emptyList<Person>()
+class FirestoreAdapter(options: FirestoreRecyclerOptions<Person>) :
+    FirestoreRecyclerAdapter<Person, FirestoreAdapter.PersonViewHolder>(options) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PersonViewHolder {
         return PersonViewHolder(
@@ -27,32 +26,17 @@ class FirestoreAdapter(options: FirestoreRecyclerOptions<Person>): FirestoreRecy
     }
 
     override fun onBindViewHolder(holder: PersonViewHolder, position: Int, model: Person) {
-            //val currentItem = personList[position]
 
-            holder.firstName.text = model.firstName
-            holder.lastName.text = model.lastName
-            holder.age.text = model.age.toString()
+        holder.firstName.text = model.naslov
+        holder.lastName.text = model.clanak
+        holder.age.text = model.vrijeme
 
-/*
-            holder.binding.jedanRedFirestore.setOnClickListener {
-                val action =
-                    FirestoreRecyclerDirections.actionFirestoreRecyclerToFirestoreDetail(currentItem)
-                holder.itemView.findNavController().navigate(action)
-            }
-
- */
     }
-/*
-    override fun getItemCount(): Int {
-        return personList.size
-    }
-
- */
 
     class PersonViewHolder(val binding: FirestoreJedanRedBinding) :
         RecyclerView.ViewHolder(binding.root) {
         var firstName = binding.rowFirstName
-        var lastName = binding.rowFirstName
+        var lastName = binding.rowLastName
         var age = binding.rowAge
     }
 }

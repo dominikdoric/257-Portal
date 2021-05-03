@@ -29,7 +29,7 @@ class FirestoreFragment : Fragment(R.layout.firestore_fragment) {
         binding.firstoreSpremi.setOnClickListener {
             val firstName = binding.firstName.text.toString()
             val lastName = binding.lastName.text.toString()
-            val age = binding.age.text.toString().toInt()
+            val age = binding.age.text.toString()
             val person = Person(firstName, lastName, age)
             savePerson(person)
         }
