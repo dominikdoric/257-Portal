@@ -16,11 +16,6 @@
         android:label="Kontakt"
         tools:layout="@layout/kontakt_fragment"/>
     <fragment
-        android:id="@+id/naslovnicaBottomNav"
-        android:name="Portal.fragmenti.fragmenti.NaslovnicaFragment"
-        android:label="Naslovnica"
-        tools:layout="@layout/naslovnica_fragment"/>
-    <fragment
         android:id="@+id/obavijestiNavDrawer"
         android:name="Portal.fragmenti.fragmenti.ObavijestiFragment"
         android:label="Obavijesti"

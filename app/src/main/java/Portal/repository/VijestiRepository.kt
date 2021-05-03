@@ -1,6 +1,5 @@
 package Portal.repository
 
-import Portal.database.dao.VijestiDao
 import Portal.database.table.VijestiTable
 import javax.inject.Inject
 

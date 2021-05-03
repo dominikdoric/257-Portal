@@ -2,18 +2,17 @@ package Portal.adapter
 
 import Portal.a257.databinding.JedanRedVijestiBinding
 import Portal.database.table.VijestiTable
-import Portal.fragmenti.fragmenti.VijestiFragmentDirections
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
 
-class VijestiAdapter : RecyclerView.Adapter<VijestiAdapter.ViewHolder>() {
+class VijestiAdapter(options: FirestoreRecyclerOptions<VijestiTable>) :
+    FirestoreRecyclerAdapter<VijestiTable, VijestiAdapter.PersonViewHolder>(options) {
 
-    private var vijestiList = emptyList<VijestiTable>()
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VijestiAdapter.ViewHolder {
-        return ViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PersonViewHolder {
+        return PersonViewHolder(
             JedanRedVijestiBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
@@ -22,40 +21,18 @@ class VijestiAdapter : RecyclerView.Adapter<VijestiAdapter.ViewHolder>() {
         )
     }
 
-    override fun onBindViewHolder(holder: VijestiAdapter.ViewHolder, position: Int) {
-        val currentItem = vijestiList[position]
-        holder.binding.textViewVijestiNaslov.text = currentItem.vijestiNaslov
-        holder.binding.textViewVijestiVrijeme.text = currentItem.vijestiVrijeme
+    override fun onBindViewHolder(holder: PersonViewHolder, position: Int, model: VijestiTable) {
 
-        holder.binding.cardViewVijesti.setOnLongClickListener {
-            val action =
-                VijestiFragmentDirections.actionVijestiNavDrawerToAdminPrijavaVijestiFragment(
-                    currentItem
-                )
-            holder.itemView.findNavController().navigate(action)
-            true
-        }
-
-        holder.binding.cardViewVijesti.setOnClickListener {
-            val action =
-                VijestiFragmentDirections.actionVijestiNavDrawerToDetailVijestiFragment(currentItem)
-            holder.itemView.findNavController().navigate(action)
-        }
+        holder.naslov.text = model.vijestiNaslov
+        holder.clanak.text = model.vijestiClanak
+        holder.vrijeme.text = model.vijestiVrijeme
 
     }
 
-    override fun getItemCount(): Int {
-        return vijestiList.size
-    }
-
-    inner class ViewHolder(val binding: JedanRedVijestiBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-
-    }
-
-    fun setData(vijesti: List<VijestiTable>) {
-        this.vijestiList = vijesti
-        notifyDataSetChanged()
+    class PersonViewHolder(val binding: JedanRedVijestiBinding) : RecyclerView.ViewHolder(binding.root) {
+        var naslov = binding.naslov
+        var clanak = binding.clanak
+        var vrijeme = binding.vrijeme
     }
 }
 

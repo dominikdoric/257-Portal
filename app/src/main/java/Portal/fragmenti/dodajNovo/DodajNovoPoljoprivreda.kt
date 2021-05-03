@@ -3,15 +3,10 @@ package Portal.fragmenti.dodajNovo
 import Portal.a257.R
 import Portal.a257.databinding.DodajNovoPoljoprivredaFragmentBinding
 import Portal.database.table.PoljoprivredaTable
-import Portal.database.table.SportTable
-import Portal.viewModel.PoljoprivredaViewModel
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
@@ -23,8 +18,6 @@ import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import java.lang.Exception
 import java.lang.StringBuilder
-import java.text.SimpleDateFormat
-import java.util.*
 
 @AndroidEntryPoint
 class DodajNovoPoljoprivreda: Fragment(R.layout.dodaj_novo_poljoprivreda_fragment) {

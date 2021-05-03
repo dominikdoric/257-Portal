@@ -1,14 +1,9 @@
 package Portal.adapter
 
 import Portal.a257.databinding.JedanRedPoljoprivredaBinding
-import Portal.a257.databinding.JedanRedSportBinding
-import Portal.database.table.ObavijestiTable
 import Portal.database.table.PoljoprivredaTable
-import Portal.database.table.SportTable
-import Portal.fragmenti.fragmenti.PoljoprivredaFragmentDirections
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
