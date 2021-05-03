@@ -1,9 +1,6 @@
 package Portal.di
 
-import Portal.a257.R
 import Portal.database.Portal257Database
-import Portal.database.dao.SportDao
-import android.app.Application
 import android.content.Context
 import androidx.room.Room
 import dagger.Module
@@ -31,10 +28,6 @@ object DatabaseModule {
     @Provides
     @Singleton
     fun provideInfoDao(portal257Database: Portal257Database) = portal257Database.infoDao()
-
-    @Provides
-    @Singleton
-    fun provideSportDao(portal257Database: Portal257Database) = portal257Database.sportDao()
 
     @Provides
     @Singleton

@@ -1,7 +1,6 @@
 package Portal.viewModel
 
 import Portal.database.table.PoljoprivredaTable
-import Portal.database.table.SportTable
 import Portal.repository.PoljoprivredaRepository
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

@@ -1,9 +1,7 @@
 package Portal.repository
 
 import Portal.database.dao.ZabavaDao
-import Portal.database.table.SportTable
 import Portal.database.table.ZabavaTable
-import androidx.lifecycle.LiveData
 import javax.inject.Inject
 
 class ZabavaRepository @Inject constructor(

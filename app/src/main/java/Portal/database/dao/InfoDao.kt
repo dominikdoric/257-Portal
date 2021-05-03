@@ -1,7 +1,6 @@
 package Portal.database.dao
 
 import Portal.database.table.InfoTable
-import Portal.database.table.SportTable
 import androidx.lifecycle.LiveData
 import androidx.room.*
 

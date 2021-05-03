@@ -2,8 +2,6 @@ package Portal.repository
 
 import Portal.database.dao.PriceCitateljaDao
 import Portal.database.table.PriceCitateljaTable
-import Portal.database.table.SportTable
-import androidx.lifecycle.LiveData
 import javax.inject.Inject
 
 class PriceCitateljaRepository @Inject constructor(

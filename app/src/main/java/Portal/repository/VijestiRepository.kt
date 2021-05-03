@@ -1,9 +1,7 @@
 package Portal.repository
 
 import Portal.database.dao.VijestiDao
-import Portal.database.table.SportTable
 import Portal.database.table.VijestiTable
-import androidx.lifecycle.LiveData
 import javax.inject.Inject
 
 class VijestiRepository @Inject constructor(
