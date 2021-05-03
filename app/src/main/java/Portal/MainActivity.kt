@@ -30,7 +30,6 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.findNavController()
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.naslovnicaBottomNav,
                 R.id.vrijemeBottomNav,
                 R.id.infoBottomNav,
                 R.id.kontaktBottomNav,

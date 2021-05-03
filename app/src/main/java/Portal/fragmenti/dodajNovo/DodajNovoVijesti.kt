@@ -2,25 +2,28 @@ package Portal.fragmenti.dodajNovo
 
 import Portal.a257.R
 import Portal.a257.databinding.DodajNovoVijestiFragmentBinding
+import Portal.database.table.SportTable
 import Portal.database.table.VijestiTable
-import Portal.viewModel.VijestiViewModel
-import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.toObject
+import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
-import java.text.SimpleDateFormat
-import java.util.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withContext
+import java.lang.Exception
+import java.lang.StringBuilder
 
 @AndroidEntryPoint
 class DodajNovoVijesti : Fragment(R.layout.dodaj_novo_vijesti_fragment) {
 
-    private val mVijestiViewModel: VijestiViewModel by viewModels()
+    private val personCollectionRef = Firebase.firestore.collection("vijesti")
     private lateinit var binding: DodajNovoVijestiFragmentBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -28,24 +31,48 @@ class DodajNovoVijesti : Fragment(R.layout.dodaj_novo_vijesti_fragment) {
         binding = DodajNovoVijestiFragmentBinding.bind(view)
 
         binding.gumbSpremiVijest.setOnClickListener {
-            if (binding.etVijestiNaslov.text.toString().trim().isEmpty()){
-                binding.etVijestiNaslov.error = "Ovo polje je obavezno!"
-            }else if (binding.etVijestiClanak.text.toString().trim().isEmpty()){
-                binding.etVijestiClanak.error = "Ovo polje je obavezno"
+            val naslov = binding.naslov.text.toString()
+            val clanak = binding.clanak.text.toString()
+            val vrijeme = binding.vrijeme.text.toString()
+            val vijesti = VijestiTable(naslov, clanak, vrijeme)
+            savePerson(vijesti)
+        }
+
+        binding.gumbPrikaziVijest.setOnClickListener {
+            retrievePersons()
+        }
+
+    }
+
+    private fun savePerson(vijest: VijestiTable) = CoroutineScope(Dispatchers.IO).launch {
+        try {
+            personCollectionRef.add(vijest).await()
+            withContext(Dispatchers.Main) {
+                Toast.makeText(requireContext(), "Uspješno spremljeno!", Toast.LENGTH_LONG).show()
             }
-            else{
-                insertDataToDatabase()
-                val action = DodajNovoVijestiDirections.actionMenuDodajNovuVijestToVijestiNavDrawer()
-                findNavController().navigate(action)
-                Toast.makeText(
-                    requireContext(),
-                    "Vaš članak je zaprimljen te je poslan adminu na odobrenje.Hvala!",
-                    Toast.LENGTH_LONG
-                ).show()
+        } catch (e: Exception) {
+            withContext(Dispatchers.Main) {
+                Toast.makeText(requireContext(), e.message, Toast.LENGTH_LONG).show()
             }
         }
     }
 
+    private fun retrievePersons() = CoroutineScope(Dispatchers.IO).launch {
+        try {
+            val querySnapshot = personCollectionRef.get().await()
+            val sb = StringBuilder()
+            for (document in querySnapshot.documents) {
+                val vijest = document.toObject<VijestiTable>()
+                sb.append("$vijest\n")
+            }
+        } catch (e: Exception) {
+            withContext(Dispatchers.Main) {
+                Toast.makeText(requireContext(), e.message, Toast.LENGTH_LONG).show()
+            }
+        }
+    }
+
+    /*
     @SuppressLint("SimpleDateFormat")
     private fun insertDataToDatabase() {
         val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
@@ -59,5 +86,5 @@ class DodajNovoVijesti : Fragment(R.layout.dodaj_novo_vijesti_fragment) {
         val vijesti = VijestiTable(0, noviNaslov, noviClanak, novoVrijeme, novaSlika)
         mVijestiViewModel.addVijesti(vijesti)
     }
-
+     */
 }
