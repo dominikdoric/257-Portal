@@ -17,17 +17,17 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imageViewOglasnikSlika"
+            android:id="@+id/slika"
             android:layout_width="match_parent"
             android:layout_height="130dp"
             android:scaleType="centerCrop"
             android:src="@drawable/jaksic" />
 
         <TextView
-            android:id="@+id/textViewOglasnikNaslov"
+            android:id="@+id/naslov"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imageViewOglasnikSlika"
+            android:layout_below="@+id/slika"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="5dp"
@@ -36,10 +36,10 @@
             android:textSize="20dp" />
 
         <LinearLayout
-            android:id="@+id/linearLayoutCijena"
+            android:id="@+id/layoutCijena"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/textViewOglasnikNaslov"
+            android:layout_below="@id/naslov"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="5dp"
             android:orientation="horizontal">
@@ -52,7 +52,7 @@
                 android:textSize="20dp" />
 
             <TextView
-                android:id="@+id/textViewOglasnikCijena"
+                android:id="@+id/cijena"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
@@ -62,10 +62,10 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linearLayoutLokacija"
+            android:id="@+id/layoutLokacija"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/linearLayoutCijena"
+            android:layout_below="@id/layoutCijena"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="5dp"
             android:orientation="horizontal">
@@ -78,7 +78,7 @@
                 android:textSize="20dp" />
 
             <TextView
-                android:id="@+id/textViewOglasnikLokacija"
+                android:id="@+id/lokacija"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
@@ -88,10 +88,10 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linearLayoutBroj"
+            android:id="@+id/layoutBroj"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/linearLayoutLokacija"
+            android:layout_below="@id/layoutLokacija"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="5dp"
             android:orientation="horizontal">
@@ -104,7 +104,34 @@
                 android:textSize="20dp" />
 
             <TextView
-                android:id="@+id/textViewOglasnikBroj"
+                android:id="@+id/broj"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="09958237823924"
+                android:textColor="#000"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutClanak"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layoutBroj"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Clanak: "
+                android:textColor="#000"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/clanak"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
@@ -119,7 +146,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:orientation="horizontal"
-            android:layout_below="@id/linearLayoutBroj">
+            android:layout_below="@id/layoutClanak">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -130,10 +157,9 @@
                 android:textColor="#000"/>
 
             <TextView
-                android:id="@+id/textViewOglasnikVrijeme"
+                android:id="@+id/vrijeme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/textViewZabavaNaslov"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginBottom="5dp"

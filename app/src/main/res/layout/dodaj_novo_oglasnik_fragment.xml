@@ -7,40 +7,52 @@
     android:orientation="vertical">
 
     <EditText
-        android:id="@+id/et_oglasnik_naslov"
+        android:id="@+id/naslov"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:hint="Naslov"/>
     <EditText
-        android:id="@+id/et_oglasnik_cijena"
+        android:id="@+id/cijena"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:hint="Cijena"/>
     <EditText
-        android:id="@+id/et_oglasnik_lokacija"
+        android:id="@+id/lokacija"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:hint="Lokacija"/>
     <EditText
-        android:id="@+id/et_oglasnik_broj"
+        android:id="@+id/broj"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:inputType="number"
         android:hint="Broj"/>
     <EditText
-        android:id="@+id/et_oglasnik_clanak"
+        android:id="@+id/clanak"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:layout_weight="1"
         android:gravity="bottom"
         android:hint="Clanak"/>
+    <EditText
+        android:id="@+id/vrijeme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:hint="Vrijeme"/>
     <Button
         android:id="@+id/gumbSpremiOglasnik"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Spremi"
+        android:layout_gravity="end"/>
+    <Button
+        android:id="@+id/gumbPrikaziOglasnik"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"

@@ -3,20 +3,22 @@ package Portal.fragmenti.fragmenti
 import Portal.a257.R
 import Portal.a257.databinding.OglasnikFragmentBinding
 import Portal.adapter.OglasnikAdapter
-import Portal.viewModel.OglasnikViewModel
+import Portal.database.table.OglasnikTable
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import dagger.hilt.android.AndroidEntryPoint
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 
-@AndroidEntryPoint
 class OglasnikFragment : Fragment(R.layout.oglasnik_fragment) {
 
-    private val mOglasnikViewModel: OglasnikViewModel by viewModels()
+    private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
+    private val collectionReference: CollectionReference = db.collection("oglasnik")
+    var oglasnikAdapter: OglasnikAdapter? = null
     private lateinit var binding: OglasnikFragmentBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -27,17 +29,29 @@ class OglasnikFragment : Fragment(R.layout.oglasnik_fragment) {
             DividerItemDecoration
                 (binding.recyclerViewOglasnik.context, DividerItemDecoration.VERTICAL)
         )
-
-        //RecyclerView
-        val adapter = OglasnikAdapter()
-        val recyclerOglasnik = binding.recyclerViewOglasnik
-        recyclerOglasnik.adapter = adapter
-        recyclerOglasnik.layoutManager = LinearLayoutManager(requireContext())
-
-        //RasporedViewModel
-        mOglasnikViewModel.readAllDataOglasnik.observe(viewLifecycleOwner, Observer { oglasnik ->
-            adapter.setData(oglasnik)
-        })
-
+        setUpRecyclerView()
     }
+
+    private fun setUpRecyclerView() {
+        val query: Query = collectionReference
+        val tableRecyclerOptions: FirestoreRecyclerOptions<OglasnikTable> =
+            FirestoreRecyclerOptions.Builder<OglasnikTable>()
+                .setQuery(query, OglasnikTable::class.java)
+                .build()
+        oglasnikAdapter = OglasnikAdapter(tableRecyclerOptions)
+
+        binding.recyclerViewOglasnik.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerViewOglasnik.adapter = oglasnikAdapter
+    }
+
+    override fun onStart() {
+        super.onStart()
+        oglasnikAdapter!!.startListening()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        oglasnikAdapter!!.stopListening()
+    }
+
 }

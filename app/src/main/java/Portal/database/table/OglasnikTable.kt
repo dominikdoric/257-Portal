@@ -9,8 +9,6 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class OglasnikTable(
 
-    val oglasnikSlika: Int,
-
     val oglasnikClanak: String,
 
     val oglasnikNaslov: String,

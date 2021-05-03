@@ -13,9 +13,7 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
 class PoljoprivredaFragment : Fragment(R.layout.poljoprivreda_fragment) {
 
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()

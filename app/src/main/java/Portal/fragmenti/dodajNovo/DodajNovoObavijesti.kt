@@ -14,7 +14,6 @@ import androidx.navigation.fragment.findNavController
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
-import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -25,7 +24,6 @@ import java.lang.StringBuilder
 import java.text.SimpleDateFormat
 import java.util.*
 
-@AndroidEntryPoint
 class DodajNovoObavijesti : Fragment(R.layout.dodaj_novo_obavijesti_fragment) {
 
     private val personCollectionRef = Firebase.firestore.collection("obavijest")

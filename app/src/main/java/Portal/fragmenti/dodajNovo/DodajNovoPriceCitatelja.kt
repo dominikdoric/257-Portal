@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
-import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -20,7 +19,6 @@ import kotlinx.coroutines.withContext
 import java.lang.Exception
 import java.lang.StringBuilder
 
-@AndroidEntryPoint
 class DodajNovoPriceCitatelja : Fragment(R.layout.dodaj_novo_price_citatelja_fragment) {
 
     private val personCollectionRef = Firebase.firestore.collection("priceCitatelja")

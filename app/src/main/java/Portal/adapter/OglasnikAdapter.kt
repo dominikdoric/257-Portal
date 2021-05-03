@@ -1,65 +1,46 @@
 package Portal.adapter
 
 import Portal.a257.databinding.JedanRedOglasnikBinding
+import Portal.a257.databinding.JedanRedSportBinding
 import Portal.database.table.OglasnikTable
-import Portal.fragmenti.fragmenti.OglasnikFragmentDirections
+import Portal.database.table.SportTable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
 
-class OglasnikAdapter() : RecyclerView.Adapter<OglasnikAdapter.ViewHolder>() {
+class OglasnikAdapter(options: FirestoreRecyclerOptions<OglasnikTable>) :
+    FirestoreRecyclerAdapter<OglasnikTable, OglasnikAdapter.PersonViewHolder>(options) {
 
-    private var oglasnikList = emptyList<OglasnikTable>()
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OglasnikAdapter.ViewHolder {
-        return ViewHolder(
-            JedanRedOglasnikBinding
-                .inflate(
-                    LayoutInflater.from(parent.context),
-                    parent,
-                    false
-                )
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PersonViewHolder {
+        return PersonViewHolder(
+            JedanRedOglasnikBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
         )
     }
 
-    override fun onBindViewHolder(holder: OglasnikAdapter.ViewHolder, position: Int) {
-        val currentItem = oglasnikList[position]
-        holder.binding.textViewOglasnikNaslov.text = currentItem.oglasnikNaslov
-        holder.binding.textViewOglasnikCijena.text = currentItem.oglasnikCijena
-        holder.binding.textViewOglasnikLokacija.text = currentItem.oglasnikLokacija
-        holder.binding.textViewOglasnikBroj.text = currentItem.oglasnikBroj
-        holder.binding.textViewOglasnikVrijeme.text = currentItem.oglasnikVrijeme
+    override fun onBindViewHolder(holder: PersonViewHolder, position: Int, model: OglasnikTable) {
 
-        holder.binding.cardViewOglasnik.setOnLongClickListener {
-            val action =
-                OglasnikFragmentDirections.actionOglasnikNavDrawerToAdminPrijavaOglasnikFragment(
-                    currentItem
-                )
-            holder.itemView.findNavController().navigate(action)
-            true
-        }
-
-        holder.binding.cardViewOglasnik.setOnClickListener {
-            val action = OglasnikFragmentDirections.actionOglasnikNavDrawerToDetailOglasnikFragment(
-                currentItem
-            )
-            holder.itemView.findNavController().navigate(action)
-        }
+        holder.naslov.text = model.oglasnikNaslov
+        holder.clanak.text = model.oglasnikClanak
+        holder.vrijeme.text = model.oglasnikVrijeme
+        holder.broj.text = model.oglasnikBroj
+        holder.lokacija.text = model.oglasnikLokacija
+        holder.cijena.text = model.oglasnikCijena
 
     }
 
-    override fun getItemCount(): Int {
-        return oglasnikList.size
-    }
-
-    inner class ViewHolder(val binding: JedanRedOglasnikBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-
-    }
-
-    fun setData(oglasnik: List<OglasnikTable>) {
-        this.oglasnikList = oglasnik
-        notifyDataSetChanged()
+    class PersonViewHolder(val binding: JedanRedOglasnikBinding) : RecyclerView.ViewHolder(binding.root) {
+        var naslov = binding.naslov
+        var clanak = binding.clanak
+        var vrijeme = binding.vrijeme
+        var broj = binding.broj
+        var lokacija = binding.lokacija
+        var cijena = binding.cijena
     }
 }
