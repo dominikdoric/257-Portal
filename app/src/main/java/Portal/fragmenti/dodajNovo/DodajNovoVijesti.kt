@@ -35,10 +35,6 @@ class DodajNovoVijesti : Fragment(R.layout.dodaj_novo_vijesti_fragment) {
             savePerson(vijesti)
         }
 
-        binding.gumbPrikaziVijest.setOnClickListener {
-            retrievePersons()
-        }
-
     }
 
     private fun savePerson(vijest: VijestiTable) = CoroutineScope(Dispatchers.IO).launch {
@@ -53,22 +49,6 @@ class DodajNovoVijesti : Fragment(R.layout.dodaj_novo_vijesti_fragment) {
             }
         }
     }
-
-    private fun retrievePersons() = CoroutineScope(Dispatchers.IO).launch {
-        try {
-            val querySnapshot = personCollectionRef.get().await()
-            val sb = StringBuilder()
-            for (document in querySnapshot.documents) {
-                val vijest = document.toObject<VijestiTable>()
-                sb.append("$vijest\n")
-            }
-        } catch (e: Exception) {
-            withContext(Dispatchers.Main) {
-                Toast.makeText(requireContext(), e.message, Toast.LENGTH_LONG).show()
-            }
-        }
-    }
-
     /*
     @SuppressLint("SimpleDateFormat")
     private fun insertDataToDatabase() {

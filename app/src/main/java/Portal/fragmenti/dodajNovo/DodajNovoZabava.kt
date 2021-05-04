@@ -34,10 +34,6 @@ class DodajNovoZabava : Fragment(R.layout.dodaj_novo_zabava_fragment) {
             val zabava = ZabavaTable(naslov, clanak, vrijeme)
             savePerson(zabava)
         }
-
-        binding.gumbPrikaziZabavu.setOnClickListener {
-            retrievePersons()
-        }
     }
 
     private fun savePerson(zabava: ZabavaTable) = CoroutineScope(Dispatchers.IO).launch {
@@ -52,23 +48,6 @@ class DodajNovoZabava : Fragment(R.layout.dodaj_novo_zabava_fragment) {
             }
         }
     }
-
-    private fun retrievePersons() = CoroutineScope(Dispatchers.IO).launch {
-        try {
-            val querySnapshot = personCollectionRef.get().await()
-            val sb = StringBuilder()
-            for (document in querySnapshot.documents) {
-                val zabava = document.toObject<ZabavaTable>()
-                sb.append("$zabava\n")
-            }
-        } catch (e: Exception) {
-            withContext(Dispatchers.Main) {
-                Toast.makeText(requireContext(), e.message, Toast.LENGTH_LONG).show()
-            }
-        }
-    }
-
-
     /*
     @SuppressLint("SimpleDateFormat")
     private fun insertDataToDatabase() {

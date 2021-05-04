@@ -34,10 +34,6 @@ class DodajNovoPriceCitatelja : Fragment(R.layout.dodaj_novo_price_citatelja_fra
             val priceCitatelja = PriceCitateljaTable(naslov, clanak, vrijeme)
             savePerson(priceCitatelja)
         }
-
-        binding.gumbPrikaziPriceCitatelja.setOnClickListener {
-            retrievePersons()
-        }
     }
 
     private fun savePerson(priceCitatelja: PriceCitateljaTable) = CoroutineScope(Dispatchers.IO).launch {
@@ -45,21 +41,6 @@ class DodajNovoPriceCitatelja : Fragment(R.layout.dodaj_novo_price_citatelja_fra
             personCollectionRef.add(priceCitatelja).await()
             withContext(Dispatchers.Main) {
                 Toast.makeText(requireContext(), "Uspješno spremljeno!", Toast.LENGTH_LONG).show()
-            }
-        } catch (e: Exception) {
-            withContext(Dispatchers.Main) {
-                Toast.makeText(requireContext(), e.message, Toast.LENGTH_LONG).show()
-            }
-        }
-    }
-
-    private fun retrievePersons() = CoroutineScope(Dispatchers.IO).launch {
-        try {
-            val querySnapshot = personCollectionRef.get().await()
-            val sb = StringBuilder()
-            for (document in querySnapshot.documents) {
-                val priceCitatelja = document.toObject<PriceCitateljaTable>()
-                sb.append("$priceCitatelja\n")
             }
         } catch (e: Exception) {
             withContext(Dispatchers.Main) {

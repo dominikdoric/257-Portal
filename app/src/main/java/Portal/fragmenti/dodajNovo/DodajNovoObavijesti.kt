@@ -34,11 +34,6 @@ class DodajNovoObavijesti : Fragment(R.layout.dodaj_novo_obavijesti_fragment) {
             val obavijest = ObavijestiTable(naslov, clanak, vrijeme)
             savePerson(obavijest)
         }
-
-        binding.gumbPrikaziObavijest.setOnClickListener {
-            retrievePersons()
-        }
-
     }
 
     private fun savePerson(obavijest: ObavijestiTable) = CoroutineScope(Dispatchers.IO).launch {
@@ -53,22 +48,6 @@ class DodajNovoObavijesti : Fragment(R.layout.dodaj_novo_obavijesti_fragment) {
             }
         }
     }
-
-    private fun retrievePersons() = CoroutineScope(Dispatchers.IO).launch {
-        try {
-            val querySnapshot = personCollectionRef.get().await()
-            val sb = StringBuilder()
-            for (document in querySnapshot.documents) {
-                val obavijest = document.toObject<ObavijestiTable>()
-                sb.append("$obavijest\n")
-            }
-        } catch (e: Exception) {
-            withContext(Dispatchers.Main) {
-                Toast.makeText(requireContext(), e.message, Toast.LENGTH_LONG).show()
-            }
-        }
-    }
-
     /*
     @SuppressLint("SimpleDateFormat")
     private fun insertDataToDatabase() {
