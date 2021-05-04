@@ -35,11 +35,6 @@ class DodajNovoPoljoprivreda: Fragment(R.layout.dodaj_novo_poljoprivreda_fragmen
             val poljoprivreda = PoljoprivredaTable(naslov, clanak, vrijeme)
             savePerson(poljoprivreda)
         }
-
-        binding.gumbPrikaziPoljoprivredu.setOnClickListener {
-            retrievePersons()
-        }
-
     }
 
     private fun savePerson(poljoprivreda: PoljoprivredaTable) = CoroutineScope(Dispatchers.IO).launch {
@@ -47,21 +42,6 @@ class DodajNovoPoljoprivreda: Fragment(R.layout.dodaj_novo_poljoprivreda_fragmen
             personCollectionRef.add(poljoprivreda).await()
             withContext(Dispatchers.Main) {
                 Toast.makeText(requireContext(), "Uspješno spremljeno!", Toast.LENGTH_LONG).show()
-            }
-        } catch (e: Exception) {
-            withContext(Dispatchers.Main) {
-                Toast.makeText(requireContext(), e.message, Toast.LENGTH_LONG).show()
-            }
-        }
-    }
-
-    private fun retrievePersons() = CoroutineScope(Dispatchers.IO).launch {
-        try {
-            val querySnapshot = personCollectionRef.get().await()
-            val sb = StringBuilder()
-            for (document in querySnapshot.documents) {
-                val poljoprivreda = document.toObject<PoljoprivredaTable>()
-                sb.append("$poljoprivreda\n")
             }
         } catch (e: Exception) {
             withContext(Dispatchers.Main) {

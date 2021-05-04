@@ -39,10 +39,6 @@ class DodajNovoOglasnik : Fragment(R.layout.dodaj_novo_oglasnik_fragment) {
             savePerson(oglasnik)
         }
 
-        binding.gumbPrikaziOglasnik.setOnClickListener {
-            retrievePersons()
-        }
-
     }
 
     private fun savePerson(oglasnik: OglasnikTable) = CoroutineScope(Dispatchers.IO).launch {
@@ -57,20 +53,4 @@ class DodajNovoOglasnik : Fragment(R.layout.dodaj_novo_oglasnik_fragment) {
             }
         }
     }
-
-    private fun retrievePersons() = CoroutineScope(Dispatchers.IO).launch {
-        try {
-            val querySnapshot = personCollectionRef.get().await()
-            val sb = StringBuilder()
-            for (document in querySnapshot.documents) {
-                val oglasnik = document.toObject<OglasnikTable>()
-                sb.append("$oglasnik\n")
-            }
-        } catch (e: Exception) {
-            withContext(Dispatchers.Main) {
-                Toast.makeText(requireContext(), e.message, Toast.LENGTH_LONG).show()
-            }
-        }
-    }
-
 }
