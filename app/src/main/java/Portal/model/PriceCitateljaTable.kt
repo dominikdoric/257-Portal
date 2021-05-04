@@ -8,7 +8,5 @@ data class PriceCitateljaTable(
 
     val priceCitateljaNaslov: String = "",
 
-    val priceCitateljaClanak: String = "",
-
-    val priceCitateljaVrijeme: String = ""
+    val priceCitateljaClanak: String = ""
 ) : Parcelable

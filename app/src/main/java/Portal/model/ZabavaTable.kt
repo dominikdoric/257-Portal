@@ -8,7 +8,5 @@ data class ZabavaTable(
 
     val zabavaNaslov: String = "",
 
-    val zabavaClanak: String = "",
-
-    val zabavaVrijeme: String = ""
+    val zabavaClanak: String = ""
 ) : Parcelable

@@ -31,8 +31,7 @@ class DodajNovoZabava : Fragment(R.layout.dodaj_novo_zabava_fragment) {
         binding.gumbSpremiZabavu.setOnClickListener {
             val naslov = binding.naslov.text.toString()
             val clanak = binding.clanak.text.toString()
-            val vrijeme = binding.vrijeme.text.toString()
-            val zabava = ZabavaTable(naslov, clanak, vrijeme)
+            val zabava = ZabavaTable(naslov, clanak)
             savePerson(zabava)
             val action = DodajNovoZabavaDirections.actionMenuDodajNovuZabavaToZabavaNavDrawer()
             findNavController().navigate(action)

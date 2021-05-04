@@ -31,8 +31,7 @@ class DodajNovoVijesti : Fragment(R.layout.dodaj_novo_vijesti_fragment) {
         binding.gumbSpremiVijest.setOnClickListener {
             val naslov = binding.naslov.text.toString()
             val clanak = binding.clanak.text.toString()
-            val vrijeme = binding.vrijeme.text.toString()
-            val vijesti = VijestiTable(naslov, clanak, vrijeme)
+            val vijesti = VijestiTable(naslov, clanak)
             savePerson(vijesti)
             val action = DodajNovoVijestiDirections.actionMenuDodajNovuVijestToVijestiNavDrawer()
             findNavController().navigate(action)

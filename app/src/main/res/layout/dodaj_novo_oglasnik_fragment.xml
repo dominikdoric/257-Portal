@@ -38,12 +38,6 @@
         android:layout_margin="10dp"
         android:gravity="bottom"
         android:hint="Clanak"/>
-    <EditText
-        android:id="@+id/vrijeme"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="bottom"
-        android:hint="Vrijeme"/>
     <Button
         android:id="@+id/gumbSpremiOglasnik"
         android:layout_width="wrap_content"

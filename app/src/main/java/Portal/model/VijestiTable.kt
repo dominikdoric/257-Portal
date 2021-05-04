@@ -8,7 +8,5 @@ data class VijestiTable(
 
     val vijestiNaslov: String = "",
 
-    val vijestiClanak: String = "",
-
-    val vijestiVrijeme: String = ""
+    val vijestiClanak: String = ""
 ) : Parcelable

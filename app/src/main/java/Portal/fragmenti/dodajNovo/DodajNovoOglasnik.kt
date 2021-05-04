@@ -32,11 +32,10 @@ class DodajNovoOglasnik : Fragment(R.layout.dodaj_novo_oglasnik_fragment) {
         binding.gumbSpremiOglasnik.setOnClickListener {
             val naslov = binding.naslov.text.toString()
             val clanak = binding.clanak.text.toString()
-            val vrijeme = binding.vrijeme.text.toString()
             val cijena = binding.cijena.text.toString()
             val lokacija = binding.lokacija.text.toString()
             val broj = binding.broj.text.toString()
-            val oglasnik = OglasnikTable(clanak, naslov, cijena, lokacija, broj, vrijeme)
+            val oglasnik = OglasnikTable(clanak, naslov, cijena, lokacija, broj)
             savePerson(oglasnik)
             val action = DodajNovoOglasnikDirections.actionMenuDodajNoviOglasToOglasnikNavDrawer()
             findNavController().navigate(action)

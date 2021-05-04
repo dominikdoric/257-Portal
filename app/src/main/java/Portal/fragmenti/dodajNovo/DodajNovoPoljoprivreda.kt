@@ -32,8 +32,7 @@ class DodajNovoPoljoprivreda: Fragment(R.layout.dodaj_novo_poljoprivreda_fragmen
         binding.gumbSpremiPoljoprivredu.setOnClickListener {
             val naslov = binding.naslov.text.toString()
             val clanak = binding.clanak.text.toString()
-            val vrijeme = binding.vrijeme.text.toString()
-            val poljoprivreda = PoljoprivredaTable(naslov, clanak, vrijeme)
+            val poljoprivreda = PoljoprivredaTable(naslov, clanak)
             savePerson(poljoprivreda)
             val action = DodajNovoPoljoprivredaDirections.actionMenuDodajNovuPoljoprivreduToPoljoprivredaNavDrawer()
             findNavController().navigate(action)

@@ -8,7 +8,5 @@ data class PoljoprivredaTable(
 
     val poljoprivredaNaslov: String = "",
 
-    val poljoprivredaClanak: String = "",
-
-    val poljoprivredaVrijeme: String = ""
+    val poljoprivredaClanak: String = ""
 ) : Parcelable

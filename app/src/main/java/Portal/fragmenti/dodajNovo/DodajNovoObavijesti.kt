@@ -31,8 +31,7 @@ class DodajNovoObavijesti : Fragment(R.layout.dodaj_novo_obavijesti_fragment) {
         binding.gumbSpremiObavijest.setOnClickListener {
             val naslov = binding.naslov.text.toString()
             val clanak = binding.clanak.text.toString()
-            val vrijeme = binding.vrijeme.text.toString()
-            val obavijest = ObavijestiTable(naslov, clanak, vrijeme)
+            val obavijest = ObavijestiTable(naslov, clanak)
             savePerson(obavijest)
             val action = DodajNovoObavijestiDirections.actionMenuDodajNovuObavijestToObavijestiNavDrawer()
             findNavController().navigate(action)

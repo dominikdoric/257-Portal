@@ -31,8 +31,7 @@ class DodajNovoSport : Fragment(R.layout.dodaj_novo_sport_fragment) {
         binding.gumbSpremiSport.setOnClickListener {
             val naslov = binding.naslov.text.toString()
             val clanak = binding.clanak.text.toString()
-            val vrijeme = binding.vrijeme.text.toString()
-            val sport = SportTable(naslov, clanak, vrijeme)
+            val sport = SportTable(naslov, clanak)
             savePerson(sport)
             val action = DodajNovoSportDirections.actionMenuDodajNoviSportToSportNavDrawer()
             findNavController().navigate(action)

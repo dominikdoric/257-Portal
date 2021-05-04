@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import java.text.SimpleDateFormat
+import java.util.*
 
 class SportAdapter(options: FirestoreRecyclerOptions<SportTable>) :
     FirestoreRecyclerAdapter<SportTable, SportAdapter.SportViewHolder>(options) {
@@ -22,10 +24,12 @@ class SportAdapter(options: FirestoreRecyclerOptions<SportTable>) :
     }
 
     override fun onBindViewHolder(holder: SportViewHolder, position: Int, model: SportTable) {
+        val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
+        val currentDate = sdf.format(Date())
 
         holder.naslov.text = model.naslov
         holder.clanak.text = model.clanak
-        holder.vrijeme.text = model.vrijeme
+        holder.vrijeme.text = currentDate
 
     }
 

@@ -6,6 +6,5 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class SportTable(
     var naslov: String = "",
-    var clanak: String = "",
-    var vrijeme: String = ""
+    var clanak: String = ""
 ): Parcelable

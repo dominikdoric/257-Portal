@@ -31,8 +31,7 @@ class DodajNovoPriceCitatelja : Fragment(R.layout.dodaj_novo_price_citatelja_fra
         binding.gumbSpremiPriceCitatelja.setOnClickListener {
             val naslov = binding.naslov.text.toString()
             val clanak = binding.clanak.text.toString()
-            val vrijeme = binding.vrijeme.text.toString()
-            val priceCitatelja = PriceCitateljaTable(naslov, clanak, vrijeme)
+            val priceCitatelja = PriceCitateljaTable(naslov, clanak)
             savePerson(priceCitatelja)
             val action = DodajNovoPriceCitateljaDirections.actionMenuDodajNovuPricuCitateljaToPriceCitateljaNavDrawer()
             findNavController().navigate(action)

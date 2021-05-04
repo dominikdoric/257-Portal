@@ -14,7 +14,5 @@ data class OglasnikTable(
 
     val oglasnikLokacija: String = "",
 
-    val oglasnikBroj: String = "",
-
-    val oglasnikVrijeme: String = ""
+    val oglasnikBroj: String = ""
 ) : Parcelable
