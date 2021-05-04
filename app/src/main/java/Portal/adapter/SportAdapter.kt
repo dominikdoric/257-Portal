@@ -27,9 +27,10 @@ class SportAdapter(options: FirestoreRecyclerOptions<SportTable>) :
         val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
         val currentDate = sdf.format(Date())
 
+        holder.vrijeme.text = currentDate
         holder.naslov.text = model.naslov
         holder.clanak.text = model.clanak
-        holder.vrijeme.text = currentDate
+
 
     }
 

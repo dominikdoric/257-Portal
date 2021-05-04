@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import java.text.SimpleDateFormat
+import java.util.*
 
 class OglasnikAdapter(options: FirestoreRecyclerOptions<OglasnikTable>) :
     FirestoreRecyclerAdapter<OglasnikTable, OglasnikAdapter.OglasnikViewHolder>(options) {
@@ -22,10 +24,12 @@ class OglasnikAdapter(options: FirestoreRecyclerOptions<OglasnikTable>) :
     }
 
     override fun onBindViewHolder(holder: OglasnikViewHolder, position: Int, model: OglasnikTable) {
+        val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
+        val currentDate = sdf.format(Date())
 
+        holder.vrijeme.text = currentDate
         holder.naslov.text = model.oglasnikNaslov
         holder.clanak.text = model.oglasnikClanak
-        holder.vrijeme.text = model.oglasnikVrijeme
         holder.broj.text = model.oglasnikBroj
         holder.lokacija.text = model.oglasnikLokacija
         holder.cijena.text = model.oglasnikCijena

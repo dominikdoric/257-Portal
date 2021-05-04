@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import java.text.SimpleDateFormat
+import java.util.*
 
 class VijestiAdapter(options: FirestoreRecyclerOptions<VijestiTable>) :
     FirestoreRecyclerAdapter<VijestiTable, VijestiAdapter.VijestiViewHolder>(options) {
@@ -22,10 +24,12 @@ class VijestiAdapter(options: FirestoreRecyclerOptions<VijestiTable>) :
     }
 
     override fun onBindViewHolder(holder: VijestiViewHolder, position: Int, model: VijestiTable) {
+        val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
+        val currentDate = sdf.format(Date())
 
+        holder.vrijeme.text = currentDate
         holder.naslov.text = model.vijestiNaslov
         holder.clanak.text = model.vijestiClanak
-        holder.vrijeme.text = model.vijestiVrijeme
 
     }
 

@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import java.text.SimpleDateFormat
+import java.util.*
 
 class ZabavaAdapter(options: FirestoreRecyclerOptions<ZabavaTable>) :
     FirestoreRecyclerAdapter<ZabavaTable, ZabavaAdapter.ZabavaViewHolder>(options) {
@@ -23,10 +25,12 @@ class ZabavaAdapter(options: FirestoreRecyclerOptions<ZabavaTable>) :
     }
 
     override fun onBindViewHolder(holder: ZabavaViewHolder, position: Int, model: ZabavaTable) {
+        val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
+        val currentDate = sdf.format(Date())
 
+        holder.vrijeme.text = currentDate
         holder.naslov.text = model.zabavaNaslov
         holder.clanak.text = model.zabavaClanak
-        holder.vrijeme.text = model.zabavaVrijeme
 
     }
 
