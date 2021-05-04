@@ -9,10 +9,10 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 
 class PoljoprivredaAdapter(options: FirestoreRecyclerOptions<PoljoprivredaTable>) :
-    FirestoreRecyclerAdapter<PoljoprivredaTable, PoljoprivredaAdapter.PersonViewHolder>(options) {
+    FirestoreRecyclerAdapter<PoljoprivredaTable, PoljoprivredaAdapter.PoljoprivredaViewHolder>(options) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PersonViewHolder {
-        return PersonViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PoljoprivredaViewHolder {
+        return PoljoprivredaViewHolder(
             JedanRedPoljoprivredaBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
@@ -21,10 +21,7 @@ class PoljoprivredaAdapter(options: FirestoreRecyclerOptions<PoljoprivredaTable>
         )
     }
 
-    override fun onBindViewHolder(
-        holder: PersonViewHolder,
-        position: Int,
-        model: PoljoprivredaTable
+    override fun onBindViewHolder(holder: PoljoprivredaViewHolder, position: Int, model: PoljoprivredaTable
     ) {
 
         holder.naslov.text = model.poljoprivredaNaslov
@@ -33,7 +30,7 @@ class PoljoprivredaAdapter(options: FirestoreRecyclerOptions<PoljoprivredaTable>
 
     }
 
-    class PersonViewHolder(val binding: JedanRedPoljoprivredaBinding) :
+    class PoljoprivredaViewHolder(val binding: JedanRedPoljoprivredaBinding) :
         RecyclerView.ViewHolder(binding.root) {
         var naslov = binding.naslov
         var clanak = binding.clanak

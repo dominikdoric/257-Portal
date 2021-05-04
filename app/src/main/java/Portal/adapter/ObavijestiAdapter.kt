@@ -9,10 +9,10 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 
 class ObavijestiAdapter(options: FirestoreRecyclerOptions<ObavijestiTable>) :
-    FirestoreRecyclerAdapter<ObavijestiTable, ObavijestiAdapter.PersonViewHolder>(options) {
+    FirestoreRecyclerAdapter<ObavijestiTable, ObavijestiAdapter.ObavijestiViewHolder>(options) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PersonViewHolder {
-        return PersonViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ObavijestiViewHolder {
+        return ObavijestiViewHolder(
             JedanRedObavijestiBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
@@ -21,7 +21,7 @@ class ObavijestiAdapter(options: FirestoreRecyclerOptions<ObavijestiTable>) :
         )
     }
 
-    override fun onBindViewHolder(holder: PersonViewHolder, position: Int, model: ObavijestiTable) {
+    override fun onBindViewHolder(holder: ObavijestiViewHolder, position: Int, model: ObavijestiTable) {
 
         holder.naslov.text = model.obavijestiNaslov
         holder.clanak.text = model.obavijestiClanak
@@ -29,7 +29,7 @@ class ObavijestiAdapter(options: FirestoreRecyclerOptions<ObavijestiTable>) :
 
     }
 
-    class PersonViewHolder(val binding: JedanRedObavijestiBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ObavijestiViewHolder(val binding: JedanRedObavijestiBinding) : RecyclerView.ViewHolder(binding.root) {
         var naslov = binding.naslov
         var clanak = binding.clanak
         var vrijeme = binding.vrijeme

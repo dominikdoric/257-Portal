@@ -9,10 +9,10 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 
 class OglasnikAdapter(options: FirestoreRecyclerOptions<OglasnikTable>) :
-    FirestoreRecyclerAdapter<OglasnikTable, OglasnikAdapter.PersonViewHolder>(options) {
+    FirestoreRecyclerAdapter<OglasnikTable, OglasnikAdapter.OglasnikViewHolder>(options) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PersonViewHolder {
-        return PersonViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OglasnikViewHolder {
+        return OglasnikViewHolder(
             JedanRedOglasnikBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
@@ -21,7 +21,7 @@ class OglasnikAdapter(options: FirestoreRecyclerOptions<OglasnikTable>) :
         )
     }
 
-    override fun onBindViewHolder(holder: PersonViewHolder, position: Int, model: OglasnikTable) {
+    override fun onBindViewHolder(holder: OglasnikViewHolder, position: Int, model: OglasnikTable) {
 
         holder.naslov.text = model.oglasnikNaslov
         holder.clanak.text = model.oglasnikClanak
@@ -32,7 +32,7 @@ class OglasnikAdapter(options: FirestoreRecyclerOptions<OglasnikTable>) :
 
     }
 
-    class PersonViewHolder(val binding: JedanRedOglasnikBinding) : RecyclerView.ViewHolder(binding.root) {
+    class OglasnikViewHolder(val binding: JedanRedOglasnikBinding) : RecyclerView.ViewHolder(binding.root) {
         var naslov = binding.naslov
         var clanak = binding.clanak
         var vrijeme = binding.vrijeme

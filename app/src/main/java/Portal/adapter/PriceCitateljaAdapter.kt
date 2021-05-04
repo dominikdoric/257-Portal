@@ -9,10 +9,10 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 
 class PriceCitateljaAdapter(options: FirestoreRecyclerOptions<PriceCitateljaTable>) :
-    FirestoreRecyclerAdapter<PriceCitateljaTable, PriceCitateljaAdapter.PersonViewHolder>(options) {
+    FirestoreRecyclerAdapter<PriceCitateljaTable, PriceCitateljaAdapter.PriceCitateljaViewHolder>(options) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PersonViewHolder {
-        return PersonViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PriceCitateljaViewHolder {
+        return PriceCitateljaViewHolder(
             JedanRedPriceCitateljaBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
@@ -21,7 +21,7 @@ class PriceCitateljaAdapter(options: FirestoreRecyclerOptions<PriceCitateljaTabl
         )
     }
 
-    override fun onBindViewHolder(holder: PersonViewHolder, position: Int, model: PriceCitateljaTable) {
+    override fun onBindViewHolder(holder: PriceCitateljaViewHolder, position: Int, model: PriceCitateljaTable) {
 
         holder.naslov.text = model.priceCitateljaNaslov
         holder.clanak.text = model.priceCitateljaClanak
@@ -29,7 +29,7 @@ class PriceCitateljaAdapter(options: FirestoreRecyclerOptions<PriceCitateljaTabl
 
     }
 
-    class PersonViewHolder(val binding: JedanRedPriceCitateljaBinding) : RecyclerView.ViewHolder(binding.root) {
+    class PriceCitateljaViewHolder(val binding: JedanRedPriceCitateljaBinding) : RecyclerView.ViewHolder(binding.root) {
         var naslov = binding.naslov
         var clanak = binding.clanak
         var vrijeme = binding.vrijeme

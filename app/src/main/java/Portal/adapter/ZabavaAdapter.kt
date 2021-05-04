@@ -10,10 +10,10 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 
 class ZabavaAdapter(options: FirestoreRecyclerOptions<ZabavaTable>) :
-    FirestoreRecyclerAdapter<ZabavaTable, ZabavaAdapter.PersonViewHolder>(options) {
+    FirestoreRecyclerAdapter<ZabavaTable, ZabavaAdapter.ZabavaViewHolder>(options) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PersonViewHolder {
-        return PersonViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ZabavaViewHolder {
+        return ZabavaViewHolder(
             JedanRedZabavaBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
@@ -22,7 +22,7 @@ class ZabavaAdapter(options: FirestoreRecyclerOptions<ZabavaTable>) :
         )
     }
 
-    override fun onBindViewHolder(holder: PersonViewHolder, position: Int, model: ZabavaTable) {
+    override fun onBindViewHolder(holder: ZabavaViewHolder, position: Int, model: ZabavaTable) {
 
         holder.naslov.text = model.zabavaNaslov
         holder.clanak.text = model.zabavaClanak
@@ -30,7 +30,7 @@ class ZabavaAdapter(options: FirestoreRecyclerOptions<ZabavaTable>) :
 
     }
 
-    class PersonViewHolder(val binding: JedanRedZabavaBinding) :
+    class ZabavaViewHolder(val binding: JedanRedZabavaBinding) :
         RecyclerView.ViewHolder(binding.root) {
         var naslov = binding.naslov
         var clanak = binding.clanak

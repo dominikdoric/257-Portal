@@ -14,7 +14,7 @@ android {
 
     defaultConfig {
         applicationId "Portal.a257"
-        minSdkVersion 21
+        minSdkVersion 26
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -55,12 +55,12 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
 
     //Kotlin Components
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.4.32"
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.5.0'
 
     //Coroutines
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.1.1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0-RC-native-mt'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0-RC-native-mt'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.5.0-RC-native-mt'
 
     //Firebase
     implementation 'com.google.firebase:firebase-firestore-ktx:22.1.2'
