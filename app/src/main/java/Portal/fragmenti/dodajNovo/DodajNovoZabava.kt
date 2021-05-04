@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
@@ -33,6 +34,8 @@ class DodajNovoZabava : Fragment(R.layout.dodaj_novo_zabava_fragment) {
             val vrijeme = binding.vrijeme.text.toString()
             val zabava = ZabavaTable(naslov, clanak, vrijeme)
             savePerson(zabava)
+            val action = DodajNovoZabavaDirections.actionMenuDodajNovuZabavaToZabavaNavDrawer()
+            findNavController().navigate(action)
         }
     }
 

@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
@@ -33,6 +34,8 @@ class DodajNovoPriceCitatelja : Fragment(R.layout.dodaj_novo_price_citatelja_fra
             val vrijeme = binding.vrijeme.text.toString()
             val priceCitatelja = PriceCitateljaTable(naslov, clanak, vrijeme)
             savePerson(priceCitatelja)
+            val action = DodajNovoPriceCitateljaDirections.actionMenuDodajNovuPricuCitateljaToPriceCitateljaNavDrawer()
+            findNavController().navigate(action)
         }
     }
 

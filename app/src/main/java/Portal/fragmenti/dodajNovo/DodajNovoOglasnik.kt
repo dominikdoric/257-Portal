@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
@@ -37,6 +38,8 @@ class DodajNovoOglasnik : Fragment(R.layout.dodaj_novo_oglasnik_fragment) {
             val broj = binding.broj.text.toString()
             val oglasnik = OglasnikTable(clanak, naslov, cijena, lokacija, broj, vrijeme)
             savePerson(oglasnik)
+            val action = DodajNovoOglasnikDirections.actionMenuDodajNoviOglasToOglasnikNavDrawer()
+            findNavController().navigate(action)
         }
 
     }
