@@ -6,15 +6,15 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class OglasnikTable(
 
-    val oglasnikClanak: String,
+    val oglasnikClanak: String = "",
 
-    val oglasnikNaslov: String,
+    val oglasnikNaslov: String = "",
 
-    val oglasnikCijena: String,
+    val oglasnikCijena: String = "",
 
-    val oglasnikLokacija: String,
+    val oglasnikLokacija: String = "",
 
-    val oglasnikBroj: String,
+    val oglasnikBroj: String = "",
 
-    val oglasnikVrijeme: String
+    val oglasnikVrijeme: String = ""
 ) : Parcelable

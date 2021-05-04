@@ -31,8 +31,9 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:text="@string/zabava"
+            android:textStyle="bold"
             android:textColor="#000"
-            android:textSize="20dp" />
+            android:textSize="24dp" />
         <TextView
             android:id="@+id/clanak"
             android:layout_width="match_parent"
