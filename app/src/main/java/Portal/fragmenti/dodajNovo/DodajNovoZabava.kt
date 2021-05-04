@@ -50,20 +50,4 @@ class DodajNovoZabava : Fragment(R.layout.dodaj_novo_zabava_fragment) {
             }
         }
     }
-    /*
-    @SuppressLint("SimpleDateFormat")
-    private fun insertDataToDatabase() {
-        val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
-        val currentDate = sdf.format(Date())
-
-        val noviNaslov = binding.etZabavaNaslov.text.toString()
-        val novoVrijeme = currentDate
-        val noviClanak = binding.etZabavaClanak.text.toString()
-        val novaSlika = R.drawable.jaksic
-
-        val zabava = ZabavaTable(0, noviNaslov, noviClanak, novoVrijeme, novaSlika)
-        mZabavaViewModel.addZabava(zabava)
-    }
-
-     */
 }

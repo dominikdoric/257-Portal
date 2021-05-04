@@ -51,19 +51,4 @@ class DodajNovoVijesti : Fragment(R.layout.dodaj_novo_vijesti_fragment) {
             }
         }
     }
-    /*
-    @SuppressLint("SimpleDateFormat")
-    private fun insertDataToDatabase() {
-        val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
-        val currentDate = sdf.format(Date())
-
-        val noviNaslov = binding.etVijestiNaslov.text.toString()
-        val novoVrijeme = currentDate
-        val noviClanak = binding.etVijestiClanak.text.toString()
-        val novaSlika = R.drawable.jaksic
-
-        val vijesti = VijestiTable(0, noviNaslov, noviClanak, novoVrijeme, novaSlika)
-        mVijestiViewModel.addVijesti(vijesti)
-    }
-     */
 }

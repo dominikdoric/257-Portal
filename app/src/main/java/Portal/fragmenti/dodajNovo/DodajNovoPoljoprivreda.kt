@@ -51,22 +51,4 @@ class DodajNovoPoljoprivreda: Fragment(R.layout.dodaj_novo_poljoprivreda_fragmen
             }
         }
     }
-
-    /*
-    @SuppressLint("SimpleDateFormat")
-    private fun insertDataToDatabase() {
-        val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
-        val currentDate = sdf.format(Date())
-
-        val noviNaslov = binding.etPoljoprivredaNaslov.text.toString()
-        val novoVrijeme = currentDate
-        val noviClanak = binding.etPoljoprivredaClanak.text.toString()
-        val novaSlika = R.drawable.jaksic
-
-        val poljoprivreda = PoljoprivredaTable(0, noviNaslov, noviClanak, novoVrijeme, novaSlika)
-        mPoljoprivredaViewModel.addPoljoprivreda(poljoprivreda)
-    }
-
-     */
-
 }

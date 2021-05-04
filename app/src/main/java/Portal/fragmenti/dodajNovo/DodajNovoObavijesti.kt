@@ -50,19 +50,4 @@ class DodajNovoObavijesti : Fragment(R.layout.dodaj_novo_obavijesti_fragment) {
             }
         }
     }
-    /*
-    @SuppressLint("SimpleDateFormat")
-    private fun insertDataToDatabase() {
-        val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
-        val currentDate = sdf.format(Date())
-
-        val noviNaslov = binding.etObavijestiNaslov.text.toString()
-        val novoVrijeme = currentDate
-        val noviClanak = binding.etObavijestiClanak.text.toString()
-        val novaSlika = R.drawable.jaksic
-
-        val obavijesti = ObavijestiTable(0, noviNaslov, noviClanak, novoVrijeme, novaSlika)
-        mObavijestViewModel.addObavijesti(obavijesti)
-    }
-     */
 }

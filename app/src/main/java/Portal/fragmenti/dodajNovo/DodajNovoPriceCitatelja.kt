@@ -50,20 +50,4 @@ class DodajNovoPriceCitatelja : Fragment(R.layout.dodaj_novo_price_citatelja_fra
             }
         }
     }
-
-    /*
-    private fun insertDataToDatabase() {
-        val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
-        val currentDate = sdf.format(Date())
-
-        val noviNaslov = binding.etPriceCitateljaNaslov.text.toString()
-        val novoVrijeme = currentDate
-        val noviClanak = binding.etPriceCitateljaClanak.text.toString()
-        val novaSlika = R.drawable.jaksic
-
-        val priceCitatelja = PriceCitateljaTable(0, noviNaslov, noviClanak, novoVrijeme, novaSlika)
-        mPriceCitateljaViewModel.addPriceCitatelja(priceCitatelja)
-    }
-     */
-
 }
