@@ -38,6 +38,9 @@
         android:name="Portal.fragmenti.fragmenti.SportFragment"
         android:label="Sport"
         tools:layout="@layout/sport_fragment">
+        <action
+            android:id="@+id/action_sportNavDrawer_to_detailSport"
+            app:destination="@id/detailSport" />
     </fragment>
     <fragment
         android:id="@+id/vijestiNavDrawer"
@@ -134,15 +137,9 @@
             app:destination="@id/sportNavDrawer" />
     </fragment>
     <fragment
-        android:id="@+id/firestore"
-        android:name="Portal.firestore.FirestoreFragment"
-        android:label="FirestoreFragment"
-        tools:layout="@layout/firestore_fragment"/>
-    <fragment
-        android:id="@+id/firestoreRecycler"
-        android:name="Portal.firestore.FirestoreRecycler"
-        android:label="FirestoreRecycler"
-        tools:layout="@layout/firestore_recycler">
-    </fragment>
+        android:id="@+id/detailSport"
+        android:name="Portal.fragmenti.detail.DetailSport"
+        android:label="DetailSport"
+        tools:layout="@layout/detail_sport"/>
 
 </navigation>

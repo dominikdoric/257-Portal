@@ -1,9 +1,12 @@
 package Portal.adapter
 
 import Portal.a257.databinding.JedanRedSportBinding
+import Portal.fragmenti.fragmenti.SportFragmentDirections
 import Portal.model.SportTable
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
@@ -31,6 +34,10 @@ class SportAdapter(options: FirestoreRecyclerOptions<SportTable>) :
         holder.naslov.text = model.naslov
         holder.clanak.text = model.clanak
 
+        holder.binding.cardViewSport.setOnClickListener { v: View ->
+            val action = SportFragmentDirections.actionSportNavDrawerToDetailSport()
+            v.findNavController().navigate(action)
+        }
 
     }
 
