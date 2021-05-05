@@ -1,15 +1,19 @@
 package Portal.adapter
 
 import Portal.a257.databinding.JedanRedSportBinding
+import Portal.fragmenti.fragmenti.SportFragment
 import Portal.fragmenti.fragmenti.SportFragmentDirections
 import Portal.model.SportTable
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.android.material.snackbar.Snackbar
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -26,6 +30,7 @@ class SportAdapter(options: FirestoreRecyclerOptions<SportTable>) :
         )
     }
 
+    @SuppressLint("SimpleDateFormat")
     override fun onBindViewHolder(holder: SportViewHolder, position: Int, model: SportTable) {
         val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
         val currentDate = sdf.format(Date())
@@ -37,6 +42,7 @@ class SportAdapter(options: FirestoreRecyclerOptions<SportTable>) :
         holder.binding.cardViewSport.setOnClickListener { v: View ->
             val action = SportFragmentDirections.actionSportNavDrawerToDetailSport()
             v.findNavController().navigate(action)
+            Toast.makeText(v.context,model.clanak + " " + model.naslov,Toast.LENGTH_LONG).show()
         }
 
     }

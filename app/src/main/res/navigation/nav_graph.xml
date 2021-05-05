@@ -141,5 +141,10 @@
         android:name="Portal.fragmenti.detail.DetailSport"
         android:label="DetailSport"
         tools:layout="@layout/detail_sport"/>
+    <fragment
+        android:id="@+id/pokus"
+        android:name="Portal.fragmenti.fragmenti.Pokus"
+        android:label="Pokus"
+        tools:layout="@layout/pokus_fragment"/>
 
 </navigation>
