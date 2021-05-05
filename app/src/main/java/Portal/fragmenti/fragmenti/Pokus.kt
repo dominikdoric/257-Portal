@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 
 class Pokus: Fragment(R.layout.pokus_fragment) {
 
@@ -16,12 +17,12 @@ class Pokus: Fragment(R.layout.pokus_fragment) {
         super.onViewCreated(view, savedInstanceState)
         binding = PokusFragmentBinding.bind(view)
 
-        val pokus = PokusTable("Dominik","Doric")
-
         binding.gumbSafeArgs.setOnClickListener {
+            val ime = binding.editText1.text.toString()
+            val prezime = binding.editText2.text.toString()
+            val pokus = PokusTable(ime,prezime)
             val action = PokusDirections.actionMenuPokusToPokus2(pokus)
             findNavController().navigate(action)
         }
     }
-
 }

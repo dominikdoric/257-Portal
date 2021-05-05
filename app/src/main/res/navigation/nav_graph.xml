@@ -140,7 +140,11 @@
         android:id="@+id/detailSport"
         android:name="Portal.fragmenti.detail.DetailSport"
         android:label="DetailSport"
-        tools:layout="@layout/detail_sport"/>
+        tools:layout="@layout/detail_sport">
+        <argument
+            android:name="sportArgs"
+            app:argType="Portal.model.SportTable" />
+    </fragment>
     <fragment
         android:id="@+id/menu_pokus"
         android:name="Portal.fragmenti.fragmenti.Pokus"
