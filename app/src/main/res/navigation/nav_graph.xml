@@ -146,5 +146,10 @@
         android:name="Portal.fragmenti.fragmenti.Pokus"
         android:label="Pokus"
         tools:layout="@layout/pokus_fragment"/>
+    <fragment
+        android:id="@+id/pokus2"
+        android:name="Portal.fragmenti.fragmenti.Pokus2"
+        android:label="Pokus2"
+        tools:layout="@layout/pokus2_fragment"/>
 
 </navigation>
