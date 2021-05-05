@@ -43,7 +43,6 @@ class SportAdapter(options: FirestoreRecyclerOptions<SportTable>) :
             val data = SportTable(model.naslov,model.clanak)
             val action = SportFragmentDirections.actionSportNavDrawerToDetailSport(data)
             v.findNavController().navigate(action)
-            Toast.makeText(v.context,model.clanak + " " + model.naslov,Toast.LENGTH_LONG).show()
         }
 
     }

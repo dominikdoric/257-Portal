@@ -130,7 +130,7 @@
     <fragment
         android:id="@+id/menu_dodajNoviSport"
         android:name="Portal.fragmenti.dodajNovo.DodajNovoSport"
-        android:label="DodajNovoSport"
+        android:label="Dodaj novi sport"
         tools:layout="@layout/dodaj_novo_sport_fragment">
         <action
             android:id="@+id/action_menu_dodajNoviSport_to_sportNavDrawer"
@@ -139,7 +139,7 @@
     <fragment
         android:id="@+id/detailSport"
         android:name="Portal.fragmenti.detail.DetailSport"
-        android:label="DetailSport"
+        android:label="Sport"
         tools:layout="@layout/detail_sport">
         <argument
             android:name="sportArgs"
