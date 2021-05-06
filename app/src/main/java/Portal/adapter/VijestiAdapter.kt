@@ -1,9 +1,12 @@
 package Portal.adapter
 
 import Portal.a257.databinding.JedanRedVijestiBinding
+import Portal.fragmenti.fragmenti.VijestiFragmentDirections
 import Portal.model.VijestiTable
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
@@ -30,6 +33,12 @@ class VijestiAdapter(options: FirestoreRecyclerOptions<VijestiTable>) :
         holder.vrijeme.text = currentDate
         holder.naslov.text = model.vijestiNaslov
         holder.clanak.text = model.vijestiClanak
+
+        holder.binding.cardViewVijesti.setOnClickListener { v: View ->
+            val data = VijestiTable(model.vijestiNaslov,model.vijestiClanak)
+            val action = VijestiFragmentDirections.actionVijestiNavDrawerToVijestiDetail(data)
+            v.findNavController().navigate(action)
+        }
 
     }
 
