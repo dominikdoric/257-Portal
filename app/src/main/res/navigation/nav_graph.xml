@@ -20,6 +20,9 @@
         android:name="Portal.fragmenti.fragmenti.ObavijestiFragment"
         android:label="Obavijesti"
         tools:layout="@layout/obavijesti_fragment">
+        <action
+            android:id="@+id/action_obavijestiNavDrawer_to_obavijestiDetail"
+            app:destination="@id/obavijestiDetail" />
     </fragment>
     <fragment
         android:id="@+id/oglasnikNavDrawer"
@@ -145,4 +148,9 @@
             android:name="sportArgs"
             app:argType="Portal.model.SportTable" />
     </fragment>
+    <fragment
+        android:id="@+id/obavijestiDetail"
+        android:name="Portal.fragmenti.detail.ObavijestiDetail"
+        android:label="ObavijestiDetail"
+        tools:layout="@layout/detail_obavijesti"/>
 </navigation>

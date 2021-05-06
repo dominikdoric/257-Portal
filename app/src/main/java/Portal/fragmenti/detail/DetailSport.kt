@@ -16,8 +16,7 @@ class DetailSport: Fragment(R.layout.detail_sport) {
         super.onViewCreated(view, savedInstanceState)
         binding = DetailSportBinding.bind(view)
 
-        binding.textView1.text = args.sportArgs.naslov
-        binding.textView2.text = args.sportArgs.clanak
+        binding.naslov.text = args.sportArgs.naslov
+        binding.clanak.text = args.sportArgs.clanak
     }
-
 }
