@@ -57,6 +57,9 @@
         android:label="Vijesti"
         tools:layout="@layout/vijesti_fragment">
 
+        <action
+            android:id="@+id/action_vijestiNavDrawer_to_vijestiDetail"
+            app:destination="@id/vijestiDetail" />
     </fragment>
     <fragment
         android:id="@+id/zabavaNavDrawer"
@@ -192,5 +195,14 @@
         <argument
             android:name="priceCitateljaArgs"
             app:argType="Portal.model.PriceCitateljaTable" />
+    </fragment>
+    <fragment
+        android:id="@+id/vijestiDetail"
+        android:name="Portal.fragmenti.detail.VijestiDetail"
+        android:label="VijestiDetail"
+        tools:layout="@layout/detail_vijesti">
+        <argument
+            android:name="vijestiArgs"
+            app:argType="Portal.model.VijestiTable" />
     </fragment>
 </navigation>
