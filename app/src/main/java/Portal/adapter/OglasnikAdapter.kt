@@ -1,9 +1,12 @@
 package Portal.adapter
 
 import Portal.a257.databinding.JedanRedOglasnikBinding
+import Portal.fragmenti.fragmenti.OglasnikFragmentDirections
 import Portal.model.OglasnikTable
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
@@ -33,7 +36,11 @@ class OglasnikAdapter(options: FirestoreRecyclerOptions<OglasnikTable>) :
         holder.lokacija.text = model.oglasnikLokacija
         holder.cijena.text = model.oglasnikCijena
 
-
+        holder.binding.cardViewOglasnik.setOnClickListener { v: View ->
+            val data = OglasnikTable(model.oglasnikClanak,model.oglasnikNaslov,model.oglasnikCijena,model.oglasnikLokacija,model.oglasnikBroj)
+            val action = OglasnikFragmentDirections.actionOglasnikNavDrawerToDetailOglasnik(data)
+            v.findNavController().navigate(action)
+        }
 
     }
 

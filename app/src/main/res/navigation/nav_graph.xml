@@ -126,6 +126,9 @@
         android:name="Portal.fragmenti.fragmenti.PoljoprivredaFragment"
         android:label="Poljoprivreda"
         tools:layout="@layout/poljoprivreda_fragment">
+        <action
+            android:id="@+id/action_poljoprivredaNavDrawer_to_poljoprivredaDetail"
+            app:destination="@id/poljoprivredaDetail" />
     </fragment>
     <fragment
         android:id="@+id/adminBottomNav"
@@ -168,5 +171,14 @@
         <argument
             android:name="oglasnikArgs"
             app:argType="Portal.model.OglasnikTable" />
+    </fragment>
+    <fragment
+        android:id="@+id/poljoprivredaDetail"
+        android:name="Portal.fragmenti.detail.PoljoprivredaDetail"
+        android:label="PoljoprivredaDetail"
+        tools:layout="@layout/detail_poljoprivreda">
+        <argument
+            android:name="poljoprivredaArgs"
+            app:argType="Portal.model.PoljoprivredaTable" />
     </fragment>
 </navigation>
