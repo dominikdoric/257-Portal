@@ -2,9 +2,12 @@ package Portal.adapter
 
 
 import Portal.a257.databinding.JedanRedZabavaBinding
+import Portal.fragmenti.fragmenti.ZabavaFragmentDirections
 import Portal.model.ZabavaTable
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
@@ -31,6 +34,12 @@ class ZabavaAdapter(options: FirestoreRecyclerOptions<ZabavaTable>) :
         holder.vrijeme.text = currentDate
         holder.naslov.text = model.zabavaNaslov
         holder.clanak.text = model.zabavaClanak
+
+        holder.binding.cardViewZabava.setOnClickListener { v: View ->
+            val data = ZabavaTable(model.zabavaNaslov,model.zabavaClanak)
+            val action = ZabavaFragmentDirections.actionZabavaNavDrawerToDetailZabava(data)
+            v.findNavController().navigate(action)
+        }
 
     }
 
