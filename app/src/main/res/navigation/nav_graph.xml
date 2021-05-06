@@ -66,6 +66,9 @@
         android:name="Portal.fragmenti.fragmenti.ZabavaFragment"
         android:label="Zabava"
         tools:layout="@layout/zabava_fragment">
+        <action
+            android:id="@+id/action_zabavaNavDrawer_to_detailZabava"
+            app:destination="@id/detailZabava" />
     </fragment>
     <fragment
         android:id="@+id/vrijemeBottomNav"
@@ -204,5 +207,14 @@
         <argument
             android:name="vijestiArgs"
             app:argType="Portal.model.VijestiTable" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailZabava"
+        android:name="Portal.fragmenti.detail.DetailZabava"
+        android:label="DetailZabava"
+        tools:layout="@layout/detail_zabava">
+        <argument
+            android:name="zabavaArgs"
+            app:argType="Portal.model.ZabavaTable" />
     </fragment>
 </navigation>
