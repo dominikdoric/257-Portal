@@ -3,6 +3,7 @@ package Portal.adapter
 import Portal.a257.databinding.JedanRedPoljoprivredaBinding
 import Portal.fragmenti.fragmenti.PoljoprivredaFragmentDirections
 import Portal.model.PoljoprivredaTable
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,6 +27,7 @@ class PoljoprivredaAdapter(options: FirestoreRecyclerOptions<PoljoprivredaTable>
         )
     }
 
+    @SuppressLint("SimpleDateFormat")
     override fun onBindViewHolder(holder: PoljoprivredaViewHolder, position: Int, model: PoljoprivredaTable) {
         val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
         val currentDate = sdf.format(Date())

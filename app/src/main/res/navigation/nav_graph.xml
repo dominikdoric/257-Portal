@@ -166,7 +166,7 @@
     <fragment
         android:id="@+id/obavijestiDetail"
         android:name="Portal.fragmenti.detail.ObavijestiDetail"
-        android:label="ObavijestiDetail"
+        android:label="Obavijesti"
         tools:layout="@layout/detail_obavijesti">
         <argument
             android:name="obavijestiArgs"
@@ -175,7 +175,7 @@
     <fragment
         android:id="@+id/detailOglasnik"
         android:name="Portal.fragmenti.detail.DetailOglasnik"
-        android:label="DetailOglasnik"
+        android:label="Oglasnik"
         tools:layout="@layout/detail_oglasnik">
         <argument
             android:name="oglasnikArgs"
@@ -184,7 +184,7 @@
     <fragment
         android:id="@+id/poljoprivredaDetail"
         android:name="Portal.fragmenti.detail.PoljoprivredaDetail"
-        android:label="PoljoprivredaDetail"
+        android:label="Poljoprivreda"
         tools:layout="@layout/detail_poljoprivreda">
         <argument
             android:name="poljoprivredaArgs"
@@ -193,7 +193,7 @@
     <fragment
         android:id="@+id/detailPriceCitatelja"
         android:name="Portal.fragmenti.detail.DetailPriceCitatelja"
-        android:label="DetailPriceCitatelja"
+        android:label="Price Citatelja"
         tools:layout="@layout/detail_price_citatelja">
         <argument
             android:name="priceCitateljaArgs"
@@ -202,7 +202,7 @@
     <fragment
         android:id="@+id/vijestiDetail"
         android:name="Portal.fragmenti.detail.VijestiDetail"
-        android:label="VijestiDetail"
+        android:label="Vijesti"
         tools:layout="@layout/detail_vijesti">
         <argument
             android:name="vijestiArgs"
@@ -211,7 +211,7 @@
     <fragment
         android:id="@+id/detailZabava"
         android:name="Portal.fragmenti.detail.DetailZabava"
-        android:label="DetailZabava"
+        android:label="Zabava"
         tools:layout="@layout/detail_zabava">
         <argument
             android:name="zabavaArgs"

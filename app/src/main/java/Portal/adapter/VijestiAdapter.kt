@@ -3,6 +3,7 @@ package Portal.adapter
 import Portal.a257.databinding.JedanRedVijestiBinding
 import Portal.fragmenti.fragmenti.VijestiFragmentDirections
 import Portal.model.VijestiTable
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,6 +27,7 @@ class VijestiAdapter(options: FirestoreRecyclerOptions<VijestiTable>) :
         )
     }
 
+    @SuppressLint("SimpleDateFormat")
     override fun onBindViewHolder(holder: VijestiViewHolder, position: Int, model: VijestiTable) {
         val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
         val currentDate = sdf.format(Date())

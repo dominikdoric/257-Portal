@@ -3,6 +3,7 @@ package Portal.adapter
 import Portal.a257.databinding.JedanRedOglasnikBinding
 import Portal.fragmenti.fragmenti.OglasnikFragmentDirections
 import Portal.model.OglasnikTable
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,6 +27,7 @@ class OglasnikAdapter(options: FirestoreRecyclerOptions<OglasnikTable>) :
         )
     }
 
+    @SuppressLint("SimpleDateFormat")
     override fun onBindViewHolder(holder: OglasnikViewHolder, position: Int, model: OglasnikTable) {
         val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
         val currentDate = sdf.format(Date())

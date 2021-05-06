@@ -38,7 +38,6 @@ class PriceCitateljaAdapter(options: FirestoreRecyclerOptions<PriceCitateljaTabl
             val action = PriceCitateljaFragmentDirections.actionPriceCitateljaNavDrawerToDetailPriceCitatelja(data)
             v.findNavController().navigate(action)
         }
-
     }
 
     class PriceCitateljaViewHolder(val binding: JedanRedPriceCitateljaBinding) : RecyclerView.ViewHolder(binding.root) {

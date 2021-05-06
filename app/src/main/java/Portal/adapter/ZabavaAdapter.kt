@@ -4,6 +4,7 @@ package Portal.adapter
 import Portal.a257.databinding.JedanRedZabavaBinding
 import Portal.fragmenti.fragmenti.ZabavaFragmentDirections
 import Portal.model.ZabavaTable
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,6 +28,7 @@ class ZabavaAdapter(options: FirestoreRecyclerOptions<ZabavaTable>) :
         )
     }
 
+    @SuppressLint("SimpleDateFormat")
     override fun onBindViewHolder(holder: ZabavaViewHolder, position: Int, model: ZabavaTable) {
         val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
         val currentDate = sdf.format(Date())
@@ -39,7 +41,6 @@ class ZabavaAdapter(options: FirestoreRecyclerOptions<ZabavaTable>) :
             val action = ZabavaFragmentDirections.actionZabavaNavDrawerToDetailZabava(data)
             v.findNavController().navigate(action)
         }
-
     }
 
     class ZabavaViewHolder(val binding: JedanRedZabavaBinding) :
