@@ -37,7 +37,6 @@ class SportAdapter(options: FirestoreRecyclerOptions<SportTable>) :
 
         holder.vrijeme.text = currentDate
         holder.naslov.text = model.naslov
-        holder.clanak.text = model.clanak
 
         holder.binding.cardViewSport.setOnClickListener { v: View ->
             val data = SportTable(model.naslov,model.clanak)
@@ -49,7 +48,6 @@ class SportAdapter(options: FirestoreRecyclerOptions<SportTable>) :
 
     class SportViewHolder(val binding: JedanRedSportBinding) : RecyclerView.ViewHolder(binding.root) {
         var naslov = binding.naslov
-        var clanak = binding.clanak
         var vrijeme = binding.vrijeme
     }
 }
