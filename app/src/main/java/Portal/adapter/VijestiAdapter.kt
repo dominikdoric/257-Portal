@@ -32,7 +32,6 @@ class VijestiAdapter(options: FirestoreRecyclerOptions<VijestiTable>) :
 
         holder.vrijeme.text = currentDate
         holder.naslov.text = model.vijestiNaslov
-        holder.clanak.text = model.vijestiClanak
 
         holder.binding.cardViewVijesti.setOnClickListener { v: View ->
             val data = VijestiTable(model.vijestiNaslov,model.vijestiClanak)
@@ -44,7 +43,6 @@ class VijestiAdapter(options: FirestoreRecyclerOptions<VijestiTable>) :
 
     class VijestiViewHolder(val binding: JedanRedVijestiBinding) : RecyclerView.ViewHolder(binding.root) {
         var naslov = binding.naslov
-        var clanak = binding.clanak
         var vrijeme = binding.vrijeme
     }
 }

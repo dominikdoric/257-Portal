@@ -32,7 +32,6 @@ class PoljoprivredaAdapter(options: FirestoreRecyclerOptions<PoljoprivredaTable>
 
         holder.vrijeme.text = currentDate
         holder.naslov.text = model.poljoprivredaNaslov
-        holder.clanak.text = model.poljoprivredaClanak
 
         holder.binding.cardViewPoljoprivreda.setOnClickListener { v: View ->
             val data = PoljoprivredaTable(model.poljoprivredaNaslov,model.poljoprivredaClanak)
@@ -45,7 +44,6 @@ class PoljoprivredaAdapter(options: FirestoreRecyclerOptions<PoljoprivredaTable>
     class PoljoprivredaViewHolder(val binding: JedanRedPoljoprivredaBinding) :
         RecyclerView.ViewHolder(binding.root) {
         var naslov = binding.naslov
-        var clanak = binding.clanak
         var vrijeme = binding.vrijeme
     }
 }

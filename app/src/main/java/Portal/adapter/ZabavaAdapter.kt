@@ -33,7 +33,6 @@ class ZabavaAdapter(options: FirestoreRecyclerOptions<ZabavaTable>) :
 
         holder.vrijeme.text = currentDate
         holder.naslov.text = model.zabavaNaslov
-        holder.clanak.text = model.zabavaClanak
 
         holder.binding.cardViewZabava.setOnClickListener { v: View ->
             val data = ZabavaTable(model.zabavaNaslov,model.zabavaClanak)
@@ -46,7 +45,6 @@ class ZabavaAdapter(options: FirestoreRecyclerOptions<ZabavaTable>) :
     class ZabavaViewHolder(val binding: JedanRedZabavaBinding) :
         RecyclerView.ViewHolder(binding.root) {
         var naslov = binding.naslov
-        var clanak = binding.clanak
         var vrijeme = binding.vrijeme
     }
 }

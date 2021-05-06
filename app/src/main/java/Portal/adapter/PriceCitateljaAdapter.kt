@@ -32,7 +32,6 @@ class PriceCitateljaAdapter(options: FirestoreRecyclerOptions<PriceCitateljaTabl
 
         holder.vrijeme.text = currentDate
         holder.naslov.text = model.priceCitateljaNaslov
-        holder.clanak.text = model.priceCitateljaClanak
 
         holder.binding.cardViewPricaCitatelja.setOnClickListener { v: View ->
             val data = PriceCitateljaTable(model.priceCitateljaNaslov,model.priceCitateljaClanak)
@@ -44,7 +43,6 @@ class PriceCitateljaAdapter(options: FirestoreRecyclerOptions<PriceCitateljaTabl
 
     class PriceCitateljaViewHolder(val binding: JedanRedPriceCitateljaBinding) : RecyclerView.ViewHolder(binding.root) {
         var naslov = binding.naslov
-        var clanak = binding.clanak
         var vrijeme = binding.vrijeme
     }
 }
