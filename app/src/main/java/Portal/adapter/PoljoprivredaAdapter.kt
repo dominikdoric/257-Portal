@@ -1,9 +1,12 @@
 package Portal.adapter
 
 import Portal.a257.databinding.JedanRedPoljoprivredaBinding
+import Portal.fragmenti.fragmenti.PoljoprivredaFragmentDirections
 import Portal.model.PoljoprivredaTable
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
@@ -30,6 +33,12 @@ class PoljoprivredaAdapter(options: FirestoreRecyclerOptions<PoljoprivredaTable>
         holder.vrijeme.text = currentDate
         holder.naslov.text = model.poljoprivredaNaslov
         holder.clanak.text = model.poljoprivredaClanak
+
+        holder.binding.cardViewPoljoprivreda.setOnClickListener { v: View ->
+            val data = PoljoprivredaTable(model.poljoprivredaNaslov,model.poljoprivredaClanak)
+            val action = PoljoprivredaFragmentDirections.actionPoljoprivredaNavDrawerToPoljoprivredaDetail(data)
+            v.findNavController().navigate(action)
+        }
 
     }
 
