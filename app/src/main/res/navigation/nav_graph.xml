@@ -188,5 +188,9 @@
         android:id="@+id/detailPriceCitatelja"
         android:name="Portal.fragmenti.detail.DetailPriceCitatelja"
         android:label="DetailPriceCitatelja"
-        tools:layout="@layout/detail_price_citatelja"/>
+        tools:layout="@layout/detail_price_citatelja">
+        <argument
+            android:name="priceCitateljaArgs"
+            app:argType="Portal.model.PriceCitateljaTable" />
+    </fragment>
 </navigation>

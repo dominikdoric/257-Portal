@@ -1,9 +1,12 @@
 package Portal.adapter
 
 import Portal.a257.databinding.JedanRedPriceCitateljaBinding
+import Portal.fragmenti.fragmenti.PriceCitateljaFragmentDirections
 import Portal.model.PriceCitateljaTable
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
@@ -30,6 +33,12 @@ class PriceCitateljaAdapter(options: FirestoreRecyclerOptions<PriceCitateljaTabl
         holder.vrijeme.text = currentDate
         holder.naslov.text = model.priceCitateljaNaslov
         holder.clanak.text = model.priceCitateljaClanak
+
+        holder.binding.cardViewPricaCitatelja.setOnClickListener { v: View ->
+            val data = PriceCitateljaTable(model.priceCitateljaNaslov,model.priceCitateljaClanak)
+            val action = PriceCitateljaFragmentDirections.actionPriceCitateljaNavDrawerToDetailPriceCitatelja(data)
+            v.findNavController().navigate(action)
+        }
 
     }
 
