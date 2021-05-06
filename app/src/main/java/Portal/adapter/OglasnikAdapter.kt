@@ -29,16 +29,16 @@ class OglasnikAdapter(options: FirestoreRecyclerOptions<OglasnikTable>) :
 
         holder.vrijeme.text = currentDate
         holder.naslov.text = model.oglasnikNaslov
-        holder.clanak.text = model.oglasnikClanak
         holder.broj.text = model.oglasnikBroj
         holder.lokacija.text = model.oglasnikLokacija
         holder.cijena.text = model.oglasnikCijena
+
+
 
     }
 
     class OglasnikViewHolder(val binding: JedanRedOglasnikBinding) : RecyclerView.ViewHolder(binding.root) {
         var naslov = binding.naslov
-        var clanak = binding.clanak
         var vrijeme = binding.vrijeme
         var broj = binding.broj
         var lokacija = binding.lokacija
