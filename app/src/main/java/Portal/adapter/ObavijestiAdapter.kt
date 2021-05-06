@@ -36,7 +36,8 @@ class ObavijestiAdapter(options: FirestoreRecyclerOptions<ObavijestiTable>) :
         holder.naslov.text = model.obavijestiNaslov
 
         holder.binding.cardViewObavijesti.setOnClickListener { v: View ->
-            val action = ObavijestiFragmentDirections.actionObavijestiNavDrawerToObavijestiDetail()
+            val data = ObavijestiTable(model.obavijestiNaslov,model.obavijestiClanak)
+            val action = ObavijestiFragmentDirections.actionObavijestiNavDrawerToObavijestiDetail(data)
             v.findNavController().navigate(action)
         }
 

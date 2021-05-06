@@ -152,5 +152,9 @@
         android:id="@+id/obavijestiDetail"
         android:name="Portal.fragmenti.detail.ObavijestiDetail"
         android:label="ObavijestiDetail"
-        tools:layout="@layout/detail_obavijesti"/>
+        tools:layout="@layout/detail_obavijesti">
+        <argument
+            android:name="obavijestiArgs"
+            app:argType="Portal.model.ObavijestiTable" />
+    </fragment>
 </navigation>
