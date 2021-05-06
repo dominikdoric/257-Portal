@@ -29,6 +29,9 @@
         android:name="Portal.fragmenti.fragmenti.OglasnikFragment"
         android:label="Oglasnik"
         tools:layout="@layout/oglasnik_fragment">
+        <action
+            android:id="@+id/action_oglasnikNavDrawer_to_detailOglasnik"
+            app:destination="@id/detailOglasnik" />
     </fragment>
     <fragment
         android:id="@+id/priceCitateljaNavDrawer"
@@ -156,5 +159,14 @@
         <argument
             android:name="obavijestiArgs"
             app:argType="Portal.model.ObavijestiTable" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailOglasnik"
+        android:name="Portal.fragmenti.detail.DetailOglasnik"
+        android:label="DetailOglasnik"
+        tools:layout="@layout/detail_oglasnik">
+        <argument
+            android:name="oglasnikArgs"
+            app:argType="Portal.model.OglasnikTable" />
     </fragment>
 </navigation>
