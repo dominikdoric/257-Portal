@@ -38,6 +38,9 @@
         android:name="Portal.fragmenti.fragmenti.PriceCitateljaFragment"
         android:label="Priče čitatelja"
         tools:layout="@layout/price_citatelja_fragment">
+        <action
+            android:id="@+id/action_priceCitateljaNavDrawer_to_detailPriceCitatelja"
+            app:destination="@id/detailPriceCitatelja" />
     </fragment>
     <fragment
         android:id="@+id/sportNavDrawer"
@@ -181,4 +184,9 @@
             android:name="poljoprivredaArgs"
             app:argType="Portal.model.PoljoprivredaTable" />
     </fragment>
+    <fragment
+        android:id="@+id/detailPriceCitatelja"
+        android:name="Portal.fragmenti.detail.DetailPriceCitatelja"
+        android:label="DetailPriceCitatelja"
+        tools:layout="@layout/detail_price_citatelja"/>
 </navigation>
