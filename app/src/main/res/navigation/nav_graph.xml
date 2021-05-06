@@ -145,23 +145,4 @@
             android:name="sportArgs"
             app:argType="Portal.model.SportTable" />
     </fragment>
-    <fragment
-        android:id="@+id/menu_pokus"
-        android:name="Portal.fragmenti.fragmenti.Pokus"
-        android:label="Pokus"
-        tools:layout="@layout/pokus_fragment">
-        <action
-            android:id="@+id/action_menu_pokus_to_pokus2"
-            app:destination="@id/pokus2" />
-    </fragment>
-    <fragment
-        android:id="@+id/pokus2"
-        android:name="Portal.fragmenti.fragmenti.Pokus2"
-        android:label="Pokus2"
-        tools:layout="@layout/pokus2_fragment">
-        <argument
-            android:name="pokusArgs"
-            app:argType="Portal.model.PokusTable" />
-    </fragment>
-
 </navigation>
