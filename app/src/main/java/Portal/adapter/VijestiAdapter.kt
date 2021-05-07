@@ -41,6 +41,13 @@ class VijestiAdapter(options: FirestoreRecyclerOptions<VijestiTable>) :
             v.findNavController().navigate(action)
         }
 
+        holder.binding.cardViewVijesti.setOnLongClickListener { v: View ->
+            val data = VijestiTable(model.vijestiNaslov,model.vijestiClanak)
+            val action = VijestiFragmentDirections.actionVijestiNavDrawerToUpdateDeleteVijesti(data)
+            v.findNavController().navigate(action)
+            true
+        }
+
     }
 
     class VijestiViewHolder(val binding: JedanRedVijestiBinding) : RecyclerView.ViewHolder(binding.root) {
