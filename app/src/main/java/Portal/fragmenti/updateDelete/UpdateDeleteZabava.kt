@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -29,13 +30,15 @@ class UpdateDeleteZabava: Fragment(R.layout.update_delete_zabava) {
         binding.naslov.setText(args.updateZabavaArgs.zabavaNaslov)
         binding.clanak.setText(args.updateZabavaArgs.zabavaClanak)
 
-        binding.gumbAzuriraj.setOnClickListener { v: View ->
+        binding.gumbAzuriraj.setOnClickListener {
             azurirajItem()
         }
 
-        binding.gumbObrisi.setOnClickListener { v: View ->
+        binding.gumbObrisi.setOnClickListener {
             val zabava = getZabava()
             deleteItem(zabava)
+            val action = UpdateDeleteZabavaDirections.actionUpdateDeleteZabavaToZabavaNavDrawer()
+            findNavController().navigate(action)
         }
 
     }
