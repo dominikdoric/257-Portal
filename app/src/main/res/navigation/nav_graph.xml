@@ -35,6 +35,9 @@
         <action
             android:id="@+id/action_oglasnikNavDrawer_to_detailOglasnik"
             app:destination="@id/detailOglasnik" />
+        <action
+            android:id="@+id/action_oglasnikNavDrawer_to_updateDeleteOglasnik"
+            app:destination="@id/updateDeleteOglasnik" />
     </fragment>
     <fragment
         android:id="@+id/priceCitateljaNavDrawer"
@@ -238,12 +241,25 @@
     <fragment
         android:id="@+id/updateDeleteObavijesti"
         android:name="Portal.fragmenti.updateDelete.UpdateDeleteObavijesti"
-        android:label="UpdateDeleteObavijesti" >
+        android:label="UpdateDeleteObavijesti"
+        tools:layout="@layout/update_delete_obavijesti">
         <action
             android:id="@+id/action_updateDeleteObavijesti_to_obavijestiNavDrawer"
             app:destination="@id/obavijestiNavDrawer" />
         <argument
             android:name="updateObavijestiArgs"
             app:argType="Portal.model.ObavijestiTable" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateDeleteOglasnik"
+        android:name="Portal.fragmenti.updateDelete.UpdateDeleteOglasnik"
+        android:label="UpdateDeleteOglasnik"
+        tools:layout="@layout/update_delete_oglasnik">
+        <action
+            android:id="@+id/action_updateDeleteOglasnik_to_oglasnikNavDrawer"
+            app:destination="@id/oglasnikNavDrawer" />
+        <argument
+            android:name="updateOglasnikArgs"
+            app:argType="Portal.model.OglasnikTable" />
     </fragment>
 </navigation>

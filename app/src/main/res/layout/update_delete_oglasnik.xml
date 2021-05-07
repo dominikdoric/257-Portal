@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="40dp">
+
+    <EditText
+        android:id="@+id/naslov"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Naslov" />
+
+    <EditText
+        android:id="@+id/cijena"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Cijena" />
+
+    <EditText
+        android:id="@+id/lokacija"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Lokacija" />
+
+    <EditText
+        android:id="@+id/broj"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Broj" />
+
+    <EditText
+        android:id="@+id/clanak"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:hint="Clanak" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/gumbAzuriraj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Azuriraj" />
+
+        <Button
+            android:id="@+id/gumbObrisi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:text="Obrisi" />
+    </LinearLayout>
+
+</LinearLayout>
