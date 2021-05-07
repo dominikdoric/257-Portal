@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -37,6 +38,8 @@ class UpdateDeleteObavijesti: Fragment(R.layout.update_delete_obavijesti) {
         binding.gumbObrisi.setOnClickListener {
             val obavijesti = getObavijesti()
             deleteItem(obavijesti)
+            val action = UpdateDeleteObavijestiDirections.actionUpdateDeleteObavijestiToObavijestiNavDrawer()
+            findNavController().navigate(action)
         }
 
     }
