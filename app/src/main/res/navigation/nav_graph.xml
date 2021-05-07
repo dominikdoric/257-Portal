@@ -84,6 +84,9 @@
         <action
             android:id="@+id/action_zabavaNavDrawer_to_detailZabava"
             app:destination="@id/detailZabava" />
+        <action
+            android:id="@+id/action_zabavaNavDrawer_to_updateDeleteZabava"
+            app:destination="@id/updateDeleteZabava" />
     </fragment>
     <fragment
         android:id="@+id/vrijemeBottomNav"
@@ -306,5 +309,17 @@
         <argument
             android:name="updateVijestiArgs"
             app:argType="Portal.model.VijestiTable" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateDeleteZabava"
+        android:name="Portal.fragmenti.updateDelete.UpdateDeleteZabava"
+        android:label="UpdateDeleteZabava"
+        tools:layout="@layout/update_delete_zabava">
+        <action
+            android:id="@+id/action_updateDeleteZabava_to_zabavaNavDrawer"
+            app:destination="@id/zabavaNavDrawer" />
+        <argument
+            android:name="updateZabavaArgs"
+            app:argType="Portal.model.ZabavaTable" />
     </fragment>
 </navigation>
