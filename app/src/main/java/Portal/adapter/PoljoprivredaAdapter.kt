@@ -41,6 +41,13 @@ class PoljoprivredaAdapter(options: FirestoreRecyclerOptions<PoljoprivredaTable>
             v.findNavController().navigate(action)
         }
 
+        holder.binding.cardViewPoljoprivreda.setOnLongClickListener { v: View ->
+            val data = PoljoprivredaTable(model.poljoprivredaNaslov,model.poljoprivredaClanak)
+            val action = PoljoprivredaFragmentDirections.actionPoljoprivredaNavDrawerToUpdateDeletePoljoprivreda(data)
+            v.findNavController().navigate(action)
+            true
+        }
+
     }
 
     class PoljoprivredaViewHolder(val binding: JedanRedPoljoprivredaBinding) :
