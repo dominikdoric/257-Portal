@@ -39,14 +39,21 @@ class SportAdapter(options: FirestoreRecyclerOptions<SportTable>) :
         holder.naslov.text = model.naslov
 
         holder.binding.cardViewSport.setOnClickListener { v: View ->
-            val data = SportTable(model.naslov,model.clanak)
+            val data = SportTable(model.naslov, model.clanak)
             val action = SportFragmentDirections.actionSportNavDrawerToDetailSport(data)
             v.findNavController().navigate(action)
+        }
+        holder.binding.cardViewSport.setOnLongClickListener { v: View ->
+            val data = SportTable(model.naslov, model.clanak)
+            val action = SportFragmentDirections.actionSportNavDrawerToUpdateDeleteSport(data)
+            v.findNavController().navigate(action)
+            true
         }
 
     }
 
-    class SportViewHolder(val binding: JedanRedSportBinding) : RecyclerView.ViewHolder(binding.root) {
+    class SportViewHolder(val binding: JedanRedSportBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         var naslov = binding.naslov
         var vrijeme = binding.vrijeme
     }

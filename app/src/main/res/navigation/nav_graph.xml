@@ -50,6 +50,9 @@
         <action
             android:id="@+id/action_sportNavDrawer_to_detailSport"
             app:destination="@id/detailSport" />
+        <action
+            android:id="@+id/action_sportNavDrawer_to_updateDeleteSport"
+            app:destination="@id/updateDeleteSport" />
     </fragment>
     <fragment
         android:id="@+id/vijestiNavDrawer"
@@ -216,5 +219,17 @@
         <argument
             android:name="zabavaArgs"
             app:argType="Portal.model.ZabavaTable" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateDeleteSport"
+        android:name="Portal.fragmenti.updateDelete.UpdateDeleteSport"
+        android:label="UpdateDeleteSport"
+        tools:layout="@layout/update_delete_sport">
+        <action
+            android:id="@+id/action_updateDeleteSport_to_sportNavDrawer"
+            app:destination="@id/sportNavDrawer" />
+        <argument
+            android:name="updateSportArgs"
+            app:argType="Portal.model.SportTable" />
     </fragment>
 </navigation>
