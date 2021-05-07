@@ -43,6 +43,12 @@ class OglasnikAdapter(options: FirestoreRecyclerOptions<OglasnikTable>) :
             val action = OglasnikFragmentDirections.actionOglasnikNavDrawerToDetailOglasnik(data)
             v.findNavController().navigate(action)
         }
+        holder.binding.cardViewOglasnik.setOnLongClickListener { v: View ->
+            val data = OglasnikTable(model.oglasnikClanak, model.oglasnikNaslov,model.oglasnikCijena,model.oglasnikLokacija,model.oglasnikBroj)
+            val action = OglasnikFragmentDirections.actionOglasnikNavDrawerToUpdateDeleteOglasnik(data)
+            v.findNavController().navigate(action)
+            true
+        }
 
     }
 
