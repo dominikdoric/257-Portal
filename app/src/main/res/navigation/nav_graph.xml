@@ -47,6 +47,9 @@
         <action
             android:id="@+id/action_priceCitateljaNavDrawer_to_detailPriceCitatelja"
             app:destination="@id/detailPriceCitatelja" />
+        <action
+            android:id="@+id/action_priceCitateljaNavDrawer_to_updateDeletePriceCitatelja"
+            app:destination="@id/updateDeletePriceCitatelja" />
     </fragment>
     <fragment
         android:id="@+id/sportNavDrawer"
@@ -276,5 +279,17 @@
         <argument
             android:name="poljoprivredaUpdateArgs"
             app:argType="Portal.model.PoljoprivredaTable" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateDeletePriceCitatelja"
+        android:name="Portal.fragmenti.updateDelete.UpdateDeletePriceCitatelja"
+        android:label="UpdateDeletePriceCitatelja"
+        tools:layout="@layout/detail_price_citatelja">
+        <action
+            android:id="@+id/action_updateDeletePriceCitatelja_to_priceCitateljaNavDrawer"
+            app:destination="@id/priceCitateljaNavDrawer" />
+        <argument
+            android:name="updateCitateljeArgs"
+            app:argType="Portal.model.PriceCitateljaTable" />
     </fragment>
 </navigation>
