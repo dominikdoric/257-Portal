@@ -41,6 +41,13 @@ class ZabavaAdapter(options: FirestoreRecyclerOptions<ZabavaTable>) :
             val action = ZabavaFragmentDirections.actionZabavaNavDrawerToDetailZabava(data)
             v.findNavController().navigate(action)
         }
+
+        holder.binding.cardViewZabava.setOnLongClickListener { v: View ->
+            val data = ZabavaTable(model.zabavaNaslov, model.zabavaClanak)
+            val action = ZabavaFragmentDirections.actionZabavaNavDrawerToUpdateDeleteZabava(data)
+            v.findNavController().navigate(action)
+            true
+        }
     }
 
     class ZabavaViewHolder(val binding: JedanRedZabavaBinding) :
