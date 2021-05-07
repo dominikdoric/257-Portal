@@ -41,6 +41,13 @@ class ObavijestiAdapter(options: FirestoreRecyclerOptions<ObavijestiTable>) :
             v.findNavController().navigate(action)
         }
 
+        holder.binding.cardViewObavijesti.setOnLongClickListener { v: View ->
+            val data = ObavijestiTable(model.obavijestiNaslov, model.obavijestiClanak)
+            val action = ObavijestiFragmentDirections.actionObavijestiNavDrawerToUpdateDeleteObavijesti(data)
+            v.findNavController().navigate(action)
+            true
+        }
+
     }
 
     class ObavijestiViewHolder(val binding: JedanRedObavijestiBinding) : RecyclerView.ViewHolder(binding.root) {
