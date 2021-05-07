@@ -1,12 +1,13 @@
 package Portal.fragmenti.updateDelete
 
+import Portal.a257.R
 import Portal.a257.databinding.UpdateDeleteOglasnikBinding
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 
-class UpdateDeleteOglasnik: Fragment() {
+class UpdateDeleteOglasnik: Fragment(R.layout.update_delete_oglasnik) {
 
     private lateinit var binding: UpdateDeleteOglasnikBinding
     private val args by navArgs<UpdateDeleteOglasnikArgs>()
@@ -21,11 +22,11 @@ class UpdateDeleteOglasnik: Fragment() {
         binding.lokacija.setText(args.updateOglasnikArgs.oglasnikLokacija)
         binding.broj.setText(args.updateOglasnikArgs.oglasnikBroj)
 
-        binding.gumbAzuriraj.setOnClickListener { v: View ->
+        binding.gumbAzuriraj.setOnClickListener {
             azurirajItem()
         }
 
-        binding.gumbObrisi.setOnClickListener { v: View ->
+        binding.gumbObrisi.setOnClickListener {
             obrisiItem()
         }
 
