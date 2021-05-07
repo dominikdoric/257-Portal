@@ -20,7 +20,7 @@ class UpdateDeleteVijesti: Fragment(R.layout.update_delete_vijesti) {
 
     private lateinit var binding: UpdateDeleteVijestiBinding
     private val args by navArgs<UpdateDeleteVijestiArgs>()
-    private val collectionRef = Firebase.firestore.collection("zabava")
+    private val collectionRef = Firebase.firestore.collection("vijesti")
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
