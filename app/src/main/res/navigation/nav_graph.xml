@@ -72,6 +72,9 @@
         <action
             android:id="@+id/action_vijestiNavDrawer_to_vijestiDetail"
             app:destination="@id/vijestiDetail" />
+        <action
+            android:id="@+id/action_vijestiNavDrawer_to_updateDeleteVijesti"
+            app:destination="@id/updateDeleteVijesti" />
     </fragment>
     <fragment
         android:id="@+id/zabavaNavDrawer"
@@ -291,5 +294,17 @@
         <argument
             android:name="updateCitateljeArgs"
             app:argType="Portal.model.PriceCitateljaTable" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateDeleteVijesti"
+        android:name="Portal.fragmenti.updateDelete.UpdateDeleteVijesti"
+        android:label="UpdateDeleteVijesti"
+        tools:layout="@layout/update_delete_vijesti">
+        <action
+            android:id="@+id/action_updateDeleteVijesti_to_vijestiNavDrawer"
+            app:destination="@id/vijestiNavDrawer" />
+        <argument
+            android:name="updateVijestiArgs"
+            app:argType="Portal.model.VijestiTable" />
     </fragment>
 </navigation>
