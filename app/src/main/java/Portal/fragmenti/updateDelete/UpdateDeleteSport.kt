@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.CoroutineScope
@@ -17,7 +18,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 
-class UpdateDeleteSport: Fragment(R.layout.update_delete_sport) {
+class UpdateDeleteSport : Fragment(R.layout.update_delete_sport) {
 
     private lateinit var binding: UpdateDeleteSportBinding
     private val args by navArgs<UpdateDeleteSportArgs>()
@@ -31,7 +32,9 @@ class UpdateDeleteSport: Fragment(R.layout.update_delete_sport) {
         binding.clanak.setText(args.updateSportArgs.clanak)
 
         binding.gumbAzuriraj.setOnClickListener {
-            updateItem()
+            val oldSport = getSport()
+            val sportMap = getNewSportMap()
+            updateItem(oldSport,sportMap)
         }
 
         binding.gumbObrisi.setOnClickListener {
@@ -43,10 +46,23 @@ class UpdateDeleteSport: Fragment(R.layout.update_delete_sport) {
 
     }
 
-    private fun getSport(): SportTable{
+    private fun getSport(): SportTable {
         val naslov = binding.naslov.text.toString()
         val clanak = binding.clanak.text.toString()
-        return SportTable(naslov,clanak)
+        return SportTable(naslov, clanak)
+    }
+
+    private fun getNewSportMap(): Map<String, Any> {
+        val naslov = binding.naslov.text.toString()
+        val clanak = binding.clanak.text.toString()
+        val map = mutableMapOf<String, Any>()
+        if (naslov.isNotEmpty()) {
+            map["naslov"] = naslov
+        }
+        if (clanak.isNotEmpty()) {
+            map["clanak"] = clanak
+        }
+        return map
     }
 
     private fun deleteItem(sport: SportTable) = CoroutineScope(Dispatchers.IO).launch {
@@ -78,8 +94,30 @@ class UpdateDeleteSport: Fragment(R.layout.update_delete_sport) {
         }
     }
 
-    private fun updateItem() {
-
-    }
-
+    private fun updateItem(sport: SportTable, sportMap: Map<String, Any>) =
+        CoroutineScope(Dispatchers.IO).launch {
+            val query = collectionRef
+                .whereEqualTo("naslov", sport.naslov)
+                .whereEqualTo("clanak", sport.clanak)
+                .get()
+                .await()
+            if (query.documents.isNotEmpty()) {
+                for (document in query) {
+                    try {
+                        collectionRef.document(document.id).set(
+                            sportMap,
+                            SetOptions.merge()
+                        ).await()
+                    } catch (e: Exception) {
+                        withContext(Dispatchers.Main) {
+                            Toast.makeText(requireContext(),e.message, Toast.LENGTH_LONG).show()
+                        }
+                    }
+                }
+            } else {
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(requireContext(), "Neuspješno", Toast.LENGTH_LONG).show()
+                }
+            }
+        }
 }
