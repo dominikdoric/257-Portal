@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.CoroutineScope
@@ -17,7 +18,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 
-class UpdateDeletePriceCitatelja: Fragment(R.layout.update_delete_price_citatelja) {
+class UpdateDeletePriceCitatelja : Fragment(R.layout.update_delete_price_citatelja) {
 
     private lateinit var binding: UpdateDeletePriceCitateljaBinding
     private val args by navArgs<UpdateDeletePriceCitateljaArgs>()
@@ -27,57 +28,105 @@ class UpdateDeletePriceCitatelja: Fragment(R.layout.update_delete_price_citatelj
         super.onViewCreated(view, savedInstanceState)
         binding = UpdateDeletePriceCitateljaBinding.bind(view)
 
-        binding.naslov.setText(args.updateCitateljeArgs.priceCitateljaNaslov)
-        binding.clanak.setText(args.updateCitateljeArgs.priceCitateljaClanak)
+        binding.naslovStari.setText(args.updateCitateljeArgs.priceCitateljaNaslov)
+        binding.clanakStari.setText(args.updateCitateljeArgs.priceCitateljaClanak)
 
         binding.gumbAzuriraj.setOnClickListener {
-            azurirajItem()
+            val priceCitatelja = getPriceCitatelja()
+            val priceCitateljaMap = getNewPriceCitateljaMap()
+            azurirajItem(priceCitatelja, priceCitateljaMap)
+            val action = UpdateDeletePriceCitateljaDirections.actionUpdateDeletePriceCitateljaToPriceCitateljaNavDrawer()
+            findNavController().navigate(action)
         }
 
         binding.gumbObrisi.setOnClickListener {
             val priceCitatelja = getPriceCitatelja()
             deleteItem(priceCitatelja)
-            val action = UpdateDeletePriceCitateljaDirections.actionUpdateDeletePriceCitateljaToPriceCitateljaNavDrawer()
+            val action =
+                UpdateDeletePriceCitateljaDirections.actionUpdateDeletePriceCitateljaToPriceCitateljaNavDrawer()
             findNavController().navigate(action)
         }
 
     }
 
-    private fun getPriceCitatelja(): PriceCitateljaTable{
-        val naslov = binding.naslov.text.toString()
-        val clanak = binding.clanak.text.toString()
-        return PriceCitateljaTable(naslov,clanak)
+    private fun getPriceCitatelja(): PriceCitateljaTable {
+        val naslov = binding.naslovStari.text.toString()
+        val clanak = binding.clanakStari.text.toString()
+        return PriceCitateljaTable(naslov, clanak)
     }
 
-    private fun deleteItem(priceCitatelja: PriceCitateljaTable) = CoroutineScope(Dispatchers.IO).launch{
+    private fun getNewPriceCitateljaMap(): Map<String, Any> {
+        val naslov = binding.naslovNovi.text.toString()
+        val clanak = binding.clanakNovi.text.toString()
+        val map = mutableMapOf<String, Any>()
+        if (naslov.isNotEmpty()) {
+            map["priceCitateljaNaslov"] = naslov
+        }
+        if (clanak.isNotEmpty()) {
+            map["priceCitateljaClanak"] = clanak
+        }
+        return map
+    }
+
+    private fun deleteItem(priceCitatelja: PriceCitateljaTable) =
+        CoroutineScope(Dispatchers.IO).launch {
+            val query = collectionRef
+                .whereEqualTo("priceCitateljaNaslov", priceCitatelja.priceCitateljaNaslov)
+                .whereEqualTo("priceCitateljaClanak", priceCitatelja.priceCitateljaClanak)
+                .get()
+                .await()
+            if (query.documents.isNotEmpty()) {
+                for (document in query) {
+                    try {
+                        collectionRef.document(document.id).delete().await()
+                    } catch (e: Exception) {
+                        withContext(Dispatchers.Main) {
+                            Toast.makeText(
+                                requireContext(),
+                                "No persons matched the query.",
+                                Toast.LENGTH_LONG
+                            ).show()
+                        }
+                    }
+                }
+            } else {
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(
+                        requireContext(),
+                        "No persons matched the query.",
+                        Toast.LENGTH_LONG
+                    )
+                        .show()
+                }
+            }
+        }
+
+    private fun azurirajItem(
+        priceCitatelja: PriceCitateljaTable,
+        priceCitateljaMap: Map<String, Any>
+    ) = CoroutineScope(Dispatchers.IO).launch {
         val query = collectionRef
-            .whereEqualTo("priceCitateljaNaslov", priceCitatelja.priceCitateljaNaslov)
             .whereEqualTo("priceCitateljaClanak", priceCitatelja.priceCitateljaClanak)
+            .whereEqualTo("priceCitateljaNaslov", priceCitatelja.priceCitateljaNaslov)
             .get()
             .await()
         if (query.documents.isNotEmpty()) {
             for (document in query) {
                 try {
-                    collectionRef.document(document.id).delete().await()
+                    collectionRef.document(document.id).set(
+                        priceCitateljaMap,
+                        SetOptions.merge()
+                    ).await()
                 } catch (e: Exception) {
                     withContext(Dispatchers.Main) {
-                        Toast.makeText(
-                            requireContext(),
-                            "No persons matched the query.",
-                            Toast.LENGTH_LONG
-                        ).show()
+                        Toast.makeText(requireContext(), e.message, Toast.LENGTH_LONG).show()
                     }
                 }
             }
         } else {
             withContext(Dispatchers.Main) {
-                Toast.makeText(requireContext(), "No persons matched the query.", Toast.LENGTH_LONG)
-                    .show()
+                Toast.makeText(requireContext(), "Neuspješno", Toast.LENGTH_LONG).show()
             }
         }
-    }
-
-    private fun azurirajItem() {
-
     }
 }
