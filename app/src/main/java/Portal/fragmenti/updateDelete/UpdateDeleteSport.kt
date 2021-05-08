@@ -28,13 +28,12 @@ class UpdateDeleteSport : Fragment(R.layout.update_delete_sport) {
         super.onViewCreated(view, savedInstanceState)
         binding = UpdateDeleteSportBinding.bind(view)
 
-        binding.naslov.setText(args.updateSportArgs.naslov)
-        binding.clanak.setText(args.updateSportArgs.clanak)
+        binding.naslovStari.setText(args.updateSportArgs.naslov)
+        binding.clanakStari.setText(args.updateSportArgs.clanak)
 
         binding.gumbAzuriraj.setOnClickListener {
             val oldSport = getSport()
-            val sportMap = getNewSportMap()
-            updateItem(oldSport,sportMap)
+            updateItem(oldSport)
         }
 
         binding.gumbObrisi.setOnClickListener {
@@ -47,14 +46,14 @@ class UpdateDeleteSport : Fragment(R.layout.update_delete_sport) {
     }
 
     private fun getSport(): SportTable {
-        val naslov = binding.naslov.text.toString()
-        val clanak = binding.clanak.text.toString()
+        val naslov = binding.naslovStari.text.toString()
+        val clanak = binding.clanakStari.text.toString()
         return SportTable(naslov, clanak)
     }
 
     private fun getNewSportMap(): Map<String, Any> {
-        val naslov = binding.naslov.text.toString()
-        val clanak = binding.clanak.text.toString()
+        val naslov = binding.naslovNovi.text.toString()
+        val clanak = binding.clanakNovi.text.toString()
         val map = mutableMapOf<String, Any>()
         if (naslov.isNotEmpty()) {
             map["naslov"] = naslov
@@ -66,7 +65,6 @@ class UpdateDeleteSport : Fragment(R.layout.update_delete_sport) {
     }
 
     private fun deleteItem(sport: SportTable) = CoroutineScope(Dispatchers.IO).launch {
-
         val query = collectionRef
             .whereEqualTo("naslov", sport.naslov)
             .whereEqualTo("clanak", sport.clanak)
@@ -94,25 +92,15 @@ class UpdateDeleteSport : Fragment(R.layout.update_delete_sport) {
         }
     }
 
-    private fun updateItem(sport: SportTable, sportMap: Map<String, Any>) =
-        CoroutineScope(Dispatchers.IO).launch {
-            val query = collectionRef
-                .whereEqualTo("naslov", sport.naslov)
-                .whereEqualTo("clanak", sport.clanak)
-                .get()
-                .await()
+    private fun updateItem(sport: SportTable) = CoroutineScope(Dispatchers.IO).launch {
+        val query = collectionRef
+            .whereEqualTo("naslov", sport.naslov)
+            .whereEqualTo("clanak", sport.clanak)
+            .get()
+            .await()
             if (query.documents.isNotEmpty()) {
-                for (document in query) {
-                    try {
-                        collectionRef.document(document.id).set(
-                            sportMap,
-                            SetOptions.merge()
-                        ).await()
-                    } catch (e: Exception) {
-                        withContext(Dispatchers.Main) {
-                            Toast.makeText(requireContext(),e.message, Toast.LENGTH_LONG).show()
-                        }
-                    }
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(requireContext(), "Uspješno", Toast.LENGTH_LONG).show()
                 }
             } else {
                 withContext(Dispatchers.Main) {
