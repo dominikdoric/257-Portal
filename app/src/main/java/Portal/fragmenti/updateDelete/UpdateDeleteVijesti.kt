@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.CoroutineScope
@@ -27,11 +28,15 @@ class UpdateDeleteVijesti: Fragment(R.layout.update_delete_vijesti) {
         super.onViewCreated(view, savedInstanceState)
         binding = UpdateDeleteVijestiBinding.bind(view)
 
-        binding.naslov.setText(args.updateVijestiArgs.vijestiNaslov)
-        binding.clanak.setText(args.updateVijestiArgs.vijestiClanak)
+        binding.naslovStari.setText(args.updateVijestiArgs.vijestiNaslov)
+        binding.clanakStari.setText(args.updateVijestiArgs.vijestiClanak)
 
         binding.gumbAzuriraj.setOnClickListener {
-            azurirajItem()
+            val vijesti = getVijesti()
+            val vijestiMap = getNewVijestiMap()
+            azurirajItem(vijesti,vijestiMap)
+            val action = UpdateDeleteVijestiDirections.actionUpdateDeleteVijestiToVijestiNavDrawer()
+            findNavController().navigate(action)
         }
 
         binding.gumbObrisi.setOnClickListener {
@@ -44,9 +49,22 @@ class UpdateDeleteVijesti: Fragment(R.layout.update_delete_vijesti) {
     }
 
     private fun getVijesti(): VijestiTable{
-        val naslov = binding.naslov.text.toString()
-        val clanak = binding.clanak.text.toString()
+        val naslov = binding.naslovStari.text.toString()
+        val clanak = binding.clanakStari.text.toString()
         return VijestiTable(naslov,clanak)
+    }
+
+    private fun getNewVijestiMap(): Map<String, Any> {
+        val naslov = binding.naslovNovi.text.toString()
+        val clanak = binding.clanakNovi.text.toString()
+        val map = mutableMapOf<String, Any>()
+        if (naslov.isNotEmpty()) {
+            map["vijestiNaslov"] = naslov
+        }
+        if (clanak.isNotEmpty()) {
+            map["vijestiClanak"] = clanak
+        }
+        return map
     }
 
     private fun obrisiItem(vijesti: VijestiTable) = CoroutineScope(Dispatchers.IO).launch {
@@ -77,8 +95,29 @@ class UpdateDeleteVijesti: Fragment(R.layout.update_delete_vijesti) {
         }
     }
 
-    private fun azurirajItem() {
-
+    private fun azurirajItem(vijesti: VijestiTable, vijestiMap: Map<String, Any>) = CoroutineScope(Dispatchers.IO).launch {
+        val query = collectionRef
+            .whereEqualTo("vijestiClanak", vijesti.vijestiClanak)
+            .whereEqualTo("vijestiNaslov", vijesti.vijestiNaslov)
+            .get()
+            .await()
+        if (query.documents.isNotEmpty()) {
+            for (document in query) {
+                try {
+                    collectionRef.document(document.id).set(
+                        vijestiMap,
+                        SetOptions.merge()
+                    ).await()
+                } catch (e: Exception) {
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(requireContext(), e.message, Toast.LENGTH_LONG).show()
+                    }
+                }
+            }
+        } else {
+            withContext(Dispatchers.Main) {
+                Toast.makeText(requireContext(), "Neuspješno", Toast.LENGTH_LONG).show()
+            }
+        }
     }
-
 }
