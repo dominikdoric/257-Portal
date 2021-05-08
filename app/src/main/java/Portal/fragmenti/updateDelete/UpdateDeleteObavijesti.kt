@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.CoroutineScope
@@ -22,17 +23,21 @@ class UpdateDeleteObavijesti: Fragment(R.layout.update_delete_obavijesti) {
 
     private lateinit var binding: UpdateDeleteObavijestiBinding
     private val args by navArgs<UpdateDeleteObavijestiArgs>()
-    private val collectionRef = Firebase.firestore.collection("obavijesti")
+    private val collectionRef = Firebase.firestore.collection("obavijest")
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = UpdateDeleteObavijestiBinding.bind(view)
 
-        binding.naslov.setText(args.updateObavijestiArgs.obavijestiNaslov)
-        binding.clanak.setText(args.updateObavijestiArgs.obavijestiClanak)
+        binding.naslovStari.setText(args.updateObavijestiArgs.obavijestiNaslov)
+        binding.clanakStari.setText(args.updateObavijestiArgs.obavijestiClanak)
 
         binding.gumbAzuriraj.setOnClickListener {
-            azurirajItem()
+            val oldObavijesti = getObavijesti()
+            val obavijestiMap = getNewObavijestiMap()
+            azurirajItem(oldObavijesti,obavijestiMap)
+            val action = UpdateDeleteObavijestiDirections.actionUpdateDeleteObavijestiToObavijestiNavDrawer()
+            findNavController().navigate(action)
         }
 
         binding.gumbObrisi.setOnClickListener {
@@ -45,13 +50,25 @@ class UpdateDeleteObavijesti: Fragment(R.layout.update_delete_obavijesti) {
     }
 
     private fun getObavijesti(): ObavijestiTable {
-        val naslov = binding.naslov.text.toString()
-        val clanak = binding.clanak.text.toString()
+        val naslov = binding.naslovStari.text.toString()
+        val clanak = binding.clanakStari.text.toString()
         return ObavijestiTable(naslov,clanak)
     }
 
-    private fun deleteItem(obavijesti: ObavijestiTable) = CoroutineScope(Dispatchers.IO).launch {
+    private fun getNewObavijestiMap(): Map<String, Any> {
+        val naslov = binding.naslovNovi.text.toString()
+        val clanak = binding.clanakNovi.text.toString()
+        val map = mutableMapOf<String, Any>()
+        if (naslov.isNotEmpty()) {
+            map["obavijestiNaslov"] = naslov
+        }
+        if (clanak.isNotEmpty()) {
+            map["obavijestiClanak"] = clanak
+        }
+        return map
+    }
 
+    private fun deleteItem(obavijesti: ObavijestiTable) = CoroutineScope(Dispatchers.IO).launch {
         val query = collectionRef
             .whereEqualTo("obavijestiNaslov", obavijesti.obavijestiNaslov)
             .whereEqualTo("obavijestiClanak", obavijesti.obavijestiClanak)
@@ -79,7 +96,29 @@ class UpdateDeleteObavijesti: Fragment(R.layout.update_delete_obavijesti) {
         }
     }
 
-    private fun azurirajItem() {
-
+    private fun azurirajItem(obavijesti: ObavijestiTable, obavijestiMap: Map<String, Any>) = CoroutineScope(Dispatchers.IO).launch {
+        val query = collectionRef
+            .whereEqualTo("obavijestiClanak", obavijesti.obavijestiClanak)
+            .whereEqualTo("obavijestiNaslov", obavijesti.obavijestiNaslov)
+            .get()
+            .await()
+        if (query.documents.isNotEmpty()) {
+            for (document in query) {
+                try {
+                    collectionRef.document(document.id).set(
+                        obavijestiMap,
+                        SetOptions.merge()
+                    ).await()
+                } catch (e: Exception) {
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(requireContext(), e.message, Toast.LENGTH_LONG).show()
+                    }
+                }
+            }
+        } else {
+            withContext(Dispatchers.Main) {
+                Toast.makeText(requireContext(), "Neuspješno", Toast.LENGTH_LONG).show()
+            }
+        }
     }
 }
