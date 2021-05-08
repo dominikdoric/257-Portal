@@ -5,8 +5,6 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class ObavijestiTable(
-
     val obavijestiNaslov: String = "",
     val obavijestiClanak: String = ""
-
 ) : Parcelable

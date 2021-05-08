@@ -33,7 +33,8 @@ class UpdateDeleteSport : Fragment(R.layout.update_delete_sport) {
 
         binding.gumbAzuriraj.setOnClickListener {
             val oldSport = getSport()
-            updateItem(oldSport)
+            val sportMap = getNewSportMap()
+            updateItem(oldSport,sportMap)
         }
 
         binding.gumbObrisi.setOnClickListener {
@@ -92,20 +93,29 @@ class UpdateDeleteSport : Fragment(R.layout.update_delete_sport) {
         }
     }
 
-    private fun updateItem(sport: SportTable) = CoroutineScope(Dispatchers.IO).launch {
+    private fun updateItem(sport: SportTable,sportMap: Map<String, Any>) = CoroutineScope(Dispatchers.IO).launch {
         val query = collectionRef
-            .whereEqualTo("naslov", sport.naslov)
             .whereEqualTo("clanak", sport.clanak)
+            .whereEqualTo("naslov", sport.naslov)
             .get()
             .await()
-            if (query.documents.isNotEmpty()) {
-                withContext(Dispatchers.Main) {
-                    Toast.makeText(requireContext(), "Uspješno", Toast.LENGTH_LONG).show()
-                }
-            } else {
-                withContext(Dispatchers.Main) {
-                    Toast.makeText(requireContext(), "Neuspješno", Toast.LENGTH_LONG).show()
+        if (query.documents.isNotEmpty()) {
+            for (document in query) {
+                try {
+                    collectionRef.document(document.id).set(
+                        sportMap,
+                        SetOptions.merge()
+                    ).await()
+                } catch (e: Exception) {
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(requireContext(), e.message, Toast.LENGTH_LONG).show()
+                    }
                 }
             }
+        } else {
+            withContext(Dispatchers.Main) {
+                Toast.makeText(requireContext(), "Neuspješno", Toast.LENGTH_LONG).show()
+            }
         }
+    }
 }
