@@ -35,6 +35,8 @@ class UpdateDeleteSport : Fragment(R.layout.update_delete_sport) {
             val oldSport = getSport()
             val sportMap = getNewSportMap()
             updateItem(oldSport,sportMap)
+            val action = UpdateDeleteSportDirections.actionUpdateDeleteSportToSportNavDrawer()
+            findNavController().navigate(action)
         }
 
         binding.gumbObrisi.setOnClickListener {
