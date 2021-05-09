@@ -325,5 +325,10 @@
     <fragment
         android:id="@+id/admin"
         android:name="Portal.fragmenti.fragmenti.AdminPokusFragment"
-        android:label="AdminPokusFragment" />
+        android:label="Admin"
+        tools:layout="@layout/admin_pokus_fragment">
+        <action
+            android:id="@+id/action_admin_to_vijestiNavDrawer"
+            app:destination="@id/vijestiNavDrawer" />
+    </fragment>
 </navigation>

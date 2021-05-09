@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -25,10 +26,14 @@ class AdminPokusFragment: Fragment(R.layout.admin_pokus_fragment) {
 
         binding.btnPrijaviSe.setOnClickListener {
             registerUser()
+            if (auth.currentUser != null){
+                val action = AdminPokusFragmentDirections.actionAdminToVijestiNavDrawer()
+                findNavController().navigate(action)
+            }
         }
 
         binding.btnOdjaviSe.setOnClickListener {
-            resetPassword()
+            auth.signOut()
         }
 
     }
@@ -36,11 +41,6 @@ class AdminPokusFragment: Fragment(R.layout.admin_pokus_fragment) {
     override fun onStart() {
         super.onStart()
         checkLoggedInState()
-    }
-
-    private fun resetPassword(){
-        val email = binding.email.text.toString()
-        auth.sendPasswordResetEmail(email)
     }
 
     private fun registerUser(){
@@ -53,6 +53,7 @@ class AdminPokusFragment: Fragment(R.layout.admin_pokus_fragment) {
                     withContext(Dispatchers.Main){
                         checkLoggedInState()
                     }
+
                 }catch (e: Exception){
                     withContext(Dispatchers.Main){
                         Toast.makeText(requireContext(),e.message,Toast.LENGTH_LONG).show()
