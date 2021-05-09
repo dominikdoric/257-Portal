@@ -6,18 +6,18 @@
     android:padding="40dp">
 
     <EditText
-        android:id="@+id/ime"
+        android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:hint="Unesite ime" />
+        android:hint="Unesite email" />
 
     <EditText
-        android:id="@+id/prezime"
+        android:id="@+id/lozinka"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:hint="Unesite prezime" />
+        android:hint="Unesite lozinku" />
 
     <Button
         android:layout_width="wrap_content"
