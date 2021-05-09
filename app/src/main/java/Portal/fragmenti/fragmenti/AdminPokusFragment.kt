@@ -27,6 +27,20 @@ class AdminPokusFragment: Fragment(R.layout.admin_pokus_fragment) {
             registerUser()
         }
 
+        binding.btnOdjaviSe.setOnClickListener {
+            resetPassword()
+        }
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+        checkLoggedInState()
+    }
+
+    private fun resetPassword(){
+        val email = binding.email.text.toString()
+        auth.sendPasswordResetEmail(email)
     }
 
     private fun registerUser(){
@@ -35,7 +49,7 @@ class AdminPokusFragment: Fragment(R.layout.admin_pokus_fragment) {
         if (email.isNotEmpty() && lozinka.isNotEmpty()){
             CoroutineScope(Dispatchers.IO).launch {
                 try {
-                    auth.createUserWithEmailAndPassword(email,lozinka).await()
+                    auth.signInWithEmailAndPassword(email,lozinka).await()
                     withContext(Dispatchers.Main){
                         checkLoggedInState()
                     }
