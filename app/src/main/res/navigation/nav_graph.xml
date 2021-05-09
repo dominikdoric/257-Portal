@@ -322,4 +322,8 @@
             android:name="updateZabavaArgs"
             app:argType="Portal.model.ZabavaTable" />
     </fragment>
+    <fragment
+        android:id="@+id/admin"
+        android:name="Portal.fragmenti.fragmenti.AdminPokusFragment"
+        android:label="AdminPokusFragment" />
 </navigation>
