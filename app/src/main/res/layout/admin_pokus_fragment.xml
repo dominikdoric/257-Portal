@@ -20,10 +20,20 @@
         android:hint="Unesite lozinku" />
 
     <Button
+        android:id="@+id/btnPrijaviSe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
         android:text="Prijavi se" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Neki tekst"
+        android:textColor="#000"
+        android:textSize="24dp" />
 
 </LinearLayout>
