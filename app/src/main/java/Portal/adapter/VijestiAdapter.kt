@@ -11,11 +11,14 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.firebase.auth.FirebaseAuth
 import java.text.SimpleDateFormat
 import java.util.*
 
 class VijestiAdapter(options: FirestoreRecyclerOptions<VijestiTable>) :
     FirestoreRecyclerAdapter<VijestiTable, VijestiAdapter.VijestiViewHolder>(options) {
+
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VijestiViewHolder {
         return VijestiViewHolder(
@@ -31,6 +34,7 @@ class VijestiAdapter(options: FirestoreRecyclerOptions<VijestiTable>) :
     override fun onBindViewHolder(holder: VijestiViewHolder, position: Int, model: VijestiTable) {
         val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
         val currentDate = sdf.format(Date())
+        auth = FirebaseAuth.getInstance()
 
         holder.vrijeme.text = currentDate
         holder.naslov.text = model.vijestiNaslov
@@ -41,13 +45,15 @@ class VijestiAdapter(options: FirestoreRecyclerOptions<VijestiTable>) :
             v.findNavController().navigate(action)
         }
 
-        holder.binding.cardViewVijesti.setOnLongClickListener { v: View ->
-            val data = VijestiTable(model.vijestiNaslov,model.vijestiClanak)
-            val action = VijestiFragmentDirections.actionVijestiNavDrawerToUpdateDeleteVijesti(data)
-            v.findNavController().navigate(action)
-            true
+        if (auth.currentUser != null) {
+            holder.binding.cardViewVijesti.setOnLongClickListener { v: View ->
+                val data = VijestiTable(model.vijestiNaslov, model.vijestiClanak)
+                val action =
+                    VijestiFragmentDirections.actionVijestiNavDrawerToUpdateDeleteVijesti(data)
+                v.findNavController().navigate(action)
+                true
+            }
         }
-
     }
 
     class VijestiViewHolder(val binding: JedanRedVijestiBinding) : RecyclerView.ViewHolder(binding.root) {

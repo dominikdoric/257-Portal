@@ -11,13 +11,14 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.firebase.auth.FirebaseAuth
 import java.text.SimpleDateFormat
 import java.util.*
 
 class PriceCitateljaAdapter(options: FirestoreRecyclerOptions<PriceCitateljaTable>) :
-    FirestoreRecyclerAdapter<PriceCitateljaTable, PriceCitateljaAdapter.PriceCitateljaViewHolder>(
-        options
-    ) {
+    FirestoreRecyclerAdapter<PriceCitateljaTable, PriceCitateljaAdapter.PriceCitateljaViewHolder>(options) {
+
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PriceCitateljaViewHolder {
         return PriceCitateljaViewHolder(
@@ -30,13 +31,10 @@ class PriceCitateljaAdapter(options: FirestoreRecyclerOptions<PriceCitateljaTabl
     }
 
     @SuppressLint("SimpleDateFormat")
-    override fun onBindViewHolder(
-        holder: PriceCitateljaViewHolder,
-        position: Int,
-        model: PriceCitateljaTable
-    ) {
+    override fun onBindViewHolder(holder: PriceCitateljaViewHolder, position: Int, model: PriceCitateljaTable) {
         val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
         val currentDate = sdf.format(Date())
+        auth = FirebaseAuth.getInstance()
 
         holder.vrijeme.text = currentDate
         holder.naslov.text = model.priceCitateljaNaslov
@@ -47,11 +45,17 @@ class PriceCitateljaAdapter(options: FirestoreRecyclerOptions<PriceCitateljaTabl
             v.findNavController().navigate(action)
         }
 
-        holder.binding.cardViewPricaCitatelja.setOnLongClickListener { v: View ->
-            val data = PriceCitateljaTable(model.priceCitateljaNaslov, model.priceCitateljaClanak)
-            val action = PriceCitateljaFragmentDirections.actionPriceCitateljaNavDrawerToUpdateDeletePriceCitatelja(data)
-            v.findNavController().navigate(action)
-            true
+        if (auth.currentUser != null) {
+            holder.binding.cardViewPricaCitatelja.setOnLongClickListener { v: View ->
+                val data =
+                    PriceCitateljaTable(model.priceCitateljaNaslov, model.priceCitateljaClanak)
+                val action =
+                    PriceCitateljaFragmentDirections.actionPriceCitateljaNavDrawerToUpdateDeletePriceCitatelja(
+                        data
+                    )
+                v.findNavController().navigate(action)
+                true
+            }
         }
     }
 

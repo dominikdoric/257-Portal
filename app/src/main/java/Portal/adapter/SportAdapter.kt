@@ -14,11 +14,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
 import java.text.SimpleDateFormat
 import java.util.*
 
 class SportAdapter(options: FirestoreRecyclerOptions<SportTable>) :
     FirestoreRecyclerAdapter<SportTable, SportAdapter.SportViewHolder>(options) {
+
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SportViewHolder {
         return SportViewHolder(
@@ -34,20 +37,24 @@ class SportAdapter(options: FirestoreRecyclerOptions<SportTable>) :
     override fun onBindViewHolder(holder: SportViewHolder, position: Int, model: SportTable) {
         val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
         val currentDate = sdf.format(Date())
+        auth = FirebaseAuth.getInstance()
 
         holder.vrijeme.text = currentDate
         holder.naslov.text = model.naslov
 
-        holder.binding.cardViewSport.setOnClickListener { v: View ->
-            val data = SportTable(model.naslov, model.clanak)
-            val action = SportFragmentDirections.actionSportNavDrawerToDetailSport(data)
-            v.findNavController().navigate(action)
-        }
-        holder.binding.cardViewSport.setOnLongClickListener { v: View ->
-            val data = SportTable(model.naslov, model.clanak)
-            val action = SportFragmentDirections.actionSportNavDrawerToUpdateDeleteSport(data)
-            v.findNavController().navigate(action)
-            true
+            holder.binding.cardViewSport.setOnClickListener { v: View ->
+                val data = SportTable(model.naslov, model.clanak)
+                val action = SportFragmentDirections.actionSportNavDrawerToDetailSport(data)
+                v.findNavController().navigate(action)
+            }
+
+        if (auth.currentUser != null) {
+            holder.binding.cardViewSport.setOnLongClickListener { v: View ->
+                val data = SportTable(model.naslov, model.clanak)
+                val action = SportFragmentDirections.actionSportNavDrawerToUpdateDeleteSport(data)
+                v.findNavController().navigate(action)
+                true
+            }
         }
 
     }

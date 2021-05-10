@@ -11,11 +11,14 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.firebase.auth.FirebaseAuth
 import java.text.SimpleDateFormat
 import java.util.*
 
 class OglasnikAdapter(options: FirestoreRecyclerOptions<OglasnikTable>) :
     FirestoreRecyclerAdapter<OglasnikTable, OglasnikAdapter.OglasnikViewHolder>(options) {
+
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OglasnikViewHolder {
         return OglasnikViewHolder(
@@ -31,6 +34,7 @@ class OglasnikAdapter(options: FirestoreRecyclerOptions<OglasnikTable>) :
     override fun onBindViewHolder(holder: OglasnikViewHolder, position: Int, model: OglasnikTable) {
         val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
         val currentDate = sdf.format(Date())
+        auth = FirebaseAuth.getInstance()
 
         holder.vrijeme.text = currentDate
         holder.naslov.text = model.oglasnikNaslov
@@ -43,13 +47,22 @@ class OglasnikAdapter(options: FirestoreRecyclerOptions<OglasnikTable>) :
             val action = OglasnikFragmentDirections.actionOglasnikNavDrawerToDetailOglasnik(data)
             v.findNavController().navigate(action)
         }
-        holder.binding.cardViewOglasnik.setOnLongClickListener { v: View ->
-            val data = OglasnikTable(model.oglasnikClanak, model.oglasnikNaslov,model.oglasnikCijena,model.oglasnikLokacija,model.oglasnikBroj)
-            val action = OglasnikFragmentDirections.actionOglasnikNavDrawerToUpdateDeleteOglasnik(data)
-            v.findNavController().navigate(action)
-            true
-        }
 
+        if (auth.currentUser != null) {
+            holder.binding.cardViewOglasnik.setOnLongClickListener { v: View ->
+                val data = OglasnikTable(
+                    model.oglasnikClanak,
+                    model.oglasnikNaslov,
+                    model.oglasnikCijena,
+                    model.oglasnikLokacija,
+                    model.oglasnikBroj
+                )
+                val action =
+                    OglasnikFragmentDirections.actionOglasnikNavDrawerToUpdateDeleteOglasnik(data)
+                v.findNavController().navigate(action)
+                true
+            }
+        }
     }
 
     class OglasnikViewHolder(val binding: JedanRedOglasnikBinding) : RecyclerView.ViewHolder(binding.root) {

@@ -11,11 +11,14 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.firebase.auth.FirebaseAuth
 import java.text.SimpleDateFormat
 import java.util.*
 
 class PoljoprivredaAdapter(options: FirestoreRecyclerOptions<PoljoprivredaTable>) :
     FirestoreRecyclerAdapter<PoljoprivredaTable, PoljoprivredaAdapter.PoljoprivredaViewHolder>(options) {
+
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PoljoprivredaViewHolder {
         return PoljoprivredaViewHolder(
@@ -31,6 +34,7 @@ class PoljoprivredaAdapter(options: FirestoreRecyclerOptions<PoljoprivredaTable>
     override fun onBindViewHolder(holder: PoljoprivredaViewHolder, position: Int, model: PoljoprivredaTable) {
         val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
         val currentDate = sdf.format(Date())
+        auth = FirebaseAuth.getInstance()
 
         holder.vrijeme.text = currentDate
         holder.naslov.text = model.poljoprivredaNaslov
@@ -41,13 +45,17 @@ class PoljoprivredaAdapter(options: FirestoreRecyclerOptions<PoljoprivredaTable>
             v.findNavController().navigate(action)
         }
 
-        holder.binding.cardViewPoljoprivreda.setOnLongClickListener { v: View ->
-            val data = PoljoprivredaTable(model.poljoprivredaNaslov,model.poljoprivredaClanak)
-            val action = PoljoprivredaFragmentDirections.actionPoljoprivredaNavDrawerToUpdateDeletePoljoprivreda(data)
-            v.findNavController().navigate(action)
-            true
+        if (auth.currentUser != null) {
+            holder.binding.cardViewPoljoprivreda.setOnLongClickListener { v: View ->
+                val data = PoljoprivredaTable(model.poljoprivredaNaslov, model.poljoprivredaClanak)
+                val action =
+                    PoljoprivredaFragmentDirections.actionPoljoprivredaNavDrawerToUpdateDeletePoljoprivreda(
+                        data
+                    )
+                v.findNavController().navigate(action)
+                true
+            }
         }
-
     }
 
     class PoljoprivredaViewHolder(val binding: JedanRedPoljoprivredaBinding) :
