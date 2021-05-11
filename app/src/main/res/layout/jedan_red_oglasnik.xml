@@ -31,17 +31,24 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="5dp"
+            android:layout_marginBottom="4dp"
             android:text="Prodajem jaja"
             android:textStyle="bold"
             android:textColor="#000"
             android:textSize="20dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            android:layout_below="@+id/naslov"/>
 
         <LinearLayout
             android:id="@+id/layoutCijena"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/naslov"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="2dp"
             android:layout_marginLeft="5dp"
             android:orientation="horizontal">
 
@@ -67,7 +74,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/layoutCijena"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="5dp"
             android:orientation="horizontal">
 
@@ -93,7 +99,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/layoutLokacija"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="5dp"
             android:orientation="horizontal">
 
@@ -118,6 +123,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
             android:layout_marginLeft="5dp"
             android:orientation="horizontal"
             android:layout_below="@id/layoutBroj">
@@ -125,7 +131,6 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:text="Objavljeno:"
                 android:textSize="15dp"
                 android:textColor="#000"/>
@@ -134,7 +139,6 @@
                 android:id="@+id/vrijeme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginBottom="5dp"
                 android:text="Prije 1 h"
@@ -144,7 +148,6 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:text=" h"
                 android:textSize="15dp"
                 android:textColor="#000"/>
