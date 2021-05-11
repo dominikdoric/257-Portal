@@ -161,12 +161,6 @@
             app:destination="@id/updateDeletePoljoprivreda" />
     </fragment>
     <fragment
-        android:id="@+id/adminBottomNav"
-        android:name="Portal.fragmenti.fragmenti.AdminFragment"
-        android:label="Admin"
-        tools:layout="@layout/admin_fragment">
-    </fragment>
-    <fragment
         android:id="@+id/menu_dodajNoviSport"
         android:name="Portal.fragmenti.dodajNovo.DodajNovoSport"
         android:label="Dodaj novi sport"
@@ -324,9 +318,9 @@
     </fragment>
     <fragment
         android:id="@+id/admin"
-        android:name="Portal.fragmenti.fragmenti.AdminPokusFragment"
+        android:name="Portal.fragmenti.fragmenti.AdminFragment"
         android:label="Admin"
-        tools:layout="@layout/admin_pokus_fragment">
+        tools:layout="@layout/admin_fragment">
         <action
             android:id="@+id/action_admin_to_vijestiNavDrawer"
             app:destination="@id/vijestiNavDrawer" />
