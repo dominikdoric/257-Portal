@@ -15,6 +15,7 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
+import java.sql.Types.TIMESTAMP
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -35,6 +36,7 @@ class SportAdapter(options: FirestoreRecyclerOptions<SportTable>) :
 
     @SuppressLint("SimpleDateFormat")
     override fun onBindViewHolder(holder: SportViewHolder, position: Int, model: SportTable) {
+
         val sdf = SimpleDateFormat("dd.MM.yyyy. HH:mm")
         val currentDate = sdf.format(Date())
         auth = FirebaseAuth.getInstance()

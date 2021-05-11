@@ -89,7 +89,7 @@ class UpdateDeleteSport : Fragment(R.layout.update_delete_sport) {
             }
         } else {
             withContext(Dispatchers.Main) {
-                Toast.makeText(requireContext(), "No persons matched the query.", Toast.LENGTH_LONG)
+                Toast.makeText(requireContext(), "Ni jedna osoba se ne podudara", Toast.LENGTH_LONG)
                     .show()
             }
         }

@@ -1,7 +1,7 @@
 package Portal.fragmenti.fragmenti
 
 import Portal.a257.R
-import Portal.a257.databinding.AdminPokusFragmentBinding
+import Portal.a257.databinding.AdminFragmentBinding
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -16,18 +16,18 @@ import kotlinx.coroutines.withContext
 
 class AdminFragment: Fragment(R.layout.admin_fragment) {
 
-    private lateinit var binding: AdminPokusFragmentBinding
+    private lateinit var binding: AdminFragmentBinding
     private lateinit var auth: FirebaseAuth
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = AdminPokusFragmentBinding.bind(view)
+        binding = AdminFragmentBinding.bind(view)
         auth = FirebaseAuth.getInstance()
 
         binding.btnPrijaviSe.setOnClickListener {
             registerUser()
             if (auth.currentUser != null){
-                val action = AdminPokusFragmentDirections.actionAdminToVijestiNavDrawer()
+                val action = AdminFragmentDirections.actionAdminToVijestiNavDrawer()
                 findNavController().navigate(action)
             }
         }
@@ -65,9 +65,9 @@ class AdminFragment: Fragment(R.layout.admin_fragment) {
 
     private fun checkLoggedInState() {
         if (auth.currentUser == null){
-            binding.textView.text = "You are not logged in!"
+            binding.textView.text = "Niste prijavljeni!"
         }else{
-            binding.textView.text = "You are logged in!"
+            binding.textView.text = "Prijavljeni ste!"
         }
     }
 }

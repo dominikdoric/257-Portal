@@ -34,7 +34,7 @@
             android:text="@string/zabava"
             android:textStyle="bold"
             android:textColor="#000"
-            android:textSize="24dp" />
+            android:textSize="20dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
