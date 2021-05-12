@@ -14,6 +14,10 @@
         android:id="@+id/kontaktBottomNav"
         android:title="Kontakt"
         android:icon="@drawable/ic_email"/>
+    <item
+        android:id="@+id/kartaBottomNav"
+        android:title="Karta"
+        android:icon="@drawable/ic_email"/>
 
 
 </menu>
