@@ -6,20 +6,28 @@ import androidx.recyclerview.widget.DiffUtil
 class DiffUtilClass(
     private val oldList: List<SportTable>,
     private val newList: List<SportTable>
-): DiffUtil.Callback() {
+) : DiffUtil.Callback() {
     override fun getOldListSize(): Int {
-        TODO("Not yet implemented")
+        return oldList.size
     }
 
     override fun getNewListSize(): Int {
-        TODO("Not yet implemented")
+        return newList.size
     }
 
     override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-        TODO("Not yet implemented")
+        return oldList[oldItemPosition].naslov == newList[newItemPosition].naslov
     }
 
     override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-        TODO("Not yet implemented")
+        return when {
+            oldList[oldItemPosition].naslov != newList[newItemPosition].naslov -> {
+                false
+            }
+            oldList[oldItemPosition].clanak != newList[newItemPosition].clanak -> {
+                false
+            }
+            else -> true
+        }
     }
 }
