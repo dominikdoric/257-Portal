@@ -3,6 +3,9 @@ package Portal.fragmenti.dodajNovo
 import Portal.a257.R
 import Portal.a257.databinding.DodajNovoSportFragmentBinding
 import Portal.model.SportTable
+import android.Manifest
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -35,6 +38,32 @@ class DodajNovoSport : Fragment(R.layout.dodaj_novo_sport_fragment) {
             findNavController().navigate(action)
         }
 
+        binding.gumbOdaberiSLikuSport.setOnClickListener {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+                if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) ==
+                        PackageManager.PERMISSION_DENIED){
+                //permission denied
+                    val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
+                    requestPermissions(permissions, PERMISSION_CODE)
+                }else{
+                        //permission already granted
+                    odaberiSliku()
+                }
+            }
+            else{
+                //system OS is < Marshmallow
+                odaberiSliku()
+            }
+        }
+    }
+
+    private fun odaberiSliku() {
+
+    }
+
+    companion object{
+        private val IMAGE_PICK_CODE = 100
+        private val PERMISSION_CODE = 1001
     }
 
     private fun savePerson(sport: SportTable) = CoroutineScope(Dispatchers.IO).launch {
