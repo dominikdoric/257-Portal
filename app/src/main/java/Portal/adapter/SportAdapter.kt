@@ -66,7 +66,4 @@ class SportAdapter(options: FirestoreRecyclerOptions<SportTable>) :
         var naslov = binding.naslov
         var vrijeme = binding.vrijeme
     }
-
-    fun setData
-
 }
