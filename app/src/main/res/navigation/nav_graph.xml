@@ -325,4 +325,9 @@
             android:id="@+id/action_admin_to_vijestiNavDrawer"
             app:destination="@id/vijestiNavDrawer" />
     </fragment>
+    <fragment
+        android:id="@+id/kartaBottomNav"
+        android:name="Portal.fragmenti.fragmenti.KartaFragment"
+        android:label="Karta"
+        tools:layout="@layout/karta_fragment"/>
 </navigation>
