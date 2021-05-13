@@ -46,6 +46,25 @@ class CloudStorageFragment: Fragment(R.layout.cloud_storage_firebase) {
             downloadImage("myImage")
         }
 
+        binding.gumbObrisiSliku.setOnClickListener {
+            deleteImage("myImage")
+        }
+
+    }
+
+    private fun deleteImage(filename: String) = CoroutineScope(Dispatchers.IO).launch{
+       try {
+           imageRef.child("images/$filename").delete().await()
+           withContext(Dispatchers.Main){
+               Toast.makeText(requireContext(),"Successfully deleted image",
+                     Toast.LENGTH_LONG)
+                    .show()
+           }
+       } catch (e: Exception){
+           withContext(Dispatchers.Main){
+               Toast.makeText(requireContext(),e.message,Toast.LENGTH_LONG).show()
+           }
+       }
     }
 
     private fun downloadImage(filename: String) = CoroutineScope(Dispatchers.IO).launch{
