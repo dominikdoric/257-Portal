@@ -18,12 +18,26 @@
         android:gravity="bottom"
         android:hint="Clanak" />
 
-    <Button
-        android:id="@+id/gumbOdaberiSLikuSport"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:text="Odaberi sliku" />
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/gumbUslikajSport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Uslikaj" />
+
+        <Button
+            android:id="@+id/gumbOdaberiSLikuSport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginLeft="80dp"
+            android:text="Odaberi sliku" />
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/imageViewSport"
