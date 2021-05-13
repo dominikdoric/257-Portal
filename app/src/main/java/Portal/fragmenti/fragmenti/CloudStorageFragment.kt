@@ -49,7 +49,6 @@ class CloudStorageFragment: Fragment(R.layout.cloud_storage_firebase) {
         binding.gumbObrisiSliku.setOnClickListener {
             deleteImage("myImage")
         }
-
     }
 
     private fun deleteImage(filename: String) = CoroutineScope(Dispatchers.IO).launch{
