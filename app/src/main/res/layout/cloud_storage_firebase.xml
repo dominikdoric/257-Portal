@@ -30,18 +30,18 @@
                 android:text="Spremi sliku" />
 
             <Button
-                android:id="@+id/gumbSkiniSliku"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Skini sliku" />
-
-            <Button
                 android:id="@+id/gumbObrisiSliku"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Obrisi sliku" />
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="6"
+                android:hint="Ime Slike" />
         </LinearLayout>
 
     </LinearLayout>

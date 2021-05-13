@@ -27,7 +27,7 @@ class CloudStorageFragment: Fragment(R.layout.cloud_storage_firebase) {
 
     private lateinit var binding: CloudStorageFirebaseBinding
     val imageRef = Firebase.storage.reference
-    var curFile: Uri? = null
+    var currentFile: Uri? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -41,11 +41,8 @@ class CloudStorageFragment: Fragment(R.layout.cloud_storage_firebase) {
         }
 
         binding.gumbStorage.setOnClickListener {
-            uploadImageToStorage("myImage")
-        }
-
-        binding.gumbSkiniSliku.setOnClickListener {
-            downloadImage("myImage")
+            val imeSlike = binding.editText.text.toString()
+            uploadImageToStorage(imeSlike)
         }
 
         binding.gumbObrisiSliku.setOnClickListener {
@@ -108,7 +105,7 @@ class CloudStorageFragment: Fragment(R.layout.cloud_storage_firebase) {
 
     private fun uploadImageToStorage(filename: String) = CoroutineScope(Dispatchers.IO).launch{
         try {
-            curFile?.let {
+            currentFile?.let {
                 imageRef.child("images/$filename").putFile(it).await()
                 withContext(Dispatchers.Main){
                     Toast.makeText(requireContext(),"Successfully uploaded image",Toast.LENGTH_LONG).show()
@@ -125,7 +122,7 @@ class CloudStorageFragment: Fragment(R.layout.cloud_storage_firebase) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE_IMAGE_PICK){
             data?.data?.let {
-                curFile = it
+                currentFile = it
                 binding.storageSlika.setImageURI(it)
             }
         }
