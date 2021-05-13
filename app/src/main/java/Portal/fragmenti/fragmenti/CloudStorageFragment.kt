@@ -2,6 +2,7 @@ package Portal.fragmenti.fragmenti
 
 import Portal.a257.R
 import Portal.a257.databinding.CloudStorageFirebaseBinding
+import Portal.adapter.ImageAdapter
 import android.app.Activity
 import android.content.Intent
 import android.graphics.BitmapFactory
@@ -10,6 +11,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import kotlinx.coroutines.CoroutineScope
@@ -48,6 +50,29 @@ class CloudStorageFragment: Fragment(R.layout.cloud_storage_firebase) {
 
         binding.gumbObrisiSliku.setOnClickListener {
             deleteImage("myImage")
+        }
+        listFiles()
+    }
+
+    private fun listFiles() = CoroutineScope(Dispatchers.IO).launch {
+        try {
+            val images = imageRef.child("images/").listAll().await()
+            val imageUrls = mutableListOf<String>()
+            for (image in images.items){
+                val url = image.downloadUrl.await()
+                imageUrls.add(url.toString())
+            }
+            withContext(Dispatchers.Main){
+                val imageAdapter = ImageAdapter(imageUrls)
+                binding.recyclerView.apply {
+                    adapter = imageAdapter
+                    layoutManager = LinearLayoutManager(requireContext())
+                }
+            }
+        }catch (e: Exception){
+            withContext(Dispatchers.Main){
+                Toast.makeText(requireContext(),e.message,Toast.LENGTH_LONG).show()
+            }
         }
     }
 
