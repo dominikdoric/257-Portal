@@ -4,6 +4,7 @@ import Portal.a257.R
 import Portal.a257.databinding.CloudStorageFirebaseBinding
 import android.app.Activity
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
@@ -39,6 +40,26 @@ class CloudStorageFragment: Fragment(R.layout.cloud_storage_firebase) {
 
         binding.gumbStorage.setOnClickListener {
             uploadImageToStorage("myImage")
+        }
+
+        binding.gumbSkiniSliku.setOnClickListener {
+            downloadImage("myImage")
+        }
+
+    }
+
+    private fun downloadImage(filename: String) = CoroutineScope(Dispatchers.IO).launch{
+        try {
+            val maxDownloadSize = 5L * 1024 * 1024
+            val bytes = imageRef.child("images/$filename").getBytes(maxDownloadSize).await()
+            val bmp = BitmapFactory.decodeByteArray(bytes,0,bytes.size)
+            withContext(Dispatchers.Main){
+                binding.storageSlika.setImageBitmap(bmp)
+            }
+        }catch (e: Exception){
+            withContext(Dispatchers.Main){
+                Toast.makeText(requireContext(),e.message,Toast.LENGTH_LONG).show()
+            }
         }
     }
 

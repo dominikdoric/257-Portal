@@ -18,5 +18,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="Spremi sliku" />
+    <Button
+        android:id="@+id/gumbSkiniSliku"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Skini sliku" />
 
 </LinearLayout>
