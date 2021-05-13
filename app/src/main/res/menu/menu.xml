@@ -42,5 +42,10 @@
         android:title="Admin"
         app:showAsAction="never"
         android:menuCategory="secondary"/>
+    <item
+        android:id="@+id/cloudStorage"
+        android:title="Cloud Storage"
+        app:showAsAction="never"
+        android:menuCategory="secondary"/>
 
 </menu>

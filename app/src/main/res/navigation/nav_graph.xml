@@ -330,4 +330,9 @@
         android:name="Portal.fragmenti.fragmenti.KartaFragment"
         android:label="Karta"
         tools:layout="@layout/karta_fragment"/>
+    <fragment
+        android:id="@+id/cloudStorage"
+        android:name="Portal.fragmenti.fragmenti.CloudStorageFragment"
+        android:label="CloudStorageFragment"
+        tools:layout="@layout/cloud_storage_firebase"/>
 </navigation>
