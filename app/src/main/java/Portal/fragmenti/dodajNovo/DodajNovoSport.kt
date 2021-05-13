@@ -55,10 +55,6 @@ class DodajNovoSport : Fragment(R.layout.dodaj_novo_sport_fragment) {
         }
     }
 
-    private fun odaberiSliku() {
-
-    }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 123){
