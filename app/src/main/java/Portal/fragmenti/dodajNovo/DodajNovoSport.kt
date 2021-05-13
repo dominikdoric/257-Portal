@@ -7,8 +7,10 @@ import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.os.Build
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.View
 import android.widget.Toast
 import androidx.core.content.ContextCompat.checkSelfPermission
@@ -42,12 +44,29 @@ class DodajNovoSport : Fragment(R.layout.dodaj_novo_sport_fragment) {
         }
 
         binding.gumbOdaberiSLikuSport.setOnClickListener {
+            val intent = Intent(Intent.ACTION_PICK)
+            intent.type = "image/*"
+            startActivityForResult(intent,456)
+        }
 
+        binding.gumbUslikajSport.setOnClickListener {
+            val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            startActivityForResult(intent,123)
         }
     }
 
     private fun odaberiSliku() {
 
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 123){
+            val bmp = data?.extras?.get("data") as Bitmap
+            binding.imageViewSport.setImageBitmap(bmp)
+        }else if (requestCode == 456){
+            binding.imageViewSport.setImageURI(data?.data)
+        }
     }
 
     private fun savePerson(sport: SportTable) = CoroutineScope(Dispatchers.IO).launch {
