@@ -7,6 +7,7 @@ import Portal.model.PoljoprivredaTable
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
@@ -30,6 +31,12 @@ class PoljoprivredaFragment : Fragment(R.layout.poljoprivreda_fragment) {
                 binding.recyclerViewPoljoprivreda.context, DividerItemDecoration.VERTICAL
             )
         )
+
+        binding.floatingActionButton.setOnClickListener {
+            val action = PoljoprivredaFragmentDirections.actionPoljoprivredaNavDrawerToMenuDodajNovuPoljoprivredu()
+            findNavController().navigate(action)
+        }
+
         setUpRecyclerView()
     }
 

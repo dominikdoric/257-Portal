@@ -34,6 +34,9 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_obavijestiNavDrawer_to_menu_dodajNovuObavijest"
+            app:destination="@id/menu_dodajNovuObavijest" />
     </fragment>
     <fragment
         android:id="@+id/oglasnikNavDrawer"
@@ -54,6 +57,9 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_oglasnikNavDrawer_to_menu_dodajNoviOglas"
+            app:destination="@id/menu_dodajNoviOglas" />
     </fragment>
     <fragment
         android:id="@+id/priceCitateljaNavDrawer"
@@ -242,6 +248,9 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_poljoprivredaNavDrawer_to_menu_dodajNovuPoljoprivredu"
+            app:destination="@id/menu_dodajNovuPoljoprivredu" />
     </fragment>
     <fragment
         android:id="@+id/menu_dodajNoviSport"

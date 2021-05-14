@@ -7,6 +7,7 @@ import Portal.model.OglasnikTable
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
@@ -29,6 +30,12 @@ class OglasnikFragment : Fragment(R.layout.oglasnik_fragment) {
             DividerItemDecoration
                 (binding.recyclerViewOglasnik.context, DividerItemDecoration.VERTICAL)
         )
+
+        binding.floatingActionButton.setOnClickListener {
+            val action = OglasnikFragmentDirections.actionOglasnikNavDrawerToMenuDodajNoviOglas()
+            findNavController().navigate(action)
+        }
+
         setUpRecyclerView()
     }
 

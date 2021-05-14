@@ -7,6 +7,7 @@ import Portal.model.ObavijestiTable
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
@@ -30,6 +31,11 @@ class ObavijestiFragment : Fragment(R.layout.obavijesti_fragment) {
             DividerItemDecoration
                 (binding.recyclerViewObavijesti.context, DividerItemDecoration.VERTICAL)
         )
+
+        binding.floatingActionButton.setOnClickListener {
+            val action = ObavijestiFragmentDirections.actionObavijestiNavDrawerToMenuDodajNovuObavijest()
+            findNavController().navigate(action)
+        }
 
         setUpRecyclerView()
 

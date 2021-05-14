@@ -7,21 +7,7 @@
         android:title="Dodaj novu vijest"
         app:showAsAction="never"
         android:menuCategory="secondary"/>
-    <item
-        android:id="@+id/menu_dodajNovuObavijest"
-        android:title="Dodaj novu obavijest"
-        app:showAsAction="never"
-        android:menuCategory="secondary"/>
-    <item
-        android:id="@+id/menu_dodajNoviOglas"
-        android:title="Dodaj novi oglas"
-        app:showAsAction="never"
-        android:menuCategory="secondary"/>
-    <item
-        android:id="@+id/menu_dodajNovuPoljoprivredu"
-        android:title="Dodaj novi poljoprivredu"
-        app:showAsAction="never"
-        android:menuCategory="secondary"/>
+
     <item
         android:id="@+id/menu_dodajNovuZabava"
         android:title="Dodaj novu zabavu"
