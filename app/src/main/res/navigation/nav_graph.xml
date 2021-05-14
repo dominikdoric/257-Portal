@@ -82,10 +82,18 @@
         tools:layout="@layout/sport_fragment">
         <action
             android:id="@+id/action_sportNavDrawer_to_detailSport"
-            app:destination="@id/detailSport" />
+            app:destination="@id/detailSport"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_sportNavDrawer_to_updateDeleteSport"
-            app:destination="@id/updateDeleteSport" />
+            app:destination="@id/updateDeleteSport"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/vijestiNavDrawer"
@@ -95,10 +103,18 @@
 
         <action
             android:id="@+id/action_vijestiNavDrawer_to_vijestiDetail"
-            app:destination="@id/vijestiDetail" />
+            app:destination="@id/vijestiDetail"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_vijestiNavDrawer_to_updateDeleteVijesti"
-            app:destination="@id/updateDeleteVijesti" />
+            app:destination="@id/updateDeleteVijesti"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/zabavaNavDrawer"
@@ -107,10 +123,18 @@
         tools:layout="@layout/zabava_fragment">
         <action
             android:id="@+id/action_zabavaNavDrawer_to_detailZabava"
-            app:destination="@id/detailZabava" />
+            app:destination="@id/detailZabava"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_zabavaNavDrawer_to_updateDeleteZabava"
-            app:destination="@id/updateDeleteZabava" />
+            app:destination="@id/updateDeleteZabava"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/vrijemeBottomNav"
@@ -179,10 +203,18 @@
         tools:layout="@layout/poljoprivreda_fragment">
         <action
             android:id="@+id/action_poljoprivredaNavDrawer_to_poljoprivredaDetail"
-            app:destination="@id/poljoprivredaDetail" />
+            app:destination="@id/poljoprivredaDetail"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_poljoprivredaNavDrawer_to_updateDeletePoljoprivreda"
-            app:destination="@id/updateDeletePoljoprivreda" />
+            app:destination="@id/updateDeletePoljoprivreda"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/menu_dodajNoviSport"
