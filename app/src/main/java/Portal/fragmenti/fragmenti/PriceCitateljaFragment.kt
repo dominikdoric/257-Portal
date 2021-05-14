@@ -7,6 +7,7 @@ import Portal.model.PriceCitateljaTable
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
@@ -31,6 +32,12 @@ class PriceCitateljaFragment : Fragment(R.layout.price_citatelja_fragment) {
                 DividerItemDecoration.VERTICAL
             )
         )
+
+        binding.floatingActionButton.setOnClickListener {
+            val action = PriceCitateljaFragmentDirections.actionPriceCitateljaNavDrawerToMenuDodajNovuPricuCitatelja()
+            findNavController().navigate(action)
+        }
+
         setUpRecyclerView()
     }
 

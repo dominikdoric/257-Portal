@@ -3,22 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/menu_dodajNovuVijest"
-        android:title="Dodaj novu vijest"
-        app:showAsAction="never"
-        android:menuCategory="secondary"/>
-
-    <item
-        android:id="@+id/menu_dodajNovuZabava"
-        android:title="Dodaj novu zabavu"
-        app:showAsAction="never"
-        android:menuCategory="secondary"/>
-    <item
-        android:id="@+id/menu_dodajNovuPricuCitatelja"
-        android:title="Dodaj novu pricu"
-        app:showAsAction="never"
-        android:menuCategory="secondary"/>
-    <item
         android:id="@+id/admin"
         android:title="Admin"
         app:showAsAction="never"

@@ -7,6 +7,7 @@ import Portal.model.ZabavaTable
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
@@ -29,6 +30,11 @@ class ZabavaFragment : Fragment(R.layout.zabava_fragment) {
             DividerItemDecoration
                 (binding.recyclerViewZabava.context, DividerItemDecoration.VERTICAL)
         )
+
+        binding.floatingActionButton.setOnClickListener {
+            val action = ZabavaFragmentDirections.actionZabavaNavDrawerToMenuDodajNovuZabava()
+            findNavController().navigate(action)
+        }
 
         setUpRecyclerView()
 
