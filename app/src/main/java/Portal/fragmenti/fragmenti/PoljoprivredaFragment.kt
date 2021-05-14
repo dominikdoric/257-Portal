@@ -6,6 +6,7 @@ import Portal.adapter.PoljoprivredaAdapter
 import Portal.model.PoljoprivredaTable
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -20,12 +21,14 @@ class PoljoprivredaFragment : Fragment(R.layout.poljoprivreda_fragment) {
 
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
     private val collectionReference: CollectionReference = db.collection("poljoprivreda")
+    private lateinit var auth: FirebaseAuth
     var poljoprivredaAdapter: PoljoprivredaAdapter? = null
     private lateinit var binding: PoljoprivredaFragmentBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = PoljoprivredaFragmentBinding.bind(view)
+        auth = FirebaseAuth.getInstance()
 
         binding.recyclerViewPoljoprivreda.addItemDecoration(
             DividerItemDecoration(
@@ -34,8 +37,15 @@ class PoljoprivredaFragment : Fragment(R.layout.poljoprivreda_fragment) {
         )
 
         binding.floatingActionButton.setOnClickListener {
-            val action = PoljoprivredaFragmentDirections.actionPoljoprivredaNavDrawerToMenuDodajNovuPoljoprivredu()
-            findNavController().navigate(action)
+            if (auth.currentUser != null){
+                val action = PoljoprivredaFragmentDirections.actionPoljoprivredaNavDrawerToMenuDodajNovuPoljoprivredu()
+                findNavController().navigate(action)
+            }else{
+                Toast.makeText(requireContext(),"Nažalost ne možete dodavati članke u rubrici Poljoprivreda.",
+                Toast.LENGTH_LONG)
+                    .show()
+            }
+
         }
 
         setUpRecyclerView()

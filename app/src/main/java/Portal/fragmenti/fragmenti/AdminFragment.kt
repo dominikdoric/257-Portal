@@ -30,6 +30,7 @@ class AdminFragment: Fragment(R.layout.admin_fragment) {
 
         binding.btnOdjaviSe.setOnClickListener {
             auth.signOut()
+            checkLoggedInState()
         }
     }
 
