@@ -7,6 +7,7 @@ import Portal.model.SportTable
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
@@ -29,6 +30,11 @@ class SportFragment : Fragment(R.layout.sport_fragment) {
             DividerItemDecoration
                 (binding.recyclerViewSport.context,DividerItemDecoration.VERTICAL)
         )
+
+        binding.floatingActionButton.setOnClickListener {
+            val action = SportFragmentDirections.actionSportNavDrawerToMenuDodajNoviSport()
+            findNavController().navigate(action)
+        }
 
         setUpRecyclerView()
     }

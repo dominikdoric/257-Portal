@@ -26,16 +26,11 @@ class AdminFragment: Fragment(R.layout.admin_fragment) {
 
         binding.btnPrijaviSe.setOnClickListener {
             registerUser()
-            if (auth.currentUser != null){
-                val action = AdminFragmentDirections.actionAdminToVijestiNavDrawer()
-                findNavController().navigate(action)
-            }
         }
 
         binding.btnOdjaviSe.setOnClickListener {
             auth.signOut()
         }
-
     }
 
     override fun onStart() {

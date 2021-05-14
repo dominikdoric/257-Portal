@@ -94,6 +94,9 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_sportNavDrawer_to_menu_dodajNoviSport"
+            app:destination="@id/menu_dodajNoviSport" />
     </fragment>
     <fragment
         android:id="@+id/vijestiNavDrawer"
@@ -433,13 +436,6 @@
         android:name="Portal.fragmenti.fragmenti.AdminFragment"
         android:label="Admin"
         tools:layout="@layout/admin_fragment">
-        <action
-            android:id="@+id/action_admin_to_vijestiNavDrawer"
-            app:destination="@id/vijestiNavDrawer"
-            app:enterAnim="@anim/slide_in_left"
-            app:exitAnim="@anim/slide_out_right"
-            app:popEnterAnim="@anim/slide_in_right"
-            app:popExitAnim="@anim/slide_out_left"/>
     </fragment>
     <fragment
         android:id="@+id/kartaBottomNav"

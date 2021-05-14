@@ -23,11 +23,6 @@
         app:showAsAction="never"
         android:menuCategory="secondary"/>
     <item
-        android:id="@+id/menu_dodajNoviSport"
-        android:title="Dodaj novi sport"
-        app:showAsAction="never"
-        android:menuCategory="secondary"/>
-    <item
         android:id="@+id/menu_dodajNovuZabava"
         android:title="Dodaj novu zabavu"
         app:showAsAction="never"
