@@ -33,9 +33,15 @@ class DodajNovoPoljoprivreda: Fragment(R.layout.dodaj_novo_poljoprivreda_fragmen
             val naslov = binding.naslov.text.toString()
             val clanak = binding.clanak.text.toString()
             val poljoprivreda = PoljoprivredaTable(naslov, clanak)
-            savePerson(poljoprivreda)
-            val action = DodajNovoPoljoprivredaDirections.actionMenuDodajNovuPoljoprivreduToPoljoprivredaNavDrawer()
-            findNavController().navigate(action)
+            if (binding.naslov.text.isNullOrEmpty()){
+                binding.naslov.error = "Naslov ne može biti prazan!"
+            }else if (binding.clanak.text.isNullOrEmpty()){
+                binding.clanak.error = "Članak ne može biti prazan!"
+            }else{
+                savePerson(poljoprivreda)
+                val action = DodajNovoPoljoprivredaDirections.actionMenuDodajNovuPoljoprivreduToPoljoprivredaNavDrawer()
+                findNavController().navigate(action)
+            }
         }
     }
 

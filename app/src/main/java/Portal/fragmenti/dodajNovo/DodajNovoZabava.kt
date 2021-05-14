@@ -32,9 +32,15 @@ class DodajNovoZabava : Fragment(R.layout.dodaj_novo_zabava_fragment) {
             val naslov = binding.naslov.text.toString()
             val clanak = binding.clanak.text.toString()
             val zabava = ZabavaTable(naslov, clanak)
-            savePerson(zabava)
-            val action = DodajNovoZabavaDirections.actionMenuDodajNovuZabavaToZabavaNavDrawer()
-            findNavController().navigate(action)
+            if(binding.naslov.text.isNullOrEmpty()){
+                binding.naslov.error = "Naslov ne može biti prazan!"
+            }else if (binding.clanak.text.isNullOrEmpty()){
+                binding.clanak.error = "Članak ne može biti prazan!"
+            }else{
+                savePerson(zabava)
+                val action = DodajNovoZabavaDirections.actionMenuDodajNovuZabavaToZabavaNavDrawer()
+                findNavController().navigate(action)
+            }
         }
     }
 
