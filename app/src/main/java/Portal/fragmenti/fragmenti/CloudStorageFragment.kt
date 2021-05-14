@@ -46,7 +46,8 @@ class CloudStorageFragment: Fragment(R.layout.cloud_storage_firebase) {
         }
 
         binding.gumbObrisiSliku.setOnClickListener {
-            deleteImage("myImage")
+            val imeSlike = binding.editText.text.toString()
+            deleteImage(imeSlike)
         }
         listFiles()
     }

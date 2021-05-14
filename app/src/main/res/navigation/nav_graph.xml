@@ -22,10 +22,18 @@
         tools:layout="@layout/obavijesti_fragment">
         <action
             android:id="@+id/action_obavijestiNavDrawer_to_obavijestiDetail"
-            app:destination="@id/obavijestiDetail" />
+            app:destination="@id/obavijestiDetail"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_obavijestiNavDrawer_to_updateDeleteObavijesti"
-            app:destination="@id/updateDeleteObavijesti" />
+            app:destination="@id/updateDeleteObavijesti"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/oglasnikNavDrawer"
@@ -34,10 +42,18 @@
         tools:layout="@layout/oglasnik_fragment">
         <action
             android:id="@+id/action_oglasnikNavDrawer_to_detailOglasnik"
-            app:destination="@id/detailOglasnik" />
+            app:destination="@id/detailOglasnik"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_oglasnikNavDrawer_to_updateDeleteOglasnik"
-            app:destination="@id/updateDeleteOglasnik" />
+            app:destination="@id/updateDeleteOglasnik"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/priceCitateljaNavDrawer"
@@ -46,10 +62,18 @@
         tools:layout="@layout/price_citatelja_fragment">
         <action
             android:id="@+id/action_priceCitateljaNavDrawer_to_detailPriceCitatelja"
-            app:destination="@id/detailPriceCitatelja" />
+            app:destination="@id/detailPriceCitatelja"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_priceCitateljaNavDrawer_to_updateDeletePriceCitatelja"
-            app:destination="@id/updateDeletePriceCitatelja" />
+            app:destination="@id/updateDeletePriceCitatelja"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/sportNavDrawer"
