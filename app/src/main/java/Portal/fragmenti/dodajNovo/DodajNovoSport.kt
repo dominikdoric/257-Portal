@@ -38,6 +38,7 @@ class DodajNovoSport : Fragment(R.layout.dodaj_novo_sport_fragment) {
             val naslov = binding.naslov.text.toString()
             val clanak = binding.clanak.text.toString()
             val sport = SportTable(naslov, clanak)
+
             if (binding.naslov.text.isNullOrEmpty()) {
                 binding.naslov.error = "Naslov ne može biti prazan!"
             } else if (binding.clanak.text.isNullOrEmpty()) {

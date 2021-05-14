@@ -36,11 +36,24 @@ class DodajNovoOglasnik : Fragment(R.layout.dodaj_novo_oglasnik_fragment) {
             val lokacija = binding.lokacija.text.toString()
             val broj = binding.broj.text.toString()
             val oglasnik = OglasnikTable(clanak, naslov, cijena, lokacija, broj)
-            savePerson(oglasnik)
-            val action = DodajNovoOglasnikDirections.actionMenuDodajNoviOglasToOglasnikNavDrawer()
-            findNavController().navigate(action)
-        }
 
+            if (binding.naslov.text.isNullOrEmpty()){
+                binding.naslov.error = "Naslov ne može biti prazan!"
+            }else if (binding.cijena.text.isNullOrEmpty()){
+                binding.cijena.error = "Cijena ne može biti prazna!"
+            }else if (binding.lokacija.text.isNullOrEmpty()){
+                binding.lokacija.error = "Lokacija ne može biti prazna!"
+            }else if (binding.broj.text.isNullOrEmpty()){
+                binding.broj.error = "Broj ne može biti prazan!"
+            }else if(binding.clanak.text.isNullOrEmpty()){
+                binding.clanak.error = "Članak ne može biti prazan!"
+            }
+            else{
+                savePerson(oglasnik)
+                val action = DodajNovoOglasnikDirections.actionMenuDodajNoviOglasToOglasnikNavDrawer()
+                findNavController().navigate(action)
+            }
+        }
     }
 
     private fun savePerson(oglasnik: OglasnikTable) = CoroutineScope(Dispatchers.IO).launch {

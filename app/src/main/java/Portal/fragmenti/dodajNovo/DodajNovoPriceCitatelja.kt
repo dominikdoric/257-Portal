@@ -32,6 +32,7 @@ class DodajNovoPriceCitatelja : Fragment(R.layout.dodaj_novo_price_citatelja_fra
             val naslov = binding.naslov.text.toString()
             val clanak = binding.clanak.text.toString()
             val priceCitatelja = PriceCitateljaTable(naslov, clanak)
+
             if (binding.naslov.text.isNullOrEmpty()){
                 binding.naslov.error = "Naslov ne može biti prazan"
             }else if (binding.clanak.text.isNullOrEmpty()){

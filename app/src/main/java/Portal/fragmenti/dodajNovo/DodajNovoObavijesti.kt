@@ -32,9 +32,16 @@ class DodajNovoObavijesti : Fragment(R.layout.dodaj_novo_obavijesti_fragment) {
             val naslov = binding.naslov.text.toString()
             val clanak = binding.clanak.text.toString()
             val obavijest = ObavijestiTable(naslov, clanak)
-            savePerson(obavijest)
-            val action = DodajNovoObavijestiDirections.actionMenuDodajNovuObavijestToObavijestiNavDrawer()
-            findNavController().navigate(action)
+
+            if (binding.naslov.text.isNullOrEmpty()){
+                binding.naslov.error = "Naslov ne može biti prazan!"
+            }else if (binding.clanak.text.isNullOrEmpty()){
+                binding.clanak.error = "Članak ne može biti prazan!"
+            }else{
+                savePerson(obavijest)
+                val action = DodajNovoObavijestiDirections.actionMenuDodajNovuObavijestToObavijestiNavDrawer()
+                findNavController().navigate(action)
+            }
         }
     }
 
