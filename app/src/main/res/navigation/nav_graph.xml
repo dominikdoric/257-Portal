@@ -323,7 +323,11 @@
         tools:layout="@layout/update_delete_sport">
         <action
             android:id="@+id/action_updateDeleteSport_to_sportNavDrawer"
-            app:destination="@id/sportNavDrawer" />
+            app:destination="@id/sportNavDrawer"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
         <argument
             android:name="updateSportArgs"
             app:argType="Portal.model.SportTable" />
@@ -335,7 +339,11 @@
         tools:layout="@layout/update_delete_obavijesti">
         <action
             android:id="@+id/action_updateDeleteObavijesti_to_obavijestiNavDrawer"
-            app:destination="@id/obavijestiNavDrawer" />
+            app:destination="@id/obavijestiNavDrawer"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
         <argument
             android:name="updateObavijestiArgs"
             app:argType="Portal.model.ObavijestiTable" />
@@ -347,7 +355,11 @@
         tools:layout="@layout/update_delete_oglasnik">
         <action
             android:id="@+id/action_updateDeleteOglasnik_to_oglasnikNavDrawer"
-            app:destination="@id/oglasnikNavDrawer" />
+            app:destination="@id/oglasnikNavDrawer"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
         <argument
             android:name="updateOglasnikArgs"
             app:argType="Portal.model.OglasnikTable" />
@@ -359,7 +371,11 @@
         tools:layout="@layout/update_delete_poljoprivreda">
         <action
             android:id="@+id/action_updateDeletePoljoprivreda_to_poljoprivredaNavDrawer"
-            app:destination="@id/poljoprivredaNavDrawer" />
+            app:destination="@id/poljoprivredaNavDrawer"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
         <argument
             android:name="poljoprivredaUpdateArgs"
             app:argType="Portal.model.PoljoprivredaTable" />
@@ -371,7 +387,11 @@
         tools:layout="@layout/detail_price_citatelja">
         <action
             android:id="@+id/action_updateDeletePriceCitatelja_to_priceCitateljaNavDrawer"
-            app:destination="@id/priceCitateljaNavDrawer" />
+            app:destination="@id/priceCitateljaNavDrawer"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
         <argument
             android:name="updateCitateljeArgs"
             app:argType="Portal.model.PriceCitateljaTable" />
@@ -383,7 +403,11 @@
         tools:layout="@layout/update_delete_vijesti">
         <action
             android:id="@+id/action_updateDeleteVijesti_to_vijestiNavDrawer"
-            app:destination="@id/vijestiNavDrawer" />
+            app:destination="@id/vijestiNavDrawer"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
         <argument
             android:name="updateVijestiArgs"
             app:argType="Portal.model.VijestiTable" />
@@ -395,7 +419,11 @@
         tools:layout="@layout/update_delete_zabava">
         <action
             android:id="@+id/action_updateDeleteZabava_to_zabavaNavDrawer"
-            app:destination="@id/zabavaNavDrawer" />
+            app:destination="@id/zabavaNavDrawer"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
         <argument
             android:name="updateZabavaArgs"
             app:argType="Portal.model.ZabavaTable" />
@@ -407,7 +435,11 @@
         tools:layout="@layout/admin_fragment">
         <action
             android:id="@+id/action_admin_to_vijestiNavDrawer"
-            app:destination="@id/vijestiNavDrawer" />
+            app:destination="@id/vijestiNavDrawer"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
     </fragment>
     <fragment
         android:id="@+id/kartaBottomNav"
