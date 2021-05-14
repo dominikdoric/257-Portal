@@ -148,7 +148,11 @@
         tools:layout="@layout/dodaj_novo_vijesti_fragment">
         <action
             android:id="@+id/action_menu_dodajNovuVijest_to_vijestiNavDrawer"
-            app:destination="@id/vijestiNavDrawer" />
+            app:destination="@id/vijestiNavDrawer"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
     </fragment>
     <fragment
         android:id="@+id/menu_dodajNovuObavijest"
@@ -157,7 +161,11 @@
         tools:layout="@layout/dodaj_novo_obavijesti_fragment">
         <action
             android:id="@+id/action_menu_dodajNovuObavijest_to_obavijestiNavDrawer"
-            app:destination="@id/obavijestiNavDrawer" />
+            app:destination="@id/obavijestiNavDrawer"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
     </fragment>
     <fragment
         android:id="@+id/menu_dodajNovuZabava"
@@ -166,7 +174,11 @@
         tools:layout="@layout/dodaj_novo_zabava_fragment">
         <action
             android:id="@+id/action_menu_dodajNovuZabava_to_zabavaNavDrawer"
-            app:destination="@id/zabavaNavDrawer" />
+            app:destination="@id/zabavaNavDrawer"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
     </fragment>
     <fragment
         android:id="@+id/menu_dodajNoviOglas"
@@ -175,7 +187,11 @@
         tools:layout="@layout/dodaj_novo_oglasnik_fragment">
         <action
             android:id="@+id/action_menu_dodajNoviOglas_to_oglasnikNavDrawer"
-            app:destination="@id/oglasnikNavDrawer" />
+            app:destination="@id/oglasnikNavDrawer"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
     </fragment>
 
     <fragment
@@ -185,7 +201,11 @@
         tools:layout="@layout/dodaj_novo_price_citatelja_fragment">
         <action
             android:id="@+id/action_menu_dodajNovuPricuCitatelja_to_priceCitateljaNavDrawer"
-            app:destination="@id/priceCitateljaNavDrawer" />
+            app:destination="@id/priceCitateljaNavDrawer"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
     </fragment>
     <fragment
         android:id="@+id/menu_dodajNovuPoljoprivredu"
@@ -194,7 +214,11 @@
         tools:layout="@layout/dodaj_novo_poljoprivreda_fragment">
         <action
             android:id="@+id/action_menu_dodajNovuPoljoprivredu_to_poljoprivredaNavDrawer"
-            app:destination="@id/poljoprivredaNavDrawer" />
+            app:destination="@id/poljoprivredaNavDrawer"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
     </fragment>
     <fragment
         android:id="@+id/poljoprivredaNavDrawer"
@@ -223,7 +247,11 @@
         tools:layout="@layout/dodaj_novo_sport_fragment">
         <action
             android:id="@+id/action_menu_dodajNoviSport_to_sportNavDrawer"
-            app:destination="@id/sportNavDrawer" />
+            app:destination="@id/sportNavDrawer"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
     </fragment>
     <fragment
         android:id="@+id/detailSport"
