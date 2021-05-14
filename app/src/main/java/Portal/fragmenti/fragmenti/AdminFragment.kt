@@ -42,6 +42,11 @@ class AdminFragment: Fragment(R.layout.admin_fragment) {
     private fun registerUser(){
         val email = binding.email.text.toString()
         val lozinka = binding.lozinka.text.toString()
+        if (email.isNullOrEmpty()){
+            binding.email.error = "Email je obavezan!"
+        }else if (lozinka.isNullOrEmpty()){
+            binding.lozinka.error = "Lozinka je obavezna"
+        }
         if (email.isNotEmpty() && lozinka.isNotEmpty()){
             CoroutineScope(Dispatchers.IO).launch {
                 try {
