@@ -485,9 +485,9 @@
     </fragment>
     <fragment
         android:id="@+id/kartaBottomNav"
-        android:name="Portal.fragmenti.fragmenti.KartaFragment"
-        android:label="Karta"
-        tools:layout="@layout/karta_fragment"/>
+        android:name="Portal.fragmenti.fragmenti.VrijemePokusFragment"
+        android:label="Vrijeme pokus"
+        tools:layout="@layout/vrijeme_pokus_fragment"/>
     <fragment
         android:id="@+id/cloudStorage"
         android:name="Portal.fragmenti.fragmenti.CloudStorageFragment"

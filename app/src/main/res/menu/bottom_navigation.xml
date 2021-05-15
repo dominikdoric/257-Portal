@@ -16,8 +16,7 @@
         android:icon="@drawable/ic_email"/>
     <item
         android:id="@+id/kartaBottomNav"
-        android:title="Karta"
+        android:title="Vrijeme pokus"
         android:icon="@drawable/ic_email"/>
-
 
 </menu>
