@@ -8,6 +8,11 @@
         app:showAsAction="never"
         android:menuCategory="secondary"/>
     <item
+        android:id="@+id/postavke"
+        android:title="Postavke"
+        app:showAsAction="never"
+        android:menuCategory="secondary"/>
+    <item
         android:id="@+id/cloudStorage"
         android:title="Cloud Storage"
         app:showAsAction="never"

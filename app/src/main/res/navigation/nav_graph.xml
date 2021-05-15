@@ -493,4 +493,9 @@
         android:name="Portal.fragmenti.fragmenti.CloudStorageFragment"
         android:label="CloudStorageFragment"
         tools:layout="@layout/cloud_storage_firebase"/>
+    <fragment
+        android:id="@+id/postavke"
+        android:name="Portal.fragmenti.fragmenti.PostavkeFragment"
+        android:label="PostavkeFragment"
+        tools:layout="@layout/postavke_fragment"/>
 </navigation>
