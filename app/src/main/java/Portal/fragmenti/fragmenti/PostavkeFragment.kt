@@ -14,5 +14,4 @@ class PostavkeFragment: Fragment(R.layout.postavke_fragment) {
         super.onViewCreated(view, savedInstanceState)
         binding = PostavkeFragmentBinding.bind(view)
     }
-
 }
