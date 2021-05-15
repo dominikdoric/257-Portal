@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="150dp"
-    android:id="@+id/cardViewSport"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardElevation="2dp"
-    app:cardCornerRadius="2dp"
+    android:id="@+id/cardViewVijesti"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp"
     app:cardPreventCornerOverlap="true"
     app:cardUseCompatPadding="true">
 
@@ -17,32 +16,29 @@
 
         <ImageView
             android:id="@+id/slika"
-            android:layout_width="150dp"
+            android:layout_width="match_parent"
             android:layout_height="130dp"
-            android:layout_alignParentStart="true"
             android:scaleType="centerCrop"
             android:src="@drawable/jaksic" />
 
         <TextView
             android:id="@+id/naslov"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/slika"
-            android:layout_marginTop="5dp"
+            android:layout_below="@+id/slika"
             android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="5dp"
             android:text="@string/zabava"
-            android:textStyle="bold"
             android:textColor="#000"
-            android:textSize="18sp" />
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/slika"
-            android:layout_marginBottom="5dp"
-            android:layout_marginStart="5dp"
-            android:layout_alignParentBottom="true"
+            android:layout_below="@id/naslov"
+            android:layout_marginLeft="5dp"
             android:orientation="horizontal">
 
             <TextView
@@ -50,29 +46,27 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Objavljeno:"
-                android:textSize="12dp"
-                android:textColor="#000"/>
+                android:textColor="#000"
+                android:textSize="15dp" />
 
             <TextView
                 android:id="@+id/vrijeme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"
                 android:text="Prije 1 h"
                 android:textColor="#000"
-                android:textSize="12dp" />
+                android:textSize="15dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text=" h"
-                android:textSize="12dp"
-                android:textColor="#000"/>
+                android:textColor="#000"
+                android:textSize="15dp" />
         </LinearLayout>
-
     </RelativeLayout>
-
 </androidx.cardview.widget.CardView>
