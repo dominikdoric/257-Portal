@@ -1,31 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="Ovdje možete navesti sve greške i nedostatke koje aplikacija ima!"
+        android:textColor="#000"
+        android:textSize="22dp" />
 
     <EditText
         android:id="@+id/editTextKontakt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:hint="Poruka"
-        android:gravity="top"/>
-    <Spinner
-        android:id="@+id/spinnerKontakt"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:entries="@array/spinnerItems"/>
+        android:layout_marginTop="30dp"
+        android:gravity="top"
+        android:hint="Poruka" />
+
     <Button
         android:id="@+id/gumbPošaljiKontakt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="150dp"
         android:layout_gravity="center_horizontal"
-        android:text="Pošalji"/>
+        android:layout_marginTop="30dp"
+        android:text="Pošalji" />
 
 </LinearLayout>
