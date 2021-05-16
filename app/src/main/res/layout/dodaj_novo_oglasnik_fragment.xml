@@ -1,45 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="20dp">
 
     <EditText
         android:id="@+id/naslov"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="Naslov"/>
+        android:hint="Naslov" />
+
     <EditText
         android:id="@+id/cijena"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Cijena"/>
+        android:hint="Cijena" />
+
     <EditText
         android:id="@+id/lokacija"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Lokacija"/>
+        android:hint="Lokacija" />
+
     <EditText
         android:id="@+id/broj"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        android:hint="Broj"/>
+        android:hint="Broj"
+        android:inputType="number" />
+
     <EditText
         android:id="@+id/clanak"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="bottom"
-        android:hint="Clanak"/>
+        android:hint="Clanak" />
+
     <Button
         android:id="@+id/gumbSpremiOglasnik"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="end"
         android:layout_margin="10dp"
-        android:text="Spremi"
-        android:layout_gravity="end"/>
+        android:text="Spremi" />
 
 </LinearLayout>
