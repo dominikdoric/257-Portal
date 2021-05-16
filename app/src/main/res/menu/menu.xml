@@ -20,7 +20,8 @@
     <item
         android:id="@+id/pretraži"
         android:title="Pretraži"
-        app:showAsAction="ifRoom"
+        app:showAsAction="ifRoom|collapseActionView"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
         android:icon="@drawable/ic_search"
         android:menuCategory="secondary"/>
 
