@@ -39,4 +39,5 @@
             android:textColor="#000"
             android:textSize="24dp" />
     </ScrollView>
+
 </LinearLayout>
