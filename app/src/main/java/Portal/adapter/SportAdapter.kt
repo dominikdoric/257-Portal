@@ -1,28 +1,17 @@
 package Portal.adapter
 
 import Portal.a257.databinding.JedanRedSportBinding
-import Portal.fragmenti.fragmenti.SportFragment
 import Portal.fragmenti.fragmenti.SportFragmentDirections
 import Portal.model.SportTable
 import android.annotation.SuppressLint
-import android.app.Activity
-import android.content.Context
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
-import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
-import java.net.URL
-import java.sql.Types.TIMESTAMP
 import java.text.SimpleDateFormat
 import java.util.*
 

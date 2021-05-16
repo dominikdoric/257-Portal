@@ -40,12 +40,4 @@
             android:textSize="24dp" />
     </ScrollView>
 
-    <ImageView
-        android:id="@+id/storageSlika"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_marginTop="40dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/jaksic" />
-
 </LinearLayout>
