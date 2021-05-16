@@ -15,15 +15,10 @@ class DetailSport: Fragment(R.layout.detail_sport) {
 
     private lateinit var binding:DetailSportBinding
     private val args by navArgs<DetailSportArgs>()
-    private lateinit var storage: FirebaseStorage
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = DetailSportBinding.bind(view)
-        storage = Firebase.storage
-        val storageRef = storage.reference
-        var imagesRef: StorageReference? = storageRef.child("images")
-        var spaceRef = storageRef.child("images/myImage.jpg")
 
         binding.naslov.text = args.sportArgs.naslov
         binding.clanak.text = args.sportArgs.clanak

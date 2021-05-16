@@ -17,5 +17,11 @@
         android:title="Cloud Storage"
         app:showAsAction="never"
         android:menuCategory="secondary"/>
+    <item
+        android:id="@+id/pretraži"
+        android:title="Pretraži"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_search"
+        android:menuCategory="secondary"/>
 
 </menu>

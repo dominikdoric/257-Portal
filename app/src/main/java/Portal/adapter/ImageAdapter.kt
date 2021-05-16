@@ -8,9 +8,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-class ImageAdapter(
-    private val urls: List<String>
-) : RecyclerView.Adapter<ImageAdapter.ImageViewHolder>() {
+class ImageAdapter(private val urls: List<String>) : RecyclerView.Adapter<ImageAdapter.ImageViewHolder>() {
+
     inner class ImageViewHolder(val binding: JedanRedImageBinding) :
         RecyclerView.ViewHolder(binding.root)
 
