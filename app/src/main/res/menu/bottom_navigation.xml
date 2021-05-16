@@ -3,20 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/vrijemeBottomNav"
-        android:title="Vrijeme"
-        android:icon="@drawable/ic_email"/>
-    <item
         android:id="@+id/infoBottomNav"
         android:title="Info"
         android:icon="@drawable/ic_email"/>
     <item
         android:id="@+id/kontaktBottomNav"
         android:title="Kontakt"
-        android:icon="@drawable/ic_email"/>
-    <item
-        android:id="@+id/kartaBottomNav"
-        android:title="Vrijeme pokus"
         android:icon="@drawable/ic_email"/>
 
 </menu>
