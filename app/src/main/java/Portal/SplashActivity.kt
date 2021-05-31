@@ -2,11 +2,16 @@ package Portal
 
 import Portal.a257.R
 import Portal.a257.databinding.ActivitySplashBinding
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.WindowInsets
 import android.view.WindowManager
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 
 class SplashActivity : AppCompatActivity() {
 
@@ -26,5 +31,23 @@ class SplashActivity : AppCompatActivity() {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN
             )
         }
+        val splashAnimation = AnimationUtils.loadAnimation(this,R.anim.anim_splash)
+        binding.splashScreenTextView.animation = splashAnimation
+        splashAnimation.setAnimationListener(object: Animation.AnimationListener{
+            override fun onAnimationStart(animation: Animation?) {
+
+            }
+
+            override fun onAnimationEnd(animation: Animation?) {
+                Handler(Looper.getMainLooper()).postDelayed({
+                    startActivity(Intent(this@SplashActivity,MainActivity::class.java))
+                    finish()
+                },1000)
+            }
+
+            override fun onAnimationRepeat(animation: Animation?) {
+
+            }
+        })
     }
 }
