@@ -8,13 +8,15 @@
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/pullFilingTimelog"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:ignore="MissingClass">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewSport"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:overScrollMode="never">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
 
         </androidx.recyclerview.widget.RecyclerView>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
@@ -30,5 +32,6 @@
         android:backgroundTint="@color/green_500"
         android:contentDescription="Add"
         app:srcCompat="@drawable/ic_add"
-        app:tint="#FFFFFF" />
+        app:tint="#FFFFFF"
+        tools:ignore="MissingClass" />
 </RelativeLayout>
