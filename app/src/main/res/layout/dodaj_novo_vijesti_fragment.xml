@@ -3,18 +3,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="30dp">
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/frameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="250dp">
+
+            <ImageView
+                android:id="@+id/imageViewVijesti"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/jaksic" />
+
+            <ImageView
+                android:id="@+id/addImageVijesti"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:layout_margin="10dp"
+                android:src="@drawable/ic_photo" />
+
+        </FrameLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/naslovTextInputLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_below="@id/frameLayout"
+            android:layout_margin="10dp">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <EditText
                 android:id="@+id/naslov"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -22,23 +46,28 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/clanakTextInputLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="200dp"
+            android:layout_below="@id/naslovTextInputLayout"
+            android:layout_margin="10dp">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <EditText
                 android:id="@+id/clanak"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="190dp"
                 android:hint="Clanak" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/gumbSpremiVijest"
+            android:id="@+id/gumbSpremiVijesti"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/clanakTextInputLayout"
+            android:layout_centerHorizontal="true"
             android:text="Spremi" />
 
-    </LinearLayout>
+    </RelativeLayout>
 </ScrollView>
