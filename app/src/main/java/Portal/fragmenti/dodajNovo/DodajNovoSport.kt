@@ -4,6 +4,8 @@ import Portal.a257.R
 import Portal.a257.databinding.DialogCustomImageSelectionBinding
 import Portal.a257.databinding.DodajNovoSportFragmentBinding
 import Portal.model.SportTable
+import android.Manifest
+import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Bundle
 import android.view.View
@@ -12,6 +14,11 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.karumi.dexter.Dexter
+import com.karumi.dexter.MultiplePermissionsReport
+import com.karumi.dexter.PermissionToken
+import com.karumi.dexter.listener.PermissionRequest
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -61,8 +68,8 @@ class DodajNovoSport : Fragment(R.layout.dodaj_novo_sport_fragment), View.OnClic
     }
 
     override fun onClick(v: View?) {
-        if (v != null){
-            when(v.id){
+        if (v != null) {
+            when (v.id) {
                 R.id.addImageSport -> {
                     customImageSelectionDialog()
                     return
@@ -71,17 +78,40 @@ class DodajNovoSport : Fragment(R.layout.dodaj_novo_sport_fragment), View.OnClic
         }
     }
 
-    private fun customImageSelectionDialog(){
+    private fun customImageSelectionDialog() {
         val dialog = Dialog(requireContext())
         val binding: DialogCustomImageSelectionBinding =
             DialogCustomImageSelectionBinding.inflate(layoutInflater)
 
         binding.tvCamera.setOnClickListener {
-            Toast.makeText(requireContext(),"Camera clicked",Toast.LENGTH_LONG).show()
+
+            Dexter.withContext(requireContext()).withPermissions(
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.CAMERA
+            ).withListener(object : MultiplePermissionsListener {
+                override fun onPermissionsChecked(report: MultiplePermissionsReport?) {
+                    if (report!!.areAllPermissionsGranted()) {
+                        Toast.makeText(
+                            requireContext(), "You have camera permission now",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                }
+
+                override fun onPermissionRationaleShouldBeShown(
+                    permissions: MutableList<PermissionRequest>?,
+                    token: PermissionToken?
+                ) {
+                    //Show Alert Dialog
+                }})
+                .onSameThread()
+                .check()
+
             dialog.dismiss()
         }
         binding.tvGallery.setOnClickListener {
-            Toast.makeText(requireContext(),"Gallery clicked",Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), "Gallery clicked", Toast.LENGTH_LONG).show()
             dialog.dismiss()
         }
 
@@ -89,4 +119,14 @@ class DodajNovoSport : Fragment(R.layout.dodaj_novo_sport_fragment), View.OnClic
         dialog.show()
     }
 
+    private fun showRationaleDialogForPermissions(){
+        AlertDialog.Builder(requireContext())
+            .setMessage("Izgleda da ste isključili dozvolu potrebnu za ovaj dio. Ona ponovno" +
+                    " može biti omogućena u postavkama aplikacije")
+            .setPositiveButton("Go to settings"){_,_ ->
+                try {
+
+                }
+            }
+    }
 }
