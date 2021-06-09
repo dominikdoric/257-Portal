@@ -43,8 +43,9 @@ class DodajNovoSport : Fragment(R.layout.dodaj_novo_sport_fragment), View.OnClic
     private val personCollectionRef = Firebase.firestore.collection("sport")
     private lateinit var binding: DodajNovoSportFragmentBinding
 
-    companion object{
+    companion object {
         private const val CAMERA = 1
+        private const val GALLERY = 2
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -110,7 +111,7 @@ class DodajNovoSport : Fragment(R.layout.dodaj_novo_sport_fragment), View.OnClic
                     report?.let {
                         if (report.areAllPermissionsGranted()) {
                             val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-                            startActivityForResult(intent,CAMERA)
+                            startActivityForResult(intent, CAMERA)
                         }
                     }
                 }
@@ -120,7 +121,8 @@ class DodajNovoSport : Fragment(R.layout.dodaj_novo_sport_fragment), View.OnClic
                     token: PermissionToken?
                 ) {
                     showRationaleDialogForPermissions()
-                }})
+                }
+            })
                 .onSameThread()
                 .check()
 
@@ -132,10 +134,11 @@ class DodajNovoSport : Fragment(R.layout.dodaj_novo_sport_fragment), View.OnClic
                 Manifest.permission.READ_EXTERNAL_STORAGE
             ).withListener(object : PermissionListener {
                 override fun onPermissionGranted(p0: PermissionGrantedResponse?) {
-                    Toast.makeText(
-                        requireContext(), "You have gallery permission now",
-                        Toast.LENGTH_LONG
-                    ).show()
+                    val galleryIntent = Intent(
+                        Intent.ACTION_PICK,
+                        MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+                    )
+                    startActivityForResult(galleryIntent, GALLERY)
                 }
 
                 override fun onPermissionDenied(p0: PermissionDeniedResponse?) {
@@ -147,7 +150,8 @@ class DodajNovoSport : Fragment(R.layout.dodaj_novo_sport_fragment), View.OnClic
 
                 override fun onPermissionRationaleShouldBeShown(
                     p0: PermissionRequest?,
-                    p1: PermissionToken?) {
+                    p1: PermissionToken?
+                ) {
                     showRationaleDialogForPermissions()
                 }
             })
@@ -164,14 +168,32 @@ class DodajNovoSport : Fragment(R.layout.dodaj_novo_sport_fragment), View.OnClic
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK){
-            if (requestCode == CAMERA){
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == CAMERA) {
                 data?.let {
-                    val thumbnail: Bitmap = data.extras!!.get("data") as Bitmap
+                    val thumbnail: Bitmap = data.extras?.get("data") as Bitmap
                     binding.imageViewSport.setImageBitmap(thumbnail)
 
-                    binding.addImageSport.setImageDrawable(ContextCompat.getDrawable(requireContext(),R.drawable.ic_edit))
+                    binding.addImageSport.setImageDrawable(
+                        ContextCompat.getDrawable(
+                            requireContext(),
+                            R.drawable.ic_edit
+                        )
+                    )
                 }
+            }
+        }
+        if (requestCode == GALLERY) {
+            data?.let {
+                val selectedPhotoUri = data.data
+                binding.imageViewSport.setImageURI(selectedPhotoUri)
+
+                binding.addImageSport.setImageDrawable(
+                    ContextCompat.getDrawable(
+                        requireContext(),
+                        R.drawable.ic_edit
+                    )
+                )
             }
         }
     }
@@ -180,7 +202,8 @@ class DodajNovoSport : Fragment(R.layout.dodaj_novo_sport_fragment), View.OnClic
         AlertDialog.Builder(requireContext())
             .setMessage(
                 "Izgleda da ste isključili dozvolu potrebnu za ovaj dio. Ona ponovno" +
-                        " može biti omogućena u postavkama aplikacije")
+                        " može biti omogućena u postavkama aplikacije"
+            )
             .setPositiveButton("Go to settings") { _, _ ->
                 try {
                     val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
@@ -191,7 +214,7 @@ class DodajNovoSport : Fragment(R.layout.dodaj_novo_sport_fragment), View.OnClic
                     e.printStackTrace()
                 }
             }
-            .setNegativeButton("Cancel"){dialog,_ ->
+            .setNegativeButton("Cancel") { dialog, _ ->
                 dialog.dismiss()
             }.show()
     }
