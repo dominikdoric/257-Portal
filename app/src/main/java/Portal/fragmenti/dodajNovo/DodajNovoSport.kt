@@ -1,8 +1,10 @@
 package Portal.fragmenti.dodajNovo
 
 import Portal.a257.R
+import Portal.a257.databinding.DialogCustomImageSelectionBinding
 import Portal.a257.databinding.DodajNovoSportFragmentBinding
 import Portal.model.SportTable
+import android.app.Dialog
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -62,11 +64,29 @@ class DodajNovoSport : Fragment(R.layout.dodaj_novo_sport_fragment), View.OnClic
         if (v != null){
             when(v.id){
                 R.id.addImageSport -> {
-                    Toast.makeText(requireContext(),"Button clicked",Toast.LENGTH_LONG).show()
+                    customImageSelectionDialog()
                     return
                 }
             }
         }
+    }
+
+    private fun customImageSelectionDialog(){
+        val dialog = Dialog(requireContext())
+        val binding: DialogCustomImageSelectionBinding =
+            DialogCustomImageSelectionBinding.inflate(layoutInflater)
+
+        binding.tvCamera.setOnClickListener {
+            Toast.makeText(requireContext(),"Camera clicked",Toast.LENGTH_LONG).show()
+            dialog.dismiss()
+        }
+        binding.tvGallery.setOnClickListener {
+            Toast.makeText(requireContext(),"Gallery clicked",Toast.LENGTH_LONG).show()
+            dialog.dismiss()
+        }
+
+        dialog.setContentView(binding.root)
+        dialog.show()
     }
 
 }

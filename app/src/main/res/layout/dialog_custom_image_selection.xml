@@ -16,24 +16,23 @@
         android:textSize="24dp" />
 
     <TextView
-        android:id="@+id/textViewCamera"
+        android:id="@+id/tvCamera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/textViewDialog"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="100dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="20dp"
         app:drawableTopCompat="@drawable/ic_photo_camera" />
 
     <TextView
-        android:id="@+id/textViewGallery"
+        android:id="@+id/tvGallery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/textViewDialog"
-        android:layout_alignParentEnd="true"
         android:layout_marginTop="20dp"
-        android:layout_marginRight="100sp"
+        android:layout_toEndOf="@id/tvCamera"
+        android:layout_marginStart="80dp"
         app:drawableTopCompat="@drawable/ic_gallery" />
-
 
 </RelativeLayout>
