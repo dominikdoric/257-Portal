@@ -53,6 +53,8 @@ class DodajNovoVijesti : Fragment(R.layout.dodaj_novo_vijesti_fragment), View.On
         super.onViewCreated(view, savedInstanceState)
         binding = DodajNovoVijestiFragmentBinding.bind(view)
 
+        binding.addImageVijesti.setOnClickListener(this)
+
         binding.gumbSpremiVijesti.setOnClickListener {
             val naslov = binding.naslov.text.toString()
             val clanak = binding.clanak.text.toString()
