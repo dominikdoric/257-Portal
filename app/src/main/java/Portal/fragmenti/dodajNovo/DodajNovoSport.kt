@@ -3,17 +3,9 @@ package Portal.fragmenti.dodajNovo
 import Portal.a257.R
 import Portal.a257.databinding.DodajNovoSportFragmentBinding
 import Portal.model.SportTable
-import android.Manifest
-import android.app.Activity
-import android.content.Intent
-import android.content.pm.PackageManager
-import android.graphics.Bitmap
-import android.os.Build
 import android.os.Bundle
-import android.provider.MediaStore
 import android.view.View
 import android.widget.Toast
-import androidx.core.content.ContextCompat.checkSelfPermission
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.firestore.ktx.firestore
@@ -25,7 +17,7 @@ import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import java.lang.Exception
 
-class DodajNovoSport : Fragment(R.layout.dodaj_novo_sport_fragment) {
+class DodajNovoSport : Fragment(R.layout.dodaj_novo_sport_fragment), View.OnClickListener {
 
     private val personCollectionRef = Firebase.firestore.collection("sport")
     private lateinit var binding: DodajNovoSportFragmentBinding
@@ -33,6 +25,8 @@ class DodajNovoSport : Fragment(R.layout.dodaj_novo_sport_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = DodajNovoSportFragmentBinding.bind(view)
+
+        binding.addImageSport.setOnClickListener(this)
 
         binding.gumbSpremiSport.setOnClickListener {
             val naslov = binding.naslov.text.toString()
@@ -60,6 +54,17 @@ class DodajNovoSport : Fragment(R.layout.dodaj_novo_sport_fragment) {
         } catch (e: Exception) {
             withContext(Dispatchers.Main) {
                 Toast.makeText(requireContext(), e.message, Toast.LENGTH_LONG).show()
+            }
+        }
+    }
+
+    override fun onClick(v: View?) {
+        if (v != null){
+            when(v.id){
+                R.id.addImageSport -> {
+                    Toast.makeText(requireContext(),"Button clicked",Toast.LENGTH_LONG).show()
+                    return
+                }
             }
         }
     }

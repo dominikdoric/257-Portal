@@ -14,12 +14,14 @@
             android:layout_height="250dp">
 
             <ImageView
+                android:id="@+id/imageViewSport"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
                 android:src="@drawable/jaksic" />
 
             <ImageView
+                android:id="@+id/addImageSport"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end|bottom"
@@ -36,7 +38,7 @@
             android:layout_below="@id/frameLayout"
             android:layout_margin="10dp">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <EditText
                 android:id="@+id/naslov"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -47,14 +49,14 @@
             android:id="@+id/clanakTextInputLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
             android:layout_below="@id/naslovTextInputLayout"
             android:layout_margin="10dp">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <EditText
                 android:id="@+id/clanak"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="190dp"
                 android:hint="Clanak" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -62,6 +64,7 @@
             android:id="@+id/gumbSpremiSport"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_below="@id/clanakTextInputLayout"
             android:layout_centerHorizontal="true"
             android:text="Spremi" />
