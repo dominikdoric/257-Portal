@@ -5,16 +5,19 @@ import Portal.a257.databinding.DialogCustomImageSelectionBinding
 import Portal.a257.databinding.DodajNovoSportFragmentBinding
 import Portal.model.SportTable
 import android.Manifest
+import android.app.Activity
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.provider.Settings
 import android.view.View
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.firestore.ktx.firestore
@@ -157,6 +160,20 @@ class DodajNovoSport : Fragment(R.layout.dodaj_novo_sport_fragment), View.OnClic
 
         dialog.setContentView(binding.root)
         dialog.show()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK){
+            if (requestCode == CAMERA){
+                data?.let {
+                    val thumbnail: Bitmap = data.extras!!.get("data") as Bitmap
+                    binding.imageViewSport.setImageBitmap(thumbnail)
+
+                    binding.addImageSport.setImageDrawable(ContextCompat.getDrawable(requireContext(),R.drawable.ic_edit))
+                }
+            }
+        }
     }
 
     private fun showRationaleDialogForPermissions() {
