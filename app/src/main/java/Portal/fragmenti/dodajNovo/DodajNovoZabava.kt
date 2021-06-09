@@ -3,7 +3,12 @@ package Portal.fragmenti.dodajNovo
 import Portal.a257.R
 import Portal.a257.databinding.DodajNovoZabavaFragmentBinding
 import Portal.model.ZabavaTable
+import android.app.AlertDialog
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.provider.Settings
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -19,7 +24,7 @@ import kotlinx.coroutines.withContext
 import java.lang.Exception
 import java.lang.StringBuilder
 
-class DodajNovoZabava : Fragment(R.layout.dodaj_novo_zabava_fragment) {
+class DodajNovoZabava : Fragment(R.layout.dodaj_novo_zabava_fragment), View.OnClickListener {
 
     private val personCollectionRef = Firebase.firestore.collection("zabava")
     private lateinit var binding: DodajNovoZabavaFragmentBinding
@@ -28,7 +33,7 @@ class DodajNovoZabava : Fragment(R.layout.dodaj_novo_zabava_fragment) {
         super.onViewCreated(view, savedInstanceState)
         binding = DodajNovoZabavaFragmentBinding.bind(view)
 
-        binding.gumbSpremiZabavu.setOnClickListener {
+        binding.gumbSpremiZabava.setOnClickListener {
             val naslov = binding.naslov.text.toString()
             val clanak = binding.clanak.text.toString()
             val zabava = ZabavaTable(naslov, clanak)
@@ -57,4 +62,37 @@ class DodajNovoZabava : Fragment(R.layout.dodaj_novo_zabava_fragment) {
             }
         }
     }
+
+    override fun onClick(v: View?) {
+        if (v != null) {
+            when (v.id) {
+                R.id.addImageZabava -> {
+                    customImageSelectionDialog()
+                    return
+                }
+            }
+        }
+    }
+
+    private fun showRationaleDialogForPermissions() {
+        AlertDialog.Builder(requireContext())
+            .setMessage(
+                "Izgleda da ste isključili dozvolu potrebnu za ovaj dio. Ona ponovno" +
+                        " može biti omogućena u postavkama aplikacije"
+            )
+            .setPositiveButton("Go to settings") { _, _ ->
+                try {
+                    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                    val uri = Uri.fromParts("package", "packageName", null)
+                    intent.data = uri
+                    startActivity(intent)
+                } catch (e: ActivityNotFoundException) {
+                    e.printStackTrace()
+                }
+            }
+            .setNegativeButton("Cancel") { dialog, _ ->
+                dialog.dismiss()
+            }.show()
+    }
+
 }
