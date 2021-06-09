@@ -7,7 +7,12 @@ import Portal.model.SportTable
 import android.Manifest
 import android.app.AlertDialog
 import android.app.Dialog
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
+import android.provider.Settings
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -17,19 +22,27 @@ import com.google.firebase.ktx.Firebase
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
+import com.karumi.dexter.listener.PermissionDeniedResponse
+import com.karumi.dexter.listener.PermissionGrantedResponse
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
+import com.karumi.dexter.listener.single.PermissionListener
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import java.lang.Exception
+import java.net.URI
 
 class DodajNovoSport : Fragment(R.layout.dodaj_novo_sport_fragment), View.OnClickListener {
 
     private val personCollectionRef = Firebase.firestore.collection("sport")
     private lateinit var binding: DodajNovoSportFragmentBinding
+
+    companion object{
+        private const val CAMERA = 1
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -87,15 +100,15 @@ class DodajNovoSport : Fragment(R.layout.dodaj_novo_sport_fragment), View.OnClic
 
             Dexter.withContext(requireContext()).withPermissions(
                 Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                //Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.CAMERA
             ).withListener(object : MultiplePermissionsListener {
                 override fun onPermissionsChecked(report: MultiplePermissionsReport?) {
-                    if (report!!.areAllPermissionsGranted()) {
-                        Toast.makeText(
-                            requireContext(), "You have camera permission now",
-                            Toast.LENGTH_LONG
-                        ).show()
+                    report?.let {
+                        if (report.areAllPermissionsGranted()) {
+                            val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+                            startActivityForResult(intent,CAMERA)
+                        }
                     }
                 }
 
@@ -103,15 +116,42 @@ class DodajNovoSport : Fragment(R.layout.dodaj_novo_sport_fragment), View.OnClic
                     permissions: MutableList<PermissionRequest>?,
                     token: PermissionToken?
                 ) {
-                    //Show Alert Dialog
+                    showRationaleDialogForPermissions()
                 }})
                 .onSameThread()
                 .check()
 
             dialog.dismiss()
         }
+
         binding.tvGallery.setOnClickListener {
-            Toast.makeText(requireContext(), "Gallery clicked", Toast.LENGTH_LONG).show()
+            Dexter.withContext(requireContext()).withPermission(
+                Manifest.permission.READ_EXTERNAL_STORAGE
+            ).withListener(object : PermissionListener {
+                override fun onPermissionGranted(p0: PermissionGrantedResponse?) {
+                    Toast.makeText(
+                        requireContext(), "You have gallery permission now",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+
+                override fun onPermissionDenied(p0: PermissionDeniedResponse?) {
+                    Toast.makeText(
+                        requireContext(), "You have denied storage permission",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+
+                override fun onPermissionRationaleShouldBeShown(
+                    p0: PermissionRequest?,
+                    p1: PermissionToken?) {
+                    showRationaleDialogForPermissions()
+                }
+            })
+                .onSameThread()
+                .check()
+
+            dialog.dismiss()
             dialog.dismiss()
         }
 
@@ -119,14 +159,23 @@ class DodajNovoSport : Fragment(R.layout.dodaj_novo_sport_fragment), View.OnClic
         dialog.show()
     }
 
-    private fun showRationaleDialogForPermissions(){
+    private fun showRationaleDialogForPermissions() {
         AlertDialog.Builder(requireContext())
-            .setMessage("Izgleda da ste isključili dozvolu potrebnu za ovaj dio. Ona ponovno" +
-                    " može biti omogućena u postavkama aplikacije")
-            .setPositiveButton("Go to settings"){_,_ ->
+            .setMessage(
+                "Izgleda da ste isključili dozvolu potrebnu za ovaj dio. Ona ponovno" +
+                        " može biti omogućena u postavkama aplikacije")
+            .setPositiveButton("Go to settings") { _, _ ->
                 try {
-
+                    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                    val uri = Uri.fromParts("package", "packageName", null)
+                    intent.data = uri
+                    startActivity(intent)
+                } catch (e: ActivityNotFoundException) {
+                    e.printStackTrace()
                 }
             }
+            .setNegativeButton("Cancel"){dialog,_ ->
+                dialog.dismiss()
+            }.show()
     }
 }
