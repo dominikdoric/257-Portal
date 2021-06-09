@@ -49,27 +49,6 @@ class DodajNovoSport : Fragment(R.layout.dodaj_novo_sport_fragment) {
                 findNavController().navigate(action)
             }
         }
-
-        binding.gumbOdaberiSLikuSport.setOnClickListener {
-            val intent = Intent(Intent.ACTION_PICK)
-            intent.type = "image/*"
-            startActivityForResult(intent, 456)
-        }
-
-        binding.gumbUslikajSport.setOnClickListener {
-            val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-            startActivityForResult(intent, 123)
-        }
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == 123) {
-            val bmp = data?.extras?.get("data") as Bitmap
-            binding.imageViewSport.setImageBitmap(bmp)
-        } else if (requestCode == 456) {
-            binding.imageViewSport.setImageURI(data?.data)
-        }
     }
 
     private fun savePerson(sport: SportTable) = CoroutineScope(Dispatchers.IO).launch {
