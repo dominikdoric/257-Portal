@@ -3,14 +3,17 @@ package Portal.fragmenti.dodajNovo
 import Portal.a257.R
 import Portal.a257.databinding.DodajNovoZabavaFragmentBinding
 import Portal.model.ZabavaTable
+import android.app.Activity
 import android.app.AlertDialog
 import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.firestore.ktx.firestore
@@ -28,6 +31,11 @@ class DodajNovoZabava : Fragment(R.layout.dodaj_novo_zabava_fragment), View.OnCl
 
     private val personCollectionRef = Firebase.firestore.collection("zabava")
     private lateinit var binding: DodajNovoZabavaFragmentBinding
+
+    companion object {
+        private const val CAMERA = 1
+        private const val GALLERY = 2
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -70,6 +78,38 @@ class DodajNovoZabava : Fragment(R.layout.dodaj_novo_zabava_fragment), View.OnCl
                     customImageSelectionDialog()
                     return
                 }
+            }
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == CAMERA) {
+                data?.let {
+                    val thumbnail: Bitmap = data.extras?.get("data") as Bitmap
+                    binding.imageViewZabava.setImageBitmap(thumbnail)
+
+                    binding.addImageZabava.setImageDrawable(
+                        ContextCompat.getDrawable(
+                            requireContext(),
+                            R.drawable.ic_edit
+                        )
+                    )
+                }
+            }
+        }
+        if (requestCode == GALLERY) {
+            data?.let {
+                val selectedPhotoUri = data.data
+                binding.imageViewZabava.setImageURI(selectedPhotoUri)
+
+                binding.addImageZabava.setImageDrawable(
+                    ContextCompat.getDrawable(
+                        requireContext(),
+                        R.drawable.ic_edit
+                    )
+                )
             }
         }
     }
