@@ -3,7 +3,12 @@ package Portal.fragmenti.dodajNovo
 import Portal.a257.R
 import Portal.a257.databinding.DodajNovoVijestiFragmentBinding
 import Portal.model.VijestiTable
+import android.app.AlertDialog
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.provider.Settings
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -19,16 +24,21 @@ import kotlinx.coroutines.withContext
 import java.lang.Exception
 import java.lang.StringBuilder
 
-class DodajNovoVijesti : Fragment(R.layout.dodaj_novo_vijesti_fragment) {
+class DodajNovoVijesti : Fragment(R.layout.dodaj_novo_vijesti_fragment), View.OnClickListener {
 
     private val personCollectionRef = Firebase.firestore.collection("vijesti")
     private lateinit var binding: DodajNovoVijestiFragmentBinding
+
+    companion object {
+        private const val CAMERA = 1
+        private const val GALLERY = 2
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = DodajNovoVijestiFragmentBinding.bind(view)
 
-        binding.gumbSpremiVijest.setOnClickListener {
+        binding.gumbSpremiVijesti.setOnClickListener {
             val naslov = binding.naslov.text.toString()
             val clanak = binding.clanak.text.toString()
             val vijesti = VijestiTable(naslov, clanak)
@@ -58,4 +68,37 @@ class DodajNovoVijesti : Fragment(R.layout.dodaj_novo_vijesti_fragment) {
             }
         }
     }
+
+    override fun onClick(v: View?) {
+        if (v != null) {
+            when (v.id) {
+                R.id.addImageVijesti -> {
+                    customImageSelectionDialog()
+                    return
+                }
+            }
+        }
+    }
+
+    private fun showRationaleDialogForPermissions() {
+        AlertDialog.Builder(requireContext())
+            .setMessage(
+                "Izgleda da ste isključili dozvolu potrebnu za ovaj dio. Ona ponovno" +
+                        " može biti omogućena u postavkama aplikacije"
+            )
+            .setPositiveButton("Go to settings") { _, _ ->
+                try {
+                    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                    val uri = Uri.fromParts("package", "packageName", null)
+                    intent.data = uri
+                    startActivity(intent)
+                } catch (e: ActivityNotFoundException) {
+                    e.printStackTrace()
+                }
+            }
+            .setNegativeButton("Cancel") { dialog, _ ->
+                dialog.dismiss()
+            }.show()
+    }
+
 }
