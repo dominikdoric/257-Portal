@@ -20,6 +20,7 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
@@ -173,7 +174,11 @@ class DodajNovoObavijesti : Fragment(R.layout.dodaj_novo_obavijesti_fragment),Vi
             if (requestCode == CAMERA) {
                 data?.let {
                     val thumbnail: Bitmap = data.extras?.get("data") as Bitmap
-                    binding.imageViewObavijesti.setImageBitmap(thumbnail)
+
+                    Glide.with(requireContext())
+                        .load(thumbnail)
+                        .centerCrop()
+                        .into(binding.imageViewObavijesti)
 
                     binding.addImageObavijesti.setImageDrawable(
                         ContextCompat.getDrawable(
@@ -187,7 +192,11 @@ class DodajNovoObavijesti : Fragment(R.layout.dodaj_novo_obavijesti_fragment),Vi
         if (requestCode == GALLERY) {
             data?.let {
                 val selectedPhotoUri = data.data
-                binding.imageViewObavijesti.setImageURI(selectedPhotoUri)
+
+                Glide.with(requireContext())
+                    .load(selectedPhotoUri)
+                    .centerCrop()
+                    .into(binding.imageViewObavijesti)
 
                 binding.addImageObavijesti.setImageDrawable(
                     ContextCompat.getDrawable(

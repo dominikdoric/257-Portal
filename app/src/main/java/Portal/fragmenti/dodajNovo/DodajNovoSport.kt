@@ -20,6 +20,7 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.karumi.dexter.Dexter
@@ -172,7 +173,11 @@ class DodajNovoSport : Fragment(R.layout.dodaj_novo_sport_fragment), View.OnClic
             if (requestCode == CAMERA) {
                 data?.let {
                     val thumbnail: Bitmap = data.extras?.get("data") as Bitmap
-                    binding.imageViewSport.setImageBitmap(thumbnail)
+
+                    Glide.with(requireContext())
+                        .load(thumbnail)
+                        .centerCrop()
+                        .into(binding.imageViewSport)
 
                     binding.addImageSport.setImageDrawable(
                         ContextCompat.getDrawable(
@@ -186,7 +191,11 @@ class DodajNovoSport : Fragment(R.layout.dodaj_novo_sport_fragment), View.OnClic
         if (requestCode == GALLERY) {
             data?.let {
                 val selectedPhotoUri = data.data
-                binding.imageViewSport.setImageURI(selectedPhotoUri)
+
+                Glide.with(requireContext())
+                    .load(selectedPhotoUri)
+                    .centerCrop()
+                    .into(binding.imageViewSport)
 
                 binding.addImageSport.setImageDrawable(
                     ContextCompat.getDrawable(

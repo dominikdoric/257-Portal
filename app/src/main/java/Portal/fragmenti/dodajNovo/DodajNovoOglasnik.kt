@@ -54,6 +54,8 @@ class DodajNovoOglasnik : Fragment(R.layout.dodaj_novo_oglasnik_fragment), View.
         super.onViewCreated(view, savedInstanceState)
         binding = DodajNovoOglasnikFragmentBinding.bind(view)
 
+        binding.addImageOglasnik.setOnClickListener(this)
+
         binding.gumbSpremiOglasnik.setOnClickListener {
             val naslov = binding.naslov.text.toString()
             val clanak = binding.clanak.text.toString()

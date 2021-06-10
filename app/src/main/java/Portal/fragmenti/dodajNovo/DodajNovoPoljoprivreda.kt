@@ -20,6 +20,7 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
@@ -174,7 +175,11 @@ class DodajNovoPoljoprivreda: Fragment(R.layout.dodaj_novo_poljoprivreda_fragmen
             if (requestCode == CAMERA) {
                 data?.let {
                     val thumbnail: Bitmap = data.extras?.get("data") as Bitmap
-                    binding.imageViewPoljoprivreda.setImageBitmap(thumbnail)
+
+                    Glide.with(requireContext())
+                        .load(thumbnail)
+                        .centerCrop()
+                        .into(binding.imageViewPoljoprivreda)
 
                     binding.addImagePoljoprivreda.setImageDrawable(
                         ContextCompat.getDrawable(
@@ -188,7 +193,11 @@ class DodajNovoPoljoprivreda: Fragment(R.layout.dodaj_novo_poljoprivreda_fragmen
         if (requestCode == GALLERY) {
             data?.let {
                 val selectedPhotoUri = data.data
-                binding.imageViewPoljoprivreda.setImageURI(selectedPhotoUri)
+
+                Glide.with(requireContext())
+                    .load(selectedPhotoUri)
+                    .centerCrop()
+                    .into(binding.imageViewPoljoprivreda)
 
                 binding.addImagePoljoprivreda.setImageDrawable(
                     ContextCompat.getDrawable(
