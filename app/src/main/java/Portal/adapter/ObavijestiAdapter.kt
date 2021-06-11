@@ -1,5 +1,6 @@
 package Portal.adapter
 
+import Portal.MainActivity
 import Portal.a257.databinding.JedanRedObavijestiBinding
 import Portal.fragmenti.fragmenti.ObavijestiFragmentDirections
 import Portal.model.ObavijestiTable
@@ -43,6 +44,10 @@ class ObavijestiAdapter(options: FirestoreRecyclerOptions<ObavijestiTable>) :
             val data = ObavijestiTable(model.obavijestiNaslov,model.obavijestiClanak)
             val action = ObavijestiFragmentDirections.actionObavijestiNavDrawerToObavijestiDetail(data)
             v.findNavController().navigate(action)
+
+            if (v.context is MainActivity){
+                (v.context as MainActivity?)?.hideBottomNavigationView()
+            }
         }
 
         if (auth.currentUser != null) {

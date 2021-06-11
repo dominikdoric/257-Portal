@@ -1,5 +1,6 @@
 package Portal.fragmenti.fragmenti
 
+import Portal.MainActivity
 import Portal.a257.R
 import Portal.a257.databinding.ObavijestiFragmentBinding
 import Portal.adapter.ObavijestiAdapter
@@ -49,6 +50,13 @@ class ObavijestiFragment : Fragment(R.layout.obavijesti_fragment) {
 
         setUpRecyclerView()
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (requireActivity() is MainActivity){
+            (activity as MainActivity?)?.showBottomNavigationView()
+        }
     }
 
     private fun setUpRecyclerView() {
