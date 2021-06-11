@@ -1,5 +1,6 @@
 package Portal.adapter
 
+import Portal.MainActivity
 import Portal.a257.databinding.JedanRedOglasnikBinding
 import Portal.fragmenti.fragmenti.OglasnikFragmentDirections
 import Portal.model.OglasnikTable
@@ -46,6 +47,10 @@ class OglasnikAdapter(options: FirestoreRecyclerOptions<OglasnikTable>) :
             val data = OglasnikTable(model.oglasnikClanak,model.oglasnikNaslov,model.oglasnikCijena,model.oglasnikLokacija,model.oglasnikBroj)
             val action = OglasnikFragmentDirections.actionOglasnikNavDrawerToDetailOglasnik(data)
             v.findNavController().navigate(action)
+
+            if (v.context is MainActivity){
+                (v.context as MainActivity?)?.hideBottomNavigationView()
+            }
         }
 
         if (auth.currentUser != null) {

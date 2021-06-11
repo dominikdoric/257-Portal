@@ -1,5 +1,6 @@
 package Portal.fragmenti.fragmenti
 
+import Portal.MainActivity
 import Portal.a257.R
 import Portal.a257.databinding.OglasnikFragmentBinding
 import Portal.adapter.OglasnikAdapter
@@ -37,6 +38,13 @@ class OglasnikFragment : Fragment(R.layout.oglasnik_fragment) {
         }
 
         setUpRecyclerView()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (requireActivity() is MainActivity){
+            (activity as MainActivity?)?.showBottomNavigationView()
+        }
     }
 
     private fun setUpRecyclerView() {
