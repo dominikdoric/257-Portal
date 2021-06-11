@@ -46,7 +46,6 @@ class PoljoprivredaFragment : Fragment(R.layout.poljoprivreda_fragment) {
                 Toast.LENGTH_LONG)
                     .show()
             }
-
         }
 
         setUpRecyclerView()
