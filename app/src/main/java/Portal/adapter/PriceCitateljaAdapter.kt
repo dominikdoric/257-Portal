@@ -1,5 +1,6 @@
 package Portal.adapter
 
+import Portal.MainActivity
 import Portal.a257.databinding.JedanRedPriceCitateljaBinding
 import Portal.fragmenti.fragmenti.PriceCitateljaFragmentDirections
 import Portal.model.PriceCitateljaTable
@@ -43,6 +44,10 @@ class PriceCitateljaAdapter(options: FirestoreRecyclerOptions<PriceCitateljaTabl
             val data = PriceCitateljaTable(model.priceCitateljaNaslov, model.priceCitateljaClanak)
             val action = PriceCitateljaFragmentDirections.actionPriceCitateljaNavDrawerToDetailPriceCitatelja(data)
             v.findNavController().navigate(action)
+
+            if (v.context is MainActivity){
+                (v.context as MainActivity?)?.hideBottomNavigationView()
+            }
         }
 
         if (auth.currentUser != null) {

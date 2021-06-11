@@ -1,5 +1,6 @@
 package Portal.adapter
 
+import Portal.MainActivity
 import Portal.a257.databinding.JedanRedVijestiBinding
 import Portal.fragmenti.fragmenti.VijestiFragmentDirections
 import Portal.model.VijestiTable
@@ -43,6 +44,10 @@ class VijestiAdapter(options: FirestoreRecyclerOptions<VijestiTable>) :
             val data = VijestiTable(model.vijestiNaslov,model.vijestiClanak)
             val action = VijestiFragmentDirections.actionVijestiNavDrawerToVijestiDetail(data)
             v.findNavController().navigate(action)
+
+            if (v.context is MainActivity){
+                (v.context as MainActivity?)?.hideBottomNavigationView()
+            }
         }
 
         if (auth.currentUser != null) {

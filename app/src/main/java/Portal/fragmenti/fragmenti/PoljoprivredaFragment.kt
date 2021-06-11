@@ -38,12 +38,15 @@ class PoljoprivredaFragment : Fragment(R.layout.poljoprivreda_fragment) {
         )
 
         binding.floatingActionButton.setOnClickListener {
-            if (auth.currentUser != null){
-                val action = PoljoprivredaFragmentDirections.actionPoljoprivredaNavDrawerToMenuDodajNovuPoljoprivredu()
+            if (auth.currentUser != null) {
+                val action =
+                    PoljoprivredaFragmentDirections.actionPoljoprivredaNavDrawerToMenuDodajNovuPoljoprivredu()
                 findNavController().navigate(action)
-            }else{
-                Toast.makeText(requireContext(),"Nažalost ne možete dodavati članke u rubrici Poljoprivreda.",
-                Toast.LENGTH_LONG)
+            } else {
+                Toast.makeText(
+                    requireContext(), "Nažalost ne možete dodavati članke u rubrici Poljoprivreda.",
+                    Toast.LENGTH_LONG
+                )
                     .show()
             }
         }
@@ -53,7 +56,7 @@ class PoljoprivredaFragment : Fragment(R.layout.poljoprivreda_fragment) {
 
     override fun onResume() {
         super.onResume()
-        if (requireActivity() is MainActivity){
+        if (requireActivity() is MainActivity) {
             (activity as MainActivity?)?.showBottomNavigationView()
         }
     }

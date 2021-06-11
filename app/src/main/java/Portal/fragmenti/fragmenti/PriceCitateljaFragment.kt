@@ -1,5 +1,6 @@
 package Portal.fragmenti.fragmenti
 
+import Portal.MainActivity
 import Portal.a257.R
 import Portal.a257.databinding.PriceCitateljaFragmentBinding
 import Portal.adapter.PriceCitateljaAdapter
@@ -39,6 +40,13 @@ class PriceCitateljaFragment : Fragment(R.layout.price_citatelja_fragment) {
         }
 
         setUpRecyclerView()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (requireActivity() is MainActivity){
+            (activity as MainActivity?)?.showBottomNavigationView()
+        }
     }
 
     private fun setUpRecyclerView() {

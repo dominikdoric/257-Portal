@@ -1,6 +1,7 @@
 package Portal.adapter
 
 
+import Portal.MainActivity
 import Portal.a257.databinding.JedanRedZabavaBinding
 import Portal.fragmenti.fragmenti.ZabavaFragmentDirections
 import Portal.model.ZabavaTable
@@ -44,6 +45,10 @@ class ZabavaAdapter(options: FirestoreRecyclerOptions<ZabavaTable>) :
             val data = ZabavaTable(model.zabavaNaslov, model.zabavaClanak)
             val action = ZabavaFragmentDirections.actionZabavaNavDrawerToDetailZabava(data)
             v.findNavController().navigate(action)
+
+            if (v.context is MainActivity){
+                (v.context as MainActivity?)?.hideBottomNavigationView()
+            }
         }
 
 
