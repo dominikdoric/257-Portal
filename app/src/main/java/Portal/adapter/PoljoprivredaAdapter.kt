@@ -1,5 +1,6 @@
 package Portal.adapter
 
+import Portal.MainActivity
 import Portal.a257.databinding.JedanRedPoljoprivredaBinding
 import Portal.fragmenti.fragmenti.PoljoprivredaFragmentDirections
 import Portal.model.PoljoprivredaTable
@@ -43,6 +44,10 @@ class PoljoprivredaAdapter(options: FirestoreRecyclerOptions<PoljoprivredaTable>
             val data = PoljoprivredaTable(model.poljoprivredaNaslov,model.poljoprivredaClanak)
             val action = PoljoprivredaFragmentDirections.actionPoljoprivredaNavDrawerToPoljoprivredaDetail(data)
             v.findNavController().navigate(action)
+
+            if (v.context is MainActivity){
+                (v.context as MainActivity?)?.hideBottomNavigationView()
+            }
         }
 
         if (auth.currentUser != null) {

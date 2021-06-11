@@ -1,5 +1,6 @@
 package Portal.fragmenti.fragmenti
 
+import Portal.MainActivity
 import Portal.a257.R
 import Portal.a257.databinding.PoljoprivredaFragmentBinding
 import Portal.adapter.PoljoprivredaAdapter
@@ -49,6 +50,13 @@ class PoljoprivredaFragment : Fragment(R.layout.poljoprivreda_fragment) {
         }
 
         setUpRecyclerView()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (requireActivity() is MainActivity){
+            (activity as MainActivity?)?.showBottomNavigationView()
+        }
     }
 
     private fun setUpRecyclerView() {
