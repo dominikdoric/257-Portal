@@ -1,5 +1,6 @@
 package Portal.adapter
 
+import Portal.MainActivity
 import Portal.a257.databinding.JedanRedSportBinding
 import Portal.fragmenti.fragmenti.SportFragmentDirections
 import Portal.model.SportTable
@@ -45,6 +46,10 @@ class SportAdapter(options: FirestoreRecyclerOptions<SportTable>) :
                 val data = SportTable(model.naslov, model.clanak)
                 val action = SportFragmentDirections.actionSportNavDrawerToDetailSport(data)
                 v.findNavController().navigate(action)
+
+                if (v.context is MainActivity){
+                    (v.context as MainActivity?)?.hideBottomNavigationView()
+                }
             }
 
         if (auth.currentUser != null) {

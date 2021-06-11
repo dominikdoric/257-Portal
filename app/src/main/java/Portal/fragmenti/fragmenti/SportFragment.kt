@@ -1,5 +1,6 @@
 package Portal.fragmenti.fragmenti
 
+import Portal.MainActivity
 import Portal.a257.R
 import Portal.a257.databinding.SportFragmentBinding
 import Portal.adapter.SportAdapter
@@ -24,6 +25,7 @@ class SportFragment : Fragment(R.layout.sport_fragment) {
     private lateinit var auth: FirebaseAuth
     var sportAdapter: SportAdapter? = null
     private lateinit var binding: SportFragmentBinding
+    private val mainActivity: MainActivity? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -47,6 +49,13 @@ class SportFragment : Fragment(R.layout.sport_fragment) {
         }
 
         setUpRecyclerView()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (requireActivity() is MainActivity){
+            (activity as MainActivity?)?.showBottomNavigationView()
+        }
     }
 
     private fun setUpRecyclerView() {
