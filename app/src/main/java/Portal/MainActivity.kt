@@ -11,6 +11,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.*
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
@@ -74,6 +75,16 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    fun hideBottomNavigationView(){
+        binding.bottomNavigation.clearAnimation()
+        binding.bottomNavigation.animate().translationY(binding.bottomNavigation.height.toFloat()).duration = 300
+    }
+
+    fun showBottomNavigationView(){
+        binding.bottomNavigation.clearAnimation()
+        binding.bottomNavigation.animate().translationY(0f).duration = 300
     }
 
 }
